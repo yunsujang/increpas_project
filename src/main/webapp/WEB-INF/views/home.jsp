@@ -11,18 +11,12 @@
 </head>
 <body>
 <h1>
-<<<<<<< HEAD
-	장윤수 끝
-=======
-	이한형 커밋  
->>>>>>> branch 'master' of https://github.com/yunsujang/increpas_project.git
+	장윤수끝!!!!
 </h1>
-<<<<<<< HEAD
 	
 <P>  The time on the server is ${serverTime}. </P>
 =======
 
 <P>   </P>
->>>>>>> branch 'master' of https://github.com/yunsujang/increpas_project.git
 </body>
 </html>
