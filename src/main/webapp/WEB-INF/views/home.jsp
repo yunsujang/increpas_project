@@ -7,11 +7,9 @@
 </head>
 <body>
 <h1>
-<<<<<<< HEAD
+
 	이한형 커밋/김성연 커밋
-=======
-	이한형 커밋/김성연 커밋 다시커밋!
->>>>>>> branch 'master' of https://github.com/yunsujang/increpas_project.git
+
 </h1>
 
 <P>   </P>
