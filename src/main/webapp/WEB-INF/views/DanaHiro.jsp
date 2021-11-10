@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	이한형 풀이안되네 갑자기
+
 </body>
 </html>
