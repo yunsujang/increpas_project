@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>장윤수 마지막!</h1>
+	<h1>장윤수 마지막입니다용!!</h1>
 </body>
 </html>
