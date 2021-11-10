@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>JANGHEERYEUL</h1>
-ㅋㅋ
+	<h1>제발요!</h1>
 </body>
 </html>
