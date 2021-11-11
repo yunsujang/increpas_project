@@ -33,7 +33,7 @@
   </head>
 	<body>
 		<jsp:include page="header.jsp"/> 	
-		<h1>준비중입니다.</h1>
+		<jsp:include page="main.jsp"/>
 		<jsp:include page="footer.jsp"/>
 	</body>
 	
