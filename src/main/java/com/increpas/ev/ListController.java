@@ -75,7 +75,7 @@ public class ListController {
 		// 페이징 기법으로 만들어진 페이지번호 태그
 		mv.addObject("pageCode", pageCode);
 		
-		//
+		
 		mv.addObject("nowCategory", nowCategory);
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.setViewName("category");
