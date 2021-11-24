@@ -8,16 +8,20 @@ import java.util.Locale;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ele.go.vo.EleVO;
+import user.service.CategoryService;
+import user.vo.CategoryVO;
 
 @Controller
 public class EleController {
 
-	   
+	 @Autowired
+	 CategoryService categoryservice;
 	
 	@RequestMapping("/evMap")
 	public String data(Locale locale, Model model) throws Exception {
@@ -55,7 +59,7 @@ public class EleController {
 		List<Element> item_list = items.getChildren("item"); //여러개이니 Children아이들
 		
 		System.out.println("totalCount :"+header.getChildText("totalCount"));//토탈카운트
-		
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
 		int i = 0;  
 		EleVO[] ar = new EleVO[item_list.size()];
 		for(Element item : item_list) {
@@ -78,15 +82,11 @@ public class EleController {
 			String chgerId = item.getChildText("chgerId");
 			String location = item.getChildText("location");
 			
-			
-			
-			
 			EleVO vo = new EleVO(limitYn, note, parkingFree, stat, busiCall, busiNm, useTime, lat, lng, addr, chgerType, statNm, statId, chgerId, location);
 			ar[i++] = vo;
 		}
-		
 		model.addAttribute("list", ar);
-		
+		model.addAttribute("categoryName_ar", categoryName_ar);
 		return "evMap";
 		
 	}

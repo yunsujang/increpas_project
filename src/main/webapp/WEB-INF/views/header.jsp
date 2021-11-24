@@ -37,7 +37,7 @@
 				<c:forEach items="${categoryName_ar }" var="vo">
 					<li><a href="/category?evcategory_idx=${vo.evcategory_idx }">${vo.evcategory_name }</a></li>
 				</c:forEach>
-				<li><a href="http://localhost:9090/ev/evMap">충전소검색 </a></li>
+				<li><a href="/evMap">충전소검색 </a></li>
 				<li><a href="/community">ev 소통해요 </a></li>
 				<li><a href="/">ev주식</a></li>
 				</ul>
