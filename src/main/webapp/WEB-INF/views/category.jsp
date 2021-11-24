@@ -25,7 +25,7 @@ body {
 	height: 100%;
 	min-height:100%;
 	background-color: #f9f9f9;
-	margin: 190px 0px 0px 0px;
+	margin: 0 0px 0px 0px;
 }
 
 .header-line {

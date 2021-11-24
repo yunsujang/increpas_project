@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
-<title>evca 전기차 충전소 위치 및 분표도| </title>
+<title>evca 전기차 충전소 위치 및 분표도 </title>
 <style type="text/css">
 	#wrap {
 	margin: 190px 0px 171px 0px;
@@ -86,7 +86,7 @@
 	<body>
 				<!-- header -->
 	<jsp:include page="header.jsp" />
-	
+	<div>	
 	<div id="map_title">
 		<h1>전기 차 충전소</h1>
 	</div>
@@ -245,6 +245,7 @@
 </div>
 			<!-- footer -->
 	<jsp:include page="footer.jsp" />
+</div>
 </body>
 </html>
 
