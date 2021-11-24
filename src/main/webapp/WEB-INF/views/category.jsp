@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,7 +187,7 @@ body {
 <body>
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
-	<article>
+	<article class="articles" id="articles">
 		<div class="here">
 			<a>${nowCategory.evcategory_name }</a>
 		</div>
@@ -197,9 +199,9 @@ body {
 					<a href="/category?evcategory_idx=${vo.evcategory_idx }">${vo.evcategory_name }</a>
 				</c:if>
 			</c:forEach>
-
+			
 		</div>
-
+		
 		<div class="header-line">
 			<div id="contents_wrap">
 				<c:forEach items="${paging_ar }" var="vo">
@@ -219,8 +221,9 @@ body {
 					</div>
 
 				</c:forEach>
-
+			
 			</div>
+			<input type="hidden" value="${fn:length(paging_ar) }" id="marginHidden"/>
 		</div>
 
 		<a id="MOVE_TOP_BTN" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#33CCFF" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
@@ -250,6 +253,11 @@ body {
 			}, 400);
 			return false;
 		});
+		
+		var marginHidden = $("#marginHidden").val();
+		if(marginHidden == 0)
+			$("#articles").css('margin-bottom','413px');
+			
 	});
 </script>
 
