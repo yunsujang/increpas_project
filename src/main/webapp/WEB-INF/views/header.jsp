@@ -37,8 +37,8 @@
 				<c:forEach items="${categoryName_ar }" var="vo">
 					<li><a href="/category?evcategory_idx=${vo.evcategory_idx }">${vo.evcategory_name }</a></li>
 				</c:forEach>
-				<li><a href="/evMap">충전소검색 </a></li>
-				<li><a href="/community">ev 소통해요 </a></li>
+				<li><a href="/ev/evMap">충전소검색 </a></li>
+				<li><a href="/ev/community">ev 소통해요 </a></li>
 				<li><a href="/">ev주식</a></li>
 				</ul>
 				<div class="user-div">
@@ -48,7 +48,7 @@
 				
 					<c:if test="${mvo eq null }">
 						<a href="/">로그인</a>
-						<a href="/">회원가입</a>
+						<a href="/">회원가입</a>S
 					</c:if>
 					
 					<c:if test="${mvo ne null }">
