@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="resources/css/header/header.css" />
 </head>
 <style>
+
+body{
+	text-align: center;
+	}
+
 .title_p {
 	font: 24px;
 	font-weight: normal;
@@ -21,20 +26,22 @@
 }
 
 .wrap {
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	min-height: 100%;
-	margin: 250px 0 250px 0;
+	margin: 250px auto 250px auto;
 	text-align: center;
-}
-
-body {
-	
 }
 
 .writer-div {
 	margin: 100px 0 50px 0;
 }
+
+.writer-div p{
+	font-size: 13px;
+	font-weight: bold;
+}
+
 
 .pre-page {
 	margin: 0 0 0 100px;
@@ -47,7 +54,7 @@ body {
 }
 
 .content-wrap {
-	width: 100%;
+	text-align:center;
 	height: 100%;
 	min-height: 100%;
 }
@@ -62,16 +69,12 @@ body {
 }
 
 .new-img {
-	width: 810px;
+	width: 100%;
 	height: 500px;
-	border: 1px solid black;
-	margin: 20px;
 }
 
 .advice-contents {
-	padding: 10px;
 	text-align: center;
-	margin: 80px 0 0 0;
 }
 
 .contents {
@@ -81,15 +84,16 @@ body {
 }
 
 .recommend {
-	text-align: center;
-	margin: 10px 50px;
-	width: 50%;
+	text-align: left;
+	margin: 10px
 }
 
 .recommend a{
 	font-size: 15px;
 	font-weight: bold;
 }
+
+
 </style>
 </head>
 <body>
@@ -99,9 +103,8 @@ body {
 		<div class="content-wrap">
 			<h1 class="title_p">${vo.evbbs_title }</h1>
 			<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
-			<p>${vo.evbbs_content }</p>
+			<a class="content-p">${vo.evbbs_content }</a>
 			<div class="writer-div">
-				<p class="writer-p">작성자</p>
 				<p class="writer-p">${vo.evbbs_writer }</p>
 			</div>
 		</div>

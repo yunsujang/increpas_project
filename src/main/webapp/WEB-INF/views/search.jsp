@@ -52,7 +52,10 @@
 }
 
 .content {
-	font-size: 16px;
+	font-size: 15px;
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap;
 }
 
 .writer {
