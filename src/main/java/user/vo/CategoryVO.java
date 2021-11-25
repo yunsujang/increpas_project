@@ -41,11 +41,11 @@ public class CategoryVO {
 		this.evcategory_type = evcategory_type;
 	}
 
-	public List<BbsVO> getMedium_list() {
+	public List<BbsVO> getBbs_list() {
 		return bbs_list;
 	}
 
-	public void setMedium_list(List<BbsVO> bbs_list) {
+	public void setBbs_list(List<BbsVO> bbs_list) {
 		this.bbs_list = bbs_list;
 	}
 
