@@ -49,6 +49,8 @@ destroy-method="close">
 </bean>
 
 	<!-- 필요한 DAO들 정의하면 된다. -->	
-	<context:component-scan base-package="mybatis.dao"/>
+	<context:component-scan base-package="user.dao"/>
+	<context:component-scan base-package="user.service"/>
+	
 	
 </beans>

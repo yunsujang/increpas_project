@@ -1,0 +1,22 @@
+@charset "UTF-8";
+#wrap {
+	width: 100%;
+	height:auto;
+	min-height:100%;
+	background-color: #f9f9f9;
+}
+
+body{
+		margin: 0 auto;
+		padding: 0 auto;
+		background-color: #f9f9f9;
+	}
+	
+	
+a#MOVE_TOP_BTN {
+    position: fixed;
+    right: 2%;
+    bottom: 50px;
+    display: none;
+    z-index: 999;
+}
