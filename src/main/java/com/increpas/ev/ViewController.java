@@ -28,6 +28,21 @@ public class ViewController {
 		
 		//사용자가 클릭한 게시물 가져오기
 		BbsVO vo = bbsService.getBbs(evbbs_idx);
+		
+		//사용자가 클릭한 게시물의 이전 게시물 가져오기
+		int num = Integer.parseInt(evbbs_idx);
+		int preidx = num-1; 
+		if(preidx >1) {
+			preidx--;
+			BbsVO prevo = bbsService.getBbs(String.valueOf(preidx));
+			mv.addObject("prevo", prevo);
+		}
+		
+		//사용자가 클릭한 게시물의 다음 게시물 가져오기
+		int nextidx = num+1;
+		BbsVO nextvo = bbsService.getBbs(String.valueOf(nextidx));
+		
+		mv.addObject("nextvo", nextvo);
 		mv.addObject("vo", vo);
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("cPage", cPage);
