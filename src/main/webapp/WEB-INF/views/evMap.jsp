@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
-<title>evca 전기차 충전소 위치 및 분표도 </title>
+<title>evca 전기차 충전소 위치 및 분표도</title>
 <style type="text/css">
 	#wrap {
 	margin: 190px 0px 171px 0px;
