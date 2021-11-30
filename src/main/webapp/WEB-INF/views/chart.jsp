@@ -7,7 +7,7 @@
 <title>Chart</title>
 	<style>
 	
-		*{margin: 0; padding: 0;}	
+		*{margin: 0;}	
 			
 			
 		#chart_div{
