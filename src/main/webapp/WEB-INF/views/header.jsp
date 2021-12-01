@@ -25,6 +25,7 @@
 
 	#dialog{
 		display: none;
+		z-index: 999;
 	}
 
 	#user-padding{

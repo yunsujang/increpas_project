@@ -50,7 +50,9 @@ destroy-method="close">
 
 	<!-- 필요한 DAO들 정의하면 된다. -->	
 	<context:component-scan base-package="user.dao"/>
+	<context:component-scan base-package="admin.dao"/>
 	<context:component-scan base-package="user.service"/>
+	<context:component-scan base-package="admin.service"/>
 	
 	
 </beans>

@@ -26,7 +26,7 @@ body{
 }
 
 .wrap {
-	width: 50%;
+	width: 80%;
 	height: 100%;
 	min-height: 100%;
 	margin: 250px auto 250px auto;
@@ -75,6 +75,8 @@ body{
 
 .advice-contents {
 	text-align: center;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .contents {

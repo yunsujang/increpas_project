@@ -6,121 +6,121 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
-<title>evca 전기차 충전소 위치 및 분표도 </title>
+<title>evca 전기차 충전소 위치 및 분표도</title>
 <style type="text/css">
-	#wrap {
+#wrap {
 	margin: 190px 0px 171px 0px;
 	height: 1212px;
 	background-color: #f9f9f9;
-	filter: progid:DXImageTransform.Microsoft.gradient(
-					 startColorstr='#d1d1d1', endColorstr='#fefefe',GradientType=0 );
-	border-radius: 10px; 
-	}
-	#mdiv{
-		margin : -4px;
-		height: 50px;
-		width: 100%;
-		border: none
-		background: #ffffff;
-		margin-top: -180px;
-		
-	}
-	#mapbtn{
-	    font-size: 20px;
-    	width: 100%;
-    	padding: 13px;
-    	border: 0px;
-    	background: #f9f9f9;	
-    	font-weight: bold;
-    	font-family: monospace;
-    	color : gray;
-    	
-	}
-	.map_wrap, .map_wrap * {margin:0;padding:0;
-		font-family:'Malgun Gothic',dotum,sans-serif;
-		font-size: 15px;
-		font-family: monospace;
-		
-				
-	}
-	.map_wrap {position:relative;
-		width:100%;
-		height:500px;
-	
-				
-	}
-	#menu_wrap {position:absolute;
-		top:0;left:0;
-		margin:10px 0 30px 10px;
-		padding:5px;overflow-y:auto;
-		background: rgb(133 196 185 / 54%);
-		z-index: 1;
-		border-radius: 10px;
-		width: 300px;
-		font-size: 15px;
-		font-weight: bold;
-			
-		
-	}
-	#searchButton{
-   	    font-weight: bold;
-   	    font-family: monospace;	
-	}
-	
-	#keyword{
-		font-size: 15px;
-	}
-	#map_title{
-		margin: auto;
-		padding: 0px;
-		width : 100%;
-		height : 400px;
-		text-align: center;
-		line-height: 20;
-		color : gray;
-	}
-	
+}
+
+#mdiv {
+	margin: -4px;
+	height: 50px;
+	width: 100%;
+	border: none background: #ffffff;
+	margin-top: -180px;
+}
+
+#mapbtn {
+	font-size: 20px;
+	width: 100%;
+	padding: 13px;
+	border: 0px;
+	background: #f9f9f9;
+	font-weight: bold;
+	font-family: monospace;
+	color: gray;
+}
+
+.map_wrap, .map_wrap * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, sans-serif;
+	font-size: 15px;
+	font-family: monospace;
+}
+
+.map_wrap {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+#menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgb(133 196 185/ 54%);
+	z-index: 1;
+	border-radius: 10px;
+	width: 300px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#searchButton {
+	font-weight: bold;
+	font-family: monospace;
+}
+
+#keyword {
+	font-size: 15px;
+}
+
+#map_title {
+	margin: auto;
+	padding: 0px;
+	width: 100%;
+	height: 400px;
+	text-align: center;
+	line-height: 20;
+	color: gray;
+}
 }
 </style>
-</head>	
-	<body>
-				<!-- header -->
+</head>
+<body>
+	<!-- header -->
 	<jsp:include page="header.jsp" />
-	<div>	
-	<div id="map_title">
-		<h1>전기 차 충전소</h1>
-	</div>
-	
-	<div id="wrap">
-		<div id="mdiv">
-			<!-- <input id="searchMap"  placeholder="지역명 / 충전소 검색"> -->
-			<button id="mapbtn" type="button" >지도 마커표시에 마우스를 올리면 상세정보가 나옵니다.</button>
+	<div>
+		<div id="map_title">
+			<h1>전기 차 충전소</h1>
 		</div>
-	
-		 	   <!-- Map -->
-	<div class="map_wrap">
-    <div id="map" style="width:100%;height:530px;position:relative;overflow:hidden;"></div>
 
-    <div id="menu_wrap" class="bg_white">
-        <div class="option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    키워드 : <input type="text"  id="keyword" size="15" placeholder="지역/주소 검색"> 
-                    <button id="searchButton"type="submit">검색하기</button> 
-                </form>
-            </div>
-        </div>
-        <hr>
-    
-    </div>
-</div>
+		<div id="wrap">
+			<div id="mdiv">
+				<!-- <input id="searchMap"  placeholder="지역명 / 충전소 검색"> -->
+				<button id="mapbtn" type="button">지도 마커표시에 마우스를 올리면 상세정보가
+					나옵니다.</button>
+			</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=81acff9f40fb4029e83b4194122f60af&libraries=services,clusterer"></script>
-<script>
-	
-	
-	
+			<!-- Map -->
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 100%; height: 530px; position: relative; overflow: hidden;"></div>
+
+				<div id="menu_wrap" class="bg_white">
+					<div class="option">
+						<div>
+							<form onsubmit="searchPlaces(); return false;">
+								키워드 : <input type="text" id="keyword" size="15"
+									placeholder="지역/주소 검색">
+								<button id="searchButton" type="submit">검색하기</button>
+							</form>
+						</div>
+					</div>
+					<hr>
+
+				</div>
+			</div>
+
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=81acff9f40fb4029e83b4194122f60af&libraries=services,clusterer"></script>
+			<script>
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = {
@@ -241,11 +241,11 @@
 	
 </script>
 			<!--차트 -->
-	<jsp:include page="chart.jsp"/>
-</div>
-			<!-- footer -->
-	<jsp:include page="footer.jsp" />
-</div>
+			<jsp:include page="chart.jsp" />
+		</div>
+		<!-- footer -->
+		<jsp:include page="footer.jsp" />
+	</div>
 </body>
 </html>
 

@@ -3,16 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bbs">
+
+	<!-- 유저 SQL -->
 	<!--리스트에서 하나씩 게시물들을 가져와서 1:n관계로 이뤄진 댓글들 list에 담기 -->
-	<resultMap type="user.vo.BbsVO" id="map1">
+	<resultMap type="ev.vo.BbsVO" id="map1">
 		<id property="evbbs_idx" column="evbbs_idx" />
-		<collection property="comment_list" ofType="user.vo.CommentVO"
-			select="commentList" column="evbbs_idx" />
+		<collection property="c_list"
+			ofType="ev.vo.CommentVO" select="commentList" column="evbbs_idx" />
 	</resultMap>
 
 	<!-- 특정 게시물의 기본키인 b_idx를 받아서 해당 게시물에 댓글들을 모두 반환한다. -->
 	<select id="commentList" parameterType="String"
-		resultType="user.vo.CommentVO">
+		resultType="ev.vo.CommentVO">
 		SELECT *FROM evcomment_t
 		WHERE evbbs_idx = #{evbbs_idx}
 	</select>
@@ -22,30 +24,37 @@
 		SELECT * FROM(
 		SELECT rownum r_num,a.* FROM(
 		SELECT * FROM evbbs_t
-		WHERE evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
+		WHERE evbbs_status =
+		0 AND evcategory_idx = #{evcategory_idx}
 		ORDER BY evbbs_idx DESC
 		) a
-		) WHERE r_num BETWEEN #{begin} AND #{end}
+		)
+		WHERE r_num BETWEEN #{begin} AND #{end}
 	</select>
 
 	<!-- 총 게시물 수 -->
 	<select id="totalCount" resultType="int" parameterType="String">
-		SELECT COUNT (*) FROM evbbs_t
-		WHERE evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
+		SELECT
+		COUNT (*) FROM evbbs_t
+		WHERE evbbs_status = 0 AND evcategory_idx =
+		#{evcategory_idx}
 	</select>
 
 	<!-- 사용자가 클릭한 게시물 가져오기 -->
 	<select id="getBbs" resultMap="map1" parameterType="String">
-		SELECT * FROM evbbs_t
+		SELECT * FROM
+		evbbs_t
 		WHERE evbbs_idx = #{evbbs_idx }
 	</select>
 
 	<!-- 검색결과로 나온 총 게시물 -->
 	<select id="searchResult" resultMap="map1" parameterType="Map">
-		SELECT * FROM(
+		SELECT
+		* FROM(
 		SELECT rownum r_num,a.* FROM(
 		SELECT * FROM evbbs_t
-		WHERE evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+		WHERE
+		evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
 		evbbs_content LIKE '%'||#{searchValue}||'%'
 		ORDER BY evbbs_idx DESC
 		) a
@@ -57,19 +66,77 @@
 	<select id="searchTotalCount" resultType="int"
 		parameterType="String">
 		SELECT COUNT (*) FROM evbbs_t
-		WHERE evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
-		evbbs_content LIKE '%'||#{searchValue}||'%'
+		WHERE evbbs_status = 0 AND
+		evbbs_title LIKE '%'||#{searchValue}||'%' OR
+		evbbs_content LIKE
+		'%'||#{searchValue}||'%'
 	</select>
 
 	<!-- 테이블에 마지막으로 업데이트 된 게시물 3개 가져오기 -->
-	<select id="lastUpdate" resultType="user.vo.BbsVO">
+	<select id="lastUpdate" resultType="ev.vo.BbsVO">
 		SELECT * FROM(
-		SELECT rownum r_num,a.* FROM(
+		SELECT rownum
+		r_num,a.* FROM(
 		SELECT * FROM evbbs_t
 		WHERE evbbs_status = 0
-		ORDER BY evbbs_idx DESC
+		ORDER BY
+		evbbs_idx DESC
 		) a
 		) WHERE r_num BETWEEN 1 AND 3
 	</select>
 
+	<!-- 관리자 SQL문 -->
+	<resultMap type="ev.vo.BbsVO" id="map2">
+		<id property="evbbs_idx" column="evbbs_idx" />
+		<collection property="c_list" ofType="admin.vo.CommentVO"
+			select="AdmincommList" column="evbbs_idx" />
+	</resultMap>
+
+	<select id="AdmincommList" parameterType="String"
+		resultType="ev.vo.CommentVO">
+		SELECT * FROM evComment_t
+		WHERE evbbs_idx = #{evbbs_idx}
+	</select>
+
+	<select id="AdmingetBbs" resultMap="map1" parameterType="String">
+		SELECT *
+		FROM
+		evbbs_t
+		WHERE evbbs_idx = #{evbbs_idx}
+	</select>
+
+	<select id="AdmintotalCount" resultType="int">
+		SELECT COUNT(*) FROM
+		evbbs_t
+		WHERE evbbs_status = 0
+	</select>
+
+
+	<select id="Adminlist" parameterType="Map" resultMap="map2">
+		SELECT *
+		FROM(
+		SELECT rownum r_num,a.* FROM (
+		SELECT * FROM evbbs_t
+		WHERE
+		evbbs_status = 0
+		ORDER BY evbbs_idx ASC
+		) a
+		) WHERE r_num BETWEEN
+		#{begin} AND #{end}
+	</select>
+
+	<!-- 원글 저장 -->
+	<insert id="Adminadd" parameterType="ev.vo.BbsVO">
+		INSERT INTO evbbs_t
+		(evbbs_idx, evbbs_title, evbbs_writer, evbbs_content,
+		evbbs_file_name,
+		evbbs_ori_name, evbbs_write_date, evbbs_ip, evbbs_hit,
+		evbbs_status,evcategory_idx,evu_idx)
+
+		VALUES(evbbs_seq.NEXTVAL, #{evbbs_title}, #{evbbs_writer}, #{evbbs_content},
+		#{evbbs_file_name,
+		jdbcType=VARCHAR },
+		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
+		#{evbbs_ip}, 0, 0, 1, 1)
+	</insert>
 </mapper>
