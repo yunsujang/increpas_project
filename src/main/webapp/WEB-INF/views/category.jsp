@@ -22,14 +22,6 @@ body {
 	background-color: #f9f9f9;
 }
 
-.wrap {
-	width: 100%;
-	height: 100%;
-	min-height:100%;
-	background-color: #f9f9f9;
-	margin: 0 0px 0px 0px;
-}
-
 .header-line {
 	padding: 0px 20px;
 	margin: 15px 10px;
@@ -67,6 +59,9 @@ body {
 
 .content {
 	font-size: 15px;
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap;
 }
 
 .writer {
@@ -110,6 +105,10 @@ body {
 
 #MOVE_TOP_BTN img{
 	border-radius:10px;
+}
+
+.articles{
+	margin: 0 0 0 11px;
 }
 
 /* paging */
@@ -183,7 +182,10 @@ body {
     display: inline-block;
     text-align: center;
 }	
+
+
 </style>
+
 <body>
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
@@ -226,10 +228,15 @@ body {
 			<input type="hidden" value="${fn:length(paging_ar) }" id="marginHidden"/>
 		</div>
 
-		<a id="MOVE_TOP_BTN" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#33CCFF" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
-  <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+			<a id="MOVE_TOP_BTN" href="#"><svg
+			xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+			fill="#006699" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+  <path
+				d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
 </svg></a>
-	<div class="paging-div">${pageCode }</div>
+	<c:if test="${fn:length(paging_ar) > 0}">
+		<div class="paging-div">${pageCode }</div>
+	</c:if>
 	</article>
 	</div>
 

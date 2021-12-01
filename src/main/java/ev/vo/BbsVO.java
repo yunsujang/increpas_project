@@ -1,15 +1,16 @@
-package user.vo;
+package ev.vo;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BbsVO {
-	private String evbbs_idx, evbbs_title, evbbs_writer, evbbs_content, evbbs_file_name, evbbs_ori_name, evbbs_write_date,
-	evbbs_ip, evbbs_hit, evbbs_status, evcategory_idx, evu_idx;
-
+	private String evbbs_idx, evbbs_title, evbbs_writer, evbbs_content, evbbs_file_name, evbbs_ori_name,
+			evbbs_write_date, evbbs_ip, evbbs_hit, evbbs_status, evcategory_idx, evu_idx;
 	
-	private List<CommentVO>comment_list;
+	private MultipartFile file;
 
-	
+	private List<CommentVO> c_list;
 
 	public String getEvbbs_idx() {
 		return evbbs_idx;
@@ -107,14 +108,21 @@ public class BbsVO {
 		this.evu_idx = evu_idx;
 	}
 
-	public List<CommentVO> getComment_list() {
-		return comment_list;
+	public List<CommentVO> getC_list() {
+		return c_list;
 	}
 
-	public void setComment_list(List<CommentVO> comment_list) {
-		this.comment_list = comment_list;
+	public void setC_list(List<CommentVO> c_list) {
+		this.c_list = c_list;
 	}
 
-	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	
 }

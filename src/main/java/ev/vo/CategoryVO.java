@@ -1,13 +1,10 @@
-package user.vo;
+package ev.vo;
 
 import java.util.List;
 
 public class CategoryVO {
 	private String evcategory_idx, evcategory_name, evcategory_status, evcategory_type;
-	private List<BbsVO> bbs_list;
-
-	public CategoryVO() {
-	}
+	private List<BbsVO> b_list;
 
 	public String getEvcategory_idx() {
 		return evcategory_idx;
@@ -41,12 +38,12 @@ public class CategoryVO {
 		this.evcategory_type = evcategory_type;
 	}
 
-	public List<BbsVO> getBbs_list() {
-		return bbs_list;
+	public List<BbsVO> getB_list() {
+		return b_list;
 	}
 
-	public void setBbs_list(List<BbsVO> bbs_list) {
-		this.bbs_list = bbs_list;
+	public void setB_list(List<BbsVO> b_list) {
+		this.b_list = b_list;
 	}
 
 }

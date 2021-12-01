@@ -1,4 +1,4 @@
-package user.vo;
+package ev.vo;
 
 public class CommentVO {
 	private String evcomment_idx, evcomment_writer, evcomment_content, evcomment_write_date, evcomment_ip, evbbs_idx,
@@ -60,5 +60,4 @@ public class CommentVO {
 		this.evu_idx = evu_idx;
 	}
 
-	
 }

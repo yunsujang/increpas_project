@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import user.service.CategoryService;
-import user.vo.CategoryVO;
 
 @Controller
 public class CommunityController {

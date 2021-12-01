@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.BbsVO;
+import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
 import user.util.Paging;
-import user.vo.BbsVO;
-import user.vo.CategoryVO;
 
 @Controller
 public class ListController {
