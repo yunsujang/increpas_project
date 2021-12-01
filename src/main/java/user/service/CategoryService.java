@@ -1,7 +1,6 @@
 package user.service;
 
-
-import user.vo.CategoryVO;
+import ev.vo.CategoryVO;
 
 public interface CategoryService {
 	CategoryVO nowCategory(String category_idx);

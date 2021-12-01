@@ -7,7 +7,7 @@
 <title>Chart</title>
 	<style>
 	
-		*{margin: 0; padding: 0;}	
+		*{margin: 0;}	
 			
 			
 		#chart_div{
@@ -61,9 +61,6 @@
 		</article>
 	</div>
 		
-		
-		
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 	<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>		
