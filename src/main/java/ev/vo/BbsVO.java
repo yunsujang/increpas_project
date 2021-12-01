@@ -5,8 +5,18 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BbsVO {
-	private String evbbs_idx, evbbs_title, evbbs_writer, evbbs_content, evbbs_file_name, evbbs_ori_name,
-			evbbs_write_date, evbbs_ip, evbbs_hit, evbbs_status, evcategory_idx, evu_idx;
+	private String evbbs_idx,
+					evbbs_title,
+					evbbs_writer,
+					evbbs_content,
+					evbbs_file_name,
+					evbbs_ori_name,
+					evbbs_write_date,
+					evbbs_ip,
+					evbbs_hit,
+					evbbs_status,
+					evcategory_idx,
+					evu_idx;
 	
 	private MultipartFile file;
 

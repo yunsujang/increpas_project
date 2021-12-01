@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userBbs">
+
+	<resultMap type="mybatis.vo.BbsVO" id="map1">
+		<id property="evbbs_idx" column="evbbs_idx"/>
+		<collection property="comment_list" ofType="mybatis.vo.CommentVO"
+		 select="commList" column="evbbs_idx"/>
+	</resultMap>
+	
+	<!-- 특정 게시물의 기본키인 evbbs_idx를 받아서
+	 해당 게시물의 댓글들을 모두 반환한다. -->
+	<select id="commList" parameterType="String" 
+	resultType="mybatis.vo.CommentVO">
+		SELECT * FROM evComment_t
+		WHERE evbbs_idx = #{evbbs_idx}
+	</select>
+			<!-- 리스트 -->
+	<select id="list" parameterType="Map" resultMap="map1">
+		SELECT * FROM (
+			SELECT rownum r_num,a.* FROM (
+				SELECT * FROM evBbs_t
+				WHERE evbbs_status = 0<!--  AND evcategory_idx = #{evcategory_idx} -->
+				ORDER BY evbbs_idx DESC
+			) a 
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	</select>
+				<!--  토탈카운트 -->
+	<select id="totalCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM evBbs_t
+		WHERE evbbs_status = 0<!--  AND evcategory_idx = #{evcategory_idx} -->
+	</select>
+				
+				
+	<select id="getBbs" resultMap="map1" parameterType="String">
+		SELECT * FROM evBbs_t
+		WHERE evbbs_idx = #{evbbs_idx}
+	</select>
+	
+	<!-- 원글 저장 -->
+	<insert id="add" parameterType="mybatis.vo.BbsVO">
+		INSERT INTO evBbs_t(evbbs_idx, evbbs_title, evbbs_writer, evbbs_content,
+			  	 evbbs_file_name,
+			  	 evbbs_ori_name,
+			  	 evbbs_write_date, evbbs_ip,
+			evbbs_hit, evbbs_status<!--  evcategory_idx -->)
+		VALUES(evBbs_seq.NEXTVAL, #{evbbs_title,jdbcType=VARCHAR},#{evbbs_writer,jdbcType=VARCHAR}, #{evbbs_content,jdbcType=VARCHAR},
+				#{evbbs_file_name, jdbcType=VARCHAR },
+				#{evbbs_ori_name, jdbcType=VARCHAR },
+				 sysdate, #{evbbs_ip},0, 0<!-- ,#{evcategory_idx} -->)
+	</insert>
+	
+	<!-- 원글 수정 -->
+	<update id="edit" parameterType="mybatis.vo.BbsVO">
+		UPDATE evBbs_t
+		SET evbbs_title = #{evbbs_title},
+			evbbs_content = #{evbbs_content},
+			evbbs_ip = #{evbbs_ip}
+			<if test="evbbs_file_name != null">
+				,evbbs_file_name = #{evbbs_file_name}
+			</if>
+		WHERE evbbs_idx = #{evbbs_idx}
+	</update>
+	
+		<!-- 삭제 -->
+	<update id="del" parameterType="String">
+		UPDATE evBbs_t
+		SET evbbs_status = 1
+		WHERE evbbs_idx = #{evbbs_idx}
+	</update>
+		<!-- 조회수 -->
+	<update id="hit" parameterType="String">
+		UPDATE evBbs_t
+		SET evbbs_hit = evbbs_hit+1
+		WHERE evbbs_idx = #{no}
+	</update>
+	
+	<!-- 댓글 저장 -->
+	<insert id="addAns" parameterType="mybatis.vo.CommentVO">
+		INSERT INTO evComment_t(evcomment_idx, evcomment_writer, evcomment_content,
+								 evcomment_write_date, evComment_ip, evbbs_idx)
+		VALUES(evComment_seq.NEXTVAL, #{evcomment_writer,jdbcType=VARCHAR}, #{evcomment_content,jdbcType=VARCHAR},
+		 						sysdate, #{evcomment_ip,jdbcType=VARCHAR}, #{evbbs_idx,jdbcType=VARCHAR})
+	</insert>	
+		
+				<!--  게시판 검색기능-->
+	<select id="searchResult" resultMap="map1" parameterType="Map">
+		SELECT * FROM(
+		SELECT rownum r_num,a.* FROM(
+		SELECT * FROM evBbs_t
+		WHERE evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+			  evbbs_status = 0 AND evbbs_content LIKE '%'||#{searchValue}||'%' OR
+			  evbbs_status = 0 AND evbbs_writer LIKE '%'||#{searchValue}||'%'
+		ORDER BY evbbs_idx DESC
+		) a
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	</select>
+	
+	
+			<!-- 검색 결과 총수  -->
+	<select id="searchTotalCount" resultType="int"
+		parameterType="String">
+		SELECT COUNT (*) FROM evbbs_t
+		WHERE evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+			  evbbs_status = 0 AND evbbs_content LIKE '%'||#{searchValue}||'%' OR
+			  evbbs_status = 0 AND evbbs_writer LIKE '%'||#{searchValue}||'%'
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
