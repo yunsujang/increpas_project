@@ -54,5 +54,4 @@ destroy-method="close">
 	<context:component-scan base-package="user.service"/>
 	<context:component-scan base-package="admin.service"/>
 	
-	
 </beans>

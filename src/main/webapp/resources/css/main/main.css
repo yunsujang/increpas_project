@@ -1,9 +1,12 @@
 @charset "UTF-8";
-#wrap {
+
+
+.wrap {
 	width: 100%;
-	height:auto;
+	height:100%;
 	min-height:100%;
 	background-color: #f9f9f9;
+	margin: 250px 0 0 0;
 }
 
 body{
@@ -11,7 +14,6 @@ body{
 		padding: 0 auto;
 		background-color: #f9f9f9;
 	}
-	
 	
 a#MOVE_TOP_BTN {
     position: fixed;
