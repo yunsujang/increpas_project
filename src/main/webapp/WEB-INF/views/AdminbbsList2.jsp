@@ -207,8 +207,8 @@
 
 	<div class="tab">
 		<ul class="tabnav">
-			<li><a href="">전체 게시물</a></li>
-			<c:forEach items="${categoryName_ar }" var="vo" varStatus="st">
+			<li><a href="admin.bbsList">전체 게시물</a></li>
+			<c:forEach items="${categoryName_ar }" var="vo">
 				<li><a href='admin.bbsList2?category_idx=${vo.evcategory_idx }'>${vo.evcategory_name }</a></li>
 			</c:forEach>
 		</ul>

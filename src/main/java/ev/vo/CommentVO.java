@@ -1,8 +1,8 @@
 package ev.vo;
 
 public class CommentVO {
-	private String evcomment_idx, evcomment_writer, evcomment_content, evcomment_write_date, evcomment_ip, evbbs_idx,
-			evu_idx;
+	private String evcomment_idx, evcomment_writer, evcomment_content, evcomment_write_date, evcomment_ip,
+			evcomment_status, evbbs_idx, evu_idx;
 
 	public String getEvcomment_idx() {
 		return evcomment_idx;
@@ -58,6 +58,14 @@ public class CommentVO {
 
 	public void setEvu_idx(String evu_idx) {
 		this.evu_idx = evu_idx;
+	}
+
+	public String getEvcomment_status() {
+		return evcomment_status;
+	}
+
+	public void setEvcomment_status(String evcomment_status) {
+		this.evcomment_status = evcomment_status;
 	}
 
 }

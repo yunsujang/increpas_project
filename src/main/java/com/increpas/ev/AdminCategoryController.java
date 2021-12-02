@@ -1,5 +1,7 @@
 package com.increpas.ev;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.service.AdminCategorySerivce;
 import admin.util.CategoryPaging;
+import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
 
 
@@ -47,6 +50,7 @@ public class AdminCategoryController {
 		
 		//페이징 기법을 통해 테이블에서 가져온 배열 저장
 		CategoryVO[] cvo = admincategoryservice.getCategoryList(String.valueOf(begin), String.valueOf(end));
+		
 		
 		//페이징 배열
 		mv.addObject("cvo", cvo);

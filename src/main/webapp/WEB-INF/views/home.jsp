@@ -41,9 +41,9 @@
 
 .content {
 	font-size: 15px;
-	overflow:hidden; 
-	text-overflow:ellipsis; 
-	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .writer {
@@ -106,7 +106,12 @@
 						</div>
 						<a class="title font" href="/view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a>
 						<div>
-							<p class="content font">${vo.evbbs_content }</p>
+							<p class="content font">
+								<c:set var="content" value="vo.evbbs_content" />
+								<c:if test="${fn:startsWith(content,'<img') }">
+
+								</c:if>
+							</p>
 							<a class="writer font">작성자 : ${vo.evbbs_writer }</a>
 						</div>
 					</div>
@@ -116,23 +121,28 @@
 
 		<div class="category_bbs">
 			<c:forEach items="${categoryName_ar }" var="vo">
-			<c:if test="${fn:length(vo.b_list) > 0 }">
-				<a class="a-lastUpdate">${vo.evcategory_name }</a>
-				<c:forEach items="${vo.b_list }" var="bvo">
-					<div>
-						<div class="contents">
-							<div class="new-img-container">
-								<a href="/view?evbbs_idx=${bvo.evbbs_idx }"><img
-									class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
-							</div>
-							<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
-							<div>
-								<p class="content font">${bvo.evbbs_content }</p>
-								<a class="writer font">작성자 : ${bvo.evbbs_writer }</a>
+				<c:if test="${fn:length(vo.b_list) > 0 }">
+					<a class="a-lastUpdate">${vo.evcategory_name }</a>
+					<c:forEach items="${vo.b_list }" var="bvo">
+						<div>
+							<div class="contents">
+								<div class="new-img-container">
+									<a href="/view?evbbs_idx=${bvo.evbbs_idx }"><img
+										class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
+								</div>
+								<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
+								<div>
+									<p class="content font">
+										<c:set var="content" value="vo.evbbs_content" />
+										<c:if test="${fn:startsWith(content,'<img') }">
+
+										</c:if>
+									</p>
+									<a class="writer font">작성자 : ${bvo.evbbs_writer }</a>
+								</div>
 							</div>
 						</div>
-					</div>
-				</c:forEach>
+					</c:forEach>
 				</c:if>
 			</c:forEach>
 		</div>
@@ -146,22 +156,22 @@
 
 	<jsp:include page="footer.jsp" />
 	<script type="text/javascript">
-	 $(function() {
-	        $(window).scroll(function() {
-	            if ($(this).scrollTop() > 500) {
-	                $('#MOVE_TOP_BTN').fadeIn();
-	            } else {
-	                $('#MOVE_TOP_BTN').fadeOut();
-	            }
-	        });
-	        
-	        $("#MOVE_TOP_BTN").click(function() {
-	            $('html, body').animate({
-	                scrollTop : 0
-	            },  400);
-	            return false;
-	        });
-	    });
+		$(function() {
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 500) {
+					$('#MOVE_TOP_BTN').fadeIn();
+				} else {
+					$('#MOVE_TOP_BTN').fadeOut();
+				}
+			});
+
+			$("#MOVE_TOP_BTN").click(function() {
+				$('html, body').animate({
+					scrollTop : 0
+				}, 400);
+				return false;
+			});
+		});
 	</script>
 </body>
 </html>

@@ -55,4 +55,13 @@ public class AdminCategoryDAO {
 		}
 		return ar;
 	}
+	
+	// 카테고리명으로 카테고리 idx 반환하는 기능
+		public String getCategoryIdx(String categoryName) {
+			return ss.selectOne("category.getCategoryIdx", categoryName);
+		}
+		
+	public String idxToName(String category_idx) {
+		return ss.selectOne("category.idxToName",category_idx);
+	}
 }
