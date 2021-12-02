@@ -211,8 +211,8 @@
 			내용을 게시할 경우 이용약관 및 관련 법률에 의해 제재될 수 있습니다.</p>	
 			
 		<form id="ansform" method="post" action="ans_write.ev">
-			이름:<input id="ansname" type="text" name="evcomment_writer"/><br/>
-			내용:<textarea id="anscontent" rows="4" cols="85" name="evcomment_content"></textarea><br/>
+			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evcomment_writer"/><br/>
+			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evcomment_content"></textarea><br/>
 			<%-- 원글을 의미하는 원글의 기본키 --%>
 			<input type="hidden" name="evbbs_idx" value="${vo.evbbs_idx}">
 			<input type="hidden" name="cPage" value="${cPage}"><%-- edit.jsp에서 

@@ -92,7 +92,7 @@ public class BbsWriteController {
 			vo.setEvbbs_file_name(fname);
 			vo.setEvbbs_ori_name(fname);
 		}		
-		vo.setEvcategory_idx("1");
+		//vo.setEvcategory_idx("1");
 		vo.setEvbbs_ip(request.getRemoteAddr());
 		
 		b_dao.add(vo); //DB에 저장!!!!!!!!!!!
