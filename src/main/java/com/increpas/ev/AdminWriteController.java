@@ -86,7 +86,6 @@ public class AdminWriteController {
 
 		String c_path = request.getContextPath();
 		String a = c_path+editor_img;
-		System.out.println(a);
 		map.put("url", c_path + editor_img);
 		map.put("fname", fname);
 
@@ -103,6 +102,8 @@ public class AdminWriteController {
 			String realPath = application.getRealPath(bbs_upload);
 			
 			String fname = mf.getOriginalFilename();
+			
+			
 			
 			fname = FileRenameUtil.checkSameFileName(fname, realPath);
 			
@@ -129,6 +130,17 @@ public class AdminWriteController {
 		mv.setViewName("redirect:/admin.bbsList");
 		
 		return mv;
+	}
+	
+	@RequestMapping(value = "getCategoryidx", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> getCategoryidx(String selectCategory){
+		Map<String, String>map = new HashMap<String, String>();
+		String categoryidx = admincategoryservice.getCategoryidx(selectCategory);
+		map.put("code", categoryidx);
+		
+		return map;
+		
 	}
 }
 
