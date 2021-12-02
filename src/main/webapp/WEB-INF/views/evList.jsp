@@ -16,7 +16,7 @@
 
 <style type="text/css">
 
-	*{margin: 0; padding: }	
+	*{margin: 0; }	
 	
 	#wrap {
 		margin: 190px 0px 171px 0px;
@@ -81,7 +81,7 @@
 	
 	table tfoot ol.paging li {
 	    float:left;
-	    margin-right:8px;
+	    margin-right:3px;
 	    
 	}
 	
@@ -225,7 +225,7 @@
 								${vo.evbbs_title }
 								<!-- 길이를 구하는함수인데 구할걸 안에다 넣어주면 된다. -->
 								<c:if test="${fn:length(vo.comment_list)>0}">
-								(${fn:length(vo.comment_list)}) <!-- 댓글 수  -->
+								[${fn:length(vo.comment_list)}] <!-- 댓글 수  -->
 								</c:if>
 							</a>
 						</td>
