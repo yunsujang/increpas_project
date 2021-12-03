@@ -77,5 +77,9 @@ public class AdminEvbbsDAO {
 		return ss.selectOne("bbs.ajaxTotalList", idx);
 	}
 	
+	public int AdmindeleteBbs(String idx) {
+		return ss.selectOne("bbs.AdmindeleteBbs", idx);
+	}
+	
 
 }

@@ -54,7 +54,12 @@ body {
 
 .title {
 	font-weight: bold;
-	font-size: 19px;
+	font-size: 16px;
+	color: black;
+	text-decoration: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .content {
@@ -179,6 +184,15 @@ body {
 	display: inline-block;
 	text-align: center;
 }
+
+.skip-p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0;
+	height: 40px;
+}
+
 </style>
 
 <body>
@@ -220,15 +234,15 @@ body {
 									</c:when>
 								</c:choose>
 							</div>
-							<h6 class="h5">
-								<a class="title font"
-									href="/view?evbbs_idx=${vo.evbbs_idx }&cPage=${nowPage }">${vo.evbbs_title }</a>
-							</h6>
+								<p class="title">
+									<a class="title"
+										href="/view?evbbs_idx=${vo.evbbs_idx }&cPage=${nowPage }">${vo.evbbs_title }</a>
+								</p>
 							<div>
-								<p class="content font">
-									<c:set var="content" value="vo.evbbs_content" />
-									<c:if test="${fn:startsWith(content,'<img') }">
-									</c:if>
+								<p class="content">
+									<c:set value="${vo.evbbs_content }" var="content"/>
+										<p class="skip-p">${content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")}</p>
+									
 								</p>
 								<a class="writer font">작성자 : ${vo.evbbs_writer }</a>
 							</div>

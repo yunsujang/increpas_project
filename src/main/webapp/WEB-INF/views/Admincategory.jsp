@@ -6,8 +6,8 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -53,7 +53,7 @@
 	width: 20%
 }
 
-.bbscnt{
+.bbscnt {
 	width: 10%;
 }
 
@@ -186,7 +186,8 @@
 						<td>${fn:length(vo.b_list ) }</td>
 						<td>${vo.evcategory_type }</td>
 						<td><button class="btns" id="updateBtn">수정</button></td>
-						<td><button class="btns" id="deleteBtn">삭제</button></td>
+						<td><button class="btns" id="deleteBtn${vo.evcategory_idx }"
+								onclick="deletes('${vo.evcategory_idx}')">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -199,21 +200,24 @@
 		function search() {
 			alert("a");
 		}
+		function deletes(data) {
+			var data = data;
+			
+				var checkBtn = $("#deleteBtn"+data);
 
-		$("#deleteBtn").bind("click", function() {
-			var checkBtn = $(this);
+				var tr = checkBtn.parent().parent();
+				var td = tr.children();
 
-			var tr = checkBtn.parent().parent();
-			var td = tr.children();
-
-			var name = td.eq(1).text();
-			var result = confirm(name + "을(를) 삭제하시겠습니까?");
-			if (result) {
-				deleteCategory(name);
-			} else {
-				alert("취소하셨습니다.");
-			}
-		});
+				var name = td.eq(1).text();
+				var result = confirm(name + "을(를) 삭제하시겠습니까?");
+				if (result) {
+					deleteCategory(name);
+				} else {
+					alert("취소하셨습니다.");
+				}
+			
+		}
+		
 
 		function deleteCategory(name) {
 			var frm = new FormData();
@@ -232,7 +236,7 @@
 
 			}).done(function(data) {
 				alert(data.deleteName + "이 삭제 되었습니다.");
-				location.href = "admin.category";
+				location.href.redirect = "admin.category";
 			}).fail(function(err) {
 
 			});

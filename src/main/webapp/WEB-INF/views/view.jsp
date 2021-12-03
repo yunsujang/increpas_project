@@ -26,7 +26,7 @@ body{
 }
 
 .wrap {
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	min-height: 100%;
 	margin: 250px auto 250px auto;
@@ -44,13 +44,13 @@ body{
 
 
 .pre-page {
-	margin: 0 0 0 100px;
 	float: left;
+	width: 50%;
 }
 
 .next-page {
 	float: right;
-	margin: 0 100px 0 0;
+	width: 50%;
 }
 
 .content-wrap {
@@ -95,6 +95,11 @@ body{
 	font-weight: bold;
 }
 
+.pre-view{
+	width: auto;
+	height: 80px;
+	min-height: auto;
+}
 
 </style>
 </head>
@@ -132,7 +137,7 @@ body{
 		</div>
 
 		<hr></hr>
-		<div>
+		<div class="pre-view">
 			<div class="pre-page go-page">
 				<p>이전글</p>
 				<a>${prevo.evbbs_title }</a>

@@ -34,9 +34,12 @@
 
 .title {
 	font-weight: bold;
-	font-size: 19px;
+	font-size: 16px;
 	color: black;
 	text-decoration: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .content {
@@ -86,6 +89,16 @@
 .articles {
 	margin: 0 0 0 37px;
 }
+
+.skip-p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0;
+	height: 40px;
+}
+
+
 </style>
 </head>
 <body>
@@ -101,19 +114,26 @@
 				<div>
 					<div class="contents">
 						<div class="new-img-container">
-							<a href="/view?evbbs_idx=${vo.evbbs_idx }"><img
-								class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
+							<c:set var="filename" value="${vo.evbbs_file_name }" />
+							<c:choose>
+								<c:when test="${filename eq null }">
+									<a href="/view?evbbs_idx=${vo.evbbs_idx }"> <img
+										class="new-img" alt="" src="resources/img/default_img.jpg" />
+									</a>
+								</c:when>
+								<c:when test="${filename ne null }">
+									<a href="/view?evbbs_idx=${vo.evbbs_idx }"> <img
+										class="new-img" alt="" src="resources/bbs_upload/${filename }" />
+									</a>
+								</c:when>
+							</c:choose>
 						</div>
-						<a class="title font" href="/view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a>
-						<div>
-							<p class="content font">
-								<c:set var="content" value="vo.evbbs_content" />
-								<c:if test="${fn:startsWith(content,'<img') }">
-
-								</c:if>
-							</p>
-							<a class="writer font">작성자 : ${vo.evbbs_writer }</a>
+						<div class="skip-p">
+							<a class="title font " href="/view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a>
 						</div>
+							<c:set value="${vo.evbbs_content }" var="content"/>
+										<p class="skip-p">${content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")}</p>
+							<a class="writer font"> 작성자 : ${vo.evbbs_writer }</a>
 					</div>
 				</div>
 			</c:forEach>
@@ -122,27 +142,38 @@
 		<div class="category_bbs">
 			<c:forEach items="${categoryName_ar }" var="vo">
 				<c:if test="${fn:length(vo.b_list) > 0 }">
-					<a class="a-lastUpdate">${vo.evcategory_name }</a>
-					<c:forEach items="${vo.b_list }" var="bvo">
+					<div class="newContents">
 						<div>
+							<a class="a-lastUpdate">${vo.evcategory_name }</a>
+						</div>
+						<c:forEach items="${vo.b_list }" var="bvo">
 							<div class="contents">
 								<div class="new-img-container">
-									<a href="/view?evbbs_idx=${bvo.evbbs_idx }"><img
-										class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
+									<c:set var="filename" value="${bvo.evbbs_file_name }" />
+									<c:choose>
+										<c:when test="${filename eq null }">
+											<a href="/view?evbbs_idx=${bvo.evbbs_idx }"> <img
+												class="new-img" alt="" src="resources/img/default_img.jpg" />
+											</a>
+										</c:when>
+										<c:when test="${filename ne null }">
+											<a href="/view?evbbs_idx=${bvo.evbbs_idx }"> <img
+												class="new-img" alt=""
+												src="resources/bbs_upload/${filename }" />
+											</a>
+										</c:when>
+									</c:choose>
 								</div>
-								<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
-								<div>
-									<p class="content font">
-										<c:set var="content" value="vo.evbbs_content" />
-										<c:if test="${fn:startsWith(content,'<img') }">
-
-										</c:if>
-									</p>
+								<div class="skip-p">
+									<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
+								</div>
+								
+									<c:set value="${bvo.evbbs_content }" var="content"/>
+										<p class="skip-p">${content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")}</p>
 									<a class="writer font">작성자 : ${bvo.evbbs_writer }</a>
-								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
+					</div>
 				</c:if>
 			</c:forEach>
 		</div>
