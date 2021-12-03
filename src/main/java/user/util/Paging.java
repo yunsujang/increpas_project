@@ -13,15 +13,17 @@ public class Paging {
 	
 	private boolean isPrePage; //이전 기능 가능 여부(true일 때 이전 기능 활성화)
 	private boolean isNextPage; //다음 기능 가능 여부(true일 때 다음 기능 활성화)
-		
+	
+	private String evcategory_idx;
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳
 	private StringBuffer sb;
 
-	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
+	public Paging(int nowPage, int rowTotal, int blockList, int blockPage, String evcategory_idx) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;
 		this.blockList = blockList;
 		this.blockPage = blockPage;
+		this.evcategory_idx = evcategory_idx;
 		
 		//이전 기능과 다음기능을 초기화 시킨다.
 		isPrePage = false;
@@ -63,6 +65,8 @@ public class Paging {
 		if(isPrePage) {
 			sb.append("<li> <a href='/category?cPage=");
 			sb.append(nowPage - blockPage);
+			sb.append("&evcategory_idx=");
+			sb.append(evcategory_idx);
 			sb.append("'> &lt; </a></li>");
 		}else
 			sb.append("<li class = 'disable'>&lt;</li>");
@@ -78,6 +82,8 @@ public class Paging {
 			else {
 				sb.append("<li><a href='/category?cPage=");
 				sb.append(i);
+				sb.append("&evcategory_idx=");
+				sb.append(evcategory_idx);
 				sb.append("'>");
 				sb.append(i);
 				sb.append("</a></li>");
@@ -87,6 +93,8 @@ public class Paging {
 			if(isNextPage) {
 				sb.append("<li> <a href='/category?cPage=");
 				sb.append(nowPage + blockPage);
+				sb.append("&evcategory_idx=");
+				sb.append(evcategory_idx);
 				sb.append("'> &gt; </a></li>");
 			}
 			else

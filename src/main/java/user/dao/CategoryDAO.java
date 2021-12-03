@@ -6,7 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import user.vo.CategoryVO;
+import ev.vo.CategoryVO;
+
 
 @Component
 public class CategoryDAO {

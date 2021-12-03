@@ -1,8 +1,9 @@
 package user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ev.vo.BbsVO;
 import user.dao.BbsDAO;
-import user.vo.BbsVO;
 
 @Service
 public class Bbs_realService implements BbsService {

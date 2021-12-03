@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.BbsVO;
+import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
 import user.util.Paging;
-import user.vo.BbsVO;
-import user.vo.CategoryVO;
 
 @Controller
 public class ListController {
@@ -34,20 +34,15 @@ public class ListController {
 		else
 			nowPage = Integer.parseInt(cPage);
 		
-		//사용자가 evcategory_idx값을 입력하지 않았을 시 첫번째 게시판으로 향한다.
-		if(evcategory_idx == null)
-			evcategory_idx = "1";
-		
 		//페이징 기법을 위해 총 게시물 수를 구해준다.
 		totalCount = bbsService.totalCount(evcategory_idx);
 		
 		//페이징 객체 생성
-		Paging page = new Paging(nowPage, totalCount, blockList, blockPage);
+		Paging page = new Paging(nowPage, totalCount, blockList, blockPage,evcategory_idx);
 		
 		  
 		int begin = page.getBegin();
 		int end = page.getEnd();
-		
 		
 		String pageCode = page.getSb().toString();
 		

@@ -18,6 +18,7 @@ public class searchPaging {
 	private StringBuffer sb;
 	
 	private String searchValue;
+	
 	public searchPaging(int nowPage, int rowTotal, int blockList, int blockPage, String searchValue) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;

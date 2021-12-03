@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.BbsVO;
+import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
 import user.util.Paging;
 import user.util.searchPaging;
-import user.vo.BbsVO;
-import user.vo.CategoryVO;
 
 
 
@@ -27,7 +27,7 @@ public class SearchController {
 	
 	private int nowPage, totalCount, blockList= 12, blockPage = 5;
 	
-	@RequestMapping(value = "/search")
+	@RequestMapping(value = "/search",method = RequestMethod.POST)
 	public ModelAndView search(String searchValue, String cPage) {
 		ModelAndView mv = new ModelAndView();
 		

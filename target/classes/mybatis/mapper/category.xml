@@ -5,16 +5,33 @@
 <mapper namespace="category">
 
 	<!--리스트에서 하나씩 게시판들을 가져와서 1:n관계로 이뤄진 게시물들 list에 담기 -->
-	<resultMap type="user.vo.CategoryVO" id="map1">
+	<resultMap type="ev.vo.CategoryVO" id="map1">
 		<id property="evcategory_idx" column="evcategory_idx"/>
-		<collection property="bbs_list" ofType="user.vo.BbsVO"
+		<collection property="b_list" ofType="ev.vo.BbsVO"
 			select="bbsList" column="evcategory_idx"/>
 	</resultMap>
 	
 	<!-- 특정 게시판의 기본키인 idx를 받아서 해당 게시판에 게시물들을 모두 반환한다. -->
-	<select id="bbsList" parameterType="String" resultType="user.vo.BbsVO">
+	<select id="bbsList" parameterType="String" resultType="ev.vo.BbsVO">
 		SELECT * FROM evbbs_t
-		WHERE evcategory_idx = #{evcategory_idx}
+		WHERE evcategory_idx = #{evcategory_idx} AND evbbs_status = 0
+	</select>
+	
+	<resultMap type="ev.vo.CategoryVO" id="map2">
+	<id property="evcategory_idx" column="evcategory_idx"/>
+	<collection property="b_list" ofType="ev.vo.BbsVO"
+		select="homebbsList" column="evcategory_idx"/>
+</resultMap>
+
+	<!-- 특정 게시판의 기본키인 idx를 받아서 해당 게시판에 게시물들을 모두 반환한다. -->
+	<select id="homebbsList" parameterType="String" resultType="ev.vo.BbsVO">
+		SELECT * FROM(
+		SELECT rownum r_num,a.* FROM(
+		SELECT * FROM evbbs_t
+		WHERE evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
+		ORDER BY evbbs_idx DESC
+		) a
+		) WHERE r_num BETWEEN 1 AND 6
 	</select>
 
 	<!-- 해당 vo를 통해서 현재 카테고리 위치 표현 -->
@@ -24,10 +41,59 @@
 	</select>
 	
 	<!-- 헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기 -->
-	<select id="categoryNameList" resultType="user.vo.CategoryVO" >
+	<select id="categoryNameList" resultMap="map2" >
 		select * from evcategory_t
 		where evcategory_status = 0 
 		order by evcategory_idx asc
 	</select>
+	<!-- 관리자 SQL문 -->
 	
+	
+	<select id="AdminBbsList" parameterType="String"
+		resultType="ev.vo.BbsVO">
+		SELECT *FROM evbbs_t
+		WHERE evcategory_idx = #{evcategory_idx}
+	</select>
+
+	<select id="AdmintotalCount" resultType="int">
+		select COUNT (*) from evcategory_t
+		WHERE evcategory_status = 0
+	</select>
+
+	<!-- 특정 게시물의 기본키인 evcategory_idx를 받아서 해당 게시판에 게시글들을 모두 반환한다. -->
+	<select id="AdmingetCategoryList" parameterType="Map"
+		resultMap="map1">
+		SELECT * FROM(
+		SELECT rownum r_num,a.* FROM(
+		SELECT * FROM
+		evcategory_t
+		WHERE evcategory_status = 0
+		ORDER BY evcategory_idx ASC
+		) a
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	</select>
+
+	<!-- 게시물 작성 시 필요한 게시판명 가져오기 -->
+	<select id="AdmingetCategoryName" resultType="ev.vo.CategoryVO">
+		SELECT evcategory_name FROM evcategory_t
+		WHERE evcategory_status = 0
+	</select>
+	
+	<!-- 관리자가 선택한 게시판 삭제 -->
+	<update id="AdmindeleteCategory" parameterType="String">
+		UPDATE evcategory_t set evcategory_status = 1
+		WHERE evcategory_name = #{name}
+	</update>
+	
+	<!-- 카테고리명으로 idx 가져오기 -->
+	<select id="getCategoryIdx" resultType="String" parameterType="String">
+		SELECT evcategory_idx FROM evcategory_t
+		WHERE evcategory_name = #{Categoryname}
+	</select>
+	
+	<!-- idx로 카테고리명 가져오기 -->
+	<select id="idxToName"  resultType="String" parameterType="String">
+	SELECT evcategory_name FROM evcategory_t
+	WHERE evcategory_idx = #{evcategory_idx}
+	</select>
 </mapper>

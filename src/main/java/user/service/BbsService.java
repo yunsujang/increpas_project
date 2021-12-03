@@ -1,6 +1,6 @@
 package user.service;
 
-import user.vo.BbsVO;
+import ev.vo.BbsVO;
 
 public interface BbsService {
 	BbsVO getBbs(String evbbs_idx);
