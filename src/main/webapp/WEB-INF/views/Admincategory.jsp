@@ -185,7 +185,7 @@
 						<td>${vo.evcategory_name }</td>
 						<td>${fn:length(vo.b_list ) }</td>
 						<td>${vo.evcategory_type }</td>
-						<td><button class="btns" id="updateBtn">수정</button></td>
+						<td><button class="btns" id="updateBtn${vo.evcategory_idx }" onclick="updates('${vo.evcategory_idx }')">수정</button></td>
 						<td><button class="btns" id="deleteBtn${vo.evcategory_idx }"
 								onclick="deletes('${vo.evcategory_idx}')">삭제</button></td>
 					</tr>
@@ -200,6 +200,7 @@
 		function search() {
 			alert("a");
 		}
+		//삭제 버튼 클릭 시 삭제할지 물어보고 삭제한다고 했을 시 삭제하는 기능을 하는 비동기식 메소드로 이동 
 		function deletes(data) {
 			var data = data;
 			
@@ -218,7 +219,7 @@
 			
 		}
 		
-
+		// 받은 이름을 가지고 비동기식으로 삭제 수행후 삭제한 이름이 잘 삭제 되었다고 띄우는 기능
 		function deleteCategory(name) {
 			var frm = new FormData();
 
@@ -236,22 +237,25 @@
 
 			}).done(function(data) {
 				alert(data.deleteName + "이 삭제 되었습니다.");
-				location.href.redirect = "admin.category";
+				location.href= "admin.category";
 			}).fail(function(err) {
 
 			});
 		}
 
-		$("#updateBtn").bind("click", function() {
-			var checkBtn = $(this);
+		function updates(data) {
+			var checkBtn = $("#updateBtn"+data);
+
 			var tr = checkBtn.parent().parent();
 			var td = tr.children();
+
 			var name = td.eq(1).text();
-			$("#updateDialog").dialog({
-				
-			});
 			
-		});
+			alert(name);
+			$("#updateDialog").dialog();
+			
+		
+	}
 	</script>
 </body>
 </html>

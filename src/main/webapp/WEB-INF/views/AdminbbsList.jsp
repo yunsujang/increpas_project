@@ -203,6 +203,11 @@
 	font-weight: bold;
 	margin: 50px 0 0 0;
 }
+
+.font{
+	text-decoration: none;
+	color: black;
+}
 </style>
 </head>
 <body>

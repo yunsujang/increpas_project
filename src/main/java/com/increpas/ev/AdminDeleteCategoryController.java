@@ -29,9 +29,7 @@ public class AdminDeleteCategoryController {
 		Map<String, String>map = new HashMap<String, String>();
 		String deleteName = name;
 		int i = admincategoryservice.deleteCategory(name);
-		String idx = admincategoryservice.getCategoryidx(name);
-		int j =  adminbbsservice.AdmindeleteBbs(idx);
-		if( i > 0 && j > 0 ) {
+		if( i > 0) {
 			map.put("deleteName", deleteName);
 		}
 		
