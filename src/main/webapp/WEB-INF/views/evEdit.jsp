@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>evca 커뮤니티| </title>	
+<title>evca 커뮤니티 </title>	
 <link rel="stylesheet" href="resources/css/summernote-lite.css">
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">

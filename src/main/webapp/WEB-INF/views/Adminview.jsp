@@ -11,10 +11,9 @@
 <link rel="stylesheet" href="resources/css/header/header.css" />
 </head>
 <style>
-
-body{
+body {
 	text-align: center;
-	}
+}
 
 .title_p {
 	font: 24px;
@@ -37,11 +36,10 @@ body{
 	margin: 100px 0 50px 0;
 }
 
-.writer-div p{
+.writer-div p {
 	font-size: 13px;
 	font-weight: bold;
 }
-
 
 .pre-page {
 	float: left;
@@ -54,7 +52,7 @@ body{
 }
 
 .content-wrap {
-	text-align:center;
+	text-align: center;
 	height: 100%;
 	min-height: 100%;
 }
@@ -90,23 +88,44 @@ body{
 	margin: 10px
 }
 
-.recommend a{
+.recommend a {
 	font-size: 15px;
 	font-weight: bold;
 }
 
-.pre-view{
+.pre-view {
 	width: auto;
 	height: 80px;
 	min-height: auto;
 }
 
+.btns {
+	border: none;
+	background-color: #85c4b9;
+	
+}
+
+.btns:hover {
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
 
-
+	<jsp:include page="Adminheader.jsp" />
 	<div class="wrap">
+
+		<div class="pre-view">
+			<div class="pre-page go-page">
+				<input class="btns" type="button" name="a" id="a" value="수정"
+					onclick="a()" />
+			</div>
+
+			<div class="next-page go-page">
+				<input class="btns" type="button" name="b" id="b" value="삭제"
+					onclick="b()" />
+			</div>
+		</div>
 		<div class="content-wrap">
 			<h1 class="title_p">${vo.evbbs_title }</h1>
 			<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
@@ -115,10 +134,6 @@ body{
 				<p class="writer-p">${vo.evbbs_writer }</p>
 			</div>
 		</div>
-
-
-
-
 
 		<div class="advice-contents">
 			<div class="contents">
@@ -129,19 +144,15 @@ body{
 			</div>
 		</div>
 
-		<hr></hr>
-		<div class="pre-view">
-			<div class="pre-page go-page">
-				<p>이전글</p>
-				<a>${prevo.evbbs_title }</a>
-			</div>
-
-			<div class="next-page go-page">
-				<p>다음글</p>
-				<a>${nextvo.evbbs_title }</a>
-			</div>
-		</div>
 	</div>
-
+	<script type="text/javascript">
+		function a() {
+			alert("a");
+		}
+		
+		function b() {
+			alert("b");
+		}
+	</script>
 </body>
 </html>
