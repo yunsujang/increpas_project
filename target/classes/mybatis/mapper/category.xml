@@ -83,4 +83,10 @@
 		UPDATE evcategory_t set evcategory_status = 1
 		WHERE evcategory_name = #{name}
 	</update>
+	
+	<!-- 관리자가 선택한 게시판 이름 수정 -->
+	<update id="AdminChange" parameterType="ev.vo.CategoryVO"> 
+		UPDATE evcategory_t set EVCATEGORY_NAME = {evcategory_name}
+		WHERE evcategory_name = #{name}
+	</update>
 </mapper>

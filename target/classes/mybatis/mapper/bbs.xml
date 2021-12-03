@@ -137,6 +137,6 @@
 		#{evbbs_file_name,
 		jdbcType=VARCHAR },
 		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
-		#{evbbs_ip}, 0, 0, 1, 1)
+		#{evbbs_ip}, 0, 0, 2, 2)
 	</insert>
 </mapper>
