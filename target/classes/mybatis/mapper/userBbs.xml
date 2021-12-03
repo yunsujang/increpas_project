@@ -45,11 +45,11 @@
 			  	 evbbs_file_name,
 			  	 evbbs_ori_name,
 			  	 evbbs_write_date, evbbs_ip,
-			evbbs_hit, evbbs_status<!--  evcategory_idx -->)
+			evbbs_hit, evbbs_status ,evcategory_idx,evu_idx)
 		VALUES(evBbs_seq.NEXTVAL, #{evbbs_title,jdbcType=VARCHAR},#{evbbs_writer,jdbcType=VARCHAR}, #{evbbs_content,jdbcType=VARCHAR},
 				#{evbbs_file_name, jdbcType=VARCHAR },
 				#{evbbs_ori_name, jdbcType=VARCHAR },
-				 sysdate, #{evbbs_ip},0, 0<!-- ,#{evcategory_idx} -->)
+				 sysdate, #{evbbs_ip},0, 0,1,1)
 	</insert>
 	
 	<!-- 원글 수정 -->
