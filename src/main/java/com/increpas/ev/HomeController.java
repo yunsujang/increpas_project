@@ -26,7 +26,7 @@ import user.service.CategoryService;
 public class HomeController {
 	@Autowired
 	CategoryService categoryservice;
-	
+	 
 	@Autowired
 	BbsService bbsService;
 	
