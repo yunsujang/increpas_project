@@ -67,7 +67,10 @@
 					<tr class="category-tr">
 						<th>게시판</th>
 						<td><select id="select"  onchange="selectEvCategory(this.value)">
-								<option></option>
+								<option value="" selected disabled>게시판을 선택하세요</option>  
+								<option value="0">Ev뉴스</option>  
+								<option value="1">자율주행차</option>  
+								<option value="2">Ev오너리뷰</option>  
 								<c:forEach items="${cvo }" var="vo">
 									<option>${vo.evcategory_name }</option>
 								</c:forEach>
@@ -94,8 +97,9 @@
 					</tr>
 
 					<tr>
-						<td class="button-td" colspan="2"><input type="button" value="보내기" onclick="sendData()" /> <input type="button" value="목록"
-							onclick="javascript:location.href='list.inc'" /></td>
+						<td class="button-td" colspan="2"><input type="button" value="보내기" onclick="sendData()" /> 
+						<input type="button" value="목록"
+							onclick="javascript:location.href='admin.bbsList'" /></td>
 					</tr>
 				</tbody>
 			</table>
