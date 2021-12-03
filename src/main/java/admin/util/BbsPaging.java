@@ -59,7 +59,7 @@ public class BbsPaging {
 			isNextPage = true;
 		
 		//이제 현재페이지 값도 알고, 시작페이지와 마지막페이지 값을알았으니
-		//페이지 기법에 사용할 ㅗ드를 작성하여 StringBuffer에 저장하자!
+		//페이지 기법에 사용할 코드를 작성하여 StringBuffer에 저장하자!
 		sb = new StringBuffer("<ol class='paging'>");
 		
 		if(isPrePage) {

@@ -55,9 +55,6 @@ public class BbsListController {
 		return mv;
 	}
 		
-		
-	
-	
 }
 
 

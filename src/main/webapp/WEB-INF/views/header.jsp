@@ -11,7 +11,7 @@
 	.bi{
 		padding: 0;
 		margin: 0;
-	}
+	}   
 	
 	.bi:hover{
 		cursor: pointer;
@@ -21,7 +21,7 @@
 	.ui-widget-header{
 		background-color: #85c4b9;
 		color:white;
-	}
+	} 
 
 	#dialog{
 		display: none;
@@ -47,8 +47,8 @@
 				<c:forEach items="${categoryName_ar }" var="vo">
 					<li><a href="/category?evcategory_idx=${vo.evcategory_idx }">${vo.evcategory_name }</a></li>
 				</c:forEach>
-				<li><a href="/ev/evMap">충전소검색 </a></li>
-				<li><a href="/ev/community">ev 소통해요 </a></li>
+				<li><a href="/evMap">충전소검색 </a></li>
+				<li><a href="/list.ev">ev 소통해요 </a></li>
 				<li><a href="/">ev주식</a></li>
 				<div class="user-div">
 				<div class="user-padding">

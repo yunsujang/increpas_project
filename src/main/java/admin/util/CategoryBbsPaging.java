@@ -1,6 +1,6 @@
-package user.util;
+package admin.util;
 
-public class Paging {
+public class CategoryBbsPaging {
 	private int nowPage, // 현재 페이지 값
 				rowTotal, // 총 게시물 수
 				blockList, // 한페이지에 표현될 게시물 수
@@ -18,7 +18,7 @@ public class Paging {
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳
 	private StringBuffer sb;
 
-	public Paging(int nowPage, int rowTotal, int blockList, int blockPage, String evcategory_idx) {
+	public CategoryBbsPaging(int nowPage, int rowTotal, int blockList, int blockPage, String evcategory_idx) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;
 		this.blockList = blockList;
@@ -63,9 +63,9 @@ public class Paging {
 		sb = new StringBuffer("<ol class='paging'>");
 		
 		if(isPrePage) {
-			sb.append("<li> <a href='/category?cPage=");
+			sb.append("<li> <a href='/admin.bbsList2?cPage=");
 			sb.append(nowPage - blockPage);
-			sb.append("&evcategory_idx=");
+			sb.append("&category_idx=");
 			sb.append(evcategory_idx);
 			sb.append("'> &lt; </a></li>");
 		}else
@@ -80,9 +80,9 @@ public class Paging {
 			}
 			
 			else {
-				sb.append("<li><a href='/category?cPage=");
+				sb.append("<li><a href='/admin.bbsList2?cPage=");
 				sb.append(i);
-				sb.append("&evcategory_idx=");
+				sb.append("&category_idx=");
 				sb.append(evcategory_idx);
 				sb.append("'>");
 				sb.append(i);
@@ -91,9 +91,9 @@ public class Paging {
 		}
 			//다음 기능 여부 확인
 			if(isNextPage) {
-				sb.append("<li> <a href='/category?cPage=");
+				sb.append("<li> <a href='/admin.bbsList2?cPage=");
 				sb.append(nowPage + blockPage);
-				sb.append("&evcategory_idx=");
+				sb.append("&category_idx=");
 				sb.append(evcategory_idx);
 				sb.append("'> &gt; </a></li>");
 			}

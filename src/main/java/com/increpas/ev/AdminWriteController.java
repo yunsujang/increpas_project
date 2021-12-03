@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -86,7 +87,6 @@ public class AdminWriteController {
 
 		String c_path = request.getContextPath();
 		String a = c_path+editor_img;
-		System.out.println(a);
 		map.put("url", c_path + editor_img);
 		map.put("fname", fname);
 
@@ -95,7 +95,7 @@ public class AdminWriteController {
 	
 	@RequestMapping(value="/admin.bbsWrite", method=RequestMethod.POST)
 	public ModelAndView write(BbsVO vo){
-		System.out.println(vo.getEvbbs_title());
+		
 		//첨부파일을 vo로부터 얻어낸다.
 		MultipartFile mf = vo.getFile();
 		
@@ -103,6 +103,8 @@ public class AdminWriteController {
 			String realPath = application.getRealPath(bbs_upload);
 			
 			String fname = mf.getOriginalFilename();
+			
+			
 			
 			fname = FileRenameUtil.checkSameFileName(fname, realPath);
 			
@@ -129,6 +131,17 @@ public class AdminWriteController {
 		mv.setViewName("redirect:/admin.bbsList");
 		
 		return mv;
+	}
+	
+	@RequestMapping(value = "getCategoryidx", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> getCategoryidx(String selectCategory){
+		Map<String, String>map = new HashMap<String, String>();
+		String categoryidx = admincategoryservice.getCategoryidx(selectCategory);
+		map.put("code", categoryidx);
+		
+		return map;
+		
 	}
 }
 

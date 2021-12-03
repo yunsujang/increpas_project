@@ -56,4 +56,30 @@ public class AdminEvbbsDAO {
 	public int totalCount() {
 		return ss.selectOne("bbs.AdmintotalCount");
 	}
+	
+	public BbsVO[] categoryIdxToList(String begin, String end,String idx) {
+		BbsVO[]ar = null;
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("begin", String.valueOf(begin));
+		map.put("end",  String.valueOf(end));
+		map.put("evcategory_idx", idx);
+		List<BbsVO> list = ss.selectList("bbs.categoryIdxToList", map);
+		if(list != null && list.size() > 0) {
+			ar = new BbsVO[list.size()];
+			list.toArray(ar);
+		}
+		
+		return ar;
+	}
+	
+	public int ajaxTotalList(String idx) {
+		return ss.selectOne("bbs.ajaxTotalList", idx);
+	}
+	
+	public int AdmindeleteBbs(String idx) {
+		return ss.selectOne("bbs.AdmindeleteBbs", idx);
+	}
+	
+
 }
