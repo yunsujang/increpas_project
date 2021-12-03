@@ -22,7 +22,7 @@
 	width: 90%;
 	height: 600px;
 	margin: 0 auto;
-	border: 1px solid black;
+	border: 1px solid silver;
 	border-collapse: collapse;
 	font-size: 14px;
 }
@@ -35,14 +35,14 @@
 
 #bbs table th {
 	text-align: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid silver;
 	padding: 4px 10px;
 	width: 60px;
 }
 
 #bbs table td {
 	text-align: left;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid silver;
 	padding: 4px 10px;
 }
 
@@ -50,15 +50,6 @@
 	height: 10%;
 }
 
-.write-bbs-div{
-	margin: 30px auto;
-	
-}
-
-.write-bbs-div a{
-	font-size: 40px;
-	font-weight: bold;
-}
 
 .button-td{
 	text-align: center;
@@ -69,16 +60,13 @@
 <body>
 	<jsp:include page="Adminheader.jsp"/>
 	<div id="bbs">
-		<div class="write-bbs-div">
-			<a>게시물 작성</a>
-		</div>
 		<form action="admin.bbsWrite" method="post" encType="multipart/form-data">
 			<!-- 첨부파일이 있으면 꼭 넣어줘야한다. -->
 			<table summary="게시판 글쓰기">
 				<tbody>
 					<tr class="category-tr">
 						<th>게시판</th>
-						<td><select id="select"  onchange="selectEvCategory()">
+						<td><select id="select"  onchange="selectEvCategory(this.value)">
 								<option></option>
 								<c:forEach items="${cvo }" var="vo">
 									<option>${vo.evcategory_name }</option>
@@ -102,7 +90,7 @@
 					</tr>
 					<tr>
 						<th>첨부파일</th>
-						<td><input type="file" name="file" /></td>
+						<td><input type="file" name="file" accept="image/*" onchange="fileCheck(this)"/></td>
 					</tr>
 
 					<tr>
@@ -182,13 +170,41 @@
 			alert("게시판을 선택하세요.");
 			return;
 		}
-
+		
+		
 		document.forms[0].submit();
 	}
 	
-	function selectEvCategory(){
-	
+	function selectEvCategory(category){
+		var selectCategory = category;
+		var frm2 = new FormData();
+		
+		frm2.append("selectCategory",selectCategory);
+		
+		$.ajax({
+			url: "getCategoryidx",
+			data: frm2,
+			type: "post",
+			contentType: false,
+			processData: false,
+			cache: false,
+			dataType: "json",
+		}).done(function(data) {
+			$("#evcategory_idx").val(data.code);
+		}).fail(function(err) {
+			
+		})
 	}
+	
+	function fileCheck(obj){
+		if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(obj.value)){ 
+
+	        alert('이미지 파일만 업로드 가능합니다.'); 
+	        obj.value = ''; 
+	        obj.focus(); 
+		}
+	}
+	
 </script>
 </body>
 </html>

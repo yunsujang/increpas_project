@@ -8,15 +8,15 @@
 	<!--리스트에서 하나씩 게시물들을 가져와서 1:n관계로 이뤄진 댓글들 list에 담기 -->
 	<resultMap type="ev.vo.BbsVO" id="map1">
 		<id property="evbbs_idx" column="evbbs_idx" />
-		<collection property="c_list"
-			ofType="ev.vo.CommentVO" select="commentList" column="evbbs_idx" />
+		<collection property="c_list" ofType="ev.vo.CommentVO"
+			select="commentList" column="evbbs_idx" />
 	</resultMap>
 
 	<!-- 특정 게시물의 기본키인 b_idx를 받아서 해당 게시물에 댓글들을 모두 반환한다. -->
 	<select id="commentList" parameterType="String"
 		resultType="ev.vo.CommentVO">
 		SELECT *FROM evcomment_t
-		WHERE evbbs_idx = #{evbbs_idx}
+		WHERE evbbs_idx = #{evbbs_idx} AND evcomment_status = 0
 	</select>
 
 	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기 -->
@@ -24,8 +24,7 @@
 		SELECT * FROM(
 		SELECT rownum r_num,a.* FROM(
 		SELECT * FROM evbbs_t
-		WHERE evbbs_status =
-		0 AND evcategory_idx = #{evcategory_idx}
+		WHERE evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
 		ORDER BY evbbs_idx DESC
 		) a
 		)
@@ -95,14 +94,14 @@
 	<select id="AdmincommList" parameterType="String"
 		resultType="ev.vo.CommentVO">
 		SELECT * FROM evComment_t
-		WHERE evbbs_idx = #{evbbs_idx}
+		WHERE evbbs_idx = #{evbbs_idx} AND evcomment_status = 0
 	</select>
 
 	<select id="AdmingetBbs" resultMap="map1" parameterType="String">
 		SELECT *
 		FROM
 		evbbs_t
-		WHERE evbbs_idx = #{evbbs_idx}
+		WHERE evbbs_idx = #{evbbs_idx} AND evbbs_status = 0
 	</select>
 
 	<select id="AdmintotalCount" resultType="int">
@@ -111,7 +110,6 @@
 		WHERE evbbs_status = 0
 	</select>
 
-
 	<select id="Adminlist" parameterType="Map" resultMap="map2">
 		SELECT *
 		FROM(
@@ -119,7 +117,7 @@
 		SELECT * FROM evbbs_t
 		WHERE
 		evbbs_status = 0
-		ORDER BY evbbs_idx ASC
+		ORDER BY evbbs_idx DESC
 		) a
 		) WHERE r_num BETWEEN
 		#{begin} AND #{end}
@@ -133,10 +131,36 @@
 		evbbs_ori_name, evbbs_write_date, evbbs_ip, evbbs_hit,
 		evbbs_status,evcategory_idx,evu_idx)
 
-		VALUES(evbbs_seq.NEXTVAL, #{evbbs_title}, #{evbbs_writer}, #{evbbs_content},
+		VALUES(evbbs_seq.NEXTVAL,
+		#{evbbs_title}, #{evbbs_writer}, #{evbbs_content},
 		#{evbbs_file_name,
 		jdbcType=VARCHAR },
 		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
-		#{evbbs_ip}, 0, 0, 1, 1)
+		#{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
 	</insert>
+
+	<select id="categoryIdxToList" parameterType="Map"
+		resultMap="map2">
+		SELECT *
+		FROM(
+		SELECT rownum r_num,a.* FROM (
+		SELECT * FROM evbbs_t
+		WHERE
+		evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
+		ORDER BY evbbs_idx DESC
+		) a
+		) WHERE r_num BETWEEN
+		#{begin} AND #{end}
+	</select>
+	
+	<select id="ajaxTotalList" parameterType="String" resultType="int">
+		SELECT COUNT (*) FROM evbbs_t
+		WHERE evcategory_idx = #{idx}
+		AND evbbs_status = 0
+	</select>
+	
+	<update id="AdmindeleteBbs" parameterType="String">
+		UPDATE evbbs_t set evbbs_status = 1
+		WHERE evcategory_idx = #{idx}
+	</update>
 </mapper>

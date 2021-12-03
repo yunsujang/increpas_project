@@ -36,4 +36,14 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		return c_dao.getCategoryName();
 	}
 
+	@Override
+	public String getCategoryidx(String categoryName) {
+		return c_dao.getCategoryIdx(categoryName);
+	}
+
+	@Override
+	public String idToName(String categoryidx) {
+		// TODO Auto-generated method stub
+		return c_dao.idxToName(categoryidx);
+	}
 }
