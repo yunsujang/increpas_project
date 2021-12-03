@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -94,7 +95,7 @@ public class AdminWriteController {
 	
 	@RequestMapping(value="/admin.bbsWrite", method=RequestMethod.POST)
 	public ModelAndView write(BbsVO vo){
-		System.out.println(vo.getEvbbs_title());
+		
 		//첨부파일을 vo로부터 얻어낸다.
 		MultipartFile mf = vo.getFile();
 		

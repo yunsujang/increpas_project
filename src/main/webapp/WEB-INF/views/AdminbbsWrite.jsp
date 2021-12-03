@@ -170,7 +170,8 @@
 			alert("게시판을 선택하세요.");
 			return;
 		}
-
+		
+		
 		document.forms[0].submit();
 	}
 	
@@ -203,6 +204,7 @@
 	        obj.focus(); 
 		}
 	}
+	
 </script>
 </body>
 </html>

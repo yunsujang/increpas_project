@@ -24,5 +24,11 @@ public class RealAdminBbsService implements AdminBbsService {
 		// TODO Auto-generated method stub
 		return admin_bbsDao.ajaxTotalList(idx);
 	}
+
+	@Override
+	public int AdmindeleteBbs(String idx) {
+		// TODO Auto-generated method stub
+		return admin_bbsDao.AdmindeleteBbs(idx);
+	}
 	
 }

@@ -45,15 +45,19 @@
 }
 
 .title {
-	width: 45%
+	width: 40%
 }
 
 .type {
-	width: 20%
+	width: 15%;
 }
 
 .category {
-	width: 20%;
+	width: 15%;
+}
+
+.writer{
+	width: 15%;
 }
 
 .reg{
@@ -224,7 +228,7 @@
 				<tr class="title">
 					<th class="no">번호</th>
 					<th class="category">게시판명</th>
-					<th class="subject">제목</th>
+					<th class="title">제목</th>
 					<th class="writer">글쓴이</th>
 					<th class="reg">날짜</th>
 				</tr>
