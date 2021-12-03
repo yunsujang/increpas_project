@@ -11,7 +11,7 @@
 	.bi{
 		padding: 0;
 		margin: 0;
-	}
+	}   
 	
 	.bi:hover{
 		cursor: pointer;
