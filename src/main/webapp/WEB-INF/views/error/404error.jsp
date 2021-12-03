@@ -69,7 +69,7 @@
 			
 			<div id="error">
 				<b>Error </b><b style="color:#85c4b9;">404</b> <b>Not Found</b>
-			</div>
+			</div> 
 			
 			<div id="content">
 			<br><br><br><b style="font-size:30px;">서비스 </b>
