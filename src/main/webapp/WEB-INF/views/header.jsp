@@ -21,7 +21,7 @@
 	.ui-widget-header{
 		background-color: #85c4b9;
 		color:white;
-	}
+	} 
 
 	#dialog{
 		display: none;
