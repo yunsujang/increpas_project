@@ -130,17 +130,11 @@
 		evbbs_file_name,
 		evbbs_ori_name, evbbs_write_date, evbbs_ip, evbbs_hit,
 		evbbs_status,evcategory_idx,evu_idx)
-
 		VALUES(evbbs_seq.NEXTVAL,
 		#{evbbs_title}, #{evbbs_writer}, #{evbbs_content},
 		#{evbbs_file_name,
 		jdbcType=VARCHAR },
-		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
-
-		#{evbbs_ip}, 0, 0, 2, 2)
-
-		#{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
-
+		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate, #{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
 	</insert>
 
 	<select id="categoryIdxToList" parameterType="Map"

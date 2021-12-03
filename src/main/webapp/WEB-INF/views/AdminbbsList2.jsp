@@ -68,6 +68,11 @@
 	background: silver
 }
 
+.font{
+	text-decoration: none;
+	color: black;
+}
+
 /* paging */
 .paging {
 	list-style: none;
