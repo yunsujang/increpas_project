@@ -19,7 +19,7 @@
 		WHERE evbbs_idx = #{evbbs_idx} AND evcomment_status = 0
 	</select>
 
-	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기  -->
+	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기 -->
 	<select id="paging" parameterType="Map" resultMap="map1">
 		SELECT * FROM(
 		SELECT rownum r_num,a.* FROM(
