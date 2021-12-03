@@ -239,7 +239,7 @@
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
 						<td>${vo.evcategory_idx }</td>
-						<td>${vo.evbbs_title }</td>
+						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a></td>
 						<td>${vo.evbbs_writer }</td>
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
 					</tr>
