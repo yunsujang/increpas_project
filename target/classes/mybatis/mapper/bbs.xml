@@ -5,22 +5,9 @@
 <mapper namespace="bbs">
 
 	<!-- 유저 SQL -->
-	<!--리스트에서 하나씩 게시물들을 가져와서 1:n관계로 이뤄진 댓글들 list에 담기 -->
-	<resultMap type="ev.vo.BbsVO" id="map1">
-		<id property="evbbs_idx" column="evbbs_idx" />
-		<collection property="c_list" ofType="ev.vo.CommentVO"
-			select="commentList" column="evbbs_idx" />
-	</resultMap>
-
-	<!-- 특정 게시물의 기본키인 b_idx를 받아서 해당 게시물에 댓글들을 모두 반환한다. -->
-	<select id="commentList" parameterType="String"
-		resultType="ev.vo.CommentVO">
-		SELECT *FROM evcomment_t
-		WHERE evbbs_idx = #{evbbs_idx} AND evcomment_status = 0
-	</select>
 
 	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기 -->
-	<select id="paging" parameterType="Map" resultMap="map1">
+	<select id="paging" parameterType="Map" resultType="ev.vo.BbsVO">
 		SELECT * FROM(
 		SELECT rownum r_num,a.* FROM(
 		SELECT * FROM evbbs_t
@@ -40,14 +27,14 @@
 	</select>
 
 	<!-- 사용자가 클릭한 게시물 가져오기 -->
-	<select id="getBbs" resultMap="map1" parameterType="String">
+	<select id="getBbs" resultType="ev.vo.BbsVO" parameterType="String">
 		SELECT * FROM
 		evbbs_t
 		WHERE evbbs_idx = #{evbbs_idx }
 	</select>
 
 	<!-- 검색결과로 나온 총 게시물 -->
-	<select id="searchResult" resultMap="map1" parameterType="Map">
+	<select id="searchResult" resultType="ev.vo.BbsVO" parameterType="Map">
 		SELECT
 		* FROM(
 		SELECT rownum r_num,a.* FROM(
@@ -85,19 +72,9 @@
 	</select>
 
 	<!-- 관리자 SQL문 -->
-	<resultMap type="ev.vo.BbsVO" id="map2">
-		<id property="evbbs_idx" column="evbbs_idx" />
-		<collection property="c_list" ofType="admin.vo.CommentVO"
-			select="AdmincommList" column="evbbs_idx" />
-	</resultMap>
+	
 
-	<select id="AdmincommList" parameterType="String"
-		resultType="ev.vo.CommentVO">
-		SELECT * FROM evComment_t
-		WHERE evbbs_idx = #{evbbs_idx} AND evcomment_status = 0
-	</select>
-
-	<select id="AdmingetBbs" resultMap="map1" parameterType="String">
+	<select id="AdmingetBbs" resultType="ev.vo.BbsVO" parameterType="String">
 		SELECT *
 		FROM
 		evbbs_t
@@ -110,7 +87,7 @@
 		WHERE evbbs_status = 0
 	</select>
 
-	<select id="Adminlist" parameterType="Map" resultMap="map2">
+	<select id="Adminlist" parameterType="Map" resultType="ev.vo.BbsVO">
 		SELECT *
 		FROM(
 		SELECT rownum r_num,a.* FROM (
@@ -140,7 +117,7 @@
 	</insert>
 
 	<select id="categoryIdxToList" parameterType="Map"
-		resultMap="map2">
+		resultType="ev.vo.BbsVO">
 		SELECT *
 		FROM(
 		SELECT rownum r_num,a.* FROM (

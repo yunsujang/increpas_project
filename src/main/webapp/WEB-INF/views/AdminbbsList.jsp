@@ -203,6 +203,11 @@
 	font-weight: bold;
 	margin: 50px 0 0 0;
 }
+
+.font{
+	text-decoration: none;
+	color: black;
+}
 </style>
 </head>
 <body>
@@ -231,15 +236,15 @@
 					<th class="title">제목</th>
 					<th class="writer">글쓴이</th>
 					<th class="reg">날짜</th>
-				</tr>
+				</tr>	
 			</thead>
 
 			<tbody>
 				<c:forEach var="vo" items="${ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
-						<td>${vo.evcategory_idx }</td>
-						<td>${vo.evbbs_title }</td>
+						<td >${vo.evcategory_idx }</td>
+						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a></td>
 						<td>${vo.evbbs_writer }</td>
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
 					</tr>
@@ -254,7 +259,9 @@
 
 	
 	<script type="text/javascript">
-	
+		$(function() {
+			
+		})
 </script>
 </body>
 </html>

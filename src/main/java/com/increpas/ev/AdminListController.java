@@ -66,6 +66,8 @@ public class AdminListController {
 		int end = page.getEnd();
 
 		BbsVO[] ar = b_dao.getList(begin, end);
+		
+		
 
 		CategoryVO[] categoryName_ar = user_categoryservice.categoryNameList();
 
