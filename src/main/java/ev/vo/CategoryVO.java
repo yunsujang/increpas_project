@@ -3,7 +3,7 @@ package ev.vo;
 import java.util.List;
 
 public class CategoryVO {
-	private String evcategory_idx, evcategory_name, evcategory_status, evcategory_type;
+	private String evcategory_idx, evcategory_name, evcategory_status;
 	private List<BbsVO> b_list;
 
 	public String getEvcategory_idx() {
@@ -30,13 +30,7 @@ public class CategoryVO {
 		this.evcategory_status = evcategory_status;
 	}
 
-	public String getEvcategory_type() {
-		return evcategory_type;
-	}
 
-	public void setEvcategory_type(String evcategory_type) {
-		this.evcategory_type = evcategory_type;
-	}
 
 	public List<BbsVO> getB_list() {
 		return b_list;
