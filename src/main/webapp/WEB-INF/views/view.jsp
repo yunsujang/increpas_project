@@ -101,6 +101,10 @@ body{
 	min-height: auto;
 }
 
+.content-div{
+	style="text-align: left;"
+}
+
 </style>
 </head>
 <body>
@@ -108,11 +112,15 @@ body{
 
 	<div class="wrap">
 		<div class="content-wrap">
-			<h1 class="title_p">${vo.evbbs_title }</h1>
-			<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
-			<a class="content-p">${vo.evbbs_content }</a>
-			<div class="writer-div">
-				<p class="writer-p">${vo.evbbs_writer }</p>
+			
+				<h1 class="title_p">${vo.evbbs_title }</h1>
+				<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
+				<div class="content-div">
+				<div>${vo.evbbs_content }</div>
+				<div class="writer-div">
+					<p>저자</p>
+					<p class="writer-p">${vo.evbbs_writer }</p>
+				</div>
 			</div>
 		</div>
 

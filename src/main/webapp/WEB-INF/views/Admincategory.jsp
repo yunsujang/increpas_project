@@ -204,7 +204,6 @@
 					<th class="no">번호</th>
 					<th class="title">게시판명</th>
 					<th class="bbscnt">게시물수</th>
-					<th class="type">게시판 타입</th>
 					<th class="update">수정</th>
 					<th class="delete">삭제</th>
 				</tr>
@@ -220,7 +219,6 @@
 						</td>
 						
 						<td>${fn:length(vo.b_list ) }</td>
-						<td>${vo.evcategory_type }</td>
 						
 						<td><button class="btns" id="updateBtn" onclick="updates('${vo.evcategory_idx}')">수정</button></td>
 						<td><button class="btns" id="deleteBtn${vo.evcategory_idx }"
@@ -255,8 +253,8 @@
 				var tr = checkBtn.parent().parent();
 				var td = tr.children();
 
-				var name = td.eq(1).text();
-				var result = confirm(name + "을(를) 삭제하시겠습니까?");
+				var name = td.eq(1).text().trim();
+				var result = confirm(name+"을(를) 삭제하시겠습니까?");
 				if (result) {
 					deleteCategory(name);
 				} else {
@@ -283,7 +281,7 @@
 
 			}).done(function(data) {
 				alert(data.deleteName + "이 삭제 되었습니다.");
-				location.href.redirect = "admin.category";
+				location.href = "admin.category";
 			}).fail(function(err) {
 
 			});

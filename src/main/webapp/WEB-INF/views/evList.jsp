@@ -47,10 +47,6 @@
 	    margin-bottom:10px;
 	}
 	
-	#bbs table td:hover{
-		background-color: #ececec;
-	}
-	
 	#bbs table th,#bbs table td {
 	    text-align:center;
 	    border:1px solid #ececec;
@@ -120,10 +116,11 @@
 	
 	#c_pont{
 		text-decoration : none;
+		color: black;
 		
 	}
-	#c_pont :hover{
-		color:red;	
+	#c_pont:hover{
+		color:#85c4b9;	
 	}
 	#writeBtn{
 		border: 1px solid #9f9393;
