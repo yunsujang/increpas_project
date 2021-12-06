@@ -63,8 +63,8 @@ public class UserBbsDAO {
 	}
 	
 	//기본키를 인자로 하여 원글 검색
-	public BbsVO getBbs(String evbbs_idx) {
-		return ss.selectOne("userBbs.getBbs", evbbs_idx);
+	public BbsVO getBbs(String evcbbs_idx) {
+		return ss.selectOne("userBbs.getBbs", evcbbs_idx);
 	}
 	
 	//쓰기
@@ -83,12 +83,12 @@ public class UserBbsDAO {
 		return ss.update("userBbs.edit", vo);
 	}
 	//삭제
-	public int delBbs(String evbbs_idx) {
-		return ss.update("userBbs.del", evbbs_idx);
+	public int delBbs(String evcbbs_idx) {
+		return ss.update("userBbs.del", evcbbs_idx);
 	}
 	//조회수
-	public int updateHit(String evbbs_idx) {
-		return ss.update("userBbs.hit", evbbs_idx);
+	public int updateHit(String evcbbs_idx) {
+		return ss.update("userBbs.hit", evcbbs_idx);
 		
 	}
 	

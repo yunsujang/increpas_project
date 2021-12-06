@@ -13,8 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ele.go.vo.EleVO;
 import ev.vo.CategoryVO;
+import mybatis.vo.EleVO;
 import user.service.CategoryService;
 
 @Controller

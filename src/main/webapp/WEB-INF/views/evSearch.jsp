@@ -54,9 +54,9 @@
 	    text-align:center;
 	    border:1px solid #ececec;
 	    padding:4px 10px;
-	    /*이 두녀석 추가*/
 	    border-right: none;
     	border-left: none;
+    	height: 40px;
     	
 	}
 	
@@ -65,7 +65,7 @@
 	.writer {width:20%}
 	.reg {width:25%}
 	.hit {width:10%}
-	.title{background:#85c4b9}
+	.title{background:#85c4b9; font-size: 16px;}
 	
 	.odd {background:silver}
 	
@@ -177,7 +177,6 @@
 	    font-weight: bold;
 	    cursor: pointer;
 	    float: left;
-	    border-top: hidden;
 	}
 	
 </style>
@@ -233,22 +232,22 @@
 						</td>
 						<td  style="text-align: left" >
 						
-							<a href="view.ev?evbbs_idx=${vo.evbbs_idx}&cPage=${nowPage}"
+							<a href="view.ev?evcbbs_idx=${vo.evcbbs_idx}&cPage=${nowPage}"
 								id="c_pont">
-								${vo.evbbs_title }
+								${vo.evcbbs_title }
 								<!-- 길이를 구하는함수인데 구할걸 안에다 넣어주면 된다. -->
 								<c:if test="${fn:length(vo.comment_list)>0}">
 								(${fn:length(vo.comment_list)}) <!-- 댓글 수  -->
 								</c:if>
 							</a>
 						</td>
-						<td>${vo.evbbs_writer }</td> <!-- 글쓴이 -->
+						<td>${vo.evcbbs_writer }</td> <!-- 글쓴이 -->
 						<td>
-						<c:set var="evbbs_write_date" value="${vo.evbbs_write_date }"></c:set>
+						<c:set var="evcbbs_write_date" value="${vo.evcbbs_write_date }"></c:set>
 							${fn:substring(evbbs_write_date,0,16)} <!-- 올린날짜 -->
 							
 						</td>
-						<td>${vo.evbbs_hit}</td>
+						<td>${vo.evcbbs_hit}</td>
 					</tr>
 				</c:forEach>
 				<div id="content">

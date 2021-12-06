@@ -32,7 +32,7 @@ public class BbsViewController {
 			boolean value = true;
 			
 			for(BbsVO bvo : r_list){
-				if(bvo.getEvbbs_idx().equals(vo.getEvbbs_idx())){
+				if(bvo.getEvcbbs_idx().equals(vo.getEvcbbs_idx())){
 					value = false;
 					break;
 				}
@@ -42,7 +42,7 @@ public class BbsViewController {
 	
 	
 	@RequestMapping("/view.ev")
-	public ModelAndView view(String evbbs_idx, String cPage) {
+	public ModelAndView view(String evcbbs_idx, String cPage) {
 		ModelAndView mv = new ModelAndView();
 		
 		HttpSession session = request.getSession();
@@ -56,19 +56,19 @@ public class BbsViewController {
 			r_list = (ArrayList<BbsVO>)obj;
 		}
 		
-		BbsVO vo2 =b_dao.getBbs(evbbs_idx);
+		BbsVO vo2 =b_dao.getBbs(evcbbs_idx);
 			
 			//위에서 검색된 BbsVO가 이전에 한번이라도 읽었던 것이라는
 			// 반드시 read_list(r_list)에 저장되었을 것이다.
 			if(checkBbs(vo2)) {
 			//한번도 읽지 않은 게시물이므로 hit수를 증가시킨 후
 			// r_list에 추가
-			b_dao.updateHit(evbbs_idx);
+			b_dao.updateHit(evcbbs_idx);
 			r_list.add(vo2);
 		}
 		
 		
-		BbsVO vo = b_dao.getBbs(evbbs_idx);
+		BbsVO vo = b_dao.getBbs(evcbbs_idx);
 		mv.addObject("vo", vo);
 		mv.addObject("ip", request.getRemoteAddr());
 		//cPage도 사실 가야 하는데... 저장할 필요는 없다.

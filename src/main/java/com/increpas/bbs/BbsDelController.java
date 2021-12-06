@@ -13,9 +13,9 @@ public class BbsDelController {
 	private UserBbsDAO b_dao;
 	
 	@RequestMapping("/delete.ev")
-	public String del(String evbbs_idx, String cPage) {
-		b_dao.delBbs(evbbs_idx);
-		//System.out.println(evbbs_idx+"/"+cPage);
+	public String del(String evcbbs_idx, String cPage) {
+		b_dao.delBbs(evcbbs_idx);  
+		//System.out.println(evbbs_idx+"/"+cPage); 
 		return "redirect:/list.ev?cPage="+cPage;
 	}
 }
