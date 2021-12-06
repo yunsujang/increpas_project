@@ -35,4 +35,8 @@ public interface AdminCategorySerivce {
 	
 	//삭제한 게시판 가져오기
 	CategoryVO[] getRecoveryCategoryList(String begin, String end);
+	
+	//삭제한 게시판 복구
+	int RecoveryCategory(String name);
+
 }

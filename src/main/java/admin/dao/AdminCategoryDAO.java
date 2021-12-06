@@ -97,5 +97,11 @@ public class AdminCategoryDAO {
 			}
 			return ar;
 		}
+		
 	
+	public int RecoveryCategory(String name) {
+		return ss.update("category.RecoveryCategory",name);
+	}
+		
+
 }

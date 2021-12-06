@@ -126,4 +126,8 @@
 		) WHERE r_num BETWEEN #{begin} AND #{end}
 	</select>
 	
+	<update id="RecoveryCategory" parameterType="String">
+		UPDATE evcategory_t set evcategory_status = 0
+		WHERE evcategory_name = #{name}
+	</update>
 </mapper>
