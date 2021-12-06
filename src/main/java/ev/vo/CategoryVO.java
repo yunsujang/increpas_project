@@ -1,48 +1,4 @@
-<<<<<<< HEAD
-package ev.vo;
 
-import java.util.List;
-
-public class CategoryVO {
-	private String evcategory_idx, evcategory_name, evcategory_status;
-	private List<BbsVO> b_list;
-
-	public String getEvcategory_idx() {
-		return evcategory_idx;
-	}
-
-	public void setEvcategory_idx(String evcategory_idx) {
-		this.evcategory_idx = evcategory_idx;
-	}
-
-	public String getEvcategory_name() {
-		return evcategory_name;
-	}
-
-	public void setEvcategory_name(String evcategory_name) {
-		this.evcategory_name = evcategory_name;
-	}
-
-	public String getEvcategory_status() {
-		return evcategory_status;
-	}
-
-	public void setEvcategory_status(String evcategory_status) {
-		this.evcategory_status = evcategory_status;
-	}
-
-
-
-	public List<BbsVO> getB_list() {
-		return b_list;
-	}
-
-	public void setB_list(List<BbsVO> b_list) {
-		this.b_list = b_list;
-	}
-
-}
-=======
 package ev.vo;
 
 import java.util.List;
@@ -112,4 +68,3 @@ public class CategoryVO {
 	}
 
 }
->>>>>>> branch 'master' of https://github.com/yunsujang/increpas_project.git
