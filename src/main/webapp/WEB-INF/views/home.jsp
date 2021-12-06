@@ -2,9 +2,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <html>
 <head>
+
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
@@ -80,10 +80,16 @@
 }
 
 .header_banner {
-	border: 1px solid black;
 	text-align: center;
 	width: auto;
-	height: 190px;
+	height: 200px;
+}
+
+.header_banner article{
+	margin:auto;
+	text-align:center;
+	width: 300px;
+	height: 100%;
 }
 
 .articles {
@@ -105,7 +111,10 @@
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
 		<div class="header_banner">
-			<a>배너</a>
+			<article>
+				<a href="evMap"><img style="width: 100%"; height="70%"  alt="" src="resources/img/banner.png"></a>
+				
+			</article>
 		</div>
 
 		<div class="newContents">

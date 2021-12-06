@@ -218,6 +218,7 @@
 		</ul>
 		<div>
 			<div id="evbbs">
+			<p>${vo.evcategory_name }</p>
 			<p class="totalList">총 ${totalCount }건</p>
 		<div class="bbs-in-div">
 			<input type="button" class="btns" value="글쓰기"

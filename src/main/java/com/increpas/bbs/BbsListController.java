@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
+import user.service.CategoryService;
 import user.util.UserBbsPaging;
 
 @Controller
@@ -15,6 +17,9 @@ public class BbsListController {
 
 	@Autowired
 	private UserBbsDAO b_dao;
+	
+	@Autowired
+	private CategoryService categoryservice;
 	
 	int nowPage;
 	int rowTotal;
@@ -42,9 +47,13 @@ public class BbsListController {
 		int end = page.getEnd();
 		
 		BbsVO[] ar = b_dao.getList(begin, end, evcategory_idx);
-	
+		
+		//헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+		
 		//JSP에서 표현해야 하므로 ar을 mv에 저장한다.
 		mv.addObject("ar", ar);
+		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("nowPage", nowPage);
 		mv.addObject("blockList", blockList);
 		mv.addObject("rowTotal", rowTotal);
