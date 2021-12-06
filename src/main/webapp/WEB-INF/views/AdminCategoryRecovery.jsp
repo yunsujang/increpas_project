@@ -206,9 +206,8 @@
 					<tr>
 						<td>${st.index+1 }</td>
 						<%-- 게시판명 클릭 부분 --%>
-						<td  style="cursor:pointer" onclick="location.href='admin.bbsList2?category_idx=${vo.evcategory_idx}'">
+						<td>
 						<label id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
-						
 						</td>
 						
 						<td>${fn:length(vo.b_list ) }</td>

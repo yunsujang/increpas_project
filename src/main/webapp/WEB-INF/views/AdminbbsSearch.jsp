@@ -11,6 +11,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+
 #evbbs {
 	width: 80%;
 	margin: auto;
@@ -151,48 +153,7 @@
 	margin: 50px 0 0 0;
 }
 
-.tab {
-	float: left;
-	width: 100%;
-	height: 100%;
- }
 
-.tabnav {
-	font-size: 0;
-	width: 97.5%;
-	border-bottom: 1px solid #ddd;
-	margin: 50px 0 0 0;
-}
-
-.tabnav li {
-	display: inline-block;
-	height: 46px;
-	text-align: center;
-	border-right: 1px solid #ddd;
-}
-
-
-.tabnav li a {
-	position: relative;
-	display: block;
-	background: #f8f8f8;
-	color: #000;
-	padding: 0 30px;
-	line-height: 46px;
-	text-decoration: none;
-	font-size: 16px;
-}
-
-.tabnav li a:hover, .tabnav li a.active {
-	background: #fff;
-	color: #7ea21e;
-}
-
-.tabcontent {
-	height: 100%;
-	border-top: none;
-	margin: 50px 0;
-}
 .btns{
 	border: none;
 	background-color: #85c4b9;
@@ -211,48 +172,44 @@
 </style>
 </head>
 <body>
-
+	<div id="wrap">
+	<div id="evbbs">
 	<jsp:include page="Adminheader.jsp" />
 
-	<div class="tab">
-		<ul class="tabnav">
-			<li><a href="">전체 게시물</a></li>
-			<c:forEach items="${categoryName_ar }" var="vo" varStatus="st">
-				<li><a href='admin.bbsList2?category_idx=${vo.evcategory_idx }'>${vo.evcategory_name }</a></li>
-			</c:forEach>
-		</ul>
-		<div>
-			<div id="evbbs">
-			<p class="totalList">총 ${totalCount }건</p>
-		<div class="bbs-in-div">
-			<input type="button" class="btns" value="글쓰기"
-				onclick="javascript:location.href='admin.bbsWrite'" />
-	
 				
-		</div>
-		<table summary="게시글 목록">
+
+		<table summary="게시글 검색 결과">
+		<h1 id="content_title">"${searchValue }"에 대한 검색 결과</h1>
 			<thead>
 				<tr class="title">
 					<th class="no">번호</th>
-					<th class="category">게시판명</th>
+					<th class="category">게시판</th>
 					<th class="title">제목</th>
 					<th class="writer">글쓴이</th>
 					<th class="reg">날짜</th>
-				</tr>	
+				</tr>
 			</thead>
 
 			<tbody>
-				<c:forEach var="vo" items="${ar }" varStatus="st">
+			
+			
+				<c:forEach var="vo" items="${search_ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
-						<td >${vo.evcategory_idx }</td>
-						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }&cPage=${cPage}">${vo.evbbs_title }</a></td>
+					
+							
+						<td>${vo.evcategory_idx }</td>
+						<td><a class="title font " 
+						href="/admin.view?evbbs_idx=${vo.evbbs_idx }">
+						${vo.evbbs_title }</a></td>
+						
 						<td>${vo.evbbs_writer }</td>
+						
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
 					</tr>
 				</c:forEach>
 				
-				<!--검색-->
+		<!--검색-->
 		
 				<div id="content">
 					<form action="admin.search" method="post">
@@ -264,13 +221,14 @@
 				</div>
 			</tbody>
 		</table>
+		</div>			
+		</div>			
 		<div class="bbsListFoot">${pageCode }</div>
-	</div>
-		</div>
-	</div>
-	
-	<!--tab-->
-	<script>
+
+
+
+
+		<script>
 		function search(frm){
 			if($("#searchValue").val().trim() <=0){
 				alert("검색어를 입력하세요.");
@@ -281,10 +239,9 @@
 		}
 
 	</script>
+	
 	<script type="text/javascript">
-		$(function() {
-			
-		})
+	
 </script>
 </body>
 </html>

@@ -158,14 +158,13 @@
 
 	function sendData(){
 		var title = $("#evbbs_title").val().trim();
-		var content = $("#evbbs_content").val().trim();
 		
 		if(title.length <= 0){
 			alert("제목을 입력하세요.");
 			document.forms[0].title.focus();
 			return;//수행 중단
 		}
-		if(content.length <= 0){
+		if($("#evbbs_content").val().trim().length <= 0){
 			alert("내용을 입력하세요.");
 			document.forms[0].writer.focus();
 			return;//수행 중단
@@ -173,8 +172,6 @@
 		
 		document.forms[0].submit();
 	}
-	
-
 	
 	function fileCheck(obj){
 		if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(obj.value)){ 

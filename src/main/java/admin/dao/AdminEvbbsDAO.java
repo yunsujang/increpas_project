@@ -1,7 +1,5 @@
 package admin.dao;
 
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +55,30 @@ public class AdminEvbbsDAO {
 		return ss.selectOne("bbs.AdmintotalCount");
 	}
 	
+	//검색 결과의 총 게시물 가져오기
+	public BbsVO[] search(String searchValue, String begin, String end) {
+		Map<String, String>map = new HashMap<String, String>();
+		BbsVO[] ar = null;
+		map.put("searchValue", searchValue);
+		map.put("begin", begin);
+		map.put("end", end);
+		
+		List<BbsVO>m_list = ss.selectList("bbs.searchResult", map);
+		if(m_list != null && !m_list.isEmpty()) {
+			ar = new BbsVO[m_list.size()];
+			m_list.toArray(ar);
+		}
+			
+		return ar;
+	}
+	
+	//검색 결과의 총 게시물의 수
+	public int searchTotalCount(String searchValue) {
+		return ss.selectOne("bbs.searchTotalCount", searchValue);
+	}
+	
+	
+	
 	public BbsVO[] categoryIdxToList(String begin, String end,String idx) {
 		BbsVO[]ar = null;
 		
@@ -85,6 +107,4 @@ public class AdminEvbbsDAO {
 	public int ajaxTotalList2(String name) {
 		return ss.selectOne("bbs.ajaxTotalList2", name);
 	}
-	
-
 }
