@@ -5,6 +5,26 @@ import java.util.List;
 public class CategoryVO {
 	private String evcategory_idx, evcategory_name, evcategory_status, evcategory_type;
 	private List<BbsVO> b_list;
+	
+	private String changeIdx;
+	private String changeName;
+
+	
+	public String getChangeIdx() {
+		return changeIdx;
+	}
+
+	public void setChangeIdx(String changeIdx) {
+		this.changeIdx = changeIdx;
+	}
+
+	public String getChangeName() {
+		return changeName;
+	}
+
+	public void setChangeName(String changeName) {
+		this.changeName = changeName;
+	}
 
 	public String getEvcategory_idx() {
 		return evcategory_idx;

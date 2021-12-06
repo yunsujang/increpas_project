@@ -41,6 +41,16 @@
 	height: 30px;
 }
 
+#changebtn{
+	height: 31px;
+	border-radius: 3px;
+    border: 1px solid gray;
+	background-color: #85C4B9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .no {
 	width: 10%
 }
@@ -151,6 +161,28 @@
 #updateDialog {
 	display: none;
 }
+
+.ui-dialog-title {
+    float: left;
+    margin: 0.1em 0;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ui-widget-content {
+    margin-top: -7px;
+}
+.ui-widget-header {
+	
+    background: #85c4b9;
+	color: #ffffff;
+	
+}
+
+
+
 </style>
 </head>
 <body>
@@ -180,21 +212,36 @@
 			<tbody>
 				<c:forEach items="${cvo }" var="vo">
 					<tr>
-						<%-- 순차적인 번호를 만들어서 표현하자! --%>
 						<td>${vo.evcategory_idx }</td>
-						<td>${vo.evcategory_name }</td>
+						<%-- 게시판명 클릭 부분 --%>
+						<td  style="cursor:pointer" onclick="location.href='admin.bbsList2?category_idx=${vo.evcategory_idx}'">
+						<label id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
+						
+						</td>
+						
 						<td>${fn:length(vo.b_list ) }</td>
 						<td>${vo.evcategory_type }</td>
-						<td><button class="btns" id="updateBtn">수정</button></td>
+						
+						<td><button class="btns" id="updateBtn" onclick="updates('${vo.evcategory_idx}')">수정</button></td>
 						<td><button class="btns" id="deleteBtn${vo.evcategory_idx }"
 								onclick="deletes('${vo.evcategory_idx}')">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<!-- 수정버튼 눌렀을때 -->
+		<form id="changeForm" name="changeForm" method="post">
 		<div class="paging-div">${pageCode }</div>
-		<div id="updateDialog"></div>
-	</div>
+		<div id="updateDialog" title="게시판 수정하기">
+		<p style="font-size: 13px;">수정할 게시판명을 입력해주세요.</p>
+		<input type="hidden" id="changeIdx" name="changeIdx" value=""/>
+		<input type="text" id="changeName" name="changeName" value="">
+		
+		<button type="button" id="changebtn" onclick="changeBoard()" style="margin-left: 5px;">변경</button>
+		</div>
+		</form>
+		
+		</div>
 
 	<script type="text/javascript">
 		function search() {
@@ -242,16 +289,80 @@
 			});
 		}
 
-		$("#updateBtn").bind("click", function() {
-			var checkBtn = $(this);
-			var tr = checkBtn.parent().parent();
-			var td = tr.children();
-			var name = td.eq(1).text();
-			$("#updateDialog").dialog({
-				
-			});
+		function updates(idx) {
+			var checkBtn = $("#updateBtn" + idx);
+
 			
-		});
+			var modcategoryName = $('#categoryName_' + idx).text();
+
+			$('#changeIdx').val(idx);
+			$('#changeName').val(modcategoryName);
+			$("#updateDialog").dialog();
+		}
+
+		function changeBoard() {
+
+			//게시판 idx와 수정한 게시판명 가져오기
+			var changeIdx = $('#changeIdx').val();
+			var changeName = $('#changeName').val();
+
+			//확인
+			console.log(changeIdx);
+			console.log(changeName);
+
+			//json형태로 담기
+			var param = {
+				"changeIdx" : changeIdx,
+				"changeName" : changeName
+			}
+
+			//보내버려
+			$.ajax({
+				url : "updateCategory",
+				data : JSON.stringify(param), //datajson형
+				type : "post",
+				contentType : "application/json; charset=UTF-8", //json으로 보내는것 명시
+				processData : false,
+				cache : false,
+				dataType : "json", //서버로부터 받을 데이터 형식
+
+			}).done(function(data) {
+				
+
+				alert(data.msg);
+				location.href = "admin.category";
+
+			}).fail(function(err) {
+				//실패
+				alert("게시판명 수정 실패");
+			});
+
+
+		}
+
+		// 받은이름으로 비동기식 수정 진행한후 수정잘됬다고 띄움
+		function updateCategory(name) {
+			var frm = new FormData();
+
+			//보내고자하는 자원을 위해서 만든 폼객체에 파라미터로 넣어준다.
+			frm.append("name", name);
+
+			$.ajax({
+				url : "updateCategory",
+				data : frm,
+				type : "post",
+				contentType : false,
+				processData : false,
+				cache : false,
+				dataType : "json", 
+
+			}).done(function(data) {
+				alert(data.updateName + "이 변경 되었습니다.");
+				location.href = "admin.category";
+			}).fail(function(err) {
+
+			});
+		}
 	</script>
 </body>
 </html>

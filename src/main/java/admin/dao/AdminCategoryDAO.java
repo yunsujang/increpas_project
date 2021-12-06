@@ -64,4 +64,17 @@ public class AdminCategoryDAO {
 	public String idxToName(String category_idx) {
 		return ss.selectOne("category.idxToName",category_idx);
 	}
+	
+	// category.xml에서 받은 DB 입력한 id로 받아오는 기능
+	public int updateCategory(Map<String,Object> param) {
+		
+		return  ss.update("category.updateCategory", param);
+		
+	}
+	
+	public int updateCategoryCheck(String changeCategory) {	
+		return  ss.selectOne("category.updateCategoryCheck", changeCategory);
+		
+		
+	}
 }
