@@ -139,7 +139,7 @@
 	<select id="ajaxTotalList2" parameterType="String" resultType="int">
 		SELECT COUNT (*) FROM evbbs_t
 		WHERE evcategory_idx = #{idx}
-		AND evbbs_status = 0
+		AND evbbs_status = 1
 	</select>
 	
 	<update id="AdmindeleteBbs" parameterType="String">
@@ -165,5 +165,10 @@
 	<update id="Admindel" parameterType="String">
 		UPDATE evbbs_t set evbbs_status = 1
 		WHERE evbbs_idx = #{evbbs_idx}
+	</update>
+	
+	<update id="AdminRecoveryBbs" parameterType="String">
+		UPDATE evbbs_t set evbbs_status = 0
+		WHERE evcategory_idx = #{idx }
 	</update>
 </mapper>

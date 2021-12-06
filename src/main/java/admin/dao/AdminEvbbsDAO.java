@@ -107,4 +107,10 @@ public class AdminEvbbsDAO {
 	public int ajaxTotalList2(String name) {
 		return ss.selectOne("bbs.ajaxTotalList2", name);
 	}
+	
+	public int AdminRecoveryBbs(String idx) {
+		System.out.println(idx);
+		return ss.update("category.AdminRecoveryBbs", idx);
+	}
+	
 }

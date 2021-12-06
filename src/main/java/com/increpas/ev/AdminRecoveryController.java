@@ -1,10 +1,16 @@
 package com.increpas.ev;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.service.AdminBbsService;
 import admin.service.AdminCategorySerivce;
 import admin.util.categoryRecoveryPaging;
 import ev.vo.CategoryVO;
@@ -16,6 +22,9 @@ public class AdminRecoveryController {
 	
 	@Autowired
 	AdminCategorySerivce admincategoryservice;
+	
+	@Autowired
+	AdminBbsService adminbbsservice;
 	
 	@RequestMapping("/admin.CategoryRecovery")
 	public ModelAndView recoveryHome(String cPage) {
@@ -62,6 +71,26 @@ public class AdminRecoveryController {
 		
 		mv.setViewName("AdminCategoryRecovery");
 		return mv;
+	}
+	
+	
+	@RequestMapping(value = "/recoveryCategory",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> recoveryCategory(String name){
+		System.out.println(name);
+		Map<String, String>map = new HashMap<String, String>();
+		String recoveryName = name;
+		String idx = admincategoryservice.getCategoryidx(name);
+		System.out.println(idx);
+		int cnt = adminbbsservice.ajaxTotalList2(idx);
+		if(cnt > 0)
+			adminbbsservice.AdminRecoveryBbs(idx);
+		
+		admincategoryservice.RecoveryCategory(name);
+		
+		map.put("recoveryName", recoveryName);
+		
+		return map;
 	}
 
 }

@@ -72,4 +72,12 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		// TODO Auto-generated method stub
 		return c_dao.getRecoveryCategoryList(begin, end);
 	}
+
+	@Override
+	public int RecoveryCategory(String name) {
+		// TODO Auto-generated method stub
+		return c_dao.RecoveryCategory(name);
+	}
+
+
 }

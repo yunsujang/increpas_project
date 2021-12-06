@@ -237,6 +237,31 @@
 			alert("취소하셨습니다.");
 		}
 		
+		
+		
+	}
+	
+	function recoveryCategory(name) {
+		var frm = new FormData();
+
+		//보내고자하는 자원을 위해서 만든 폼객체에 파라미터로 넣어준다.
+		frm.append("name", name);
+
+		$.ajax({
+			url : "recoveryCategory",
+			data : frm,
+			type : "post",
+			contentType : false,
+			processData : false,
+			cache : false,
+			dataType : "json", //서버로부터 받을 데이터 형식
+
+		}).done(function(data) {
+			alert(data.recoveryName + "이(가) 복구 되었습니다.");
+			location.href = "admin.category";
+		}).fail(function(err) {
+
+		});
 	}
 	</script>
 </body>
