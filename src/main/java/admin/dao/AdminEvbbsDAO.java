@@ -77,8 +77,13 @@ public class AdminEvbbsDAO {
 		return ss.selectOne("bbs.ajaxTotalList", idx);
 	}
 	
-	public int AdmindeleteBbs(String idx) {
-		return ss.selectOne("bbs.AdmindeleteBbs", idx);
+	//게시판 삭제 시 해당 게시판의 게시물 삭제
+	public int AdmindeleteBbs(String name) {
+		return ss.update("bbs.AdmindeleteBbs", name);
+	}
+	
+	public int ajaxTotalList2(String name) {
+		return ss.selectOne("bbs.ajaxTotalList2", name);
 	}
 	
 

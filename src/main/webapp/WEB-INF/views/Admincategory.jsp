@@ -192,7 +192,7 @@
 		<p class="totalList">총 ${totalCount }건</p>
 		<div class="bbs-in-div">
 			<button class="btns create-category-btn">게시판 생성</button>
-			<button class="btns recovery-category-btn">게시판 복구</button>
+			<button class="btns recovery-category-btn" onclick="recovery()">게시판 복구</button>
 			<form>
 				<input type="text" />
 				<button class="btns" onclick="search()">검색</button>
@@ -209,9 +209,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${cvo }" var="vo">
+				<c:forEach items="${cvo }" var="vo" varStatus="st">
 					<tr>
-						<td>${vo.evcategory_idx }</td>
+							<td>${st.index+1 }</td>
 						<%-- 게시판명 클릭 부분 --%>
 						<td  style="cursor:pointer" onclick="location.href='admin.bbsList2?category_idx=${vo.evcategory_idx}'">
 						<label id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
@@ -360,6 +360,10 @@
 			}).fail(function(err) {
 
 			});
+		}
+		
+		function recovery() {
+			location.href="admin.CategoryRecovery";
 		}
 	</script>
 </body>

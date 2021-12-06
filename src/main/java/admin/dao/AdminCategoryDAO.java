@@ -77,4 +77,25 @@ public class AdminCategoryDAO {
 		
 		
 	}
+	
+	public int deleteTotalCount() {
+		return ss.selectOne("category.deleteTotalCount");
+	}
+	
+	// 받은 갯수만큼 게시글들을 반환하는 기능
+		public CategoryVO[] getRecoveryCategoryList(String begin, String end) {
+			CategoryVO[] ar = null;
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("begin", begin);
+			map.put("end", end);
+
+			List<CategoryVO> list = ss.selectList("category.AdmingetRecoveryCategoryList", map);
+			
+			if (list != null & !list.isEmpty()) {
+				ar = new CategoryVO[list.size()];
+				list.toArray(ar);
+			}
+			return ar;
+		}
+	
 }
