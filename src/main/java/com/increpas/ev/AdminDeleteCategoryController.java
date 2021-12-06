@@ -15,24 +15,27 @@ import admin.service.AdminCategorySerivce;
 
 @Controller
 public class AdminDeleteCategoryController {
-	
+
 	@Autowired
 	AdminCategorySerivce admincategoryservice;
-	
+
 	@Autowired
 	AdminBbsService adminbbsservice;
-	
-	
+
 	@ResponseBody
 	@RequestMapping(value = "deleteCategory", method = RequestMethod.POST)
-	public Map<String, String> deleteCategory(String name){
-		Map<String, String>map = new HashMap<String, String>();
+	public Map<String, String> deleteCategory(String name) {
+		Map<String, String> map = new HashMap<String, String>();
 		String deleteName = name;
-		int i = admincategoryservice.deleteCategory(name);
-		if( i > 0 ) {
-			map.put("deleteName", deleteName);
-		}
+		String idx = admincategoryservice.getCategoryidx(name);
+		int cnt = adminbbsservice.ajaxTotalList(idx);
+		System.out.println(cnt);
+		if (cnt > 0)
+			adminbbsservice.AdmindeleteBbs(idx);
 		
+		admincategoryservice.deleteCategory(name);
+		map.put("deleteName", deleteName);
+
 		return map;
 	}
 }

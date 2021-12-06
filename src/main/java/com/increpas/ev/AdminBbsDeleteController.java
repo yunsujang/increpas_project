@@ -13,7 +13,7 @@ public class AdminBbsDeleteController {
 	private AdminEvbbsDAO bbs_dao;
 	
 	@RequestMapping("/admin.del")
-	public String del(String evbbs_idx, String cPage) {
+	public String del(String evbbs_idx) {
 		bbs_dao.delBbs(evbbs_idx);  
 		return "redirect:/admin.bbsList";
 	}

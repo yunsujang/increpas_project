@@ -97,7 +97,7 @@ public class AdminEditController {
 		mv.setViewName("redirect:/admin.view?evbbs_idx="+vo.getEvbbs_idx()+"&cPage="+cPage);
 		}else if(ctx.startsWith("application")) {
 			BbsVO bvo = bbs_dao.getBbs(vo.getEvbbs_idx());
-			mv.addObject("vo", bvo);
+			mv.addObject("bvo", bvo);
 			
 			mv.setViewName("Adminedit");
 		}

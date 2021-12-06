@@ -136,8 +136,34 @@
 		AND evbbs_status = 0
 	</select>
 	
+	<select id="ajaxTotalList2" parameterType="String" resultType="int">
+		SELECT COUNT (*) FROM evbbs_t
+		WHERE evcategory_idx = #{idx}
+		AND evbbs_status = 0
+	</select>
+	
 	<update id="AdmindeleteBbs" parameterType="String">
 		UPDATE evbbs_t set evbbs_status = 1
-		WHERE evcategory_idx = #{idx}
+		WHERE evcategory_idx = #{idx }
+	</update>
+	
+	
+	<!-- 원글 수정 -->
+	<update id="Adminedit" parameterType="ev.vo.BbsVO">
+		UPDATE evbbs_t
+		SET evbbs_title = #{evbbs_title},
+			evbbs_content = #{evbbs_content},
+			evbbs_ip = #{evbbs_ip}
+			<if test="evbbs_file_name != null">
+				,evbbs_file_name = #{evbbs_file_name}
+			</if>
+		WHERE evbbs_idx = #{evbbs_idx}
+	</update>
+	
+	
+	<!-- 삭제 -->
+	<update id="Admindel" parameterType="String">
+		UPDATE evbbs_t set evbbs_status = 1
+		WHERE evbbs_idx = #{evbbs_idx}
 	</update>
 </mapper>

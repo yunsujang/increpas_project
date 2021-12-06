@@ -246,7 +246,7 @@
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
 						<td >${vo.evcategory_idx }</td>
-						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a></td>
+						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }&cPage=${cPage}">${vo.evbbs_title }</a></td>
 						<td>${vo.evbbs_writer }</td>
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
 					</tr>
@@ -282,14 +282,9 @@
 
 	</script>
 	<script type="text/javascript">
-<<<<<<< HEAD
-	
-
-=======
 		$(function() {
 			
 		})
 </script>
->>>>>>> branch 'master' of https://github.com/yunsujang/increpas_project.git
 </body>
 </html>

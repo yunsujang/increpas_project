@@ -47,8 +47,6 @@
 		order by evcategory_idx asc
 	</select>
 	<!-- 관리자 SQL문 -->
-	
-	
 	<select id="AdminBbsList" parameterType="String"
 		resultType="ev.vo.BbsVO">
 		SELECT *FROM evbbs_t
@@ -108,4 +106,24 @@
 	SELECT evcategory_name FROM evcategory_t
 	WHERE evcategory_idx = #{evcategory_idx}
 	</select>
+	
+	<!-- 삭제된 카테고리의 총 갯수 가져오기 -->
+	<select id="deleteTotalCount" resultType="int">
+		SELECT COUNT(*) from evcategory_t
+		WHERE evcategory_status = 1
+	</select>
+	
+	<!--  -->
+	<select id="AdmingetRecoveryCategoryList" parameterType="Map"
+		resultMap="map1">
+		SELECT * FROM(
+		SELECT rownum r_num,a.* FROM(
+		SELECT * FROM
+		evcategory_t
+		WHERE evcategory_status = 1
+		ORDER BY evcategory_idx ASC
+		) a
+		) WHERE r_num BETWEEN #{begin} AND #{end}
+	</select>
+	
 </mapper>
