@@ -61,13 +61,13 @@
     	font-weight: bold;
 	}
 	
-	#evbbs_title{
+	#evcbbs_title{
 		height: 24px;
 	}
 	
 	.no {width:15%}
-	.evbbs_title {width:30%;}
-	.evbbs_writer {width:20%}
+	.evcbbs_title {width:30%;}
+	.evcbbs_writer {width:20%}
 	.reg {width:20%}
 	.hit {width:15%}
 	.title{background:lightsteelblue}
@@ -87,16 +87,16 @@
 			<tbody>
 				<tr>
 					<th>제목:</th>
-					<td><input type="text" id="evbbs_title"name="evbbs_title" size="45" 
+					<td><input type="text" id="evcbbs_title"name="evcbbs_title" size="45" 
 					placeholder="제목을 입력해 주세요."/></td>
 				</tr>
 				<tr>
 					<th>작성자:</th>
-					<td><input id="evbbs_writer"type="text" name="evbbs_writer" size="12"/></td>
+					<td><input id="evcbbs_writer"type="text" name="evcbbs_writer" size="12"/></td>
 				</tr>
 				<tr>
 					<th>내용:</th>
-					<td><textarea name="evbbs_content" id="evbbs_content" cols="50" 
+					<td><textarea name="evcbbs_content" id="evcbbs_content" cols="50" 
 							rows="8" ></textarea></td>
 				</tr>
 				<tr>
@@ -120,7 +120,7 @@
 	<script src="resources/js/lang/summernote-ko-KR.js"></script>
 	<script>
 	$(function(){
-		$("#evbbs_content").summernote({
+		$("#evcbbs_content").summernote({
 			height: 400,
 			lang: "ko-KR",
 			focus: true, /* 커서를 미리 가져다 놓는다. */
@@ -134,7 +134,7 @@
 				}
 			}
 		});
-		$("#evbbs_content").summernote("lineHeight");
+		$("#evcbbs_content").summernote("lineHeight");
 	});
 		
 	function sendImage(file, editor){
@@ -154,7 +154,7 @@
 				cache: false,
 				dataType: "json", // 서버로부터 받을 데이터 형식
 			}).done(function(data){
-				$("#evbbs_content").summernote("editor.insertImage", data.url+"/"+data.fname);
+				$("#evcbbs_content").summernote("editor.insertImage", data.url+"/"+data.fname);
 			}).fail(function(err){
 				//서버에서 오류가 발생 시
 			});
@@ -163,14 +163,14 @@
 		
 		
 		function sendData(){
-			if($("#evbbs_title").val().trim() <=0){
+			if($("#evcbbs_title").val().trim() <=0){
 				alert("제목을 입력하세요");
-				$("#evbbs_title").focus();
+				$("#evcbbs_title").focus();
 				return;//수행 중단
 			}
-			if($("#evbbs_writer").val().trim() <=0){
+			if($("#evcbbs_writer").val().trim() <=0){
 				alert("작성자를 입력하세요");
-				$("#evbbs_writer").focus();
+				$("#evcbbs_writer").focus();
 				return;//수행 중단
 			}
 			document.forms[1].submit();

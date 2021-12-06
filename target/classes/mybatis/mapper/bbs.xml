@@ -130,11 +130,13 @@
 		evbbs_file_name,
 		evbbs_ori_name, evbbs_write_date, evbbs_ip, evbbs_hit,
 		evbbs_status,evcategory_idx,evu_idx)
+
 		VALUES(evbbs_seq.NEXTVAL,
 		#{evbbs_title}, #{evbbs_writer}, #{evbbs_content},
 		#{evbbs_file_name,
 		jdbcType=VARCHAR },
-		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate, #{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
+		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
+		#{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
 	</insert>
 
 	<select id="categoryIdxToList" parameterType="Map"
@@ -157,22 +159,8 @@
 		AND evbbs_status = 0
 	</select>
 	
-	<!-- 원글 수정 -->
-	<update id="Adminedit" parameterType="ev.vo.BbsVO">
-		UPDATE evbbs_t
-		SET evbbs_title = #{evbbs_title},
-			evbbs_content = #{evbbs_content},
-			evbbs_ip = #{evbbs_ip}
-			<if test="evbbs_file_name != null">
-				,evbbs_file_name = #{evbbs_file_name}
-			</if>
-		WHERE evbbs_idx = #{evbbs_idx}
-	</update>
-	
-	
-	<!-- 삭제 -->
-	<update id="Admindel" parameterType="String">
+	<update id="AdmindeleteBbs" parameterType="String">
 		UPDATE evbbs_t set evbbs_status = 1
-		WHERE evbbs_idx = #{evbbs_idx}
+		WHERE evcategory_idx = #{idx}
 	</update>
 </mapper>

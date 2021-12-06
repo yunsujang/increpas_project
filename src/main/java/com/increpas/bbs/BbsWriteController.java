@@ -78,7 +78,7 @@ public class BbsWriteController {
 		
 		//첨부파일을 vo로부터 얻어낸다.
 		MultipartFile mf = vo.getFile();
-		//System.out.println(vo.getEvbbs_title()+"//"+vo.getEvbbs_content());
+		//System.out.println(vo.getEvcbbs_title()+"//"+vo.getEvcbbs_content());
 		if(mf != null && mf.getSize() > 0) {
 			String realPath = application.getRealPath(bbs_upload);
 			
@@ -89,18 +89,18 @@ public class BbsWriteController {
 			//첨부파일 업로드
 			mf.transferTo(new File(realPath, fname));
 			    
-			vo.setEvbbs_file_name(fname);
-			vo.setEvbbs_ori_name(fname);
+			vo.setEvcbbs_file_name(fname);
+			vo.setEvcbbs_ori_name(fname);
 		}		
 		//vo.setEvcategory_idx("1");
-		vo.setEvbbs_ip(request.getRemoteAddr());
+		vo.setEvcbbs_ip(request.getRemoteAddr());
 		
 		b_dao.add(vo); //DB에 저장!!!!!!!!!!!
 		
 		ModelAndView mv = new ModelAndView();
 		
-		//System.out.println(vo.getEvbbs_idx()+"/"+
-		//vo.getEvbbs_file_name()+"/"+vo.getEvbbs_content());
+		//System.out.println(vo.getEvcbbs_idx()+"/"+
+		//vo.getEvcbbs_file_name()+"/"+vo.getEvcbbs_content());
 		
 		mv.setViewName("redirect:/list.ev");
 		
@@ -111,11 +111,11 @@ public class BbsWriteController {
 		public ModelAndView ans_write(CommentVO cvo,String cPage) {
 			
 			ModelAndView mv = new ModelAndView();
-			//System.out.println(cvo.getEvcomment_content()+"/"+cvo.getEvcomment_writer());
+			//System.out.println(cvo.getEvccomment_content()+"/"+cvo.getEvccomment_writer());
 			//댓글정보가 모두 cvo에 저장되어 넘어왔다.
 			b_dao.addAns(cvo);
 																	//cPage Change 1
-			mv.setViewName("redirect:/view.ev?evbbs_idx="+cvo.getEvbbs_idx()+"&cPage="+1);
+			mv.setViewName("redirect:/view.ev?evcbbs_idx="+cvo.getEvcbbs_idx()+"&cPage="+1);
 			
 			return mv;
 		}

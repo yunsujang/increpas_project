@@ -1,60 +1,62 @@
 package mybatis.vo;
 
 public class CommentVO {
-	private String evcomment_idx,
-				evcomment_writer,
-				evcomment_content, 
-				evcomment_write_date,
-				evcomment_ip,
-				evbbs_idx,
+	private String evccomment_idx,
+				evccomment_writer,
+				evccomment_content, 
+				evccomment_write_date,
+				evccomment_ip,
+				evcbbs_idx,
 				evu_idx;
 
-	public String getEvcomment_idx() {
-		return evcomment_idx;
+		
+
+	public String getEvccomment_idx() {
+		return evccomment_idx;
 	}
 
-	public void setEvcomment_idx(String evcomment_idx) {
-		this.evcomment_idx = evcomment_idx;
+	public void setEvccomment_idx(String evccomment_idx) {
+		this.evccomment_idx = evccomment_idx;
 	}
 
-	public String getEvcomment_writer() {
-		return evcomment_writer;
+	public String getEvccomment_writer() {
+		return evccomment_writer;
 	}
 
-	public void setEvcomment_writer(String evcomment_writer) {
-		this.evcomment_writer = evcomment_writer;
+	public void setEvccomment_writer(String evccomment_writer) {
+		this.evccomment_writer = evccomment_writer;
 	}
 
-	public String getEvcomment_content() {
-		return evcomment_content;
+	public String getEvccomment_content() {
+		return evccomment_content;
 	}
 
-	public void setEvcomment_content(String evcomment_content) {
-		this.evcomment_content = evcomment_content;
+	public void setEvccomment_content(String evccomment_content) {
+		this.evccomment_content = evccomment_content;
 	}
 
-	public String getEvcomment_write_date() {
-		return evcomment_write_date;
+	public String getEvccomment_write_date() {
+		return evccomment_write_date;
 	}
 
-	public void setEvcomment_write_date(String evcomment_write_date) {
-		this.evcomment_write_date = evcomment_write_date;
+	public void setEvccomment_write_date(String evccomment_write_date) {
+		this.evccomment_write_date = evccomment_write_date;
 	}
 
-	public String getEvcomment_ip() {
-		return evcomment_ip;
+	public String getEvccomment_ip() {
+		return evccomment_ip;
 	}
 
-	public void setEvcomment_ip(String evcomment_ip) {
-		this.evcomment_ip = evcomment_ip;
+	public void setEvccomment_ip(String evccomment_ip) {
+		this.evccomment_ip = evccomment_ip;
 	}
 
-	public String getEvbbs_idx() {
-		return evbbs_idx;
+	public String getEvcbbs_idx() {
+		return evcbbs_idx;
 	}
 
-	public void setEvbbs_idx(String evbbs_idx) {
-		this.evbbs_idx = evbbs_idx;
+	public void setEvcbbs_idx(String evcbbs_idx) {
+		this.evcbbs_idx = evcbbs_idx;
 	}
 
 	public String getEvu_idx() {

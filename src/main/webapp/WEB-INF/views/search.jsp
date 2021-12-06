@@ -9,7 +9,7 @@
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<title>검색결과 </title>
+<title>검색결과</title>
 <link rel="stylesheet" href="resources/css/footer/footer.css" />
 <link rel="stylesheet" href="resources/css/header/header.css" />
 <link rel="stylesheet" href="resources/css/main/main.css" />

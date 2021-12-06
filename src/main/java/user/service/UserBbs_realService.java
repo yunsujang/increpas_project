@@ -33,8 +33,8 @@ public class UserBbs_realService implements UserBbsService {
 	}
 
 	@Override
-	public BbsVO getBbs(String evbbs_idx) {
-		return ubbs_dao.getBbs(evbbs_idx);
+	public BbsVO getBbs(String evcbbs_idx) {
+		return ubbs_dao.getBbs(evcbbs_idx);
 	}
 
 	@Override
@@ -53,13 +53,13 @@ public class UserBbs_realService implements UserBbsService {
 	}
 
 	@Override
-	public int delBbs(String evbbs_idx) {
-		return ubbs_dao.delBbs(evbbs_idx);
+	public int delBbs(String evcbbs_idx) {
+		return ubbs_dao.delBbs(evcbbs_idx);
 	}
 
 	@Override
-	public int updateHit(String evbbs_idx) {
-		return ubbs_dao.updateHit(evbbs_idx);
+	public int updateHit(String evcbbs_idx) {
+		return ubbs_dao.updateHit(evcbbs_idx);
 	}
 
 }

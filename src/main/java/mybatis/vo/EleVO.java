@@ -1,4 +1,4 @@
-package ele.go.vo;
+package mybatis.vo;
 
 public class EleVO {
 	//전기차 충전소 공공데이터 오픈 api VO

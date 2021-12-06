@@ -166,28 +166,28 @@
 			<tbody >
 				<tr>
 					<p style="text-align: right; color: gray;">                            
-					<c:set var="evbbs_write_date" value="${vo.evbbs_write_date }"></c:set>
-							${fn:substring(write_date,0,16)} 조회 : ${vo.evbbs_hit}</p>
-					<td id="viewSubject">제목 : ${vo.evbbs_title} <!-- 올린날짜 -->
+					<c:set var="evcbbs_write_date" value="${vo.evcbbs_write_date }"></c:set>
+							${fn:substring(write_date,0,16)} 조회 : ${vo.evcbbs_hit}</p>
+					<td id="viewSubject">제목 : ${vo.evcbbs_title} <!-- 올린날짜 -->
 					</td>
 					
 				</tr>
-				<c:if test="${vo.evbbs_file_name != null}">
+				<c:if test="${vo.evcbbs_file_name != null}">
 				<tr>
 					
-					<td>첨부파일 : <a href="javascript: down('${vo.evbbs_file_name}')">
-						${vo.evbbs_file_name}
+					<td>첨부파일 : <a href="javascript: down('${vo.evcbbs_file_name}')">
+						${vo.evcbbs_file_name}
 					</a></td>
 				</tr>
 				</c:if>
 				<tr>
 					
-					<td>작성자 : ${vo.evbbs_writer}</td>
+					<td>작성자 : ${vo.evcbbs_writer}</td>
 				</tr>
 				<tr>
 				
 					<td id="viewContent"><p style="font-weight: bold;">
-						내용 :</p> ${vo.evbbs_content}
+						내용 :</p> ${vo.evcbbs_content}
 					</td>
 				</tr>
 				
@@ -211,13 +211,13 @@
 			내용을 게시할 경우 이용약관 및 관련 법률에 의해 제재될 수 있습니다.</p>	
 			
 		<form id="ansform" method="post" action="ans_write.ev">
-			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evcomment_writer"/><br/>
-			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evcomment_content"></textarea><br/>
+			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer"/><br/>
+			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content"></textarea><br/>
 			<%-- 원글을 의미하는 원글의 기본키 --%>
-			<input type="hidden" name="evbbs_idx" value="${vo.evbbs_idx}">
+			<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx}">
 			<input type="hidden" name="cPage" value="${cPage}"><%-- edit.jsp에서 
 						댓글을 저장한 후 다시 view.jsp로 돌아올 때 필요하다. --%>
-			<input type="hidden" name="ip" value="${evbbs_ip}">
+			<input type="hidden" name="ip" value="${evcbbs_ip}">
 			<input type="button" id="ansbtn" value="저장" onclick="ansSaveBtn(this.form)"/> 
 		</form><p/>
 			<br/>
@@ -229,10 +229,10 @@
 	<div id="comment_div">
 		<c:forEach var="cvo" items="${vo.comment_list }">
 			<div >
-					이름 : ${cvo.evcomment_writer} &nbsp;&nbsp;<br/>
-				날짜 :<c:set var="evcomment_write_date" value="${cvo.evcomment_write_date }"></c:set>
-					${fn:substring(evcomment_write_date,0,16)}<br/><br/>
-				내용 : ${cvo.evcomment_content }
+					이름 : ${cvo.evccomment_writer} &nbsp;&nbsp;<br/>
+				날짜 :<c:set var="evccomment_write_date" value="${cvo.evccomment_write_date }"></c:set>
+					${fn:substring(evccomment_write_date,0,16)}<br/><br/>
+				내용 : ${cvo.evccomment_content }
 			</div>
 			<hr/>
 		</c:forEach>
@@ -241,8 +241,8 @@
 	
 	<form name="frm" method="post" ><!-- frm 보내는 내용  -->
 		<input type="hidden" name="cPage" value="${param.cPage }">
-		<input type="hidden" name="evbbs_idx" value="${vo.evbbs_idx }">
-		<input type="hidden" name="evcategory_idx" value="${vo.evcategory_idx }"/>
+		<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx }">
+		<%--<input type="hidden" name="evcategory_idx" value="${vo.evcategory_idx }">  --%> 
 		<input type="hidden" name="f_name" />
 	</form>
 	<script>

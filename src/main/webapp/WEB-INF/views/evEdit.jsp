@@ -61,13 +61,13 @@
     	font-weight: bold;
 	}
 	
-	#evbbs_title{
+	#evcbbs_title{
 		height: 24px;
 	}
 	
 	.no {width:15%}
 	.subject {width:30%;}
-	.evbbs_writer {width:20%}
+	.evcbbs_writer {width:20%}
 	.reg {width:20%}
 	.hit {width:15%}
 	.title{background:lightsteelblue}
@@ -85,7 +85,7 @@
 	<form action="edit.ev" method="post" 
 	encType="multipart/form-data">
 	
-		<input type="hidden" name="evbbs_idx" value="${vo.evbbs_idx}"/>
+		<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx}"/>
 		<input type="hidden" name="cPage" value="${param.cPage}"/>
 		
 		<table summary="게시판 수정">
@@ -93,25 +93,25 @@
 			<tbody>
 				<tr>
 					<th>제목:</th>
-					<td><input type="text" id="evbbs_title" name="evbbs_title" size="45" 
-						value="${vo.evbbs_title}"/></td>
+					<td><input type="text" id="evcbbs_title" name="evcbbs_title" size="45" 
+						value="${vo.evcbbs_title}"/></td>
 				</tr>
 				<tr>
 					<th>작성자:</th>
-					<td><input class="editwriter" type="text" name="evbbs_writer" size="12" 
-						value="${vo.evbbs_writer}" readonly="readonly" style="background-color: #efefef;"/></td>
+					<td><input class="editwriter" type="text" name="evcbbs_writer" size="12" 
+						value="${vo.evcbbs_writer}" readonly="readonly" style="background-color: #efefef;"/></td>
 				</tr>
 				<tr>
 					<th>내용:</th>
-					<td><textarea name="evbbs_content" id="evbbs_content" cols="50" 
-							rows="8">${vo.evbbs_content}</textarea></td>
+					<td><textarea name="evcbbs_content" id="evcbbs_content" cols="50" 
+							rows="8">${vo.evcbbs_content}</textarea></td>
 				</tr>
 				<tr>
 					<th>첨부파일:</th>
 					<td>
 						<input type="file" name="file" style="background-color: aliceblue;"/>
-						<c:if test="${vo.evbbs_file_name ne null}">
-							(${vo.evbbs_file_name})
+						<c:if test="${vo.evcbbs_file_name ne null}">
+							(${vo.evcbbs_file_name})
 						</c:if>
 					</td>
 				</tr>
@@ -138,7 +138,7 @@
 	<script src="resources/js/lang/summernote-ko-KR.js"></script>
 	<script>
 		$(function(){
-			$("#evbbs_content").summernote({
+			$("#evcbbs_content").summernote({
 				height: 400,
 				lang: "ko-KR",
 				focus: true, /* 커서를 미리 가져다 놓는다. */
@@ -152,7 +152,7 @@
 					}
 				}
 			});
-			$("#evbbs_content").summernote("lineHeight");
+			$("#evcbbs_content").summernote("lineHeight");
 		});
 		
 		function sendImage(file, editor){
@@ -171,14 +171,14 @@
 				cache: false,
 				dataType: "json", // 서버로부터 받을 데이터 형식
 			}).done(function(data){
-				$("#evbbs_content").summernote("editor.insertImage", data.url+"/"+data.fname);
+				$("#evcbbs_content").summernote("editor.insertImage", data.url+"/"+data.fname);
 			}).fail(function(err){
 				//서버에서 오류가 발생 시
 			});
 		}
 	
 		function sendData(){
-			if($("#evbbs_title").val().trim() <=0){
+			if($("#evcbbs_title").val().trim() <=0){
 				alert("제목을 입력하세요");
 				$("#evbbs_title").focus();
 				return;//수행 중단
