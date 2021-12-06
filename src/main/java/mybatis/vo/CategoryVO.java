@@ -33,14 +33,6 @@ public class CategoryVO {
 		this.evcategory_status = evcategory_status;
 	}
 
-	public String getEvcategory_type() {
-		return evcategory_type;
-	}
-
-	public void setEvcategory_type(String evcategory_type) {
-		this.evcategory_type = evcategory_type;
-	}
-
 	public List<BbsVO> getBbs_list() {
 		return bbs_list;
 	}
