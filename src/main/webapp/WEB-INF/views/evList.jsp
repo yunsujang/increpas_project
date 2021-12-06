@@ -47,17 +47,13 @@
 	    margin-bottom:10px;
 	}
 	
-	#bbs table td:hover{
-		background-color: #ececec;
-	}
-	
 	#bbs table th,#bbs table td {
 	    text-align:center;
 	    border:1px solid #ececec;
 	    padding:4px 10px;
-	    /*이 두녀석 추가*/
 	    border-right: none;
     	border-left: none;
+    	height: 40px;
     	
 	}
 	
@@ -66,7 +62,7 @@
 	.writer {width:20%}
 	.reg {width:25%}
 	.hit {width:10%}
-	.title{background:#85c4b9}
+	.title{background:#85c4b9; font-size: 16px;}
 	
 	.odd {background:silver}
 	
@@ -120,10 +116,11 @@
 	
 	#c_pont{
 		text-decoration : none;
+		color: black;
 		
 	}
-	#c_pont :hover{
-		color:red;	
+	#c_pont:hover{
+		color:#85c4b9;	
 	}
 	#writeBtn{
 		border: 1px solid #9f9393;
@@ -175,6 +172,7 @@
 	
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	<input type="hidden" id="sessionId" value="${session }" />
 	<div id="wrap">
 	<div id="bbs">
 		<table summary="게시판 목록">
@@ -207,7 +205,10 @@
                           </td>
 						  <td>
 							<input id="writeBtn" type="button" value="글쓰기"
-			onclick="javascript:location.href='write.ev'"/>
+			onclick="btnWrite()"/>
+			
+			
+			
 						  </td>
                       </tr>
                   </tfoot>
@@ -220,22 +221,22 @@
 						</td>
 						<td  style="text-align: left" >
 						
-							<a href="view.ev?evbbs_idx=${vo.evbbs_idx}&cPage=${nowPage}"
+							<a href="view.ev?evcbbs_idx=${vo.evcbbs_idx}&cPage=${nowPage}"
 								id="c_pont">
-								${vo.evbbs_title }
+								${vo.evcbbs_title }
 								<!-- 길이를 구하는함수인데 구할걸 안에다 넣어주면 된다. -->
 								<c:if test="${fn:length(vo.comment_list)>0}">
 								[${fn:length(vo.comment_list)}] <!-- 댓글 수  -->
 								</c:if>
 							</a>
 						</td>
-						<td>${vo.evbbs_writer }</td> <!-- 글쓴이 -->
+						<td>${vo.evcbbs_writer }</td> <!-- 글쓴이 -->
 						<td>
-						<c:set var="evbbs_write_date" value="${vo.evbbs_write_date }"></c:set>
-							${fn:substring(evbbs_write_date,0,16)} <!-- 올린날짜 -->
+						<c:set var="evcbbs_write_date" value="${vo.evcbbs_write_date }"></c:set>
+							${fn:substring(evcbbs_write_date,0,16)} <!-- 올린날짜 -->
 							
 						</td>
-						<td>${vo.evbbs_hit}</td>
+						<td>${vo.evcbbs_hit}</td>
 					</tr>
 				</c:forEach>
 				
@@ -262,6 +263,15 @@
 				return false;//수행 중단
 			}
 			frm.submit();  //보내기
+		}
+		
+		function btnWrite(){
+			if($("#sessionId").val()!=null){
+				location.href='write.ev'
+			}else{
+				alert("세션없음");
+			}
+			
 		}
 	</script>	
 		

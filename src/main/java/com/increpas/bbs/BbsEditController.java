@@ -33,17 +33,17 @@ public class BbsEditController {
 	private String bbs_upload = "/resources/bbs_upload";
 	
 	@RequestMapping("/edit.ev")
-	//public ModelAndView edit(String evbbs_idx) {
-	public String edit(String evbbs_idx, Model m) {
+	//public ModelAndView edit(String evcbbs_idx) {
+	public String edit(String evcbbs_idx, Model m) {
 		/*
 		ModelAndView mv = new ModelAndView();
 		
-		BbsVO2 vo = b_dao.getBbs(evbbs_idx);
+		BbsVO2 vo = b_dao.getBbs(evcbbs_idx);
 		mv.addObject("vo", vo);// edit.jsp의 수정화면에서 표현해야 하므로 여기서 저장함!
 		mv.setViewName("edit");
 		return mv;
 		*/
-		BbsVO vo = b_dao.getBbs(evbbs_idx);
+		BbsVO vo = b_dao.getBbs(evcbbs_idx);
 		
 		m.addAttribute("vo", vo); // Model은 request에 저장됨!
 									//forward시 사용가능함!		
@@ -69,15 +69,15 @@ public class BbsEditController {
 				fname = FileRenameUtil.checkSameFileName(fname, realPath);
 				mf.transferTo(new File(realPath, fname));//첨부파일 업로드
 				
-				vo.setEvbbs_file_name(fname);
-				vo.setEvbbs_ori_name(fname);
+				vo.setEvcbbs_file_name(fname);
+				vo.setEvcbbs_ori_name(fname);
 			}
-			vo.setEvbbs_ip(request.getRemoteAddr());
+			vo.setEvcbbs_ip(request.getRemoteAddr());
 			
 			b_dao.edit(vo);//DB수정
-			mv.setViewName("redirect:/view.ev?evbbs_idx="+vo.getEvbbs_idx()+"&cPage="+cPage);
+			mv.setViewName("redirect:/view.ev?evcbbs_idx="+vo.getEvcbbs_idx()+"&cPage="+cPage);
 		}else if(ctx.startsWith("application")) {
-			BbsVO bvo = b_dao.getBbs(vo.getEvbbs_idx());
+			BbsVO bvo = b_dao.getBbs(vo.getEvcbbs_idx());
 			mv.addObject("vo", bvo);
 			
 			mv.setViewName("evEdit");

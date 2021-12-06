@@ -1,5 +1,7 @@
 package admin.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -45,5 +47,17 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 	public String idToName(String categoryidx) {
 		// TODO Auto-generated method stub
 		return c_dao.idxToName(categoryidx);
+	}
+	
+	@Override
+	public int updateCategory(Map<String,Object> param) {
+		// TODO Auto-generated method stub
+		return c_dao.updateCategory(param);
+	}
+	
+	@Override
+	public int updateCategoryCheck(String changeCategory) {
+		// TODO Auto-generated method stub
+		return c_dao.updateCategoryCheck(changeCategory);
 	}
 }

@@ -20,8 +20,6 @@ public class BbsVO {
 	
 	private MultipartFile file;
 
-	private List<CommentVO> c_list;
-
 	public String getEvbbs_idx() {
 		return evbbs_idx;
 	}
@@ -118,14 +116,6 @@ public class BbsVO {
 		this.evu_idx = evu_idx;
 	}
 
-	public List<CommentVO> getC_list() {
-		return c_list;
-	}
-
-	public void setC_list(List<CommentVO> c_list) {
-		this.c_list = c_list;
-	}
-
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -133,6 +123,5 @@ public class BbsVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-
 	
 }

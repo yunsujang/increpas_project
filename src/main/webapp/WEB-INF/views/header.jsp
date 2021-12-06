@@ -44,8 +44,8 @@
 		<div>
 			<ul class="menu_ul">
 				<li><a href="/">Home</a></li>
-				<c:forEach items="${categoryName_ar }" var="vo">
-					<li><a href="/category?evcategory_idx=${vo.evcategory_idx }">${vo.evcategory_name }</a></li>
+				<c:forEach items="${categoryName_ar }" var="nvo">
+					<li><a href="/category?evcategory_idx=${nvo.evcategory_idx }">${nvo.evcategory_name }</a></li>
 				</c:forEach>
 				<li><a href="/evMap">충전소검색 </a></li>
 				<li><a href="/list.ev">ev 소통해요 </a></li>

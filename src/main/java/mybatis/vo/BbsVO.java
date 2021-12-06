@@ -5,17 +5,16 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BbsVO {
-	private String evbbs_idx,
-					evbbs_title, 
-					evbbs_writer, 
-					evbbs_content,
-					evbbs_file_name,
-					evbbs_ori_name,
-					evbbs_write_date,
-					evbbs_ip,
-					evbbs_hit,
-					evbbs_status,
-					evcategory_idx,
+	private String evcbbs_idx,
+					evcbbs_title, 
+					evcbbs_writer, 
+					evcbbs_content,
+					evcbbs_file_name,
+					evcbbs_ori_name,
+					evcbbs_write_date,
+					evcbbs_ip,
+					evcbbs_hit,
+					evcbbs_status,
 					evu_idx;
 					//evbbsb_name;
 
@@ -24,106 +23,94 @@ public class BbsVO {
 
 	private MultipartFile file; //첨부파일
 	
-
-	
 	public MultipartFile getFile() {
 		return file;
+	}
+	
+	public String getEvcbbs_idx() {
+		return evcbbs_idx;
+	}
+
+	public void setEvcbbs_idx(String evcbbs_idx) {
+		this.evcbbs_idx = evcbbs_idx;
+	}
+
+	public String getEvcbbs_title() {
+		return evcbbs_title;
+	}
+
+	public void setEvcbbs_title(String evcbbs_title) {
+		this.evcbbs_title = evcbbs_title;
+	}
+
+	public String getEvcbbs_writer() {
+		return evcbbs_writer;
+	}
+
+	public void setEvcbbs_writer(String evcbbs_writer) {
+		this.evcbbs_writer = evcbbs_writer;
+	}
+
+	public String getEvcbbs_content() {
+		return evcbbs_content;
+	}
+
+	public void setEvcbbs_content(String evcbbs_content) {
+		this.evcbbs_content = evcbbs_content;
+	}
+
+	public String getEvcbbs_file_name() {
+		return evcbbs_file_name;
+	}
+
+	public void setEvcbbs_file_name(String evcbbs_file_name) {
+		this.evcbbs_file_name = evcbbs_file_name;
+	}
+
+	public String getEvcbbs_ori_name() {
+		return evcbbs_ori_name;
+	}
+
+	public void setEvcbbs_ori_name(String evcbbs_ori_name) {
+		this.evcbbs_ori_name = evcbbs_ori_name;
+	}
+
+	public String getEvcbbs_write_date() {
+		return evcbbs_write_date;
+	}
+
+	public void setEvcbbs_write_date(String evcbbs_write_date) {
+		this.evcbbs_write_date = evcbbs_write_date;
+	}
+
+	public String getEvcbbs_ip() {
+		return evcbbs_ip;
+	}
+
+	public void setEvcbbs_ip(String evcbbs_ip) {
+		this.evcbbs_ip = evcbbs_ip;
+	}
+
+	public String getEvcbbs_hit() {
+		return evcbbs_hit;
+	}
+
+	public void setEvcbbs_hit(String evcbbs_hit) {
+		this.evcbbs_hit = evcbbs_hit;
+	}
+
+	public String getEvcbbs_status() {
+		return evcbbs_status;
+	}
+
+	public void setEvcbbs_status(String evcbbs_status) {
+		this.evcbbs_status = evcbbs_status;
 	}
 
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
 	
-	
-
-	public String getEvbbs_idx() {
-		return evbbs_idx;
-	}
-
-	public void setEvbbs_idx(String evbbs_idx) {
-		this.evbbs_idx = evbbs_idx;
-	}
-
-	public String getEvbbs_title() {
-		return evbbs_title;
-	}
-
-	public void setEvbbs_title(String evbbs_title) {
-		this.evbbs_title = evbbs_title;
-	}
-
-	public String getEvbbs_writer() {
-		return evbbs_writer;
-	}
-
-	public void setEvbbs_writer(String evbbs_writer) {
-		this.evbbs_writer = evbbs_writer;
-	}
-
-	public String getEvbbs_content() {
-		return evbbs_content;
-	}
-
-	public void setEvbbs_content(String evbbs_content) {
-		this.evbbs_content = evbbs_content;
-	}
-
-	public String getEvbbs_file_name() {
-		return evbbs_file_name;
-	}
-
-	public void setEvbbs_file_name(String evbbs_file_name) {
-		this.evbbs_file_name = evbbs_file_name;
-	}
-
-	public String getEvbbs_ori_name() {
-		return evbbs_ori_name;
-	}
-
-	public void setEvbbs_ori_name(String evbbs_ori_name) {
-		this.evbbs_ori_name = evbbs_ori_name;
-	}
-
-	public String getEvbbs_write_date() {
-		return evbbs_write_date;
-	}
-
-	public void setEvbbs_write_date(String evbbs_write_date) {
-		this.evbbs_write_date = evbbs_write_date;
-	}
-
-	public String getEvbbs_ip() {
-		return evbbs_ip;
-	}
-
-	public void setEvbbs_ip(String evbbs_ip) {
-		this.evbbs_ip = evbbs_ip;
-	}
-
-	public String getEvbbs_hit() {
-		return evbbs_hit;
-	}
-
-	public void setEvbbs_hit(String evbbs_hit) {
-		this.evbbs_hit = evbbs_hit;
-	}
-
-	public String getEvbbs_status() {
-		return evbbs_status;
-	}
-
-	public void setEvbbs_status(String evbbs_status) {
-		this.evbbs_status = evbbs_status;
-	}
-
-	public String getEvcategory_idx() {
-		return evcategory_idx;
-	}
-
-	public void setEvcategory_idx(String evcategory_idx) {
-		this.evcategory_idx = evcategory_idx;
-	}
-
 	public String getEvu_idx() {
 		return evu_idx;
 	}

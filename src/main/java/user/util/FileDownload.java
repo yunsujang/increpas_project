@@ -36,14 +36,14 @@ public class FileDownload extends HttpServlet {
 		// 파라미터 값들 받기(dir, filename)
 		String dir = request.getParameter("dir");
 		//System.out.println(dir);
-		String evbbs_file_name = request.getParameter("filename");
+		String evcbbs_file_name = request.getParameter("filename");
 		
 		// dir은 파일이 저장되는 위치다. 이것을 절대경로화 시킨다.
 		String realPath = getServletContext().getRealPath("/resources/"+dir);
 		//System.out.println(realPath); //민우의힘!
 		// 다시 파일명과 연결하여 전체경로를 만들자
 		//String fullPath = realPath+"/"+filename;
-		String fullPath = realPath+System.getProperty("file.separator")+evbbs_file_name;
+		String fullPath = realPath+System.getProperty("file.separator")+evcbbs_file_name;
 		
 		//System.out.println(fullPath);
 		//전체 경로가 준비되었으니 파일을 보내기 위해 파일 객체를 생성하자!
@@ -58,7 +58,7 @@ public class FileDownload extends HttpServlet {
 			
 			//다운로드 대화상자 처리
 			response.setHeader("Content-Disposition", "attachment;filename="+
-					new String(evbbs_file_name.getBytes(),"8859_1"));
+					new String(evcbbs_file_name.getBytes(),"8859_1"));
 			
 			//전송타입이 이진데이터(binary)
 			response.setHeader("Content-Transfer-Encoding", "binary");

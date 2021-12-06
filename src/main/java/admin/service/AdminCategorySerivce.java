@@ -1,5 +1,7 @@
 package admin.service;
 
+import java.util.Map;
+
 import ev.vo.CategoryVO;
 
 public interface AdminCategorySerivce {
@@ -9,4 +11,6 @@ public interface AdminCategorySerivce {
 	CategoryVO[] getCategoryName();
 	String getCategoryidx(String categoryName);
 	String idToName(String categoryidx);
+	int updateCategory(Map<String,Object> param);
+	int updateCategoryCheck(String changeCategory);
 }

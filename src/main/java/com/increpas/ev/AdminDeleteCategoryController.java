@@ -29,7 +29,7 @@ public class AdminDeleteCategoryController {
 		Map<String, String>map = new HashMap<String, String>();
 		String deleteName = name;
 		int i = admincategoryservice.deleteCategory(name);
-		if( i > 0) {
+		if( i > 0 ) {
 			map.put("deleteName", deleteName);
 		}
 		

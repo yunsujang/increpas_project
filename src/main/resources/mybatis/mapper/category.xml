@@ -86,11 +86,17 @@
 	</update>
 	
 	<!-- 관리자가 선택한 게시판 이름 수정 -->
-	<update id="AdminChange" parameterType="ev.vo.CategoryVO"> 
-		UPDATE evcategory_t set EVCATEGORY_NAME = #{evcategory_name}
-		WHERE evcategory_name = #{name}
+	<update id="updateCategory" parameterType="Map"> 
+		UPDATE evcategory_t set EVCATEGORY_NAME = #{changeName}
+		WHERE evcategory_idx = #{changeIdx}
 	</update>
-
+	
+	<!-- 게시판 이름 중복체크 -->	
+	<select id="updateCategoryCheck" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM EVCATEGORY_T 
+			WHERE EVCATEGORY_NAME = #{changeCategory}
+	</select>
+	
 	<!-- 카테고리명으로 idx 가져오기 -->
 	<select id="getCategoryIdx" resultType="String" parameterType="String">
 		SELECT evcategory_idx FROM evcategory_t
@@ -102,5 +108,4 @@
 	SELECT evcategory_name FROM evcategory_t
 	WHERE evcategory_idx = #{evcategory_idx}
 	</select>
-
 </mapper>

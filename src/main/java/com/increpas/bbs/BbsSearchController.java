@@ -28,7 +28,7 @@ public class BbsSearchController {
 	
 	
 	@RequestMapping(value="/search.ev")
-	public ModelAndView search(String cPage, String evbbs_idx,String searchValue) {
+	public ModelAndView search(String cPage, String evcbbs_idx,String searchValue) {
 		ModelAndView mv = new ModelAndView();
 		
 		if(searchValue == null)
