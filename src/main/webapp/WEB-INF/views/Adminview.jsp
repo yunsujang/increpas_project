@@ -117,13 +117,13 @@ body {
 
 		<div class="pre-view">
 			<div class="pre-page go-page">
-				<input class="btns" type="button" name="a" id="a" value="수정"
-					onclick="a()" />
+				<input class="btns" type="button" name="edit" id="edit" value="수정"
+					onclick="edit('${vo.evbbs_idx}')" />
 			</div>
 
 			<div class="next-page go-page">
-				<input class="btns" type="button" name="b" id="b" value="삭제"
-					onclick="b()" />
+				<input class="btns" type="button" name="del" id="del" value="삭제"
+					onclick="del('${vo.evbbs_idx}')" />
 			</div>
 		</div>
 		<div class="content-wrap">
@@ -146,12 +146,12 @@ body {
 
 	</div>
 	<script type="text/javascript">
-		function a() {
-			alert("a");
+		function edit(evbbs_idx) {
+			location.href="/admin.edit?evbbs_idx="+evbbs_idx;
 		}
 		
-		function b() {
-			alert("b");
+		function del(evbbs_idx) {
+			location.href="/admin.del?evbbs_idx="+evbbs_idx;
 		}
 	</script>
 </body>

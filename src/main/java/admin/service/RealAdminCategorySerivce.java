@@ -60,4 +60,24 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		// TODO Auto-generated method stub
 		return c_dao.updateCategoryCheck(changeCategory);
 	}
+
+	@Override
+	public int deleteTotalCount() {
+		// TODO Auto-generated method stub
+		return c_dao.deleteTotalCount();
+	}
+
+	@Override
+	public CategoryVO[] getRecoveryCategoryList(String begin, String end) {
+		// TODO Auto-generated method stub
+		return c_dao.getRecoveryCategoryList(begin, end);
+	}
+
+	@Override
+	public int RecoveryCategory(String name) {
+		// TODO Auto-generated method stub
+		return c_dao.RecoveryCategory(name);
+	}
+
+
 }
