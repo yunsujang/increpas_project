@@ -180,6 +180,9 @@
 	color: #ffffff;
 	
 }
+#makeDialog{
+	display: none;
+}
 
 
 
@@ -191,13 +194,27 @@
 	<div id="bbs">
 		<p class="totalList">총 ${totalCount }건</p>
 		<div class="bbs-in-div">
-			<button class="btns create-category-btn">게시판 생성</button>
+			<button class="btns create-category-btn" 
+			id="makeBtn" onclick="makes()">게시판 생성</button>
 			<button class="btns recovery-category-btn" onclick="recovery()">게시판 복구</button>
 			<form>
 				<input type="text" />
 				<button class="btns" onclick="search()">검색</button>
 			</form>
 		</div>
+		
+		<!-- 게시판 생성버튼 눌렀을때 -->
+		<form id="makeForm" name="makeForm" method="post">
+		<div id="makeDialog" title="게시판 생성하기">
+		<p style="font-size: 13px;">생성할 게시판명을 입력해주세요.</p>
+		
+
+		<input type="text" id="makeName" name="makeName" value="${vo.evcategory_name }">
+		
+		<button type="button" id="newbtn" style="margin-left: 5px;" onclick="newBoard()">생성</button>
+		</div>
+		</form>
+		
 		<table summary="게시판 목록">
 			<thead>
 				<tr class="title">
@@ -361,9 +378,54 @@
 
 			});
 		}
-		
+		//게시판 복구부분
 		function recovery() {
 			location.href="admin.CategoryRecovery";
+		}
+		
+		
+		//게시판 생성부분
+		function makes(name){
+			$("#makeDialog").dialog();
+	
+		}
+
+		function newBoard() {
+
+			
+			var makeName = $('#makeName').val();
+
+			//확인
+			console.log(makeName);
+
+			//json형태로 담기
+			var frm4 = new FormData();
+			
+			frm4.append("makeName",makeName);
+
+
+			//보내버려
+			$.ajax({
+				url : "makeCategory",
+				data : frm4,
+				type : "post",
+				contentType : false,
+				processData : false,
+				cache : false,
+				dataType : "json", //서버로부터 받을 데이터 형식
+
+			}).done(function(data) {
+				
+				location.href = "admin.category";
+				alert("게시판명" + data.makeName + "이 생성 되었습니다.");
+				
+
+			}).fail(function(err) {
+				//실패
+				alert("게시판명 생성 실패");
+			});
+
+
 		}
 	</script>
 </body>
