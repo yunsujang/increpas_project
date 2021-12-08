@@ -13,5 +13,5 @@ public class ImgVO {
 	public void setS_file(MultipartFile s_file) {
 		this.s_file = s_file;
 	}
-	 
+	     
 }
