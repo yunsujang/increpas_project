@@ -71,13 +71,13 @@ public class AdminCategoryDAO {
 		return  ss.update("category.updateCategory", param);
 		
 	}
-	
+	//게시판중복
 	public int updateCategoryCheck(String changeCategory) {	
 		return  ss.selectOne("category.updateCategoryCheck", changeCategory);
 		
 		
 	}
-	
+	//게시판삭제
 	public int deleteTotalCount() {
 		return ss.selectOne("category.deleteTotalCount");
 	}
@@ -98,10 +98,14 @@ public class AdminCategoryDAO {
 			return ar;
 		}
 		
-	
+	//게시판복구
 	public int RecoveryCategory(String name) {
 		return ss.update("category.RecoveryCategory",name);
 	}
-		
+	
+	//게시판생성
+	public int makeCategory(String makeName) {
+		return ss.insert("category.makeCategory", makeName);
+	}
 
 }

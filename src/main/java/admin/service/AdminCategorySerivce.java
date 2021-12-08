@@ -38,5 +38,8 @@ public interface AdminCategorySerivce {
 	
 	//삭제한 게시판 복구
 	int RecoveryCategory(String name);
+	
+	//게시판 생성
+	int makeCategory(String makeName);
 
 }
