@@ -77,13 +77,10 @@ public class LoginController {
 	public ModelAndView login(String evu_id, String evu_pw) {
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("evu_id",evu_id);
-		mv.addObject("evu_pw",evu_pw);
-		
 		EvuserVO mvo = l_service.login(evu_id, evu_pw);
 		session.setAttribute("mvo", mvo);	
 		
-		mv.setViewName("home");
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 	
