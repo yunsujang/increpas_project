@@ -44,7 +44,7 @@ public class AdminCategoryController {
 		  
 		int begin = page.getBegin();
 		int end = page.getEnd();
-		
+		 
 		
 		String pageCode = page.getSb().toString();
 		

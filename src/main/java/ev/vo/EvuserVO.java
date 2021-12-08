@@ -11,7 +11,7 @@ public class EvuserVO {
 	public void setEvu_idx(String evu_idx) {
 		this.evu_idx = evu_idx;
 	}
-
+ 
 	public String getEvu_id() {
 		return evu_id;
 	}

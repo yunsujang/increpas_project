@@ -8,7 +8,7 @@ public class CommentVO {
 				evccomment_ip,
 				evcbbs_idx,
 				evu_idx;
-
+ 
 		
 
 	public String getEvccomment_idx() {

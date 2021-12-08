@@ -17,7 +17,7 @@ public class BbsVO {
 					evcbbs_status,
 					evu_idx;
 					//evbbsb_name;
-
+ 
 	
 	private List<CommentVO>comment_list; //현재글의 댓글들
 

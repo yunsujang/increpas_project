@@ -28,7 +28,7 @@ public class BbsEditController {
 	
 	@Autowired
 	private UserBbsDAO b_dao;
-	
+	 
 	private String editor_img = "/resources/editor_img";
 	private String bbs_upload = "/resources/bbs_upload";
 	

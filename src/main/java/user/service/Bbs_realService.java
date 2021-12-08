@@ -15,7 +15,7 @@ public class Bbs_realService implements BbsService {
 		
 		return bbs_dao.getBbs(evbbs_idx);
 	}
-
+ 
 	@Override
 	public BbsVO[] paging(String evcategory_idx, String begin, String end) {
 		return bbs_dao.paging(evcategory_idx, begin, end);

@@ -32,7 +32,7 @@ public class AdminDeleteCategoryController {
 		System.out.println(cnt);
 		if (cnt > 0)
 			adminbbsservice.AdmindeleteBbs(idx);
-		
+		 
 		admincategoryservice.deleteCategory(name);
 		map.put("deleteName", deleteName);
 

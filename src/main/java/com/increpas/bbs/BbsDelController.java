@@ -17,6 +17,6 @@ public class BbsDelController {
 		b_dao.delBbs(evcbbs_idx);  
 		//System.out.println(evbbs_idx+"/"+cPage); 
 		return "redirect:/list.ev?cPage="+cPage;
-		
+		 
 	}
 }

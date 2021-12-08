@@ -32,9 +32,9 @@ public class RealAdminBbsService implements AdminBbsService {
 	}
 
 	@Override
-	public int ajaxTotalList2(String name) {
+	public int ajaxTotalList2(String idx) {
 		// TODO Auto-generated method stub
-		return admin_bbsDao.ajaxTotalList(name);
+		return admin_bbsDao.ajaxTotalList2(idx);
 	}
 
 	@Override

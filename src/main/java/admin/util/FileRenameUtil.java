@@ -12,7 +12,7 @@ public class FileRenameUtil {
 		
 		//전체경로
 		String saveFileName = path + System.getProperty("file.separator") + filename;
-		
+		 
 		File f = new File(saveFileName);
 		
 		//같은 이름이 있을 경우 파일명 뒤에 숫자를 붙여준다.

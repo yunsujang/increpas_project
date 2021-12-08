@@ -28,7 +28,7 @@ html, body {
     -webkit-background-clip: text;
     margin: 0 auto;
     
-}
+} 
 
 </style>
 </head>

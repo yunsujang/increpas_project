@@ -21,7 +21,7 @@ public class EleVO {
 	public EleVO() {}
 	
 	
-	
+	 
 	
 	
 	public EleVO(String limitYn, String note, String parkingFree, String stat, String busiCall, String busiNm,

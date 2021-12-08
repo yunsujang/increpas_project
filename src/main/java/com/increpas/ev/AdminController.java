@@ -21,7 +21,7 @@ public class AdminController {
 			mv.setViewName("mains");
 			return mv;
 		}
-		
+		 
 		mv.setViewName("Adminlogin");
 		
 		return mv;

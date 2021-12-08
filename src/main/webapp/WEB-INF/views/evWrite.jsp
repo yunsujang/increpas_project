@@ -16,7 +16,7 @@
 		margin: 190px 0px 171px 0px;
 		height: auto;
 	
-	}
+	} 
 	
 	#bbs table {
 	    width:1000px;

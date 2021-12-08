@@ -17,3 +17,4 @@ public interface UserBbsService {
 	public int updateHit(String evcbbs_idx);
 	
 }
+ 

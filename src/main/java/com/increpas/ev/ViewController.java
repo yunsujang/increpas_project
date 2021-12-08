@@ -25,7 +25,7 @@ public class ViewController {
 
 		// 헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
 		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
-
+ 
 		// 사용자가 클릭한 게시물 가져오기
 		BbsVO vo = bbsService.getBbs(evbbs_idx);
 

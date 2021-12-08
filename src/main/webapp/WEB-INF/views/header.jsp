@@ -100,7 +100,7 @@
 					}else{
 						barThis.removeClass("top_bar_fix");
 						fixNext.removeClass("pd_top_80");
-					}
+		 			}
 
 				});
 

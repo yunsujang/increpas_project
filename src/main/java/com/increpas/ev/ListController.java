@@ -57,7 +57,7 @@ public class ListController {
 		
 		//페이징 배열
 		mv.addObject("paging_ar", paging_ar);
-		
+		 
 		//현재 페이지
 		mv.addObject("nowPage", nowPage);
 		

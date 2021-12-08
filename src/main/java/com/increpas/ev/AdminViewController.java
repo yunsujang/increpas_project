@@ -60,7 +60,7 @@ public class AdminViewController {
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("cPage", cPage);
 		mv.setViewName("Adminview");
-
+ 
 		return mv;
 	}
 
