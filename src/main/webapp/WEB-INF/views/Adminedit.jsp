@@ -87,7 +87,7 @@
 					<tr>
 						<th>내용</th>
 						<td><textarea name="evbbs_content" id="evbbs_content"
-								cols="50" rows="8" value="${vo.evbbs_content }"></textarea></td>
+								cols="50" rows="8" >${vo.evbbs_content }</textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일</th>
@@ -166,11 +166,21 @@
 		}
 		if($("#evbbs_content").val().trim().length <= 0){
 			alert("내용을 입력하세요.");
+			
 			document.forms[0].writer.focus();
 			return;//수행 중단
 		}
 		
-		document.forms[0].submit();
+		var result = confirm("게시물을 수정 하시겠습니까?");
+		if (result) {
+			document.forms[0].submit();
+			alert("수정이 완료되었습니다.");
+		} else {
+			alert("취소하셨습니다.");
+		}
+	
+		
+		
 	}
 	
 	function fileCheck(obj){

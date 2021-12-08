@@ -151,7 +151,14 @@ body {
 		}
 		
 		function del(evbbs_idx) {
-			location.href="/admin.del?evbbs_idx="+evbbs_idx;
+			var result = confirm("게시물을 삭제 하시겠습니까?");
+			if (result) {
+				alert("삭제가 완료되었습니다.");
+				location.href="/admin.del?evbbs_idx="+evbbs_idx;
+			} else {
+				alert("취소하셨습니다.");
+			}
+			
 		}
 	</script>
 </body>

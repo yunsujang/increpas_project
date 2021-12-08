@@ -18,6 +18,7 @@
 
 #evbbs table {
 	width: 100%;
+	margin-top: 50px;
 	border-collapse: collapse;
 	font-size: 14px;
 }
@@ -30,6 +31,7 @@
 
 #evbbs table th {
 	text-align: center;
+	border:1px solid #ececec;
 	padding: 4px 10px;
 }
 
@@ -40,33 +42,14 @@
 	height: 30px;
 }
 
-.no {
-	width: 5%
-}
+.headtitle{background:#85c4b9; font-size: 15px; color: white;}
+.title {width: 35%}
+.no {width: 10%}
+.category {width: 15%}
+.writer{width: 25%}
+.reg{width: 15%}
 
-.title {
-	width: 40%
-}
-
-.type {
-	width: 15%;
-}
-
-.category {
-	width: 15%;
-}
-
-.writer{
-	width: 15%;
-}
-
-.reg{
-	width: 10%;
-}
-
-.odd {
-	background: silver
-}
+.odd {background: #85c4b9}
 
 .font{
 	text-decoration: none;
@@ -199,8 +182,14 @@
 	margin: 50px 0;
 }
 .btns{
-	border: none;
-	background-color: #85c4b9;
+	width: 75px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
  
 .totalList {
@@ -230,12 +219,12 @@
 		</div>
 		<table summary="게시글 목록">
 			<thead>
-				<tr class="title">
+				<tr class="headtitle">
 					<th class="no">번호</th>
 					<th class="category">게시판명</th>
 					<th class="title">제목</th>
 					<th class="writer">글쓴이</th>
-					<th class="reg">날짜</th>
+					<th class="reg">작성일</th>
 				</tr>
 			</thead>
 

@@ -67,7 +67,7 @@
 					<tr class="category-tr">
 						<th>게시판</th>
 						<td><select id="select"  onchange="selectEvCategory(this.value)">
-								<option></option>
+								<option>게시판을 선택하세요</option> 
 								<c:forEach items="${cvo }" var="vo">
 									<option>${vo.evcategory_name }</option>
 			 					</c:forEach>
@@ -197,6 +197,7 @@
 	}
 	
 	function fileCheck(obj){
+			alert("이미지가 520*260 사이즈로 조정됩니다.");
 		if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(obj.value)){ 
 
 	        alert('이미지 파일만 업로드 가능합니다.'); 

@@ -63,6 +63,7 @@
 					</c:if>
 					
 					<c:if test="${mvo ne null }">
+					<a>${mvo.evu_name }님</a>
 						<a>마이페이지</a>
 						<a>로그아웃</a>
 					</c:if>

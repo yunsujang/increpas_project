@@ -19,6 +19,7 @@
 
 #bbs table {
 	width: 100%;
+	margin-top: 50px;
 	border-collapse: collapse;
 	font-size: 14px;
 }
@@ -31,6 +32,7 @@
 
 #bbs table th {
 	text-align: center;
+	border:1px solid #ececec;
 	padding: 4px 10px;
 }
 
@@ -40,6 +42,32 @@
 	border-bottom: 1px solid silver;
 	height: 30px;
 }
+
+
+#content{
+	margin-top: 20px;
+	text-align: left;
+}
+.c_search{
+	border: 3px solid #85c4b9;
+    font-family: monospace;
+}
+#searchbtn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#searchValue{
+	width: 200px;
+   	height: 20px;
+   	}
+
 
 #changebtn{
 	height: 31px;
@@ -51,33 +79,14 @@
     cursor: pointer;
 }
 
-.no {
-	width: 10%
-}
+.headtitle{background:#85c4b9; font-size: 15px; color: white;}
+.no {width: 10%}
+.title {width: 40%}
+.bbscnt {width: 20%}
+.update{width: 15%}
+.delete{width: 15%}
 
-.title {
-	width: 30%
-}
-
-.type {
-	width: 20%
-}
-
-.bbscnt {
-	width: 10%;
-}
-
-.update {
-	width: 15%
-}
-
-.delete {
-	width: 15%
-}
-
-.odd {
-	background: silver
-}
+.odd {background: #85c4b9}
 
 /* paging */
 .paging {
@@ -129,10 +138,26 @@
 	text-align: right;
 	margin-bottom: 20px;
 }
+.btn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .btns {
-	border: none;
-	background-color: #85c4b9;
+	width: 120px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .btns:hover {
@@ -159,6 +184,10 @@
 }
 
 #updateDialog {
+	display: none;
+}
+
+#makeDialog {
 	display: none;
 }
 
@@ -190,17 +219,37 @@
 	<p class="category-management-p">게시판 관리</p>
 	<div id="bbs">
 		<p class="totalList">총 ${totalCount }건</p>
+		
+		
 		<div class="bbs-in-div">
-			<button class="btns create-category-btn">게시판 생성</button>
+			<button class="btns create-category-btn" 
+			id="makeBtn" onclick="makes()">게시판 생성</button>
 			<button class="btns recovery-category-btn" onclick="recovery()">게시판 복구</button>
-			<form>
-				<input type="text" />
-				<button class="btns" onclick="search()">검색</button>
+	</div>		
+			<!--검색-->		
+		<div id="content">	
+			<form>						
+				<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
+				<input type="button" id="searchbtn" value="검색" class="c_search" 
+				onclick="search()"/>
 			</form>
 		</div>
+		
+		<!-- 게시판 생성버튼 눌렀을때 -->
+		<form id="makeForm" name="makeForm" method="post">
+		<div id="makeDialog" title="게시판 생성하기">
+		<p style="font-size: 13px;">생성할 게시판명을 입력해주세요.</p>
+		
+
+		<input type="text" id="makeName" name="makeName" value="${vo.evcategory_name }">
+		
+		<button type="button" id="newbtn" style="margin-left: 5px;" onclick="newBoard()">생성</button>
+		</div>
+		</form>
+		
 		<table summary="게시판 목록">
 			<thead>
-				<tr class="title">
+				<tr class="headtitle">
 					<th class="no">번호</th>
 					<th class="title">게시판명</th>
 					<th class="bbscnt">게시물수</th>
@@ -220,8 +269,8 @@
 						
 						<td>${fn:length(vo.b_list ) }</td>
 						
-						<td><button class="btns" id="updateBtn" onclick="updates('${vo.evcategory_idx}')">수정</button></td>
-						<td><button class="btns" id="deleteBtn${vo.evcategory_idx }"
+						<td><button class="btn" id="updateBtn" onclick="updates('${vo.evcategory_idx}')">수정</button></td>
+						<td><button class="btn" id="deleteBtn${vo.evcategory_idx }"
 								onclick="deletes('${vo.evcategory_idx}')">삭제</button></td>
 					</tr>
 				</c:forEach>
@@ -361,9 +410,54 @@
 
 			});
 		}
-		
+		//게시판 복구부분
 		function recovery() {
 			location.href="admin.CategoryRecovery";
+		}
+		
+		
+		//게시판 생성부분
+		function makes(name){
+			$("#makeDialog").dialog();
+	
+		}
+
+		function newBoard() {
+
+			
+			var makeName = $('#makeName').val();
+
+			//확인
+			console.log(makeName);
+
+			//json형태로 담기
+			var frm4 = new FormData();
+			
+			frm4.append("makeName",makeName);
+
+
+			//보내버려
+			$.ajax({
+				url : "makeCategory",
+				data : frm4,
+				type : "post",
+				contentType : false,
+				processData : false,
+				cache : false,
+				dataType : "json", //서버로부터 받을 데이터 형식
+
+			}).done(function(data) {
+				
+				location.href = "admin.category";
+				alert("게시판명" + data.makeName + "이 생성 되었습니다.");
+				
+
+			}).fail(function(err) {
+				//실패
+				alert("게시판명 생성 실패");
+			});
+
+
 		}
 	</script>
 </body>
