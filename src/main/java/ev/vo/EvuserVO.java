@@ -2,7 +2,15 @@ package ev.vo;
 
 public class EvuserVO {
 
-	private String evu_idx, evu_id, evu_pw, evu_name, evu_email, evu_phone, evu_who, evu_status, evu_comp;
+	private String evu_idx,
+					evu_id,
+					evu_pw,
+					evu_name,
+					evu_email,
+					evu_phone,
+					evu_who,
+					evu_status,
+					evu_comp;
 
 	public String getEvu_idx() {
 		return evu_idx;

@@ -79,5 +79,10 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		return c_dao.RecoveryCategory(name);
 	}
 
+	@Override
+	public int makeCategory(String makeName) {
+		// TODO Auto-generated method stub
+		return c_dao.makeCategory(makeName);
+	}
 
 }
