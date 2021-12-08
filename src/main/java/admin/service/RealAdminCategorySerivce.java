@@ -60,7 +60,7 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		// TODO Auto-generated method stub
 		return c_dao.updateCategoryCheck(changeCategory);
 	}
-
+ 
 	@Override
 	public int deleteTotalCount() {
 		// TODO Auto-generated method stub

@@ -18,7 +18,7 @@
 </head>
 <body>
 	<footer>
-		<div class="footer">
+ 		<div class="footer">
 			
 			<div id="in_footer">
 				<div id="tags">

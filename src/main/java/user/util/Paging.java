@@ -10,7 +10,7 @@ public class Paging {
 				endPage, // 마지막 페이지 값
 				begin, //한 페이지의 시작 레코드 값
 				end; // 한 페이지의 마지막으로 표현할 레코드 값
-	
+	 
 	private boolean isPrePage; //이전 기능 가능 여부(true일 때 이전 기능 활성화)
 	private boolean isNextPage; //다음 기능 가능 여부(true일 때 다음 기능 활성화)
 	

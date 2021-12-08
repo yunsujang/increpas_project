@@ -12,3 +12,4 @@ public interface BbsService {
 	//테이블에 마지막으로 업데이트 된 게시물 3개 가져오기
 	BbsVO[] lastUpdate();
 }
+ 

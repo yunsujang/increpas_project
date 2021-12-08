@@ -31,7 +31,7 @@ public class BbsWriteController {
 	
 	@Autowired
 	private UserBbsDAO b_dao;
-	
+	 
 	//에디터에서 이미지가 들어갈 때 해당 이미지를 받아서
 	// 저장할 위치
 	private String editor_img = "/resources/editor_img";

@@ -26,7 +26,7 @@ public class SearchController {
 	private String searchValue;
 	
 	private int nowPage, totalCount, blockList= 12, blockPage = 5;
-	
+	 
 	@RequestMapping(value = "/search",method = RequestMethod.POST)
 	public ModelAndView search(String searchValue, String cPage) {
 		ModelAndView mv = new ModelAndView();

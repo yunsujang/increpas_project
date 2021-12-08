@@ -93,7 +93,7 @@ public class AdminEditController {
 		vo.setEvbbs_ip(request.getRemoteAddr());
 		
 		bbs_dao.edit(vo); //DB 수정
-		
+		 
 		mv.setViewName("redirect:/admin.view?evbbs_idx="+vo.getEvbbs_idx()+"&cPage="+cPage);
 		}else if(ctx.startsWith("application")) {
 			BbsVO bvo = bbs_dao.getBbs(vo.getEvbbs_idx());

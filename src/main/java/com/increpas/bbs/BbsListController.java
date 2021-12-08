@@ -39,7 +39,7 @@ public class BbsListController {
 			evcategory_idx = "1";//일반 게시판
 		
 		rowTotal = b_dao.getTotalCount(evcategory_idx);//전체 게시물 수
-		
+	 	
 		//페이징 처리를 위한 객체 생성
 		UserBbsPaging page = new UserBbsPaging(nowPage, rowTotal, blockList, blockPage);
 		

@@ -8,7 +8,7 @@ public interface AdminBbsService {
 	 int ajaxTotalList(String idx);
 	 int AdmindeleteBbs(String idx);
 	 //이름으로 게시물 갯수 가져오기
-	 int ajaxTotalList2(String name);
+	 int ajaxTotalList2(String idx);
 	 //bbs게시물 복구
 	 public int AdminRecoveryBbs(String idx);
 }

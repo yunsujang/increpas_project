@@ -14,7 +14,7 @@ public class CategoryVO {
 	public String getChangeIdx() {
 		return changeIdx;
 	}
-
+ 
 	public void setChangeIdx(String changeIdx) {
 		this.changeIdx = changeIdx;
 	}

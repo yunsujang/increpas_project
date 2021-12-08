@@ -24,7 +24,7 @@ public class BbsSearchController {
 	int rowTotal;
 	int blockList = 10; //한 페이지당 표현될 게시물 수
 	int blockPage = 5;//한 블럭당 표현될 페이지 수
-	
+	 
 	
 	
 	@RequestMapping(value="/search.ev")

@@ -23,7 +23,7 @@
 			margin: auto;
 			font-size: 20px;
 			margin-top: 25px;
-			
+			 
 		}
 		#chartname{
 			font-size: 35px;

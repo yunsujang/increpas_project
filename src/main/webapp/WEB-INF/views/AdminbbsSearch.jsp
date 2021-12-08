@@ -17,7 +17,7 @@
 	width: 80%;
 	margin: auto;
 }
-
+ 
 #evbbs table {
 	width: 100%;
 	border-collapse: collapse;

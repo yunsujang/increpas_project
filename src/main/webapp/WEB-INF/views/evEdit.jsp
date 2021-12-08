@@ -26,7 +26,7 @@
 	    font-size:14px;
 	    margin: auto;
 	    text-align: center;
-	    
+	     
 	}
 	
 	#bbs table caption {

@@ -21,7 +21,7 @@ body {
 	padding: 0 auto;
 	background-color: #f9f9f9;
 }
-
+ 
 .header-line {
 	padding: 0px 20px;
 	margin: 15px 10px;

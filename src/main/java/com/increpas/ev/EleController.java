@@ -30,7 +30,7 @@ public class EleController {
 		sb.append("&numOfRows=200"); /*
 										숫자 고치면 고친 수 만큼 마커 표시 늘어남 
 										(엄청난 렉 때문에 많이 안높이는걸 추천)
-										totalCount 2021-11-15 기준 87702
+			 							totalCount 2021-11-15 기준 87702
 										totalCount 2021-11-24 기준 88318  +616
 									 */
 		sb.append("&pageNo=1");

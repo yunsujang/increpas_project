@@ -106,7 +106,7 @@ html, body{
 					<li><a href="admin.category">게시판</a></li>
 
 					<li><a href="admin.bbsList">게시물</a></li>
-
+ 
 
 
 				</ul></li>

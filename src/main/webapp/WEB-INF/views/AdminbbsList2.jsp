@@ -202,7 +202,7 @@
 	border: none;
 	background-color: #85c4b9;
 }
-
+ 
 .totalList {
 	font-size: 16px;
 	font-weight: bold;
