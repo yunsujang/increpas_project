@@ -187,6 +187,10 @@
 	display: none;
 }
 
+#makeDialog {
+	display: none;
+}
+
 .ui-dialog-title {
     float: left;
     margin: 0.1em 0;
