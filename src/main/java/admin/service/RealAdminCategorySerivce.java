@@ -85,4 +85,10 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 		return c_dao.makeCategory(makeName);
 	}
 
+	@Override
+	public int makeCategoryCheck(String makeName) {
+		// TODO Auto-generated method stub
+		return c_dao.makeCategoryCheck(makeName);
+	}
+
 }

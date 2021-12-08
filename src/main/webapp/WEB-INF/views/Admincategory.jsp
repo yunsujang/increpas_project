@@ -449,15 +449,13 @@
 			}).done(function(data) {
 				
 				location.href = "admin.category";
-				alert("게시판명" + data.makeName + "이 생성 되었습니다.");
+				alert(data.makeName);
 				
 
 			}).fail(function(err) {
 				//실패
 				alert("게시판명 생성 실패");
 			});
-
-
 		}
 	</script>
 </body>
