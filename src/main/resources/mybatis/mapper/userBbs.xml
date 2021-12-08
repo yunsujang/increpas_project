@@ -49,7 +49,7 @@
 		VALUES(evcBbs_seq.NEXTVAL, #{evcbbs_title,jdbcType=VARCHAR},#{evcbbs_writer,jdbcType=VARCHAR}, #{evcbbs_content,jdbcType=VARCHAR},
 				#{evcbbs_file_name, jdbcType=VARCHAR },
 				#{evcbbs_ori_name, jdbcType=VARCHAR },
-				 sysdate, #{evcbbs_ip},0, 0 ,1)
+				 sysdate, #{evcbbs_ip},0, 0 ,#{evu_idx})
 	</insert>
 	
 	<!-- 원글 수정 -->

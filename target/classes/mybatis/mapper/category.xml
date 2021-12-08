@@ -104,16 +104,22 @@
 		WHERE evcategory_idx = #{changeIdx}
 	</update>
 	
+	<!-- 게시판 수정이름 중복체크 -->	
+	<select id="updateCategoryCheck" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM EVCATEGORY_T 
+			WHERE EVCATEGORY_NAME = #{changeCategory}
+	</select>
+	
 	<!-- 관리자가 입력한 게시판 이름 생성 -->
 	<insert id="makeCategory" parameterType="String">
 		INSERT INTO evcategory_t(evcategory_idx, evcategory_name, evcategory_status)
 		VALUES(evcategory_seq.NEXTVAL, #{evcategory_name}, 0)
 	</insert>
 	
-	<!-- 게시판 이름 중복체크 -->	
-	<select id="updateCategoryCheck" parameterType="String" resultType="int">
+	<!-- 게시판 생성이름 중복체크 -->	
+	<select id="makeCategoryCheck" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM EVCATEGORY_T 
-			WHERE EVCATEGORY_NAME = #{changeCategory}
+			WHERE EVCATEGORY_NAME = #{newCategory}
 	</select>
 	
 	<!-- 카테고리명으로 idx 가져오기 -->

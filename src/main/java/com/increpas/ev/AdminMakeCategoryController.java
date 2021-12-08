@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,13 +35,18 @@ public class AdminMakeCategoryController {
 		public Map<String, String> makeCategory(String makeName){
 		Map<String, String> map = new HashMap<String, String>();
 		
+		String makeCategory = makeName+" 게시판이 생성되었습니다.";
+		int cnt = admincategoryservice.makeCategoryCheck(makeName);
+		if(cnt <= 0) {
+			admincategoryservice.makeCategory(makeName);
+		}
 		
-		String makeCategory = makeName;
-		
-		System.out.println("컨트롤러"+makeCategory);
-		admincategoryservice.makeCategory(makeName);
+		else {
+			makeCategory = "중복된 값이 있습니다.";
+		}
 		map.put("makeName", makeCategory);
 			
 		return map;
-} 
+	} 
+	
 }

@@ -41,5 +41,7 @@ public interface AdminCategorySerivce {
 	
 	//게시판 생성
 	int makeCategory(String makeName);
-
+	
+	int makeCategoryCheck(String makeName);
+	
 }
