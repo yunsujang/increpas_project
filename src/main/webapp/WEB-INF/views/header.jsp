@@ -49,7 +49,7 @@
 				</c:forEach>
 				<li><a href="/evMap">충전소검색 </a></li>
 				<li><a href="/list.ev">ev 소통해요 </a></li>
-				<li><a href="/">ev주식</a></li>
+				<li><a href="/evStock">ev주식</a></li>
 				<div class="user-div">
 				<div class="user-padding">
 				</div>

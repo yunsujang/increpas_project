@@ -122,13 +122,21 @@
 }
 
 .bbs-in-div {
-	text-align: right;
-	margin-bottom: 20px;
+	text-align: left;
+	margin: 20px 0 20px 0;
 }
 
+.headtitle{background:#85c4b9; font-size: 15px; color: white;}
+
 .btns {
-	border: none;
-	background-color: #85c4b9;
+	width: 120px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .btns:hover {
@@ -177,6 +185,29 @@
 	
 }
 
+.c_search{
+	border: 3px solid #85c4b9;
+    font-family: monospace;
+    width: 200px;
+    height: 20px;
+}
+
+.btn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#bbs table th {
+	text-align: center;
+	border:1px solid #ececec;
+	padding: 4px 10px;
+}
 
 
 </style>
@@ -188,13 +219,13 @@
 		<p class="totalList">총 ${totalCount }건</p>
 		<div class="bbs-in-div">
 			<form>
-				<input type="text" />
-				<button class="btns" onclick="search()">검색</button>
+				<input type="text" class="c_search" />
+				<button class="btn" onclick="search()">검색</button>
 			</form>
 		</div>
 		<table summary="게시판 목록">
 			<thead>
-				<tr class="title">
+				<tr class="title headtitle">
 					<th class="no">번호</th>
 					<th class="title">게시판명</th>
 					<th class="bbscnt">게시물수</th>
@@ -212,7 +243,7 @@
 						
 						<td>${fn:length(vo.b_list ) }</td>
 						
-						<td><button class="btns" id="recoveryBtn${vo.evcategory_idx }" onclick="recoverys('${vo.evcategory_idx}')">복구</button></td>
+						<td><button class="btn" id="recoveryBtn${vo.evcategory_idx }" onclick="recoverys('${vo.evcategory_idx}')">복구</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>

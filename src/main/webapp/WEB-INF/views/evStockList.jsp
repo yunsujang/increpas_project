@@ -70,7 +70,7 @@
 				<p>전기차 주식 목록</p>
 			</div>
 		</div>
-		<article>
+		<article style="margin: 0 0 300px 0;">
 	<!-- 종목명 | 현재가 | 전일대비 | 등락율 | 고가 | 저가 | 거래량 | 거래대금  -->	
 		<table>
 		
