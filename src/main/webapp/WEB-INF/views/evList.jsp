@@ -165,14 +165,13 @@
 		width: 160px;
     	height: 20px;
 	}
-	
 	 
 </style>
 </head>
 	
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<input type="hidden" id="sessionId" value="${session }" />
+	<input type="hidden" 	id="sessionId" value="${session }" />
 	<div id="wrap">
 	<div id="bbs">
 		<table summary="게시판 목록">
