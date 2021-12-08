@@ -67,7 +67,7 @@
 					<tr class="category-tr">
 						<th>게시판</th>
 						<td><select id="select"  onchange="selectEvCategory(this.value)">
-								<option></option>
+								<option>게시판을 선택하세요</option> 
 								<c:forEach items="${cvo }" var="vo">
 									<option>${vo.evcategory_name }</option>
 			 					</c:forEach>
