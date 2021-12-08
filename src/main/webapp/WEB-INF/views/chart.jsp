@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Chart</title>
 	<style>
-	
+	 
 		*{margin: 0;}	
 			
 			
