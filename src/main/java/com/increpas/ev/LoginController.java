@@ -100,7 +100,7 @@ public class LoginController {
 		System.out.println(vo.getEvu_id());
 		int i = l_service.reg(vo.getEvu_id(), vo.getEvu_pw() ,vo.getEvu_name(),vo.getEvu_email(),vo.getEvu_phone());
 		if(i > 0) {
-			mv.setViewName("login");
+			mv.setViewName("redirect:/");
 		}
 		return mv;
 	}
