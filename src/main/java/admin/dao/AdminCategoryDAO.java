@@ -108,4 +108,8 @@ public class AdminCategoryDAO {
 		return ss.insert("category.makeCategory", makeName);
 	}
 
+	public int makeCategoryCheck(String makeName) {
+		return ss.selectOne("category.makeCategoryCheck", makeName);
+	}
+	
 }
