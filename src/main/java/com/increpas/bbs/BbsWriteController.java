@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.EvuserVO;
 import mybatis.vo.BbsVO;
 import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
@@ -22,7 +24,10 @@ import user.util.FileRenameUtil;
 
 @Controller
 public class BbsWriteController {
-
+	
+	@Autowired
+	HttpSession session;
+	
 	@Autowired
 	private HttpServletRequest request;
 	
@@ -95,6 +100,10 @@ public class BbsWriteController {
 		//vo.setEvcategory_idx("1");
 		vo.setEvcbbs_ip(request.getRemoteAddr());
 		
+		EvuserVO mvo = (EvuserVO)session.getAttribute("mvo");
+		
+		vo.setEvu_idx(mvo.getEvu_idx()); 
+		//System.out.println(mvo.getEvu_idx());
 		b_dao.add(vo); //DB에 저장!!!!!!!!!!!
 		
 		ModelAndView mv = new ModelAndView();
