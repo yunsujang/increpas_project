@@ -139,7 +139,7 @@
 		
 		//보내고자 하는 자원을 위해서 만든 폼객체에 파라미터로 넣어준다.
 		frm.append("s_file", file);
-		
+	 	
 		//비동기식 통신
 		$.ajax({
 			url: "saveImg.inc",

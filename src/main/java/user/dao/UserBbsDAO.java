@@ -16,7 +16,7 @@ public class UserBbsDAO {
 
 	@Autowired
 	private SqlSessionTemplate ss;
-	
+ 	
 	//원하는 페이지의 게시물목록 기능
 	public BbsVO[] getList(int begin, int end, String evcategory_idx) {
 		BbsVO[] ar = null;

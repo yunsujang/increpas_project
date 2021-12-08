@@ -271,7 +271,7 @@
 			location.href="FileDownload?dir=bbs_upload&filename="+fname;
 				
 			} 
-		
+	 	
 		function ansSaveBtn() {
 			//댓글 유효성검사
 			if($("#ansname").val().trim() <=0){

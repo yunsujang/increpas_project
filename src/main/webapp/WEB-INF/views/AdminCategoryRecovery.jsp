@@ -230,14 +230,14 @@
 		var td = tr.children();
 
 		var name = td.eq(1).text().trim();
-		var result = confirm(name+"을(를) 복구하시겠습니까?");
+		var result = confirm(name+"을(를) 복구하시겠습니까?\n(복구시 해당 게시판의 게시물도 전부 복구됩니다.)");
 		if (result) {
 			recoveryCategory(name);
 		} else {
 			alert("취소하셨습니다.");
 		}
 		
-		
+		 
 		
 	}
 	

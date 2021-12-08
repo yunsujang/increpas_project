@@ -8,7 +8,7 @@ public class FileRenameUtil {
 		//인자인 evbbs_file_name에서 확장자를 뺀 파일명 가려내자!
 		//우선 "."의 위치를 알아내야 한다.
 		int period = evbbs_file_name.lastIndexOf("."); // test123.txt --> 7
-		
+		 
 		String f_name = evbbs_file_name.substring(0, period); // test123
 		String suffix = evbbs_file_name.substring(period); // .txt
 		

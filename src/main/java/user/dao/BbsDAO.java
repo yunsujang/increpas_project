@@ -21,7 +21,7 @@ public class BbsDAO {
 	public BbsVO getBbs(String evbbs_idx) {
 		return ss.selectOne("bbs.getBbs", evbbs_idx);
 	}
-	
+	 
 	//페이징 기법의 규칙에 맞게 게시물 가져오기
 	public BbsVO[] paging(String evcategory_idx, String begin, String end) {
 		Map<String, String>map = new HashMap<String, String>();

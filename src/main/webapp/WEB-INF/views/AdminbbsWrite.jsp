@@ -70,7 +70,7 @@
 								<option></option>
 								<c:forEach items="${cvo }" var="vo">
 									<option>${vo.evcategory_name }</option>
-								</c:forEach>
+			 					</c:forEach>
 						</select></td>
 					</tr>
 					<tr>

@@ -81,8 +81,9 @@ public class AdminRecoveryController {
 		Map<String, String>map = new HashMap<String, String>();
 		String recoveryName = name;
 		String idx = admincategoryservice.getCategoryidx(name);
-		System.out.println(idx);
+		System.out.println("복구할 게시판 : "+idx);
 		int cnt = adminbbsservice.ajaxTotalList2(idx);
+		System.out.println("복구할 데이터의 양 : "+cnt);
 		if(cnt > 0)
 			adminbbsservice.AdminRecoveryBbs(idx);
 		

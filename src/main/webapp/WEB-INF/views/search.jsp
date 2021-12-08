@@ -20,7 +20,7 @@
 	margin: 15px 10px;
 	margin-top: 15px;
 }
-
+ 
 .new-img-container {
 	width: 100%;
 	height: 260px;

@@ -266,7 +266,7 @@
 
 		function deleteCategory(name) {
 			var frm = new FormData();
-
+ 
 			//보내고자하는 자원을 위해서 만든 폼객체에 파라미터로 넣어준다.
 			frm.append("name", name);
 

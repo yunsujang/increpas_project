@@ -21,7 +21,7 @@ public class UserBbs_realService implements UserBbsService {
 	public BbsVO[] search(String searchValue, String begin, String end) {
 		return ubbs_dao.search(searchValue, begin, end);
 	}
-
+ 
 	@Override
 	public int searchTotalCount(String searchValue) {
 		return ubbs_dao.searchTotalCount(searchValue);

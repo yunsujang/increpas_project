@@ -13,7 +13,7 @@ public interface AdminCategorySerivce {
 	
 	//해당이름의 카테고리를 삭제한다.
 	int deleteCategory(String name);
-	
+	 
 	//카테고리 이름을 가져온다.
 	CategoryVO[] getCategoryName();
 	

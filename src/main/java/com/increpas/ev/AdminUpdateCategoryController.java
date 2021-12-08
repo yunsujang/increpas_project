@@ -47,7 +47,7 @@ public class AdminUpdateCategoryController {
 		}
 		Map<String, String>map = new HashMap<String, String>();
 		map.put("msg", msg);
-		
+		 
 		
 		
 	return map;

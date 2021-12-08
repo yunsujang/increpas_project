@@ -43,7 +43,7 @@ public class AdminBbsSearchController {
 		
 		else
 			nowPage = Integer.parseInt(cPage);
-		
+		 
 		if(searchValue == null)
 			searchValue = "1";
 		

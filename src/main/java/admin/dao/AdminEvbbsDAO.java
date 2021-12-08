@@ -104,13 +104,13 @@ public class AdminEvbbsDAO {
 		return ss.update("bbs.AdmindeleteBbs", name);
 	}
 	
-	public int ajaxTotalList2(String name) {
-		return ss.selectOne("bbs.ajaxTotalList2", name);
+	public int ajaxTotalList2(String idx) {
+		return ss.selectOne("bbs.ajaxTotalList2", idx);
 	}
 	
 	public int AdminRecoveryBbs(String idx) {
-		System.out.println(idx);
-		return ss.update("category.AdminRecoveryBbs", idx);
+		System.out.println("복구할 게시판의 idx: "+idx);
+		return ss.update("bbs.AdminRecoveryBbs", idx);
 	}
 	
 }

@@ -68,7 +68,7 @@ public class AdminListController {
 		BbsVO[] ar = b_dao.getList(begin, end);
 		
 		
-
+ 
 		CategoryVO[] categoryName_ar = user_categoryservice.categoryNameList();
 
 		// JSP에서 표현해야 하므로 ar을 mv에 저장한다.
