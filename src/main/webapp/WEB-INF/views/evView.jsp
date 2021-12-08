@@ -201,6 +201,8 @@
 				</tr>
 			</tbody>
 		</table>
+			<input id="evcbbs_writer" value="${vo.evcbbs_writer}" type="hidden"/>
+			<input id="evu_name" value="${mvo.evu_name }" type="hidden"/>
 	</form>
 	</div>
 	
@@ -211,14 +213,24 @@
 			내용을 게시할 경우 이용약관 및 관련 법률에 의해 제재될 수 있습니다.</p>	
 			
 		<form id="ansform" method="post" action="ans_write.ev">
-			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer"/><br/>
-			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content"></textarea><br/>
+			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer"
+					value="${mvo.evu_name }" readonly="readonly" style="background-color: #efefef;" /><br/>
+			<c:if test="${mvo eq null }">	
+			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" readonly="readonly" style="background-color: #efefef;"></textarea><br/>
+			</c:if>
+			<c:if test="${mvo ne null }">	
+			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" ></textarea><br/>
+			</c:if>	
+				
 			<%-- 원글을 의미하는 원글의 기본키 --%>
 			<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx}">
-			<input type="hidden" name="cPage" value="${cPage}"><%-- edit.jsp에서 
+			<input type="hidden" name="cPage" value="${cPage}"><%-- evEdit.jsp에서 
 						댓글을 저장한 후 다시 view.jsp로 돌아올 때 필요하다. --%>
 			<input type="hidden" name="ip" value="${evcbbs_ip}">
 			<input type="button" id="ansbtn" value="저장" onclick="ansSaveBtn(this.form)"/> 
+			<c:if test="${fn:length(vo.comment_list)>=0}">
+			<p id="comment_l">전체 댓글 <a style="color: red;">${fn:length(vo.comment_list)}</a>개 <!-- 댓글 수  -->
+			</p></c:if>
 		</form><p/>
 			<br/>
 		
@@ -247,9 +259,13 @@
 	</form>
 	<script>
 		function edit(){
+			if($("#evu_name").val() == $("#evcbbs_writer").val() ){
+				document.frm.action = "edit.ev";
+				document.frm.submit();
+			}else{
+				alert("본인 게시글만 수정가능합니다!")
+			}
 		
-			document.frm.action = "edit.ev";
-			document.frm.submit();
 		}
 	
 		function goList(){
@@ -260,9 +276,15 @@
 		
 		function del(){
 			
-			if(confirm("삭제하시겠습니까?")){
+			if($("#evu_name").val() == $("#evcbbs_writer").val() ){
+				
+				if(confirm("삭제하시겠습니까?")){
 				document.frm.action = "delete.ev";
 				document.frm.submit();
+				
+				}
+			}else{
+				alert("본인 게시글만 삭제합니다!")
 			}
 		}
 		

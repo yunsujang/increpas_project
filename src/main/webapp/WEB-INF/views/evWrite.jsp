@@ -92,7 +92,9 @@
 				</tr>
 				<tr>
 					<th>작성자:</th>
-					<td><input id="evcbbs_writer"type="text" name="evcbbs_writer" size="12"/></td>
+						<td><input id="evu_name"type="text" name="evu_name"value="${mvo.evu_name }" 
+						readonly="readonly" style="background-color: #efefef;" /></td>
+						<input id="evcbbs_writer"type="hidden" name="evcbbs_writer" value="${mvo.evu_name }"/>
 				</tr>
 				<tr>
 					<th>내용:</th>
