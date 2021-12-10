@@ -111,7 +111,7 @@ public class AdminListController {
 		
 		BbsVO[] ar = admin_bbsService.categoryIdxToList(String.valueOf(begin), String.valueOf(end), category_idx);
 		
-		CategoryVO cvo = user_categoryservice.nowCategory(ar[0].getEvcategory_idx());
+		CategoryVO cvo = user_categoryservice.nowCategory(category_idx);
 		
 		CategoryVO[] categoryName_ar = user_categoryservice.categoryNameList();
 		
