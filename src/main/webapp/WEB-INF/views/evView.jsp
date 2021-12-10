@@ -147,6 +147,10 @@
 		font-weight: bold;
     	height: 29px;
 	}
+	
+	.commP{
+		font-weight: bold;
+	}
 		
 }
 	
@@ -216,7 +220,8 @@
 			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer"
 					value="${mvo.evu_name }" readonly="readonly" style="background-color: #efefef;" /><br/>
 			<c:if test="${mvo eq null }">	
-			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" readonly="readonly" style="background-color: #efefef;"></textarea><br/>
+			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" 
+							placeholder="로그인 후 이용가능합니다."	readonly="readonly" style="background-color: #efefef;"></textarea><br/>
 			</c:if>
 			<c:if test="${mvo ne null }">	
 			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" ></textarea><br/>
@@ -232,19 +237,17 @@
 			<p id="comment_l">전체 댓글 <a style="color: red;">${fn:length(vo.comment_list)}</a>개 <!-- 댓글 수  -->
 			</p></c:if>
 		</form><p/>
-			<br/>
-		
-		
+		<br/>
 	</div>
 	
 	<hr/>
 	<div id="comment_div">
 		<c:forEach var="cvo" items="${vo.comment_list }">
 			<div >
-					이름 : ${cvo.evccomment_writer} &nbsp;&nbsp;<br/>
-				날짜 :<c:set var="evccomment_write_date" value="${cvo.evccomment_write_date }"></c:set>
-					${fn:substring(evccomment_write_date,0,16)}<br/><br/>
-				내용 : ${cvo.evccomment_content }
+					<a class="commP">이름</a> : ${cvo.evccomment_writer} &nbsp;&nbsp;<br/>
+				<a style="margin-left: 85%; font-size: 13px;"><c:set var="evccomment_write_date" value="${cvo.evccomment_write_date }"></c:set>
+					${fn:substring(evccomment_write_date,0,16)}<br/><br/></a>
+				<a class="commP">내용</a> :<br/> ${cvo.evccomment_content }
 			</div>
 			<hr/>
 		</c:forEach>

@@ -58,8 +58,8 @@
 			</svg></a>
 				
 					<c:if test="${mvo eq null }">
-						<a href="/">로그인</a>
-						<a href="/">회원가입</a>
+						<a href="/login">로그인</a>
+						<a href="/reg">회원가입</a>
 					</c:if>
 					
 					<c:if test="${mvo ne null }">
