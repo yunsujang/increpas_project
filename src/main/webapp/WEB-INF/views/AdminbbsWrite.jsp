@@ -81,12 +81,12 @@
 					<tr>
 						<th>작성자</th>
 						<td>
-							<c:if test="${sessionScope.evo.evu_who eq 1 }">
+							<c:if test="${sessionScope.mvo.evu_who eq 1 }">
 								${sessionScope.evo.evu_name }
 							</c:if>
 							
-							<c:if test="${sessionScope.evo.evu_who eq 0 }">
-								관리자
+							<c:if test="${sessionScope.mvo.evu_who eq 0 }">
+								<a>${sessionScope.mvo.evu_name }</a>
 							</c:if>
 						</td>
 					</tr>
@@ -108,7 +108,7 @@
 				</tbody>
 			</table>
 			<input type="hidden" id="evcategory_idx" name="evcategory_idx" />
-			<input type="hidden" id ="evbbs_writer" name="evbbs_writer" value="${sessionScope.name }"/>
+			<input type="hidden" id ="evbbs_writer" name="evbbs_writer" value="${sessionScope.mvo.evu_name }"/>
 		</form>
 	</div>
 
@@ -174,7 +174,7 @@
 		}
 		
 		var value = $("#select").val();
-		if(value == ""){
+		if(value == "게시판을 선택하세요"){
 			alert("게시판을 선택하세요.");
 			return;
 		}
