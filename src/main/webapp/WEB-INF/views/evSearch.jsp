@@ -150,14 +150,19 @@
 	    font-family: monospace;
 	}
 	#searchbtn{
-		width: 50px;
-	    height: 26px;
+		width: 49px;
+	    height: 28px;
 	    border-radius: 3px;
-	    border: 1px solid gray;
+	    border: 1px solid #a99999;
 	    background-color: #85c4b9;
 	    color: white;
 	    font-weight: bold;
 	    cursor: pointer;
+	    float: center;
+	    margin-top: -9px;
+	    margin-left: 4px;
+	    margin-bottom: -8px;
+	    background-image: url(/resources/img/search.png);
 	}
 	#searchType{
 		width: 80px;
@@ -177,6 +182,12 @@
 	    font-weight: bold;
 	    cursor: pointer;
 	    float: left;
+	}
+	
+	#commPont{
+		font-size: 12px;
+		color: red;
+		font-weight: bold;
 	}
 	
 </style>
@@ -237,7 +248,7 @@
 								${vo.evcbbs_title }
 								<!-- 길이를 구하는함수인데 구할걸 안에다 넣어주면 된다. -->
 								<c:if test="${fn:length(vo.comment_list)>0}">
-								(${fn:length(vo.comment_list)}) <!-- 댓글 수  -->
+								<a id="commPont">[${fn:length(vo.comment_list)}]</a> <!-- 댓글 수  -->
 								</c:if>
 							</a>
 						</td>
@@ -258,7 +269,7 @@
 					
 						</select>
 						<input type="text" id="bbsSearchValue" name="searchValue"  class="c_search"/>
-						<input type="button" id="searchbtn" value="검색" class="c_search" onclick="search(this.form)"/>
+						<input type="button" id="searchbtn" value="" class="c_search" onclick="search(this.form)"/>
 					</form>
 				</div>
 				</tbody>

@@ -27,11 +27,12 @@ public class EleController {
 	public String data(Locale locale, Model model) throws Exception {
 		StringBuffer sb = new StringBuffer(
 				"http://apis.data.go.kr/B552584/EvCharger/getChargerInfo?serviceKey=VXGxM3FjoOVHGwjcIqHM4pa9aZW7Gbp0AvSTDrBcXpvwbv7QRBo6lrB9sPt9EqoldaidCOHjn%2F1E9XwDQm0%2BOA%3D%3D");
-		sb.append("&numOfRows=200"); /*
+		sb.append("&numOfRows=800"); /*
 										숫자 고치면 고친 수 만큼 마커 표시 늘어남 
 										(엄청난 렉 때문에 많이 안높이는걸 추천)
 			 							totalCount 2021-11-15 기준 87702
 										totalCount 2021-11-24 기준 88318  +616
+										totalCount 2021-12-08 기준 90140  +1822
 									 */
 		sb.append("&pageNo=1");
 		

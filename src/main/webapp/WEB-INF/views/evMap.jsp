@@ -24,13 +24,14 @@
 
 #mapbtn {
 	font-size: 20px;
-	width: 100%;
-	padding: 13px;
-	border: 0px;
-	background: #f9f9f9;
-	font-weight: bold;
-	font-family: monospace;
-	color: gray;
+    width: 100%;
+    padding: 0px;
+    border: 0px;
+    background: #f9f9f9;
+    font-weight: bold;
+    font-family: monospace;
+    color: gray;
+    margin-top: -5px;
 }
 
 .map_wrap, .map_wrap * {
@@ -80,7 +81,11 @@
 	line-height: 20;
 	color: gray;
 }
+#markerimg{
+	height: 40px;
 }
+
+
 </style>
 </head>
 <body>
@@ -94,8 +99,8 @@
 		<div id="wrap">
 			<div id="mdiv">
 				<!-- <input id="searchMap"  placeholder="지역명 / 충전소 검색"> -->
-				<button id="mapbtn" type="button">지도 마커표시에 마우스를 올리면 상세정보가
-					나옵니다.</button>
+				<button id="mapbtn" type="button">지도 마커<img id="markerimg"  src="/resources/img/marker.png">표시에
+				마우스를 올리면 상세정보가 나옵니다. </button>
 			</div>
 
 			<!-- Map -->
