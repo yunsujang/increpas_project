@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="resources/css/main/main.css">	
 <style type="text/css">
 
-	#wrap{
+	#wrap{ 
 		margin: 190px 0px 171px 0px;
 		height: auto;
 	

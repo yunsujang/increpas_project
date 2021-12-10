@@ -182,6 +182,7 @@
 </head>
 	
 <body>
+	${sb }
 	<jsp:include page="header.jsp"></jsp:include>
 	<input type="hidden" 	id="sessionId" value="${session }" />
 	<div id="wrap">
