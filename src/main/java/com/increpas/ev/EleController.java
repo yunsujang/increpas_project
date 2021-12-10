@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ev.vo.CategoryVO;
 import mybatis.vo.EleVO;
 import user.service.CategoryService;
+import user.util.CSSFont;
 
 @Controller
 public class EleController {
@@ -86,6 +87,12 @@ public class EleController {
 			EleVO vo = new EleVO(limitYn, note, parkingFree, stat, busiCall, busiNm, useTime, lat, lng, addr, chgerType, statNm, statId, chgerId, location);
 			ar[i++] = vo;
 		}
+		int cnt = 0;
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer fontsb = CSSFont.StyleCode("map",cnt);
+		
+		model.addAttribute("sb", fontsb);
 		model.addAttribute("list", ar);
 		model.addAttribute("categoryName_ar", categoryName_ar);
 		return "evMap";
