@@ -53,9 +53,10 @@ public class AdminWriteController {
 	@RequestMapping("/admin.bbsWrite")
 	public ModelAndView write() {
 		ModelAndView mv = new ModelAndView();
+		EvuserVO evo = (EvuserVO)session.getAttribute("mvo");
 		
 		CategoryVO[]cvo = admincategoryservice.getCategoryName();
-		session.setAttribute("name", "장장장");
+		session.setAttribute("evo",evo);
 		mv.addObject("cvo", cvo);
 		mv.setViewName("AdminbbsWrite");
 		return mv;

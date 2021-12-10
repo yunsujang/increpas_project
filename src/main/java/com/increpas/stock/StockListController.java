@@ -8,15 +8,22 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ev.vo.CategoryVO;
 import ev.vo.StockVO;
+import user.service.CategoryService;
+import user.util.CSSFont;
 
 @Controller
 public class StockListController {
 
+	@Autowired
+	CategoryService categoryservice;
+	
 	@RequestMapping("/evStock")
 	public String list(String[] args, Model model) {
 
@@ -95,6 +102,13 @@ public class StockListController {
 			 * System.out.println("저가:"+LowPrice); System.out.println("거래량:"+georaeryang);
 			 * System.out.println("거래대금:"+TradingValue);
 			 */
+				int cnt = 0;
+				CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+				if(categoryName_ar != null) 
+					cnt = categoryName_ar.length;
+				StringBuffer sb = CSSFont.StyleCode("stock",cnt);
+				model.addAttribute("sb",sb);
+				model.addAttribute("categoryName_ar", categoryName_ar);
 				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

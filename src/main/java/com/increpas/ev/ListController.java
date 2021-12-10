@@ -9,6 +9,7 @@ import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
+import user.util.CSSFont;
 import user.util.Paging;
 
 @Controller
@@ -54,6 +55,12 @@ public class ListController {
 		
 		//헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
 		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+		int cnt = 0;
+		
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer sb = CSSFont.listStyleCode(nowCategory,categoryName_ar);
+		
 		
 		//페이징 배열
 		mv.addObject("paging_ar", paging_ar);
@@ -69,8 +76,7 @@ public class ListController {
 		
 		// 페이징 기법으로 만들어진 페이지번호 태그
 		mv.addObject("pageCode", pageCode);
-		
-		
+		mv.addObject("sb", sb);
 		mv.addObject("nowCategory", nowCategory);
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.setViewName("category");

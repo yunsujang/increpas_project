@@ -62,6 +62,7 @@
 </style> 
 </head>
 <body>
+	${sb }
 	<!-- header영역 -->
 	<jsp:include page="header.jsp" />
 	<div>

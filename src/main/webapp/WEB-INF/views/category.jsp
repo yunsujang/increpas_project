@@ -196,6 +196,8 @@ body {
 </style>
 
 <body>
+
+	${sb }
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
 		<article class="articles" id="articles">

@@ -108,6 +108,7 @@
 </style>
 </head>
 <body>
+	${sb }
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
 		<div class="header_banner">
@@ -138,7 +139,16 @@
 							</c:choose>
 						</div>
 						<div class="skip-p">
-							<a class="title font " href="/view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a>
+							<a class="title font " href="/view?evbbs_idx=${vo.evbbs_idx }">
+							<c:if test="${fn:contains(vo.evbbs_content,'<img') }">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+</svg>
+							</c:if>
+							
+							${vo.evbbs_title }
+							</a>
 						</div>
 							<c:set value="${vo.evbbs_content }" var="content"/>
 										<p class="skip-p">${content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")}</p>
@@ -174,9 +184,17 @@
 									</c:choose>
 								</div>
 								<div class="skip-p">
-									<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
+									<a class="title font " href="/view?evbbs_idx=${bvo.evbbs_idx }">
+							<c:if test="${fn:contains(bvo.evbbs_content,'<img') }">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+</svg>
+							</c:if>
+							
+							${bvo.evbbs_title }
+							</a>
 								</div>
-								
 									<c:set value="${bvo.evbbs_content }" var="content"/>
 										<p class="skip-p">${content.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "")}</p>
 									<a class="writer font">작성자 : ${bvo.evbbs_writer }</a>

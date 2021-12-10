@@ -329,7 +329,7 @@
 				dataType : "json", //서버로부터 받을 데이터 형식
 
 			}).done(function(data) {
-				alert(data.deleteName + "이 삭제 되었습니다.");
+				alert(data.deleteName + "이(가) 삭제 되었습니다.");
 				location.href = "admin.category";
 			}).fail(function(err) {
 

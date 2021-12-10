@@ -80,7 +80,15 @@
 
 					<tr>
 						<th>작성자</th>
-						<td>${sessionScope.name }</td>
+						<td>
+							<c:if test="${sessionScope.evo.evu_who eq 1 }">
+								${sessionScope.evo.evu_name }
+							</c:if>
+							
+							<c:if test="${sessionScope.evo.evu_who eq 0 }">
+								관리자
+							</c:if>
+						</td>
 					</tr>
 
 					<tr>

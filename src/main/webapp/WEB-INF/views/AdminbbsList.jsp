@@ -134,10 +134,11 @@
 	margin: 50px 0 0 0;
 }
 
-.tab {
+.tab { 
 	float: left;
-	width: 100%;
+	width: 100%; 
 	height: 100%;
+	margin: 80px 0 0 0;
  }
 
 .tabnav {
@@ -155,18 +156,18 @@
 }
 
 
-.tabnav li a {
+.AdminCategoryBbs {
 	position: relative;
 	display: block;
-	background: #f8f8f8;
-	color: #000;
+	background-color: #f8f8f8;
+	color: black;
 	padding: 0 30px;
 	line-height: 46px;
 	text-decoration: none;
 	font-size: 16px;
 }
 
-.tabnav li a:hover, .tabnav li a.active {
+.tabnav li a:hover{
 	background: #fff;
 	color: #7ea21e;
 }
@@ -222,17 +223,26 @@
 	width: 200px;
    	height: 20px;
 }
+ 
+.AdmintotalBbs{
+	position: relative;
+	display: block;
+	background-color: #fff;
+	color: #7ea21e;
+	padding: 0 30px;
+	line-height: 46px;
+	text-decoration: none;
+	font-size: 16px;
+}
 </style>
 </head>
 <body>
- 
 	<jsp:include page="Adminheader.jsp" />
-
 	<div class="tab">
 		<ul class="tabnav">
-			<li><a href="">전체 게시물</a></li>
+			<li ><a class="AdmintotalBbs" href="">전체 게시물</a></li>
 			<c:forEach items="${categoryName_ar }" var="vo" varStatus="st">
-				<li><a href='admin.bbsList2?category_idx=${vo.evcategory_idx }'>${vo.evcategory_name }</a></li>
+				<li><a class="AdminCategoryBbs"href='admin.bbsList2?category_idx=${vo.evcategory_idx }'>${vo.evcategory_name }</a></li>
 			</c:forEach>
 		</ul>
 		<div>
@@ -244,14 +254,14 @@
 	
 				
 		</div>
-		<table summary="게시글 목록">
+		<table summary="게시목록">
 			<thead>
-				<tr class="headtitle">
+				<tr class="headtitle"> 
 					<th class="no">번호</th>
 					<th class="category">게시판명</th>
 					<th class="title">제목</th>
 					<th class="writer">글쓴이</th>
-					<th class="reg">작성일</th>
+					<th class="reg">작성일자</th>
 				</tr>	
 			</thead>
 
@@ -259,7 +269,15 @@
 				<c:forEach var="vo" items="${ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
-						<td >${vo.evcategory_idx }</td>
+						<td>
+							<c:if test="${vo.evcategory_idx ne null}">
+							<c:forEach items="${categoryName_ar }" var="ar">
+								<c:if test="${vo.evcategory_idx eq ar.evcategory_idx }">
+									${ar.evcategory_name }
+								</c:if>
+							</c:forEach>	
+							</c:if>
+						</td>
 						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }&cPage=${cPage}">${vo.evbbs_title }</a></td>
 						<td>${vo.evbbs_writer }</td>
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
