@@ -118,7 +118,7 @@ body{
 				<div class="content-div">
 				<div>${vo.evbbs_content }</div>
 				<div class="writer-div">
-					<p>저자</p>
+					<p>작성자</p>
 					<p class="writer-p">${vo.evbbs_writer }</p>
 				</div>
 			</div>
