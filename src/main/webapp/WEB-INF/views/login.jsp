@@ -154,7 +154,6 @@ a.box3{
 
 	</div>
 	<jsp:include page="footer.jsp"/>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 /* $(function(){
 	//아이디가 btn인 요소가 클릭할 때

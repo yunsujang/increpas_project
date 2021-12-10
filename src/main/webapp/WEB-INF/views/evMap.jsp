@@ -89,6 +89,7 @@
 </style>
 </head>
 <body>
+	${sb }
 	<!-- header -->
 	<jsp:include page="header.jsp" />
 	<div>
