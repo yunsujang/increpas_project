@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.service.AdminCategorySerivce;
+import ev.vo.CategoryVO;
 import ev.vo.EvuserVO;
+import user.service.CategoryService;
 import user.service.LoginService;
 
 
@@ -36,16 +39,34 @@ public class LoginController {
 	@Autowired
 	HttpSession session;
 	
-	
+	@Autowired
+	private CategoryService categoryservice;
+
 	@RequestMapping("/login")
-	public String login() {
-		return "login";
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView();
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+		mv.addObject("categoryName_ar", categoryName_ar);
+		mv.setViewName("login");
+		return mv;
 	}
 	
 	@RequestMapping("/reg")
-	public String reg() {
+	public ModelAndView reg() {
+		ModelAndView mv = new ModelAndView();
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+		mv.addObject("categoryName_ar", categoryName_ar);
+		mv.setViewName("reg");
+		return mv;
+	}
 	
-		return "reg";
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> logout(){
+		Map<String, String>map = new HashMap<String, String>();
+		session.removeAttribute("mvo");
+		
+		return map;
 	}
 	
 	
@@ -75,7 +96,6 @@ public class LoginController {
 	*/
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public ModelAndView login(String evu_id, String evu_pw) {
-		
 		ModelAndView mv = new ModelAndView();
 		EvuserVO mvo = l_service.login(evu_id, evu_pw);
 		session.setAttribute("mvo", mvo);	

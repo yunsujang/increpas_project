@@ -25,4 +25,10 @@ public class RealLoginService implements LoginService {
 		return m_dao.reg(id, pw ,name, email, phone);
 	}
 
+	@Override
+	public EvuserVO adminLogin(String id, String pw) {
+		
+		return m_dao.adminLogin(id, pw);
+	}
+
 }

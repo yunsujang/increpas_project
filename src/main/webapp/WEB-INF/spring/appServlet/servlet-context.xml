@@ -47,6 +47,14 @@
 		</interceptor>
 	</interceptors>
 	
+	<beans:bean id="admin_inter" class="login.intercept.AdminIntercept"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin.*"/>
+			<beans:ref bean="admin_inter"/>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 	<context:component-scan base-package="com.increpas.ev" />
