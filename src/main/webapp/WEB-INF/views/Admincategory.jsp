@@ -79,6 +79,15 @@
     cursor: pointer;
 }
 
+#newbtn{
+    height: 31px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85C4B9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
 .headtitle{background:#85c4b9; font-size: 15px; color: white;}
 .no {width: 10%}
 .title {width: 40%}
@@ -209,7 +218,9 @@
 	color: #ffffff;
 	
 }
-
+.listclick{
+	cursor: pointer;
+}
 
 
 </style>
@@ -263,7 +274,7 @@
 							<td>${st.index+1 }</td>
 						<%-- 게시판명 클릭 부분 --%>
 						<td  style="cursor:pointer" onclick="location.href='admin.bbsList2?category_idx=${vo.evcategory_idx}'">
-						<label id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
+						<label class="listclick" id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
 						
 						</td>
 						
@@ -329,7 +340,7 @@
 				dataType : "json", //서버로부터 받을 데이터 형식
 
 			}).done(function(data) {
-				alert(data.deleteName + "이(가) 삭제 되었습니다.");
+				alert(data.deleteName + "이 삭제 되었습니다.");
 				location.href = "admin.category";
 			}).fail(function(err) {
 
@@ -351,8 +362,14 @@
 
 			//게시판 idx와 수정한 게시판명 가져오기
 			var changeIdx = $('#changeIdx').val();
-			var changeName = $('#changeName').val();
+			var changeName = $('#changeName').val().trim();
 
+			if(changeName.length <= 0){
+				alert("수정된 게시판명을 입력하세요.");
+				document.forms[0];
+				return;
+			}
+			
 			//확인
 			console.log(changeIdx);
 			console.log(changeName);
@@ -423,10 +440,16 @@
 		}
 
 		function newBoard() {
+			
 
 			
-			var makeName = $('#makeName').val();
-
+			var makeName = $('#makeName').val().trim();;
+			
+			if(makeName.length <= 0){
+				alert("게시판명을 입력하세요.");
+				document.forms[0].makeName.focus();
+				return;
+			}
 			//확인
 			console.log(makeName);
 

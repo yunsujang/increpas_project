@@ -113,7 +113,7 @@
 		#{evbbs_file_name,
 		jdbcType=VARCHAR },
 		#{evbbs_ori_name, jdbcType=VARCHAR }, sysdate,
-		#{evbbs_ip}, 0, 0, #{evcategory_idx}, 1)
+		#{evbbs_ip}, 0, 0, #{evcategory_idx}, 2)
 	</insert>
 
 	<select id="categoryIdxToList" parameterType="Map"
