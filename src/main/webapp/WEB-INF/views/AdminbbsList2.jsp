@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -143,6 +144,7 @@
 	float: left;
 	width: 100%;
 	height: 100%;
+	margin: 80px 0 0 0;
  }
 
 .tabnav {
@@ -157,19 +159,19 @@
 	height: 46px;
 	text-align: center;
 	border-right: 1px solid #ddd;
+	background-color: #f8f8f8;
 }
-
+ 
 
 .tabnav li a {
 	position: relative;
 	display: block;
-	background: #f8f8f8;
-	color: #000;
 	padding: 0 30px;
 	line-height: 46px;
 	text-decoration: none;
 	font-size: 16px;
-}
+	color: black;
+}  
 
 .tabnav li a:hover, .tabnav li a.active {
 	background: #fff;
@@ -179,7 +181,7 @@
 .tabcontent {
 	height: 100%;
 	border-top: none;
-	margin: 50px 0;
+	margin: 50px 0; 
 }
 .btns{
 	width: 75px;
@@ -200,9 +202,9 @@
 </style>
 </head>
 <body>
-
+	
 	<jsp:include page="Adminheader.jsp" />
-
+	${sb }
 	<div class="tab">
 		<ul class="tabnav">
 			<li><a href="admin.bbsList">전체 게시물</a></li>
@@ -232,7 +234,15 @@
 				<c:forEach var="vo" items="${ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
-						<td>${vo.evcategory_idx }</td>
+						<td>
+							<c:if test="${vo.evcategory_idx ne null}">
+							<c:forEach items="${categoryName_ar }" var="ar">
+								<c:if test="${vo.evcategory_idx eq ar.evcategory_idx }">
+									${ar.evcategory_name }
+								</c:if>
+							</c:forEach>	
+							</c:if>
+						</td>
 						<td><a class="title font " href="/admin.view?evbbs_idx=${vo.evbbs_idx }">${vo.evbbs_title }</a></td>
 						<td>${vo.evbbs_writer }</td>
 						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>

@@ -13,12 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import admin.dao.AdminEvbbsDAO;
 import admin.service.AdminBbsService;
 import admin.service.AdminCategorySerivce;
+import admin.util.AdminCSSFont;
 import admin.util.BbsPaging;
 import admin.util.CategoryBbsPaging;
 import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
+import user.util.CSSFont;
 
 @Controller
 public class AdminListController {
@@ -70,7 +72,6 @@ public class AdminListController {
 		
  
 		CategoryVO[] categoryName_ar = user_categoryservice.categoryNameList();
-
 		// JSP에서 표현해야 하므로 ar을 mv에 저장한다.
 		mv.addObject("ar", ar);
 		mv.addObject("nowPage", nowPage);
@@ -109,14 +110,18 @@ public class AdminListController {
 		int end = page.getEnd();
 		
 		BbsVO[] ar = admin_bbsService.categoryIdxToList(String.valueOf(begin), String.valueOf(end), category_idx);
-
+		
+		CategoryVO cvo = user_categoryservice.nowCategory(ar[0].getEvcategory_idx());
+		
 		CategoryVO[] categoryName_ar = user_categoryservice.categoryNameList();
-
+		
+		StringBuffer sb = AdminCSSFont.AdminBbslistStyleCode(cvo, categoryName_ar);
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("ar", ar);
 		mv.addObject("nowPage", ListNowPage);
 		mv.addObject("blockList", ListBlockList);
 		mv.addObject("totalCount", ListTotalCount);
+		mv.addObject("sb",sb);
 		mv.addObject("pageCode", page.getSb().toString());
 		mv.setViewName("AdminbbsList2");
 		

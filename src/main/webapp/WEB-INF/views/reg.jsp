@@ -1,5 +1,3 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,7 +6,10 @@
         <meta charset="UTF-8">
         <title> evca 회원가입</title>
         <link rel="stylesheet" href="new_main.css">
+         <link rel="stylesheet" href="resources/css/header/header.css" type="text/css">
+		<link rel="stylesheet" href="resources/css/footer/footer.css" type="text/css">
         <style type="text/css">
+      
         
         /* 레이아웃 틀 */
 html {
@@ -30,7 +31,8 @@ body {
 }
 #wrapper {
     position: relative;
-    height: 100%;
+    height: 90%;
+    margin: 220px 0 0 0;
 }
 
 #content {
@@ -104,15 +106,16 @@ input {
         
     </head>
     <body>
+    	<jsp:include page="header.jsp"/>
         <!-- header -->
-        <div id="header">
-        	<h1> evca 회원가입 </h1>
-        </div>
+        
 
 
         <!-- wrapper -->
         <div id="wrapper">
-		
+		<div id="header">
+        	<h1> evca 회원가입 </h1>
+        </div>
             <!-- content-->
             <div id="content">
 			<form action="reg" method="post">
@@ -175,7 +178,7 @@ input {
             </div> 
 			
         </div> 
-
+	<jsp:include page="footer.jsp"/>
 <script type="text/javascript">
 	function reg(frm) {
 		frm.submit();

@@ -19,6 +19,7 @@ import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
 import user.service.BbsService;
 import user.service.CategoryService;
+import user.util.CSSFont;
 /**
  * Handles requests for the application home page.
  */
@@ -40,10 +41,15 @@ public class HomeController {
 		//테이블에 마지막으로 업데이트 된 게시물 3개 가져오기
 		BbsVO[]last_ar = bbsService.lastUpdate();
 		
+		StringBuffer sb = CSSFont.homeStyleCode();
+		
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("last_ar", last_ar);
+		mv.addObject("sb", sb);
 		mv.setViewName("home");
 		return mv;
 	}
+	
+
 	
 }

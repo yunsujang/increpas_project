@@ -10,6 +10,7 @@ import ev.vo.CategoryVO;
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
 import user.service.CategoryService;
+import user.util.CSSFont;
 import user.util.UserBbsPaging;
 
 @Controller
@@ -58,7 +59,11 @@ public class BbsListController {
 		mv.addObject("blockList", blockList);
 		mv.addObject("rowTotal", rowTotal);
 		mv.addObject("pageCode", page.getSb().toString());
-	
+		int cnt = 0;
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer sb = CSSFont.StyleCode("community",cnt);
+		mv.addObject("sb",sb);
 		mv.setViewName("evList");// views/list.jsp
 		
 		return mv;

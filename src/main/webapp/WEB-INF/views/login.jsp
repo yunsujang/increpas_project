@@ -7,9 +7,9 @@
 <title>로그인 화면 </title>
 
 <link rel="stylesheet" href="resources/style.css" type="text/css">
+<link rel="stylesheet" href="resources/css/header/header.css" type="text/css">
+<link rel="stylesheet" href="resources/css/footer/footer.css" type="text/css">
 <style type="text/css">
-
-
 
 body{
 	font-family : 'nanumgothic';
@@ -17,17 +17,20 @@ body{
 	color:#222;
 	margin:0;
 	padding:0;
+	background-color: #f5f5f5;
 }
 
 .container{
 	background-color: #f5f5f5;
-	height:100vh; 
+	height:auto;
+	min-height: 565px; 
+	margin: 250px 0 0 0;
 	
 }
 
 .login{
 	width:390px;
-	margin: auto;	
+	margin: 200px 0 0 0;
 	/* Center layout */
 	position:absolute;
 	top:-25%;
@@ -118,13 +121,14 @@ a.box3{
 </style>
 </head>
 <body>
+	
 	<div class="container">
+	
 		<div class ="inner">
-			<img src="">
+			<img src=""/>
 		</div>
 		<div>
-	
-		
+		<jsp:include page="header.jsp"/>
 		</div>
 		
 		
@@ -146,12 +150,10 @@ a.box3{
 			<a class="box box3" href="/reg" >회원가입</a>	
 		
 		</div>
-		<div class="footer">
-			
-			
-		</div>
 	
+
 	</div>
+	<jsp:include page="footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 /* $(function(){
@@ -185,7 +187,6 @@ a.box3{
 
 function login(frm){
 	var id = $("#evu_id").val();
-	alert(id);
 	var pw = $("#evu_pw").val();
 	
 	if(id.trim().length <= 0){
@@ -205,8 +206,6 @@ function login(frm){
 }
 
 </script>
-
-
 
 </body>
 </html>
