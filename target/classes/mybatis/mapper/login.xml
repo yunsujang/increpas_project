@@ -13,6 +13,11 @@
 		values(evuser_seq.NEXTVAL,#{id},#{pw},#{name},#{email},#{phone},1,0,'sault')
 	</insert>
 	
+	
+	<select id="adminlogin" parameterType="Map" resultType="ev.vo.EvuserVO">
+		SELECT * FROM evuser_t 
+		WHERE evu_id = #{evu_id} AND evu_pw = #{evu_pw}
+	</select>
 
 
 <!--   

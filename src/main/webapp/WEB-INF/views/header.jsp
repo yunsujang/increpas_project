@@ -31,6 +31,10 @@
 	#user-padding{
 		margin: 100px;
 	}
+	
+	.logout{
+		cursor: pointer;
+	}
 </style>
 </head>
 <body>
@@ -65,7 +69,7 @@
 					<c:if test="${mvo ne null }">
 					<a>${mvo.evu_name }님</a>
 						<a>마이페이지</a>
-						<a>로그아웃</a>
+						<a onclick="logout()" class="logout">로그아웃</a>
 					</c:if>
 				</div>
 				</ul>
@@ -114,6 +118,28 @@
 			function search(frm) {
 				frm.submit();
 			}
+			
+			function logout(){
+				var result = confirm("로그아웃 하시겠습니까?");
+				if(confirm){
+					realLogout();
+				}
+				
+			}	
+			
+			function realLogout() {
+				$.ajax({
+					url:"logout",
+					type:"post",
+					dataType: "json",	
+				}).done(function(data) {
+					alert("로그아웃 되었습니다.");
+					location.reload(true);
+				}).fail(function(err) {
+					
+				})
+			}
+		
 		</script>
 </body>
 </html>

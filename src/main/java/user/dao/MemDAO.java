@@ -40,5 +40,16 @@ public class MemDAO {
 		return ss.insert("login.reg", map);
 	}
 	
+	public EvuserVO adminLogin(String evu_id, String evu_pw) {
+		Map<String, String>map = new HashMap<String, String>();
+		System.out.println(evu_id);
+		System.out.println(evu_pw);
+		
+		map.put("evu_id", evu_id);
+		map.put("evu_pw", evu_pw);
+		
+		return ss.selectOne("login.adminlogin", map);
+	}
+	
 
 }
