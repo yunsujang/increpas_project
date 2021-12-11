@@ -574,7 +574,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<!-- 수정버튼 눌렀을때 -->
+		<!-- 수정버튼 눌렀을때 수행하는 기능 -->
 		<form id="changeForm" name="changeForm" method="post">
 			<div class="paging-div">${pageCode }</div>
 			<div id="updateDialog" title="게시판 수정하기">
