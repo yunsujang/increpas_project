@@ -380,7 +380,6 @@
             "changeName" : changeName
          }
 
-         //보내버려
          $.ajax({
             url : "updateCategory",
             data : JSON.stringify(param), //datajson형
@@ -401,9 +400,7 @@
             alert("게시판명 수정 실패");
          });
 
-
       }
-
       // 받은이름으로 비동기식 수정 진행한후 수정잘됬다고 띄움
       function updateCategory(name) {
          var frm = new FormData();
@@ -458,7 +455,6 @@
          
          frm4.append("makeName",makeName);
 
-    
          //보내버려
          $.ajax({
             url : "makeCategory",
