@@ -17,7 +17,7 @@
 	float: left;
 	padding: 20px 0 20px 0;
 }
-
+ 
 .contents {
 	border-radius: 5px;
 	width: 30.6%;

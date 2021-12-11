@@ -47,7 +47,7 @@ public class AdminCategoryController {
 		 
 		
 		String pageCode = page.getSb().toString();
-		
+		 
 		//페이징 기법을 통해 테이블에서 가져온 배열 저장
 		CategoryVO[] cvo = admincategoryservice.getCategoryList(String.valueOf(begin), String.valueOf(end));
 		

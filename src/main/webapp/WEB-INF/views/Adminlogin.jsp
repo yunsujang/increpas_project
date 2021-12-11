@@ -12,7 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <title>JSP 게시판 웹 사이트</title>
-
+ 
 <style type="text/css">
 #back{
     background: lightgoldenrodyellow;

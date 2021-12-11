@@ -17,7 +17,7 @@ public class AdminBbsSearchPaging {
 	 
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳!
 	private StringBuffer sb;
-	
+	 
 	private String searchValue;
 	public AdminBbsSearchPaging(int nowPage, int rowTotal, int blockList, int blockPage,  String searchValue) {
 		this.nowPage = nowPage;

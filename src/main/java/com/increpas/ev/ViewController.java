@@ -15,7 +15,7 @@ import user.service.CategoryService;
 public class ViewController {
 	@Autowired
 	BbsService bbsService;
-
+ 
 	@Autowired
 	CategoryService categoryservice;
 

@@ -27,7 +27,7 @@ import user.util.CSSFont;
 public class HomeController {
 	@Autowired
 	CategoryService categoryservice;
-	
+	 
 	@Autowired
 	BbsService bbsService;
 	

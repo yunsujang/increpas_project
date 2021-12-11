@@ -11,7 +11,7 @@ public class FileRenameUtil {
 		 
 		String f_name = evbbs_file_name.substring(0, period); // test123
 		String suffix = evbbs_file_name.substring(period); // .txt
-		
+		 
 		//전체 경로
 		String saveFileName = path + System.getProperty("file.separator") +evbbs_file_name;
 		

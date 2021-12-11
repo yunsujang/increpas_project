@@ -18,7 +18,7 @@ public class RealAdminBbsService implements AdminBbsService {
 	public BbsVO[] categoryIdxToList(String begin, String end, String idx) {
 		return admin_bbsDao.categoryIdxToList(begin, end, idx);
 	}
-
+ 
 	@Override
 	public int ajaxTotalList(String idx) {
 		// TODO Auto-generated method stub

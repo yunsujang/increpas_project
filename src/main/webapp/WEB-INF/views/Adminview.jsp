@@ -14,7 +14,7 @@
 body {
 	text-align: center;
 }
-
+ 
 .title_p {
 	font: 24px;
 	font-weight: normal;

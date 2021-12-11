@@ -9,7 +9,7 @@
 		<collection property="comment_list" ofType="mybatis.vo.CommentVO"
 		 select="commList" column="evcbbs_idx"/>
 	</resultMap>
-	
+	 
 	<!-- 특정 게시물의 기본키인 evcbbs_idx를 받아서
 	 해당 게시물의 댓글들을 모두 반환한다. -->
 	<select id="commList" parameterType="String" 

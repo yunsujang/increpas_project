@@ -12,3 +12,4 @@ public interface AdminBbsService {
 	 //bbs게시물 복구
 	 public int AdminRecoveryBbs(String idx);
 }
+ 

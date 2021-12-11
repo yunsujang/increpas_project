@@ -30,7 +30,7 @@ public class AdminListController {
 
 	@Autowired
 	private AdminBbsService admin_bbsService;
-
+ 
 	@Autowired
 	private AdminCategorySerivce admin_categoryservice;
 

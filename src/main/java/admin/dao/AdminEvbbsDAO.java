@@ -15,7 +15,7 @@ public class AdminEvbbsDAO {
 
 	@Autowired
 	private SqlSessionTemplate ss;
-	
+	 
 	// 원하는 페이지의 게시물 목록 가져오기
 	public BbsVO[] getList(int begin, int end) {
 		BbsVO[]ar = null;

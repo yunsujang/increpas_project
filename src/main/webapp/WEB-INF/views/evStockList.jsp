@@ -123,7 +123,7 @@
 					<td>${svo1.georaeryang }</td>
 					<td>${svo1.tradingValue }</td>
 				</tr>
-				
+			 	
 				<tr>
 					<td><a href="/">${svo2.name }</a></td>
 					<td>${svo2.nowPrice }</td>

@@ -17,7 +17,7 @@ import user.util.searchPaging;
 public class SearchController {
 	@Autowired
 	CategoryService categoryservice;
-
+ 
 	@Autowired
 	BbsService bbsService;
 

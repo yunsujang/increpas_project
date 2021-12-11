@@ -15,7 +15,7 @@
 	margin: 190px 0px 0px 0px;
 }
 
-body{
+body{ 
 		margin: 0 auto;
 		padding: 0 auto;
 	}

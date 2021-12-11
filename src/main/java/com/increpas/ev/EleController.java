@@ -83,7 +83,7 @@ public class EleController {
 			String statId = item.getChildText("statId");
 			String chgerId = item.getChildText("chgerId");
 			String location = item.getChildText("location");
-			
+	 		
 			EleVO vo = new EleVO(limitYn, note, parkingFree, stat, busiCall, busiNm, useTime, lat, lng, addr, chgerType, statNm, statId, chgerId, location);
 			ar[i++] = vo;
 		}

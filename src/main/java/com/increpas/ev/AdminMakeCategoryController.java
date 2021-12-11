@@ -25,7 +25,7 @@ public class AdminMakeCategoryController {
 
 	@Autowired
 	AdminCategorySerivce admincategoryservice;
-	
+ 	
 	@Autowired
 	AdminBbsService adminbbsservice;
 	

@@ -22,7 +22,7 @@ public class AdminRecoveryController {
 	
 	@Autowired
 	AdminCategorySerivce admincategoryservice;
-	
+	 
 	@Autowired
 	AdminBbsService adminbbsservice;
 	

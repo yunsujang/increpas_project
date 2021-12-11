@@ -8,7 +8,7 @@ public class StockVO {
 	public StockVO() {
 		
 	}
- 
+   
 	public StockVO(String name, String nowPrice, String vsyesterday, String dungRakrate, String highPrice,
 			String lowPrice, String georaeryang, String tradingValue) {
 		super();

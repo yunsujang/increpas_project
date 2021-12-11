@@ -109,7 +109,7 @@ public class StockListController {
 				StringBuffer sb = CSSFont.StyleCode(3,cnt);
 				model.addAttribute("sb",sb);
 				model.addAttribute("categoryName_ar", categoryName_ar);
-				
+				 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

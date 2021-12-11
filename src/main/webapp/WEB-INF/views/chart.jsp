@@ -9,7 +9,6 @@
 	 
 		*{margin: 0;}	
 			
-			
 		#chart_div{
 			margin : 0px;
 			padding : 0px;

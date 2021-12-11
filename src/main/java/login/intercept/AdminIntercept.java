@@ -9,7 +9,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import ev.vo.EvuserVO;
 
 public class AdminIntercept extends HandlerInterceptorAdapter {
-
+ 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler)

@@ -9,8 +9,6 @@ public class CommentVO {
 				evcbbs_idx,
 				evu_idx;
  
-		
-
 	public String getEvccomment_idx() {
 		return evccomment_idx;
 	}

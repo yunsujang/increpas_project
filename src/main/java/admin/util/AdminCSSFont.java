@@ -9,7 +9,7 @@ public class AdminCSSFont {
 			if(cvo.getEvcategory_idx().equals(nowCategory.getEvcategory_idx())) {
 				break;
 			}
-			i++;   
+		 	i++;   
 		}
 		StringBuffer style =  new StringBuffer("<style>.tabnav li:nth-child(");
 		style.append(String.valueOf(i));

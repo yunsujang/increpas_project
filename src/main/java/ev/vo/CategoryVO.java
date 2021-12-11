@@ -10,7 +10,6 @@ public class CategoryVO {
 	private String changeIdx;
 	private String changeName;
 
-	
 	public String getChangeIdx() {
 		return changeIdx;
 	}

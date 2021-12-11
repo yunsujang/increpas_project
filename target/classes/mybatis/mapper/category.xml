@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="category">
-
+ 
 	<!--리스트에서 하나씩 게시판들을 가져와서 1:n관계로 이뤄진 게시물들 list에 담기 -->
 	<resultMap type="ev.vo.CategoryVO" id="map1">
 		<id property="evcategory_idx" column="evcategory_idx"/>

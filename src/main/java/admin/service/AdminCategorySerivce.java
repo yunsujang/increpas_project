@@ -10,7 +10,7 @@ public interface AdminCategorySerivce {
 	
 	// 페이징에 따른 카테고리들을 가져온다.
 	CategoryVO[] getCategoryList(String begin, String end);
-	
+	 
 	//해당이름의 카테고리를 삭제한다.
 	int deleteCategory(String name);
 	 

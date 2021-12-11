@@ -25,7 +25,7 @@ public class CSSFont {
 		style.append("</style>");
 		return style;
 	}
-	
+	 
 	static public StringBuffer StyleCode(int num, int cnt) {
 		int i = 0;
 		switch (num) {

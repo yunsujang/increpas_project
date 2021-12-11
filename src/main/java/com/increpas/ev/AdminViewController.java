@@ -16,7 +16,6 @@ import user.service.CategoryService;
 @Controller
 public class AdminViewController {
 
-	
 	@Autowired
 	BbsService bbsService;
 	

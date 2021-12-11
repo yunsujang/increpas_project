@@ -23,7 +23,7 @@ public class AdminLoginController {
 
 	@Autowired
 	HttpSession session;
-
+ 
 	@RequestMapping(value = "admin", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> adminLogin(String evu_id, String evu_pw) {

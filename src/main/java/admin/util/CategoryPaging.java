@@ -16,7 +16,7 @@ public class CategoryPaging {
 	 	
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳
 	private StringBuffer sb;
-
+ 
 	public CategoryPaging(int nowPage, int rowTotal, int blockList, int blockPage) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;

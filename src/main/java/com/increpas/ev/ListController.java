@@ -17,7 +17,7 @@ public class ListController {
 	
 	@Autowired
 	CategoryService categoryservice;
-	
+ 	
 	@Autowired
 	BbsService bbsService;
 	

@@ -30,7 +30,7 @@ public class AdminBbsSearchController {
 	@RequestMapping(value = "/admin.search")
 	public ModelAndView search(String searchValue, String evbbs_idx,String cPage) {
 		ModelAndView mv = new ModelAndView();
-		
+		 
 		
 		if(searchValue == null)
 			this.searchValue = "1";

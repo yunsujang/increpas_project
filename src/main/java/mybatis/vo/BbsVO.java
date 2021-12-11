@@ -3,7 +3,7 @@ package mybatis.vo;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
-
+ 
 public class BbsVO {
 	private String evcbbs_idx,
 					evcbbs_title, 

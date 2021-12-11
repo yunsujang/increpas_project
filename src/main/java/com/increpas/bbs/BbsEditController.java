@@ -25,7 +25,7 @@ public class BbsEditController {
 	
 	@Autowired
 	private HttpServletRequest request;
-	
+	 
 	@Autowired
 	private UserBbsDAO b_dao;
 	 

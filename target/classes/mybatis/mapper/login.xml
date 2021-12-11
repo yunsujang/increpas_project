@@ -7,7 +7,7 @@
     select * from evuser_t
     where evu_id = #{id} and evu_pw = #{pw} 
   </select>
-
+ 
 	<insert id="reg" parameterType="Map">
 		insert into evuser_t(evu_idx,evu_id,evu_pw,evu_name,evu_email,evu_phone,evu_who,evu_status,evu_comp)
 		values(evuser_seq.NEXTVAL,#{id},#{pw},#{name},#{email},#{phone},1,0,'sault')

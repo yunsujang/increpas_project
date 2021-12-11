@@ -16,6 +16,6 @@ public class AdminBbsDeleteController {
 	public String del(String evbbs_idx) {
 		bbs_dao.delBbs(evbbs_idx);  
 		return "redirect:/admin.bbsList"; 
-	}
+	} 
 
 }

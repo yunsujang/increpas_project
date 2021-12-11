@@ -15,7 +15,7 @@
 #bbs {
 	width: 80%;
 	margin: 150px auto;
-}
+} 
 
 #bbs table {
 	width: 100%;

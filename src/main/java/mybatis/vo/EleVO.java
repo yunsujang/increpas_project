@@ -20,10 +20,6 @@ public class EleVO {
 	
 	public EleVO() {}
 	
-	
-	 
-	
-	
 	public EleVO(String limitYn, String note, String parkingFree, String stat, String busiCall, String busiNm,
 			String useTime, String lat, String lng, String addr, String chgerType, String statNm, String statId,
 			String chgerId, String location) {

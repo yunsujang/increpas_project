@@ -5,7 +5,7 @@
 <mapper namespace="bbs">
 
 	<!-- 유저 SQL -->
-
+ 
 	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기 -->
 	<select id="paging" parameterType="Map" resultType="ev.vo.BbsVO">
 		SELECT * FROM(

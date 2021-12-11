@@ -26,7 +26,7 @@ public class BbsViewController {
 	@Autowired
 	private HttpServletRequest request;
 	 
-	
+	 
 	//조회수 중복확인//////
 		public boolean checkBbs(BbsVO vo){
 			boolean value = true;

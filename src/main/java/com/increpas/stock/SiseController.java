@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 public class SiseController {
 
 public static void main(String[] args) throws ParseException {
-		
+		 
 		String URL = "https://finance.naver.com/item/frgn.naver?code=394660";
 		Document doc;
 

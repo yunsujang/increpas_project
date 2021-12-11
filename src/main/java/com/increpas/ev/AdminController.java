@@ -18,7 +18,7 @@ public class AdminController {
 	public ModelAndView main() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("Adminmain");
+	 	mv.setViewName("Adminmain");
 		return mv;
 	}
 }

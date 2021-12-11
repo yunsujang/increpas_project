@@ -33,7 +33,7 @@ public class BbsWriteController {
 	
 	@Autowired
 	private ServletContext application;
-	
+	 
 	@Autowired
 	private UserBbsDAO b_dao;
 	 

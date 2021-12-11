@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="resources/css/header/header.css" />
 <link rel="stylesheet" href="resources/css/main/main.css" />
 </head>
-<style>
+<style> 
 body {
 	margin: 0 auto;
 	padding: 0 auto;

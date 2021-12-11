@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="resources/css/footer/footer.css" type="text/css">
         <style type="text/css">
       
-        
         /* 레이아웃 틀 */
 html {
     height: 100%;
@@ -125,7 +124,7 @@ input {
                         <label for="id">아이디</label>
                     </h3>
                     <span class="box int_id">
-                        <input type="text" name="evu_id" id="evu_id" class="int" maxlength="20" placeholder="아이디를 입력하세요">
+                        <input type="text" name="evu_id" id="evu_id" class="int" maxlength="20" placeholder="아이디를 입력하세요" oninput="idcheck()"/>
                     </span>
                 </div>
 
@@ -160,7 +159,7 @@ input {
                 <div>
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel"name="evu_phone" id="evu_phone" class="int" maxlength="16" placeholder="전화번호 입력하세요">
+                        <input type="number"name="evu_phone" id="evu_phone" class="int" maxlength="16" placeholder="전화번호 입력하세요">
                     </span>
                 </div>
 
@@ -180,6 +179,11 @@ input {
         </div> 
 	<jsp:include page="footer.jsp"/>
 <script type="text/javascript">
+	function idcheck() {
+		var id = $("#evu_id").val().trim();
+		console.log(id);
+	}
+
 	function reg(frm) {
 		frm.submit();
 	}

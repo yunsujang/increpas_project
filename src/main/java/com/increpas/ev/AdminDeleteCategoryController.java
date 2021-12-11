@@ -21,7 +21,7 @@ public class AdminDeleteCategoryController {
 
 	@Autowired
 	AdminBbsService adminbbsservice;
-
+ 
 	@ResponseBody
 	@RequestMapping(value = "deleteCategory", method = RequestMethod.POST)
 	public Map<String, String> deleteCategory(String name) {

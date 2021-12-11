@@ -17,7 +17,7 @@
 	margin: 50px 0 100px auto;
 	text-align: center;
 }
-
+ 
 #bbs table {
 	width: 90%;
 	height: 600px;

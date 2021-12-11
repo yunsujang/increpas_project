@@ -18,7 +18,7 @@ public class AdminUpdateCategoryController {
 
 	@Autowired
 	AdminCategorySerivce admincategoryservice;
-	
+	 
 	@Autowired
 	AdminBbsService adminbbsservice;
 	

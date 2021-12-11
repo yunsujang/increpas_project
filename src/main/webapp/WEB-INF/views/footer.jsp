@@ -10,7 +10,7 @@
 	.service_link{
 		text-decoration: none;
 	}
-
+ 
 	.notice_about li a{
 		text-decoration: none;
 	}

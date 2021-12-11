@@ -13,7 +13,7 @@ public class CategoryBbsPaging {
 	
 	private boolean isPrePage; //이전 기능 가능 여부(true일 때 이전 기능 활성화)
 	private boolean isNextPage; //다음 기능 가능 여부(true일 때 다음 기능 활성화)
-	 
+	  
 	private String evcategory_idx;
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳
 	private StringBuffer sb;

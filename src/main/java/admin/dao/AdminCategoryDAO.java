@@ -18,7 +18,7 @@ public class AdminCategoryDAO {
 
 	// 페이징 기법을 위해 모든 게시판의 갯수를 반환하는 기능
 	public int totalCount() {
-
+ 
 		return ss.selectOne("category.AdmintotalCount");
 	}
 	

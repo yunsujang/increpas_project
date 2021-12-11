@@ -18,7 +18,7 @@ public class RealAdminCategorySerivce implements AdminCategorySerivce {
 	@Override
 	public int totalCount() {
 		return c_dao.totalCount();
-	}
+	} 
 
 	@Override
 	public CategoryVO[] getCategoryList(String begin, String end) {

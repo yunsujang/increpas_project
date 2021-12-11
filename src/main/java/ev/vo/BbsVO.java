@@ -17,7 +17,7 @@ public class BbsVO {
 					evbbs_status,
 					evcategory_idx,
 					evu_idx;
-	 
+ 	 
 	private MultipartFile file;
 
 	public String getEvbbs_idx() {

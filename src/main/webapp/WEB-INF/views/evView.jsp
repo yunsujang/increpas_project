@@ -17,8 +17,6 @@
 
 <style type="text/css">
 	
-	
-	
 	#wrap {
 		margin: 190px 0px 171px 0px;
 		height: 700px;

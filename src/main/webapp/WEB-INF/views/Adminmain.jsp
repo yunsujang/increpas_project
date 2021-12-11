@@ -19,7 +19,7 @@ html, body {
 	width: 100%;
 	height: 90%;
 	margin: auto;
-}
+} 
 
 .logo-p{
 	font-size: 60px;

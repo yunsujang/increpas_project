@@ -13,7 +13,7 @@ public class CommunityController {
 
 	@Autowired
 	CategoryService categoryservice;
-	
+	 
 	@RequestMapping("/community")
 	public ModelAndView community() {
 		ModelAndView mv = new ModelAndView();

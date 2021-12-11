@@ -30,9 +30,6 @@ import user.service.LoginService;
  */
 @Controller
 public class LoginController {
-
-	
-	
 	@Autowired
 	LoginService l_service;
 
