@@ -108,12 +108,13 @@
 					<c:if test="${fn:startsWith(updown,'하락') }">
 						<td>↓${fn:substring(svo1.vsyesterday,2,5) } </td>
 					</c:if >
-					<c:set value="${fn:substring(svo1.dungRakrate,0,3) }" var="plusminus"/>
-					<c:if test="${fn:startsWith(plusminus,'플러스') }">
+					<c:set value="${fn:substring(svo1.dungRakrate,0,3) }" var="plus"/>
+					<c:if test="${fn:startsWith(plus,'플러스') }">
 						<td>+${fn:substring(svo1.dungRakrate,3,7) }%</td>
 					</c:if>
-					<c:if test="${fn:startsWith(plusminus,'마이너스') }" >
-						<td>-${fn:substring(svo1.dungRakrate,3,7) }%</td>
+					<c:set value="${fn:substring(svo1.dungRakrate,0,4) }" var="minus"/>
+					<c:if test="${fn:startsWith(minus,'마이너스') }" >
+						<td>-${fn:substring(svo1.dungRakrate,4,7) }%</td>
 					</c:if>
 					
 					
@@ -133,12 +134,13 @@
 					<c:if test="${fn:startsWith(updown,'하락') }">
 						<td>↓${fn:substring(svo2.vsyesterday,2,8) } </td>
 					</c:if>
-					<c:set value="${fn:substring(svo2.dungRakrate,0,3) }" var="plusminus"/>
-					<c:if test="${fn:startsWith(plusminus,'플러스') }">
+					<c:set value="${fn:substring(svo2.dungRakrate,0,3) }" var="plus"/>
+					<c:if test="${fn:startsWith(plus,'플러스') }">
 						<td>+${fn:substring(svo2.dungRakrate,3,7) }%</td>
 					</c:if>
-					<c:if test="${fn:startsWith(plusminus,'마이너스') }" >
-						<td>-${fn:substring(svo2.dungRakrate,3,7) }%</td>
+					<c:set value="${fn:substring(svo2.dungRakrate,0,4) }" var="minus"/>
+					<c:if test="${fn:startsWith(minus,'마이너스') }" >
+						<td>-${fn:substring(svo2.dungRakrate,4,7) }%</td>
 					</c:if>
 					<td>${svo2.highPrice }</td>
 					<td>${svo2.lowPrice }</td>
