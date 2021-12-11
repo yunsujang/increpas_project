@@ -43,5 +43,10 @@ public class AdminUserDAO {
 	public int totalCount() {
 		return ss.selectOne("adminUser.totalCount");
 	}
+	
+	//관리자 계정 생성
+	public int AdminMakeUser(String name) {
+		return ss.insert("adminUser.AdminMakeUser", name);
+	}
 
 }

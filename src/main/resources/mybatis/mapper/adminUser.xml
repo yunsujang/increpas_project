@@ -4,8 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminUser">
 
-
-
 	<!-- 총 유저 수 -->
 	<select id="totalCount" resultType="int" parameterType="String">
 		SELECT
@@ -24,10 +22,17 @@
 		#{begin} AND #{end}
 	</select>
 	
-		<!-- 관리자가 선택한 회원 탈퇴 -->
+	<!-- 관리자가 선택한 회원 탈퇴 -->
 	<update id="AdmindeleteUser" parameterType="String">
 		UPDATE evuser_t set evu_status = 1
 		WHERE evu_idx = #{evu_idx}
 	</update>
 
+	<!-- 관리자 계정 생성 기능 -->
+	<insert id="AdminMakeUser" parameterType="String">
+		INSERT INTO evuser_t(evu_idx, evu_id, euv_pw, evu_name, evu_who, evu_status)
+		VALUES(evUser_seq.NEXTVAL, #{evu_id}, #{evu_pw}, #{evu_name}, 0, 0)
+	</insert>
+	
+	
 </mapper>

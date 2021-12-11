@@ -205,7 +205,7 @@
 
 
 	<script type="text/javascript">
-		
+		//회원 탈퇴 기능
 		function del(evu_idx) {
 		
 			var result = confirm("탈퇴하시겠습니까?");
@@ -217,6 +217,9 @@
 			}
 			
 		}
+		
+		
+		//관리자 생성 기능
 		
 
 	

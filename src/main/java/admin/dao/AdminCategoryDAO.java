@@ -107,7 +107,8 @@ public class AdminCategoryDAO {
 	public int makeCategory(String makeName) {
 		return ss.insert("category.makeCategory", makeName);
 	}
-
+	
+	//게시판생성 중복체크
 	public int makeCategoryCheck(String makeName) {
 		return ss.selectOne("category.makeCategoryCheck", makeName);
 	}
