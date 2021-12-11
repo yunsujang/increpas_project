@@ -115,8 +115,10 @@
 	}
 	#ansname{
 		margin: 10px;
-   		height: 20px;
-   		border-radius: 3px;
+	    height: 20px;
+	    border-radius: 3px;
+	    border: none;
+	    background-color: #f9f9f9;
 	}
 	
 	#anscontent{
@@ -124,6 +126,29 @@
    	 	padding: 10px;
    	 	box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
    	 	border-radius: 5px;
+	}
+	
+	#commDel{
+		 float: right;
+		 width: 18px;
+		 height: 28px;
+		 border: none;
+	}
+	#commDate{
+		margin-left: 5px;
+	    color: #848484;
+	    font-size: 11px;
+	    font-weight: normal;
+	    letter-spacing: 0;
+	    font-family: tahoma;
+	}
+	
+	.commExit{
+		font-size : 10px;
+		background: url(/resources/img/EXIT.png) no-repeat;
+	}	
+	.commExit:hover{
+		cursor: pointer;
 	}
 	
 	
@@ -151,6 +176,8 @@
 	.commP{
 		font-weight: bold;
 	}
+		
+	
 		
 }
 	
@@ -194,11 +221,21 @@
 						내용 :</p> ${vo.evcbbs_content}
 					</td>
 				</tr>
-				
 				<tr>
 					<td colspan="2" style="border-left: hidden;">
+					<c:if test="${mvo eq null }">	
+						<input type="hidden" class="viewbtn" value="수정" onclick="edit()"/>
+					</c:if>	
+					<c:if test="${mvo.evu_idx eq vo.evu_idx }">	
 						<input type="button" class="viewbtn" value="수정" onclick="edit()"/>
+					</c:if>
+					
+					<c:if test="${mvo eq null }">		
+						<input type="hidden" class="viewbtn" value="삭제" onclick="del()"/>
+					</c:if>
+					<c:if test="${mvo.evu_idx eq vo.evu_idx }">		
 						<input type="button" class="viewbtn" value="삭제" onclick="del()"/>
+					</c:if>
 						<input type="button" class="viewbtn" value="목록"
 						 onclick="location.href='list.ev'"/>
 					</td>
@@ -217,8 +254,8 @@
 			내용을 게시할 경우 이용약관 및 관련 법률에 의해 제재될 수 있습니다.</p>	
 			
 		<form id="ansform" method="post" action="ans_write.ev">
-			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer"
-					value="${mvo.evu_name }" readonly="readonly" style="background-color: #efefef;" /><br/>
+			<a style="font-weight: bold;">이름:</a><input id="ansname" type="text" name="evccomment_writer" 
+					value="${mvo.evu_name }" readonly="readonly"  /><br/>
 			<c:if test="${mvo eq null }">	
 			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" 
 							placeholder="로그인 후 이용가능합니다."	readonly="readonly" style="background-color: #efefef;"></textarea><br/>
@@ -226,12 +263,13 @@
 			<c:if test="${mvo ne null }">	
 			<a style="font-weight: bold;">내용:</a><textarea id="anscontent" rows="4" cols="85" name="evccomment_content" ></textarea><br/>
 			</c:if>	
-				
 			<%-- 원글을 의미하는 원글의 기본키 --%>
 			<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx}">
 			<input type="hidden" name="cPage" value="${cPage}"><%-- evEdit.jsp에서 
 						댓글을 저장한 후 다시 view.jsp로 돌아올 때 필요하다. --%>
 			<input type="hidden" name="ip" value="${evcbbs_ip}">
+			<input type="hidden" name="evccomment_idx" value="${evccomment_idx}">
+			<input type="hidden" name="evu_idx" value="${evu_idx}">
 			<input type="button" id="ansbtn" value="저장" onclick="ansSaveBtn(this.form)"/> 
 			<c:if test="${fn:length(vo.comment_list)>=0}">
 			<p id="comment_l">전체 댓글 <a style="color: red;">${fn:length(vo.comment_list)}</a>개 <!-- 댓글 수  -->
@@ -241,34 +279,42 @@
 	</div>
 	
 	<hr/>
-	<div id="comment_div">
-		<c:forEach var="cvo" items="${vo.comment_list }">
-			<div >
-					<a class="commP">이름</a> : ${cvo.evccomment_writer} &nbsp;&nbsp;<br/>
-				<a style="margin-left: 85%; font-size: 13px;"><c:set var="evccomment_write_date" value="${cvo.evccomment_write_date }"></c:set>
-					${fn:substring(evccomment_write_date,0,16)}<br/><br/></a>
-				<a class="commP">내용</a> :<br/> ${cvo.evccomment_content }
-			</div>
-			<hr/>
-		</c:forEach>
-	</div>
+		<div id="comment_div">
 	
+			<c:forEach var="cvo" items="${vo.comment_list }">
+				<div >
+						<a class="commP">이름</a> : ${cvo.evccomment_writer}
+					<a id="commDate" ><c:set var="evccomment_write_date" value="${cvo.evccomment_write_date }"></c:set>
+						(${fn:substring(evccomment_write_date,0,16)})
+					<input type="hidden" id="evccomment_idx"  value="${cvo.evccomment_idx}" >
+						<c:if test="${mvo eq null }">	
+						<input type="hidden" id="commDel" value="" onclick="commdel(${cvo.evccomment_idx})">
+						</c:if>
+						<c:if test="${mvo.evu_idx eq cvo.evu_idx }">	
+						<input class="commExit"type="button" id="commDel" value="" onclick="commdel(${cvo.evccomment_idx})">
+					</c:if>
+						<br/>
+						<br/>
+					</a>
+					<a class="commP">내용</a> :<br/> ${cvo.evccomment_content }
+					
+				</div>
+				<hr/>
+			</c:forEach>
+		</div>
 	
 	<form name="frm" method="post" ><!-- frm 보내는 내용  -->
 		<input type="hidden" name="cPage" value="${param.cPage }">
 		<input type="hidden" name="evcbbs_idx" value="${vo.evcbbs_idx }">
-		<%--<input type="hidden" name="evcategory_idx" value="${vo.evcategory_idx }">  --%> 
 		<input type="hidden" name="f_name" />
+		
 	</form>
 	<script>
 		function edit(){
-			if($("#evu_name").val() == $("#evcbbs_writer").val() ){
-				document.frm.action = "edit.ev";
-				document.frm.submit();
-			}else{
-				alert("본인 게시글만 수정가능합니다!")
-			}
-		
+			
+			document.frm.action = "edit.ev";
+			document.frm.submit();
+	
 		}
 	
 		function goList(){
@@ -278,17 +324,12 @@
 		}
 		
 		function del(){
-			
-			if($("#evu_name").val() == $("#evcbbs_writer").val() ){
-				
 				if(confirm("삭제하시겠습니까?")){
 				document.frm.action = "delete.ev";
 				document.frm.submit();
 				
 				}
-			}else{
-				alert("본인 게시글만 삭제합니다!")
-			}
+		
 		}
 		
 		function down(fname){
@@ -318,6 +359,32 @@
 		}
 	
 		
+		function commdel(idx) {
+			
+				if(confirm("삭제하시겠습니까?")){
+					var frm = new FormData();
+					frm.append("idx",idx);
+				
+					$.ajax({
+			            url : "commDel.ev",
+			            data : frm,
+			            type : "post",
+			            contentType : false,
+			            processData : false,
+			            cache : false,
+			            dataType : "json", 
+
+			         }).done(function(data) {
+			           
+			            if(data.code > 0)
+			            	 alert("삭제되었습니다.");
+			            location.reload(true);
+			         }).fail(function(err) {
+						alert("실패")
+			         });
+			      }
+				}
+			
 		
 	</script>
 </c:if>

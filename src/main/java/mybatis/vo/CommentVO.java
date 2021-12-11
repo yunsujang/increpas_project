@@ -7,8 +7,9 @@ public class CommentVO {
 				evccomment_write_date,
 				evccomment_ip,
 				evcbbs_idx,
+				evccomment_status,
 				evu_idx;
- 
+	
 		
 
 	public String getEvccomment_idx() {
@@ -65,6 +66,14 @@ public class CommentVO {
 
 	public void setEvu_idx(String evu_idx) {
 		this.evu_idx = evu_idx;
+	}
+
+	public String getEvccomment_status() {
+		return evccomment_status;
+	}
+
+	public void setEvccomment_status(String evccomment_status) {
+		this.evccomment_status = evccomment_status;
 	}
 
 	

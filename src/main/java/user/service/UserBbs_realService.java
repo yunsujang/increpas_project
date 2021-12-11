@@ -61,5 +61,8 @@ public class UserBbs_realService implements UserBbsService {
 	public int updateHit(String evcbbs_idx) {
 		return ubbs_dao.updateHit(evcbbs_idx);
 	}
-
+	@Override
+	public int commDel(String evccomment_idx) {
+		return ubbs_dao.updateHit(evccomment_idx);
+	}
 }

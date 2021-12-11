@@ -122,8 +122,13 @@ public class BbsWriteController {
 			ModelAndView mv = new ModelAndView();
 			//System.out.println(cvo.getEvccomment_content()+"/"+cvo.getEvccomment_writer());
 			//댓글정보가 모두 cvo에 저장되어 넘어왔다.
+			Object obj =  session.getAttribute("mvo");
+			
+			EvuserVO evo = (EvuserVO) obj;
+			cvo.setEvu_idx(evo.getEvu_idx());
 			b_dao.addAns(cvo);
-																	//cPage Change 1
+			
+																				//cPage Change 1
 			mv.setViewName("redirect:/view.ev?evcbbs_idx="+cvo.getEvcbbs_idx()+"&cPage="+1);
 			
 			return mv;

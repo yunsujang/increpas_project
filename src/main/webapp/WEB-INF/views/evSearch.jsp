@@ -46,9 +46,7 @@
 	    margin-bottom:10px;
 	}
 	
-	#bbs table td:hover{
-		background-color: #ececec;
-	}
+	
 	
 	#bbs table th,#bbs table td {
 	    text-align:center;
@@ -119,10 +117,12 @@
 	
 	#c_pont{
 		text-decoration : none;
+		color: black;
 		
 	}
-	#c_pont :hover{
-		color:red;	
+	#c_pont:hover{
+		color:#85c4b9;
+		text-decoration: underline;	
 	}
 	#writeBtn{
 		border: 1px solid #9f9393;
@@ -199,7 +199,7 @@
 	<div id="bbs">
 		
 		<table summary="게시판 검색결과">
-			<h1 id="content_title">"${searchValue }"에 대한검색결과</h1>
+			<h1 id="content_title">커뮤니티<br/><br/>"${searchValue }"에 대한검색결과 총'${rowTotal }'건</h1>
 			<thead>	
 				
 				<colgroup>

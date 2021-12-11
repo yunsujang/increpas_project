@@ -82,7 +82,7 @@
 	color: gray;
 }
 #markerimg{
-	height: 40px;
+	height: 18px;
 }
 
 
