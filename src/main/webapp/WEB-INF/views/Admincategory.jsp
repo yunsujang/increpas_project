@@ -352,9 +352,7 @@
             } else {
                alert("취소하셨습니다.");
             }
-         
       }
-      
 
       function deleteCategory(name) {
          var frm = new FormData();
@@ -469,8 +467,6 @@
       }
 
       function newBoard() {
-         
-
          
          var makeName = $('#makeName').val().trim();;
          
