@@ -12,7 +12,7 @@ import ev.vo.CategoryVO;
 
 @Component
 public class AdminCategoryDAO {
-
+//수정
 	@Autowired
 	SqlSessionTemplate ss;
 
