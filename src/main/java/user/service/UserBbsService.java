@@ -15,6 +15,6 @@ public interface UserBbsService {
 	public int edit(BbsVO vo);
 	public int delBbs(String evcbbs_idx);
 	public int updateHit(String evcbbs_idx);
-	
+	public int commDel(String evccomment_idx);
 }
  

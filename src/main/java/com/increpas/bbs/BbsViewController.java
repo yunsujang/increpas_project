@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import mybatis.vo.BbsVO;
+import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
 
 @Controller
@@ -19,6 +20,8 @@ public class BbsViewController {
 	
 	List<BbsVO> r_list;
 	
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	private UserBbsDAO b_dao;
@@ -30,7 +33,6 @@ public class BbsViewController {
 	//조회수 중복확인//////
 		public boolean checkBbs(BbsVO vo){
 			boolean value = true;
-			
 			for(BbsVO bvo : r_list){
 				if(bvo.getEvcbbs_idx().equals(vo.getEvcbbs_idx())){
 					value = false;
@@ -42,7 +44,7 @@ public class BbsViewController {
 	
 	
 	@RequestMapping("/view.ev")
-	public ModelAndView view(String evcbbs_idx, String cPage) {
+	public ModelAndView view(String evcbbs_idx, String cPage, String evccomment_idx) {
 		ModelAndView mv = new ModelAndView();
 		
 		HttpSession session = request.getSession();
@@ -67,7 +69,6 @@ public class BbsViewController {
 			r_list.add(vo2);
 		}
 		
-		
 		BbsVO vo = b_dao.getBbs(evcbbs_idx);
 		mv.addObject("vo", vo);
 		mv.addObject("ip", request.getRemoteAddr());
@@ -76,6 +77,7 @@ public class BbsViewController {
 		//파라미터들이 모두 같이 가게된다.
 		mv.setViewName("evView");
 		mv.addObject("vo2", vo2);
+		
 		
 		return mv;
 	}

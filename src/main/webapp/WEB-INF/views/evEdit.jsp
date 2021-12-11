@@ -99,7 +99,7 @@
 				<tr>
 					<th>작성자:</th>
 					<td><input class="editwriter" type="text" name="evcbbs_writer" size="12" 
-						value="${vo.evcbbs_writer}" readonly="readonly" style="background-color: #efefef;"/></td>
+						value="${vo.evcbbs_writer}" readonly="readonly" style="background-color:  #f9f9f9; border: none;"/></td>
 				</tr>
 				<tr>
 					<th>내용:</th>

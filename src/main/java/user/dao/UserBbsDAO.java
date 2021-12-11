@@ -86,6 +86,12 @@ public class UserBbsDAO {
 	public int delBbs(String evcbbs_idx) {
 		return ss.update("userBbs.del", evcbbs_idx);
 	}
+	
+	//댓글삭제
+	public int commDel(String evccomment_idx) {
+		return ss.update("userBbs.commDel",evccomment_idx);
+	}
+	
 	//조회수
 	public int updateHit(String evcbbs_idx) {
 		return ss.update("userBbs.hit", evcbbs_idx);
