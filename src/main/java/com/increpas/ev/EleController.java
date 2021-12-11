@@ -90,7 +90,7 @@ public class EleController {
 		int cnt = 0;
 		if(categoryName_ar != null) 
 			cnt = categoryName_ar.length;
-		StringBuffer fontsb = CSSFont.StyleCode("map",cnt);
+		StringBuffer fontsb = CSSFont.StyleCode(1,cnt);
 		
 		model.addAttribute("sb", fontsb);
 		model.addAttribute("list", ar);

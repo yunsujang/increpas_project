@@ -106,7 +106,7 @@ public class StockListController {
 				CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
 				if(categoryName_ar != null) 
 					cnt = categoryName_ar.length;
-				StringBuffer sb = CSSFont.StyleCode("stock",cnt);
+				StringBuffer sb = CSSFont.StyleCode(3,cnt);
 				model.addAttribute("sb",sb);
 				model.addAttribute("categoryName_ar", categoryName_ar);
 				
