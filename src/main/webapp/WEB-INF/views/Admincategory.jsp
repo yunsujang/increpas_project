@@ -78,7 +78,7 @@
 	font-weight: bold;
 	cursor: pointer;
 }
-
+	
 #newbtn {
 	height: 31px;
 	border-radius: 3px;
