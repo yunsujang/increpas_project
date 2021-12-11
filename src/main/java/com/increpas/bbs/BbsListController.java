@@ -62,7 +62,7 @@ public class BbsListController {
 		int cnt = 0;
 		if(categoryName_ar != null) 
 			cnt = categoryName_ar.length;
-		StringBuffer sb = CSSFont.StyleCode("community",cnt);
+		StringBuffer sb = CSSFont.StyleCode(2,cnt);
 		mv.addObject("sb",sb);
 		mv.setViewName("evList");// views/list.jsp
 		

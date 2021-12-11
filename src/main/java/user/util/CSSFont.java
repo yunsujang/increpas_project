@@ -26,18 +26,18 @@ public class CSSFont {
 		return style;
 	}
 	
-	static public StringBuffer StyleCode(String str, int cnt) {
+	static public StringBuffer StyleCode(int num, int cnt) {
 		int i = 0;
-		switch (str) {
-		case "map":
+		switch (num) {
+		case 1:
 			i = cnt+2;
 			break;
 		
-		case "community":
+		case 2:
 			i = cnt+3;
 			break;
 			
-		case "stock":
+		case 3:
 			 i = cnt+4;
 			break;
 
