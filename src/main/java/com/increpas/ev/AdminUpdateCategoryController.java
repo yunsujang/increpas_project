@@ -27,11 +27,7 @@ public class AdminUpdateCategoryController {
 	@RequestMapping(value = "updateCategory", method=RequestMethod.POST)
 	public Map<String, String> updateCategory(@RequestBody Map<String,Object> param){
 
-		
-		System.out.println(param);
-
-		System.out.println(param.get("changeIdx"));
-		System.out.println(param.get("changeName"));
+	
 		String changeCategory = (String) param.get("changeName");
 		String msg ="예외상황 발생";
 		
