@@ -458,7 +458,7 @@
          
          frm4.append("makeName",makeName);
 
-
+ 
          //보내버려
          $.ajax({
             url : "makeCategory",
