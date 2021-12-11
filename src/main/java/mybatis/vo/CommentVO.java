@@ -11,7 +11,7 @@ public class CommentVO {
  
 	public String getEvccomment_idx() {
 		return evccomment_idx;
-	}
+	} 
 
 	public void setEvccomment_idx(String evccomment_idx) {
 		this.evccomment_idx = evccomment_idx;
