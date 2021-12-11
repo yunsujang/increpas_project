@@ -570,7 +570,7 @@
 								onclick="updates('${vo.evcategory_idx}')">수정</button></td>
 						<td><button class="btn" id="deleteBtn${vo.evcategory_idx }"
 								onclick="deletes('${vo.evcategory_idx}')">삭제</button></td>
-					</tr>
+					</tr> 
 				</c:forEach>
 			</tbody>
 		</table>
