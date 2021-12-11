@@ -263,7 +263,7 @@
 							<td>${st.index+1 }</td>
 						<%-- 게시판명 클릭 부분 --%>
 						<td  style="cursor:pointer" onclick="location.href='admin.bbsList2?category_idx=${vo.evcategory_idx}'">
-						<label id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
+						<label style="cursor:pointer" id="categoryName_${vo.evcategory_idx}">${vo.evcategory_name}</label>
 						
 						</td>
 						
@@ -330,7 +330,7 @@
 
 			}).done(function(data) {
 				alert(data.deleteName + "이(가) 삭제 되었습니다.");
-				location.href = "admin.category";
+				location.reload(true);
 			}).fail(function(err) {
 
 			});
@@ -405,7 +405,7 @@
 
 			}).done(function(data) {
 				alert(data.updateName + "이 변경 되었습니다.");
-				location.href = "admin.category";
+				location.reload(true);
 			}).fail(function(err) {
 
 			});
