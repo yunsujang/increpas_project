@@ -114,7 +114,7 @@
 					</c:if>
 					<c:set value="${fn:substring(svo1.dungRakrate,0,4) }" var="minus"/>
 					<c:if test="${fn:startsWith(minus,'마이너스') }" >
-						<td>-${fn:substring(svo1.dungRakrate,4,7) }%</td>
+						<td>-${fn:substring(svo1.dungRakrate,4,8) }%</td>
 					</c:if>
 					
 					
@@ -140,7 +140,7 @@
 					</c:if>
 					<c:set value="${fn:substring(svo2.dungRakrate,0,4) }" var="minus"/>
 					<c:if test="${fn:startsWith(minus,'마이너스') }" >
-						<td>-${fn:substring(svo2.dungRakrate,4,7) }%</td>
+						<td>-${fn:substring(svo2.dungRakrate,4,8) }%</td>
 					</c:if>
 					<td>${svo2.highPrice }</td>
 					<td>${svo2.lowPrice }</td>

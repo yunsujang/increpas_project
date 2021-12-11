@@ -67,6 +67,7 @@ html, body{
 
 .main2>li {
 	position: relative;
+	
 }
 
 .main2>li:hover .main3 {
@@ -79,7 +80,7 @@ html, body{
 .main3 {
 	position: absolute;
 	top: 0;
-	background: #6BD089;
+	background: #ccc;
 	width: 80%;
 	left: -9999px;
 
@@ -105,52 +106,23 @@ html, body{
 
 					<li><a href="admin.category">게시판</a></li>
 
-					<li><a href="admin.bbsList">게시물</a></li>
+					<li><a href="#">게시물</a>
+						<ul class="main3">
+						
+						<li><a href="admin.bbsList">관리게시판</a></li>
+						<li><a href="#">유저게시판</a></li>
+							
+					
+					</ul></li>
  
 
 
 				</ul></li>
 
-			<li><a href="#">유저관리</a>
+			<li><a href="admin.user">유저관리</a>
 
 				<ul class="main2">
-
-					<li><a href="#">소메뉴1</a>
-
-						<ul class="main3">
-
-							<li><a href="#">2단소메뉴7</a></li>
-
-							<li><a href="#">2단소메뉴8</a></li>
-
-							<li><a href="#">2단소메뉴9</a></li>
-
-						</ul></li>
-
-					<li><a href="#">소메뉴2</a>
-
-						<ul class="main3">
-
-							<li><a href="#">2단소메뉴10</a></li>
-
-							<li><a href="#">2단소메뉴11</a></li>
-
-							<li><a href="#">2단소메뉴12</a></li>
-
-						</ul></li>
-
-					<li><a href="#">소메뉴3</a>
-
-						<ul class="main3">
-
-							<li><a href="#">2단소메뉴13</a></li>
-
-							<li><a href="#">2단소메뉴14</a></li>
-
-							<li><a href="#">2단소메뉴15</a></li>
-
-						</ul></li>
-
+	
 				</ul></li>
 		</ul>
 	</div>
