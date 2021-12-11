@@ -64,6 +64,5 @@ public class CommentVO {
 	public void setEvu_idx(String evu_idx) {
 		this.evu_idx = evu_idx;
 	}
-
 	
 }
