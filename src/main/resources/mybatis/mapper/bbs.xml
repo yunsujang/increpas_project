@@ -8,11 +8,14 @@
 
 	<!-- 사용자가 클릭한 게시판의 게시물 페이징으로 가져오기 -->
 	<select id="paging" parameterType="Map" resultType="ev.vo.BbsVO">
-		SELECT * FROM(
+		SELECT *
+		FROM(
 		SELECT rownum r_num,a.* FROM(
 		SELECT * FROM evbbs_t
-		WHERE evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
-		ORDER BY evbbs_idx DESC
+		WHERE
+		evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
+		ORDER BY
+		evbbs_idx DESC
 		) a
 		)
 		WHERE r_num BETWEEN #{begin} AND #{end}
@@ -27,20 +30,24 @@
 	</select>
 
 	<!-- 사용자가 클릭한 게시물 가져오기 -->
-	<select id="getBbs" resultType="ev.vo.BbsVO" parameterType="String">
+	<select id="getBbs" resultType="ev.vo.BbsVO"
+		parameterType="String">
 		SELECT * FROM
 		evbbs_t
 		WHERE evbbs_idx = #{evbbs_idx }
 	</select>
 
 	<!-- 검색결과로 나온 총 게시물 -->
-	<select id="searchResult" resultType="ev.vo.BbsVO" parameterType="Map">
+	<select id="searchResult" resultType="ev.vo.BbsVO"
+		parameterType="Map">
 		SELECT
 		* FROM(
 		SELECT rownum r_num,a.* FROM(
-		SELECT * FROM evbbs_t
+		SELECT * FROM
+		evbbs_t
 		WHERE
-		evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+		evbbs_status = 0 AND evbbs_title LIKE
+		'%'||#{searchValue}||'%' OR
 		evbbs_content LIKE '%'||#{searchValue}||'%'
 		ORDER BY evbbs_idx DESC
 		) a
@@ -71,14 +78,24 @@
 		) WHERE r_num BETWEEN 1 AND 3
 	</select>
 
+	<!-- 클릭한 게시물 이전 이후 게시물 가져오기 -->
+	<select id="prenext" resultType="ev.vo.BbsVO"
+		parameterType="String">
+		SELECT * FROM
+		evbbs_t
+		WHERE evbbs_idx = #{evbbs_idx } AND
+		evbbs_status = 0
+	</select>
 	<!-- 관리자 SQL문 -->
-	
 
-	<select id="AdmingetBbs" resultType="ev.vo.BbsVO" parameterType="String">
+
+	<select id="AdmingetBbs" resultType="ev.vo.BbsVO"
+		parameterType="String">
 		SELECT *
 		FROM
 		evbbs_t
-		WHERE evbbs_idx = #{evbbs_idx} AND evbbs_status = 0
+		WHERE evbbs_idx = #{evbbs_idx} AND
+		evbbs_status = 0
 	</select>
 
 	<select id="AdmintotalCount" resultType="int">
@@ -87,19 +104,50 @@
 		WHERE evbbs_status = 0
 	</select>
 
-	<select id="Adminlist" parameterType="Map" resultType="ev.vo.BbsVO">
+	<select id="Adminlist" parameterType="Map"
+		resultType="ev.vo.BbsVO">
 		SELECT *
 		FROM(
 		SELECT rownum r_num,a.* FROM (
-		SELECT * FROM evbbs_t
+		SELECT * FROM
+		evbbs_t
 		WHERE
 		evbbs_status = 0
 		ORDER BY evbbs_idx DESC
 		) a
-		) WHERE r_num BETWEEN
+		) WHERE r_num
+		BETWEEN
 		#{begin} AND #{end}
 	</select>
 
+	<!-- 마지막 데이터 가져오기 -->
+	<select id="getLastData" resultType="ev.vo.BbsVO">
+		SELECT *
+		FROM(
+		SELECT rownum r_num,a.* FROM (
+		SELECT * FROM
+		evbbs_t
+		WHERE
+		evbbs_status = 0
+		ORDER BY evbbs_idx DESC
+		) a
+		) WHERE r_num = 1
+	</select>
+	
+	<!-- 첫번째 데이터 가져오기 -->
+	<select id="getFirstData" resultType="ev.vo.BbsVO">
+		SELECT *
+		FROM(
+		SELECT rownum r_num,a.* FROM (
+		SELECT * FROM
+		evbbs_t
+		WHERE
+		evbbs_status = 0
+		ORDER BY evbbs_idx ASC
+		) a
+		) WHERE r_num = 1
+	</select>
+	
 	<!-- 원글 저장 -->
 	<insert id="Adminadd" parameterType="ev.vo.BbsVO">
 		INSERT INTO evbbs_t
@@ -121,7 +169,8 @@
 		SELECT *
 		FROM(
 		SELECT rownum r_num,a.* FROM (
-		SELECT * FROM evbbs_t
+		SELECT * FROM
+		evbbs_t
 		WHERE
 		evbbs_status = 0 AND evcategory_idx = #{evcategory_idx}
 		ORDER BY evbbs_idx DESC
@@ -129,46 +178,51 @@
 		) WHERE r_num BETWEEN
 		#{begin} AND #{end}
 	</select>
-	
-	<select id="ajaxTotalList" parameterType="String" resultType="int">
+
+	<select id="ajaxTotalList" parameterType="String"
+		resultType="int">
 		SELECT COUNT (*) FROM evbbs_t
 		WHERE evcategory_idx = #{idx}
 		AND evbbs_status = 0
 	</select>
-	
-	<select id="ajaxTotalList2" parameterType="String" resultType="int">
-			SELECT COUNT (*) FROM evbbs_t
-			WHERE evcategory_idx = #{idx}
-			AND evbbs_status = 1
+
+	<select id="ajaxTotalList2" parameterType="String"
+		resultType="int">
+		SELECT COUNT (*) FROM evbbs_t
+		WHERE evcategory_idx = #{idx}
+		AND evbbs_status = 1
 	</select>
-	
+
 	<update id="AdmindeleteBbs" parameterType="String">
-		UPDATE evbbs_t set evbbs_status = 1
+		UPDATE evbbs_t set
+		evbbs_status = 1
 		WHERE evcategory_idx = #{idx }
 	</update>
-	
-	
+
+
 	<!-- 원글 수정 -->
 	<update id="Adminedit" parameterType="ev.vo.BbsVO">
 		UPDATE evbbs_t
 		SET evbbs_title = #{evbbs_title},
-			evbbs_content = #{evbbs_content},
-			evbbs_ip = #{evbbs_ip}
-			<if test="evbbs_file_name != null">
-				,evbbs_file_name = #{evbbs_file_name}
-			</if>
-		WHERE evbbs_idx = #{evbbs_idx}
-	</update> 
-	
-	
-	<!-- 삭제 -->
-	<update id="Admindel" parameterType="String">
-		UPDATE evbbs_t set evbbs_status = 1
+		evbbs_content = #{evbbs_content},
+		evbbs_ip = #{evbbs_ip}
+		<if test="evbbs_file_name != null">
+			,evbbs_file_name = #{evbbs_file_name}
+		</if>
 		WHERE evbbs_idx = #{evbbs_idx}
 	</update>
-	
+
+
+	<!-- 삭제 -->
+	<update id="Admindel" parameterType="String">
+		UPDATE evbbs_t set
+		evbbs_status = 1
+		WHERE evbbs_idx = #{evbbs_idx}
+	</update>
+
 	<update id="AdminRecoveryBbs" parameterType="String">
-		UPDATE evbbs_t set evbbs_status = 0
+		UPDATE evbbs_t set
+		evbbs_status = 0
 		WHERE evcategory_idx = #{idx }
 	</update>
 </mapper>

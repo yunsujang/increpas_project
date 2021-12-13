@@ -42,5 +42,23 @@ public class Bbs_realService implements BbsService {
 	public BbsVO[] lastUpdate() {
 		return bbs_dao.lastUpdate();
 	}
+
+	@Override
+	public BbsVO prenext(int idx) {
+		// TODO Auto-generated method stub
+		return bbs_dao.prenext(idx);
+	}
+
+	@Override
+	public BbsVO getLastData() {
+		// TODO Auto-generated method stub
+		return  bbs_dao.getLastData();
+	}
+
+	@Override
+	public BbsVO getFirstData() {
+		// TODO Auto-generated method stub
+		return  bbs_dao.getFirstData();
+	}
 	
 }

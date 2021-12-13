@@ -78,4 +78,19 @@ public class BbsDAO {
 			
 		return medium_ar;
 	}
+	
+	public BbsVO prenext(int idx) {
+		String a = String.valueOf(idx);
+		return ss.selectOne("bbs.prenext",a);
+	}
+	
+	//bbs테이블 마지막 데이터 가져오기
+	public BbsVO getLastData() {
+		return ss.selectOne("bbs.getLastData");
+	}
+	
+	//bbs테이블 첫번째 데이터 가져오기
+		public BbsVO getFirstData() {
+			return ss.selectOne("bbs.getFirstData");
+	}
 }
