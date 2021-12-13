@@ -10,7 +10,7 @@
 	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
+<style type="text/css"> 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 
