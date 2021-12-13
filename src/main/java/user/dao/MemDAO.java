@@ -14,16 +14,18 @@ public class MemDAO {
 	@Autowired
 	SqlSessionTemplate ss;
 	
-	public EvuserVO login(String id, String pw) {
-		Map<String, String>map = new HashMap<String, String>();
-		map.put("id", id);
-		map.put("pw", pw);
-		
-		return ss.selectOne("login.login", map);
+	public EvuserVO getComp(String id) {
+		return ss.selectOne("login.getComp", id);
 		
 	}
 	
-	
+	public EvuserVO login(String id,String pw) {
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pw", pw);
+		return ss.selectOne("login.login", map);
+		
+	}
 	
 	
 	public int reg(EvuserVO vo) {

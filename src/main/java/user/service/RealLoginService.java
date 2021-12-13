@@ -14,9 +14,9 @@ public class RealLoginService implements LoginService {
 	MemDAO m_dao;
 	
 	@Override
-	public EvuserVO login(String id, String pw) {
+	public EvuserVO getComp(String id) {
 		
-		return m_dao.login(id, pw);
+		return m_dao.getComp(id);
 	}
 
 	@Override
@@ -29,6 +29,12 @@ public class RealLoginService implements LoginService {
 	public EvuserVO adminLogin(String id, String pw) {
 		
 		return m_dao.adminLogin(id, pw);
+	}
+
+	@Override
+	public EvuserVO login(String id, String pw) {
+		// TODO Auto-generated method stub
+		return m_dao.login(id, pw);
 	}
 
 }

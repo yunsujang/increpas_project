@@ -45,7 +45,7 @@ public class SecureUtil {
 	public static String generateSalt() {
 		Random random = new Random();
 		byte[] salt = new byte[8];
-		random.nextBytes(salt);
+		random.nextBytes(salt); 
 		
 		StringBuffer sb = new StringBuffer();
 		for(Byte n : salt) {

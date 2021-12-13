@@ -98,7 +98,9 @@ public class LoginController {
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public ModelAndView login(String evu_id, String evu_pw) {
 		ModelAndView mv = new ModelAndView();
-		EvuserVO mvo = l_service.login(evu_id, evu_pw);
+		EvuserVO uvo = l_service.getComp(evu_id);
+		String realPassword = SecureUtil.getEncrypt(evu_pw, uvo.getEvu_comp());
+		EvuserVO mvo = l_service.login(evu_id, realPassword);
 		session.setAttribute("mvo", mvo);	
 		
 		mv.setViewName("redirect:/");
