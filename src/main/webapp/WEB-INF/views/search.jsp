@@ -188,7 +188,7 @@ a#MOVE_TOP_BTN {
 	text-align: center;
 }
 </style>
-<body>
+<body> 
 	<jsp:include page="header.jsp" />
 	<div class="wrap">
 		<article class="articles" id="articles">

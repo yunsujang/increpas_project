@@ -80,7 +80,7 @@
       </div>
       <div id="fixNextTag"></div>
       <div id="dialog" title="검색">
-         <form action="/search" method="post">
+         <form action="/search" method="get">
             <p style="font-size: 13px;">검색할 단어를 입력해주세요.</p>
             <input type="text" id="searchValue" name="searchValue"/>
             <button id="searchbtn" onclick="search(this.form)" style="margin-left: 5px;">검색</button>

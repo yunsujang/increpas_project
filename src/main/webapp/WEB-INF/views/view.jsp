@@ -23,13 +23,13 @@ body{
 
 .date {
 	font-size: 12px;
-}
-
+} 
+  
 .wrap {
 	width: 90%;
 	height: 100%;
 	min-height: 100%;
-	margin: 250px auto 250px auto;
+	margin: 250px auto 0 auto;
 	text-align: center;
 }
 
@@ -59,6 +59,7 @@ body{
 	min-height: 100%;
 }
 
+
 .go-page p {
 	font-size: 10px;
 }
@@ -66,11 +67,13 @@ body{
 .go-page a {
 	font-size: 13px;
 	font-weight: bold;
+	color: black;
+	text-decoration: none;
 }
 
 .new-img {
-	width: 100%;
-	height: 500px;
+	width: 300px;
+	height: 200px;
 }
 
 .advice-contents {
@@ -86,7 +89,7 @@ body{
 }
 
 .recommend {
-	text-align: left;
+	text-align: center;
 	margin: 10px
 }
 
@@ -145,15 +148,15 @@ body{
 		</div>
 
 		<hr></hr>
-		<div class="pre-view">
+		<div class="pre-view"> 
 			<div class="pre-page go-page">
 				<p>이전글</p>
-				<a>${prevo.evbbs_title }</a>
+				<a href="/view?evbbs_idx=${prevo.evbbs_idx }">${prevo.evbbs_title }</a>
 			</div>
 
 			<div class="next-page go-page">
 				<p>다음글</p>
-				<a>${nextvo.evbbs_title }</a>
+				<a href="/view?evbbs_idx=${nextvo.evbbs_idx }"">${nextvo.evbbs_title }</a>
 			</div>
 		</div>
 	</div>

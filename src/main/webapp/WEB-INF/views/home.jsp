@@ -102,6 +102,8 @@
 	white-space: nowrap;
 	margin: 0;
 	height: 40px;
+	font-size: 13px;
+    color: gray;
 }
 
 
