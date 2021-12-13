@@ -120,7 +120,7 @@
          }
          
          function logout(){
-            if (confirm("정말 삭제하시겠습니까??") == true){
+            if (confirm("로그아웃 하시겠습니까?") == true){
                realLogout();
             }else{
                return false;

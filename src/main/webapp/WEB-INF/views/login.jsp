@@ -91,10 +91,27 @@ a.box:hover {
 	background-color: #fff;
 	color: #222;
 }
-a.box0{
+.box0{
 	background-color: #64c9c3; 
 	color : #fff;
+	margin-top:20px;
+	color:gray;
+	border:1px solid lightgray;
 	text-align: center;
+	border-radius: 2px;
+	font-size: 16px;
+	padding : 13px 0;
+	height: 45px;
+	font-family:blod;
+	width:390px;
+	text-decoration: none;
+	border: none;
+}
+
+.box0:hover{
+	cursor: pointer;
+	background-color: #fff;
+	color: #222;
 }
 a.box1{
 	background-color:#eac745; 
@@ -141,7 +158,7 @@ a.box3{
 					<input type="password" name="evu_pw" id="evu_pw" placeholder="비밀번호를 입력하세요 ">	
 				
 			 
-			<input class="box box0" onclick="login(this.form)"  id="btn" type="button" value="evca 로그인 " 	>
+			<input class="box box0" onclick="login(this.form)"  id="btn" type="button" value="evca 로그인 " >
 			</form>
 		
 			<a class="box box1" href="https://kauth.kakao.com/oauth/authorize?client_id=a5b66323922803723c655f41824d1a38&redirect_uri=http://localhost:9090/kakao/login&response_type=code" >
