@@ -87,6 +87,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 5px;
 }
 .headtitle{background:#85c4b9; font-size: 15px; color: white;}
 .no {width: 10%}
@@ -256,9 +257,9 @@
       <p style="font-size: 13px;">생성할 게시판명을 입력해주세요.</p>
       
 
-      <input type="text" id="makeName" name="makeName" value="${vo.evcategory_name }">
+      <input type="text" id="makeName" name="makeName">
       
-      <button type="button" id="newbtn" style="margin-left: 5px;" onclick="newBoard()">생성</button>
+      <button type="button" id="newbtn" onclick="newBoard()">생성</button>
       </div>
       </form>
       
@@ -435,7 +436,7 @@
       
       
       //게시판 생성부분
-      function makes(name){
+      function makes(){
          $("#makeDialog").dialog();
    
       }
@@ -448,7 +449,7 @@
          
          if(makeName.length <= 0){
             alert("생성할 게시판명을 입력해주세요.");
-            document.forms[0].makeName.focus();
+            document.forms[0];
             return;
          }
          //확인

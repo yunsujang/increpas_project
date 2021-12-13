@@ -30,9 +30,14 @@
 
 	<!-- 관리자 계정 생성 기능 -->
 	<insert id="AdminMakeUser" parameterType="String">
-		INSERT INTO evuser_t(evu_idx, evu_id, euv_pw, evu_name, evu_who, evu_status)
+		INSERT INTO evuser_t(evu_idx, evu_id, evu_pw, evu_name, evu_who, evu_status)
 		VALUES(evUser_seq.NEXTVAL, #{evu_id}, #{evu_pw}, #{evu_name}, 0, 0)
 	</insert>
 	
+	<!-- 관리자 생성아이디 중복체크 -->	
+	<select id="AdminMakeUserCheck" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM EVUSER_T 
+		WHERE EVU_ID = #{newAdmin}
+	</select>
 	
 </mapper>

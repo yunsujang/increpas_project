@@ -67,9 +67,7 @@ html, body{
 
 .main2>li {
 	position: relative;
-	
 }
-
 .main2>li:hover .main3 {
 	left: 100%;
 }
@@ -83,12 +81,13 @@ html, body{
 	background: #ccc;
 	width: 80%;
 	left: -9999px;
-
+	padding: 0;
+	list-style: none;
 
 }
 
 .main3>li a:hover {
-	background: #085820;
+	background: #6c9e95;
 	color: #fff;
 }
 </style>
@@ -109,8 +108,8 @@ html, body{
 					<li><a href="#">게시물</a>
 						<ul class="main3">
 						
-						<li><a href="admin.bbsList">관리게시판</a></li>
-						<li><a href="#">유저게시판</a></li>
+						<li><a href="admin.bbsList">관리자게시물</a></li>
+						<li><a href="#"> 유저 게시물</a></li>
 							
 					
 					</ul></li>

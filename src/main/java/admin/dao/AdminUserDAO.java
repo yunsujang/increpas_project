@@ -45,8 +45,17 @@ public class AdminUserDAO {
 	}
 	
 	//관리자 계정 생성
-	public int AdminMakeUser(String name) {
-		return ss.insert("adminUser.AdminMakeUser", name);
+	public int AdminMakeUser(String makeId, String makePw, String makeName) {
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("evu_id", makeId);
+		map.put("evu_pw", makePw);
+		map.put("evu_name", makeName);
+		
+		return ss.insert("adminUser.AdminMakeUser", map);
 	}
 
+	//관리자 계정 아이디 중복체크
+	public int AdminMakeUserCheck(String makeId) {
+		return ss.selectOne("adminUser.AdminMakeUserCheck", makeId);
+	}
 }
