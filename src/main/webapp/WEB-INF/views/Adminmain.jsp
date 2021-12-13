@@ -14,7 +14,7 @@ html, body {
 }
 
 .motto {
-	background: linear-gradient(black,white );
+	background-color: #E0FFFF;
 	text-align:center;
 	width: 100%;
 	height: 90%;
@@ -22,7 +22,7 @@ html, body {
 }
 
 .logo-p{
-	font-size: 60px;
+	font-size: 350px;
     background: linear-gradient(to right top, #85c4b9, white);
     color: transparent;
     -webkit-background-clip: text;

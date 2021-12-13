@@ -15,13 +15,11 @@
 
 <style type="text/css">
 #back{
-    background: lightgoldenrodyellow;
-    border-radius: 10px;
-    border: 1px solid #85c4b9;
     width: 25%;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
 	} 
+	/*
 #evu_id{
 	width: 49%;
     transform: translate(50%, -30%);
@@ -33,11 +31,45 @@
     transform: translate(50%, -18%);
     border: 1px solid #85c4b9;
     padding: 3px 1px 1px 0px;
+}*/
+
+.loginbox input[type ="text"], .loginbox input[type="password"]{
+	display: block;
+	color:gray;
+	border:1px solid lightgray;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 16px;
+	padding : 13px 0;
+	margin-bottom: 20px;
+	height: 20px;
+	font-family:blod;
+	width:390px;
+	margin: auto;
 }
+
 #btn{
-	width: 50%;
-	transform: translate(50%, 5%);
-	margin: -4px 0px 7px 0px;
+	display: block;
+	color:gray;
+	border:1px solid lightgray;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 16px;
+	padding : 20px 0;
+	height: 20px;
+	font-family:blod;
+	width:390px;
+	margin: auto;
+	margin-top: 19px;
+	line-height: 0px;
+	font-color: black;
+}
+#back>h3 {
+    text-align: center;
+    height: 50px;
+    min-width: 100%;
+    font-size: 30px;
+    width: 400px;
 }
 
 </style>
@@ -52,11 +84,10 @@
 		<div class="col-lg-4">
 			<div>
 				<div id="back">
-					<h3 style="text-align: center; height:50px;">관리자 로그인</h3>
-					<div class="form-group" >
-						<input type="text" class="form-control" placeholder="아이디" name="evu_id" id="evu_id" maxlength="10">						
-					</div>
-					<div class="form-group">
+					<h3>관리자 로그인</h3>
+					<div class="loginbox" >
+						<input type="text" class="form-control" placeholder="아이디" name="evu_id" id="evu_id" maxlength="10">
+						<br>						
 						<input type="password" class="form-control" placeholder="비밀번호" name="evu_pw" id="evu_pw" maxlength="10">						
 					</div>
 					<button type="button" id="btn" 
