@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
+import user.service.UserBbsService;
 import user.util.FileRenameUtil;
 
 @Controller
@@ -25,6 +26,11 @@ public class BbsEditController {
 	
 	@Autowired
 	private HttpServletRequest request;
+	
+	
+	@Autowired
+	UserBbsService userService;
+	
 	
 	@Autowired
 	private UserBbsDAO b_dao;
@@ -43,7 +49,7 @@ public class BbsEditController {
 		mv.setViewName("edit");
 		return mv;
 		*/
-		BbsVO vo = b_dao.getBbs(evcbbs_idx);
+		BbsVO vo = userService.getBbs(evcbbs_idx);
 		
 		m.addAttribute("vo", vo); // Model은 request에 저장됨!
 									//forward시 사용가능함!		
@@ -74,10 +80,10 @@ public class BbsEditController {
 			}
 			vo.setEvcbbs_ip(request.getRemoteAddr());
 			
-			b_dao.edit(vo);//DB수정
+			userService.edit(vo);//DB수정
 			mv.setViewName("redirect:/view.ev?evcbbs_idx="+vo.getEvcbbs_idx()+"&cPage="+cPage);
 		}else if(ctx.startsWith("application")) {
-			BbsVO bvo = b_dao.getBbs(vo.getEvcbbs_idx());
+			BbsVO bvo = userService.getBbs(vo.getEvcbbs_idx());
 			mv.addObject("vo", bvo);
 			
 			mv.setViewName("evEdit");

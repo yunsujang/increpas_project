@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.dao.UserBbsDAO;
+import user.service.UserBbsService;
 
 @Controller
 public class BbsDelController {
@@ -17,10 +18,13 @@ public class BbsDelController {
 	@Autowired
 	private UserBbsDAO b_dao;
 	
+	@Autowired
+	UserBbsService userService;
 	//게시물 삭제 
 	@RequestMapping("/delete.ev")
 	public String del(String evcbbs_idx, String cPage) {
 		b_dao.delBbs(evcbbs_idx);  
+		userService.delBbs(evcbbs_idx);
 		//System.out.println(evcbbs_idx+"/"+cPage); 
 		return "redirect:/list.ev?cPage="+cPage;
 		 
@@ -33,10 +37,11 @@ public class BbsDelController {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		
-		int i = b_dao.commDel(idx);
+		//int i = b_dao.commDel(idx);
+		int i = userService.commDel(idx);
 		map.put("code", String.valueOf(i));
 		
-		System.out.println(idx);
+		//System.out.println(idx);
 		return map;
 	}
 	

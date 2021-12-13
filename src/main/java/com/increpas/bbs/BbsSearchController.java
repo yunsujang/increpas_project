@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
+import user.service.UserBbsService;
 import user.util.UserBbsPaging;
 import user.util.UserBbsSearchPaging;
 
@@ -17,6 +18,10 @@ public class BbsSearchController {
 
 	@Autowired
 	private UserBbsDAO b_dao;
+	
+	@Autowired
+	UserBbsService userService;
+	
 	
 	private String searchValue;
 	
@@ -45,7 +50,7 @@ public class BbsSearchController {
 			searchValue = "1";
 		
 		
-		rowTotal = b_dao.searchTotalCount(searchValue);//전체 게시물 수
+		rowTotal = userService.searchTotalCount(searchValue);//전체 게시물 수
 		
 		//페이징 처리를 위한 객체 생성
 		UserBbsSearchPaging page = new UserBbsSearchPaging(nowPage, rowTotal, blockList, blockPage , searchValue);
@@ -53,7 +58,7 @@ public class BbsSearchController {
 		int begin = page.getBegin();
 		int end = page.getEnd();
 		
-		BbsVO[] ar = b_dao.search(searchValue,String.valueOf(begin), String.valueOf(end));
+		BbsVO[] ar = userService.search(searchValue,String.valueOf(begin), String.valueOf(end));
 	
 		//JSP에서 표현해야 하므로 ar을 mv에 저장한다.
 		mv.addObject("ar", ar);

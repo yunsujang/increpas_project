@@ -10,6 +10,7 @@ import ev.vo.CategoryVO;
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
 import user.service.CategoryService;
+import user.service.UserBbsService;
 import user.util.CSSFont;
 import user.util.UserBbsPaging;
 
@@ -21,6 +22,11 @@ public class BbsListController {
 	
 	@Autowired
 	private CategoryService categoryservice;
+	
+	@Autowired
+	UserBbsService userService;
+	
+	
 	
 	int nowPage;
 	int rowTotal;
@@ -39,7 +45,7 @@ public class BbsListController {
 		if(evcategory_idx == null)
 			evcategory_idx = "1";//일반 게시판
 		
-		rowTotal = b_dao.getTotalCount(evcategory_idx);//전체 게시물 수
+		rowTotal = userService.getTotalCount(evcategory_idx);//전체 게시물 수
 	 	
 		//페이징 처리를 위한 객체 생성
 		UserBbsPaging page = new UserBbsPaging(nowPage, rowTotal, blockList, blockPage);
@@ -47,7 +53,7 @@ public class BbsListController {
 		int begin = page.getBegin();
 		int end = page.getEnd();
 		
-		BbsVO[] ar = b_dao.getList(begin, end, evcategory_idx);
+		BbsVO[] ar = userService.getList(begin, end, evcategory_idx);
 		
 		//헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
 		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
