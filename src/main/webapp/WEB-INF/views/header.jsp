@@ -110,7 +110,7 @@
 
             });
 
-         })
+         }) s
          
          function searchDialog() {
              $( "#dialog" ).dialog();

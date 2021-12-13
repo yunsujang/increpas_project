@@ -148,7 +148,7 @@ body{
 		</div>
 
 		<hr></hr>
-		<div class="pre-view"> 
+		<div class="pre-view">
 			<div class="pre-page go-page">
 				<p>이전글</p>
 				<a href="/view?evbbs_idx=${prevo.evbbs_idx }">${prevo.evbbs_title }</a>
