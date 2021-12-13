@@ -20,7 +20,7 @@ import user.service.UserBbsService;
 import user.util.CSSFont;
 
 @Controller
-public class BbsViewController {
+public class AdminCBbsViewController {
 	
 	List<BbsVO> r_list;
 	
@@ -54,7 +54,7 @@ public class BbsViewController {
 		}
 	
 	
-	@RequestMapping("/view.ev")
+	@RequestMapping("/admin.view.ev")
 	public ModelAndView view(String evcbbs_idx, String cPage, String evccomment_idx) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -94,7 +94,7 @@ public class BbsViewController {
 		//cPage도 사실 가야 하는데... 저장할 필요는 없다.
 		//이유는 view.jsp로 forward되므로 여기까지 전달된 
 		//파라미터들이 모두 같이 가게된다.
-		mv.setViewName("evView");
+		mv.setViewName("adminEvView");
 		mv.addObject("vo2", vo2);
 		
 		

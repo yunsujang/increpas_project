@@ -10,17 +10,21 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import ev.vo.EvuserVO;
 import mybatis.vo.BbsVO;
 import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
+import user.service.CategoryService;
 import user.service.UserBbsService;
+import user.util.CSSFont;
 import user.util.FileRenameUtil;
 
 @Controller
@@ -41,6 +45,9 @@ public class BbsWriteController {
 	@Autowired
 	UserBbsService userService;
 	
+	@Autowired
+	private CategoryService categoryservice;
+	
 	
 	//에디터에서 이미지가 들어갈 때 해당 이미지를 받아서
 	// 저장할 위치
@@ -48,7 +55,16 @@ public class BbsWriteController {
 	private String bbs_upload = "/resources/bbs_upload";
 	
 	@RequestMapping("/write.ev")
-	public String write() {
+	public String write(Model m) {
+		
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();	
+		int cnt = 0;
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer sb = CSSFont.StyleCode(2,cnt);
+		m.addAttribute("categoryName_ar", categoryName_ar);
+		m.addAttribute("sb",sb);		
+		
 		return "evWrite";
 	}
 	

@@ -43,6 +43,7 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/write.ev"/>
+			<mapping path="/edit.ev"/>
 			<beans:ref bean="log_inter"/>
 		</interceptor>
 	</interceptors>
