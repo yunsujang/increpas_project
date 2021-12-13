@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
+import user.service.CategoryService;
 import user.service.UserBbsService;
+import user.util.CSSFont;
 import user.util.FileRenameUtil;
 
 @Controller
@@ -31,6 +34,9 @@ public class BbsEditController {
 	@Autowired
 	UserBbsService userService;
 	
+	
+	@Autowired
+	private CategoryService categoryservice;
 	
 	@Autowired
 	private UserBbsDAO b_dao;
@@ -51,8 +57,18 @@ public class BbsEditController {
 		*/
 		BbsVO vo = userService.getBbs(evcbbs_idx);
 		
+		//헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+		m.addAttribute("categoryName_ar", categoryName_ar);
 		m.addAttribute("vo", vo); // Model은 request에 저장됨!
 									//forward시 사용가능함!		
+		
+		int cnt = 0;
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer sb = CSSFont.StyleCode(2,cnt);
+		m.addAttribute("sb",sb);
+		
 		return "evEdit";
 		
 	}

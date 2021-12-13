@@ -11,10 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import mybatis.vo.BbsVO;
 import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
+import user.service.CategoryService;
 import user.service.UserBbsService;
+import user.util.CSSFont;
 
 @Controller
 public class BbsViewController {
@@ -29,6 +32,9 @@ public class BbsViewController {
 	
 	@Autowired
 	UserBbsService userService;
+	
+	@Autowired
+	private CategoryService categoryservice;
 	
 	
 	@Autowired
@@ -73,8 +79,16 @@ public class BbsViewController {
 				userService.updateHit(evcbbs_idx);
 			r_list.add(vo2);
 		}
-		
+		//헤더ㆍ푸터에 게시판 목록을 표시 및 해당 게시판으로 이동하기 위해서 게시판 리스트 가져오기
+		CategoryVO[] categoryName_ar = categoryservice.categoryNameList();	
+		int cnt = 0;
+		if(categoryName_ar != null) 
+			cnt = categoryName_ar.length;
+		StringBuffer sb = CSSFont.StyleCode(2,cnt);
+	
 		BbsVO vo = userService.getBbs(evcbbs_idx);
+		mv.addObject("categoryName_ar", categoryName_ar);
+		mv.addObject("sb",sb);	
 		mv.addObject("vo", vo);
 		mv.addObject("ip", request.getRemoteAddr());
 		//cPage도 사실 가야 하는데... 저장할 필요는 없다.

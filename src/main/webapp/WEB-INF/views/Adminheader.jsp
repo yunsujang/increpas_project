@@ -92,11 +92,14 @@ html, body{
 }
 </style>
 </head>
+
 <body>
+
+
 	<div id="menu">
 
 		<ul class="main1">
-			<li><a href="admin.main">홈으로</a>
+			<li><a href="admin.main">관리자 홈</a>
 
 
 			<li><a href="#">게시판관리</a>
@@ -109,7 +112,7 @@ html, body{
 						<ul class="main3">
 						
 						<li><a href="admin.bbsList">관리자게시물</a></li>
-						<li><a href="#"> 유저 게시물</a></li>
+						<li><a href="admin.list.ev"> 유저 게시물</a></li>
 							
 					
 					</ul></li>
