@@ -20,9 +20,9 @@ public class RealLoginService implements LoginService {
 	}
 
 	@Override
-	public int reg(String id, String pw , String name ,String email, String phone ) {
+	public int reg(EvuserVO vo ) {
 		
-		return m_dao.reg(id, pw ,name, email, phone);
+		return m_dao.reg(vo);
 	}
 
 	@Override

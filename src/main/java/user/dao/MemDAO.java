@@ -26,18 +26,8 @@ public class MemDAO {
 	
 	
 	
-	public int reg(String id, String pw , String name ,String email, String phone ) {
-		Map<String , String>map = new HashMap<String, String>();
-		map.put("id", id);
-		map.put("pw", pw);
-		map.put("name", name);
-		map.put("email", email);
-		map.put("phone", phone);
-			
-		
-		
-		
-		return ss.insert("login.reg", map);
+	public int reg(EvuserVO vo) {
+		return ss.insert("login.reg", vo);
 	}
 	
 	public EvuserVO adminLogin(String evu_id, String evu_pw) {

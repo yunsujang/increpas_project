@@ -23,6 +23,7 @@ import ev.vo.CategoryVO;
 import ev.vo.EvuserVO;
 import user.service.CategoryService;
 import user.service.LoginService;
+import user.util.SecureUtil;
 
 
 /**
@@ -115,7 +116,10 @@ public class LoginController {
 	public ModelAndView reg(EvuserVO vo) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(vo.getEvu_id());
-		int i = l_service.reg(vo.getEvu_id(), vo.getEvu_pw() ,vo.getEvu_name(),vo.getEvu_email(),vo.getEvu_phone());
+		String comp = SecureUtil.generateSalt();
+		vo.setEvu_comp(comp);
+		vo.setEvu_pw(SecureUtil.getEncrypt(vo.getEvu_pw(), comp));
+		int i = l_service.reg(vo);
 		if(i > 0) {
 			mv.setViewName("redirect:/");
 		}
