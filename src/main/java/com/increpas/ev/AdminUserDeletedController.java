@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import admin.dao.AdminUserDAO;
+import admin.dao.AdminUserDeletedDAO;
 import admin.util.BbsPaging;
 import ev.vo.BbsVO;
 import ev.vo.EvuserVO;
 
 @Controller
-public class AdminUserController {
+public class AdminUserDeletedController {
 	
 	@Autowired
-	private AdminUserDAO u_dao;
+	private AdminUserDeletedDAO u_dao;
 	
 	int nowPage;
-	int totalCount;
+	int deletedtotalCount;
 	int blockList = 20; // 한 페이지당 표현될 게시물 수
 	int blockPage = 5;// 한 블럭당 표현될 페이지 수
 
 
 	
-	@RequestMapping("/admin.user")
+	@RequestMapping("/admin.deleteduser")
 	public ModelAndView user(String cPage) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -37,10 +37,10 @@ public class AdminUserController {
 		else
 			nowPage = Integer.parseInt(cPage);
 
-		totalCount = u_dao.totalCount();
+		deletedtotalCount = u_dao.deletedtotalCount();
 
 		// 페이징 처리를 위한 객체 생성
-		BbsPaging page = new BbsPaging(nowPage, totalCount, blockList, blockPage);
+		BbsPaging page = new BbsPaging(nowPage, deletedtotalCount, blockList, blockPage);
 
 		int begin = page.getBegin();
 		int end = page.getEnd();
@@ -52,9 +52,9 @@ public class AdminUserController {
 		mv.addObject("ar", ar);
 		mv.addObject("nowPage", nowPage);
 		mv.addObject("blockList", blockList);
-		mv.addObject("totalCount", totalCount);
+		mv.addObject("deletedtotalCount", deletedtotalCount);
 		mv.addObject("pageCode", page.getSb().toString());
-		mv.setViewName("AdminUser");
+		mv.setViewName("AdminUserDeleted");
 		
 		return mv;
 		

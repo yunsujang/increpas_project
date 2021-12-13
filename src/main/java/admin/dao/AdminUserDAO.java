@@ -8,7 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
+import ev.vo.BbsVO;
 import ev.vo.EvuserVO;
 
 @Component
@@ -40,6 +40,12 @@ public class AdminUserDAO {
 		return ss.update("adminUser.AdmindeleteUser", evu_idx);
 	}
 	
+	//기본키를 인자로 하여 검색
+	public EvuserVO getBbs(String evu_idx) {
+		return ss.selectOne("adminUser.AdmingetUser", evu_idx);
+	}	
+	
+	
 	public int totalCount() {
 		return ss.selectOne("adminUser.totalCount");
 	}
@@ -58,4 +64,29 @@ public class AdminUserDAO {
 	public int AdminMakeUserCheck(String makeId) {
 		return ss.selectOne("adminUser.AdminMakeUserCheck", makeId);
 	}
+	
+	
+	//검색 결과의 총 유저 가져오기
+		public EvuserVO[] search(String searchValue, String begin, String end) {
+			Map<String, String>map = new HashMap<String, String>();
+			EvuserVO[] ar = null;
+			map.put("searchValue", searchValue);
+			map.put("begin", begin);
+			map.put("end", end);
+			
+			List<EvuserVO>m_list = ss.selectList("adminUser.searchResult", map);
+			if(m_list != null && !m_list.isEmpty()) {
+				ar = new EvuserVO[m_list.size()];
+				m_list.toArray(ar);
+			}
+				
+			return ar;
+		}
+		
+		//검색 결과의 총 게시물의 수
+		public int searchTotalCount(String searchValue) {
+			return ss.selectOne("adminUser.searchTotalCount", searchValue);
+		}
+	
+	
 }

@@ -12,7 +12,7 @@
    href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <meta charset="UTF-8">
-<title>흰눈이 내리는 어느날</title>
+
 <style type="text/css">
 #evbbs {
 	width: 80%;
@@ -180,7 +180,6 @@
     font-weight: bold;
     cursor: pointer;
 }
-
 #content{
 	margin-top: 20px;
 }
@@ -206,39 +205,20 @@
 	width: 200px;
    	height: 20px;
 }
- 
-
 
 </style>
 </head>
 <body>
 	<jsp:include page="Adminheader.jsp" />
 
-			<p class="management-p">전체 유저 목록</p>
+			<p class="management-p">탈퇴 유저 목록</p>
 		
 		
 			<div id="evbbs">
-			<p class="totalList">총 ${totalCount }건</p>
+			<p class="deletedtotalCount">총 ${deletedtotalCount }건</p>
 		
-		<div class="bbs-in-div">
-         <button class="btns create-category-btn" 
-         id="makeBtn" onclick="makes()">관리자 생성</button>        
-   		</div>      
-		
-		<!-- 관리자 생성버튼 눌렀을때 -->
-		<form id="makeForm" name="makeForm" method="post">
-		    <div id="makeDialog" title="관리자 생성하기">
-		    <p style="font-size: 13px;">아이디</p>
-		    <input type="text" id="makeId" name="makeId">
-		    <p style="font-size: 13px;">비밀번호</p>
-		    <input type="text" id="makePw" name="makePw">
-		    <p style="font-size: 13px;">이름</p>
-		    <input type="text" id="makeName" name="makeName">
-		  
-		     
-		    <button type="button" id="newbtn" onclick="newBoard()">생성</button>
-		    </div>
-		</form>
+   
+
 	
 		<table summary="게시글 목록">
 			<thead>
@@ -250,14 +230,13 @@
 					<th class="phone">연락처</th>
 					<th class="who">등급</th>
 					<th class="status">탈퇴 여부</th>
-					<th class="delete">강제 탈퇴</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<c:forEach var="vo" items="${ar }" varStatus="st">
 					<tr class="data-tr">
-						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
+						<td>${deletedtotalCount -((nowPage-1)*blockList+st.index)}</td>
 						<td>${vo.evu_id }</td>
 						<td>${vo.evu_name }</td>
 						<td>${vo.evu_email }</td>
@@ -272,34 +251,27 @@
 							<c:if test="${vo.evu_status ne '0'}">
 							<a>Y</a>
 						</c:if></td>
-						<td>
-						<c:if test="${vo.evu_status eq '0'}">
-							<input class="btn" type="button" name="del" id="del" value="탈퇴"
-					onclick="del('${vo.evu_idx}')" /></c:if>
-						<c:if test="${vo.evu_status ne '0'}">
-							<a></a>
-						</c:if>			
-					</td>
 					</tr>
 				</c:forEach>
 				
 				<!--검색-->
 		
 				<div id="content">
-					<form action="admin.usersearch" method="post">
+					<form action="admin.deletedusersearch" method="post">
 						<input type="hidden" name="type" value="search" class="c_search"/>						
 						<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
 						<input type="button" id="searchbtn" value="검색" class="c_search" 
 						onclick="search(this.form)"/>
 					</form>
 				</div>
+				
+				
 			</tbody>
 		</table>
 		<div class="bbsListFoot">${pageCode }
 		</div>
 	</div>
-	
-	<script>
+		<script>
 		function search(frm){
 			if($("#searchValue").val().trim() <=0){
 				alert("검색어를 입력하세요.");
@@ -310,88 +282,7 @@
 		}
 
 	</script>
-
-
-	<script type="text/javascript">
-		//회원 탈퇴 기능
-		function del(evu_idx) {
-		
-			var result = confirm("탈퇴하시겠습니까?");
-			if (result) {
-				alert("강제 탈퇴되었습니다.");
-				location.href="/admin.deleteUser?evu_idx="+evu_idx;
-			} else {
-				alert("취소하셨습니다.");
-			}
-			
-		}
-		
-		
-		///관리자 생성 기능
-		 function makes(){
-         $("#makeDialog").dialog();
-   
-   	   }
-
-     	 function newBoard() {
-         
-
-         var id = $('#makeId').val().trim();
-         var pw = $('#makePw').val().trim();
-         var name = $('#makeName').val().trim();
-         
-         
-         if(id.length <= 0){
-             alert("아이디를 입력해주세요.");
-             document.forms[0];
-             return;
-          }
-         
-         if(pw.length <= 0){
-             alert("비밀번호를 입력해주세요.");
-             document.forms[0];
-             return;
-          }
-         
-         if(name.length <= 0){
-            alert("이름을 입력해주세요.");
-            document.forms[0];
-            return;
-         }
-         //확인
-         console.log(id);
-         console.log(pw);
-         console.log(name);
-
-         //json형태로 담기
-         var frm = new FormData();
-         frm.append("makeId",id);
-         frm.append("makePw",pw);
-         frm.append("makeName",name);
-
-         //보내버려
-         $.ajax({
-            url : "AdminMakeUser",
-            data : frm,
-            type : "post",
-            contentType : false,
-            processData : false,
-            cache : false,
-            dataType : "json", //서버로부터 받을 데이터 형식
-
-         }).done(function(data) {
-            
-            location.href="admin.user";
-            alert(data.makeName);
-            
-
-         }).fail(function(err) {
-            //실패
-            alert("관리자 계정 생성 실패");
-         });
-      }
-
 	
-</script>
+
 </body>
 </html>

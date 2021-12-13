@@ -1,25 +1,24 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<link rel="stylesheet"
-   href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<title>흰눈이 내리는 어느날</title>
+<title>Insert title here</title>
 <style type="text/css">
-#evbbs {
-	width: 80%;
-	margin: auto;
-	min-width: 900px;
-}
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+
+#evbbs {
+	width: 70%;
+	margin: auto;
+}
+ 
 #evbbs table {
 	width: 100%;
 	margin-top: 50px;
@@ -46,47 +45,6 @@
 	height: 30px;
 }
 
-#makeDialog{
-	display: none;
-}
-
-#newbtn{
-	height: 31px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    background-color: #85C4B9;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.bbs-in-div {
-    text-align: right;
-    margin-bottom: 20px;
-}
-
-.btns {
-    width: 120px;
-    height: 35px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    background-color: #85c4b9;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.ui-widget-content {
-    margin-top: -7px;
-}
-
-.ui-widget-header {
-   
-    background: #85c4b9;
-    color: #ffffff;
-   
-}
 .headtitle{background:#85c4b9; font-size: 15px; color: white;}
 
 .no {width: 5%}
@@ -106,7 +64,16 @@
 	color: black;
 }
 
-
+.btn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
 /* paging */
 .paging {
 	list-style: none;
@@ -153,6 +120,19 @@
 	font-weight: bold;
 }
 
+.bbs-in-div {
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+.btns {
+	border: none;
+	background-color: #85c4b9;
+}
+
+.btns:hover {
+	cursor: pointer;
+}
 
 .totalList {
 	font-size: 16px;
@@ -162,27 +142,47 @@
 .paging-div {
 	margin: 100px 0 0 0;
 }
-.bbsListFoot {
-	margin: 50px 0 0 0;
-}
-.management-p {
+
+.category-management-p {
 	text-align: center;
 	font-size: 40px;
 	color: silver;
 }
-.btn{
-	width: 50px;
-    height: 26px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    background-color: #85c4b9;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+
+.create-category-btn {
+	margin: 0 0 30px 0;
 }
 
+.bbsListFoot {
+	margin: 50px 0 0 0;
+}
+
+
+.btns{
+	border: none;
+	background-color: #85c4b9;
+}
+
+.totalList {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 50px 0 0 0;
+}
+
+.font{
+	text-decoration: none;
+	color: black;
+}
+
+	#content_title{
+		color : gray;
+		margin-top: 50px;
+		font-family: 'Nanum Gothic';
+		
+	}	
+	
 #content{
-	margin-top: 20px;
+	margin-top: 50px;
 }
 .c_search{
 	border: 3px solid #85c4b9;
@@ -206,41 +206,26 @@
 	width: 200px;
    	height: 20px;
 }
- 
 
 
 </style>
 </head>
 <body>
-	<jsp:include page="Adminheader.jsp" />
+	<div id="wrap">
 
-			<p class="management-p">전체 유저 목록</p>
-		
-		
-			<div id="evbbs">
-			<p class="totalList">총 ${totalCount }건</p>
-		
-		<div class="bbs-in-div">
-         <button class="btns create-category-btn" 
-         id="makeBtn" onclick="makes()">관리자 생성</button>        
-   		</div>      
-		
-		<!-- 관리자 생성버튼 눌렀을때 -->
-		<form id="makeForm" name="makeForm" method="post">
-		    <div id="makeDialog" title="관리자 생성하기">
-		    <p style="font-size: 13px;">아이디</p>
-		    <input type="text" id="makeId" name="makeId">
-		    <p style="font-size: 13px;">비밀번호</p>
-		    <input type="text" id="makePw" name="makePw">
-		    <p style="font-size: 13px;">이름</p>
-		    <input type="text" id="makeName" name="makeName">
-		  
-		     
-		    <button type="button" id="newbtn" onclick="newBoard()">생성</button>
-		    </div>
-		</form>
-	
-		<table summary="게시글 목록">
+	<jsp:include page="Adminheader.jsp" />
+	<div id="evbbs">
+				
+
+		<table summary="검색 결과">
+		<h1 id="content_title">
+		<b>"${searchValue }"에 대한</b>
+		<b style="color:#85c4b9;">일반 회원</b>
+		<b> 검색 결과</b>
+		</h1>
+			
+			
+			
 			<thead>
 				<tr class="headtitle">
 					<th class="no">번호</th>
@@ -255,7 +240,9 @@
 			</thead>
 
 			<tbody>
-				<c:forEach var="vo" items="${ar }" varStatus="st">
+			
+			
+				<c:forEach var="vo" items="${search_ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
 						<td>${vo.evu_id }</td>
@@ -278,12 +265,12 @@
 					onclick="del('${vo.evu_idx}')" /></c:if>
 						<c:if test="${vo.evu_status ne '0'}">
 							<a></a>
-						</c:if>			
+						</c:if>					
 					</td>
 					</tr>
 				</c:forEach>
 				
-				<!--검색-->
+		<!--검색-->
 		
 				<div id="content">
 					<form action="admin.usersearch" method="post">
@@ -295,11 +282,14 @@
 				</div>
 			</tbody>
 		</table>
-		<div class="bbsListFoot">${pageCode }
-		</div>
-	</div>
-	
-	<script>
+		</div>			
+		</div>			
+		<div class="bbsListFoot">${pageCode }</div>
+
+
+
+
+		<script>
 		function search(frm){
 			if($("#searchValue").val().trim() <=0){
 				alert("검색어를 입력하세요.");
@@ -310,9 +300,7 @@
 		}
 
 	</script>
-
-
-	<script type="text/javascript">
+		<script type="text/javascript">
 		//회원 탈퇴 기능
 		function del(evu_idx) {
 		
@@ -325,72 +313,7 @@
 			}
 			
 		}
-		
-		
-		///관리자 생성 기능
-		 function makes(){
-         $("#makeDialog").dialog();
-   
-   	   }
-
-     	 function newBoard() {
-         
-
-         var id = $('#makeId').val().trim();
-         var pw = $('#makePw').val().trim();
-         var name = $('#makeName').val().trim();
-         
-         
-         if(id.length <= 0){
-             alert("아이디를 입력해주세요.");
-             document.forms[0];
-             return;
-          }
-         
-         if(pw.length <= 0){
-             alert("비밀번호를 입력해주세요.");
-             document.forms[0];
-             return;
-          }
-         
-         if(name.length <= 0){
-            alert("이름을 입력해주세요.");
-            document.forms[0];
-            return;
-         }
-         //확인
-         console.log(id);
-         console.log(pw);
-         console.log(name);
-
-         //json형태로 담기
-         var frm = new FormData();
-         frm.append("makeId",id);
-         frm.append("makePw",pw);
-         frm.append("makeName",name);
-
-         //보내버려
-         $.ajax({
-            url : "AdminMakeUser",
-            data : frm,
-            type : "post",
-            contentType : false,
-            processData : false,
-            cache : false,
-            dataType : "json", //서버로부터 받을 데이터 형식
-
-         }).done(function(data) {
-            
-            location.href="admin.user";
-            alert(data.makeName);
-            
-
-         }).fail(function(err) {
-            //실패
-            alert("관리자 계정 생성 실패");
-         });
-      }
-
+	
 	
 </script>
 </body>
