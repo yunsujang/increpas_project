@@ -181,6 +181,33 @@
     cursor: pointer;
 }
 
+#content{
+	margin-top: 20px;
+}
+.c_search{
+	border: 3px solid #85c4b9;
+    font-family: monospace;
+}
+#searchbtn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#type{
+	width: 150px;
+  		height: 25px;
+}
+#searchValue{
+	width: 200px;
+   	height: 20px;
+}
+ 
+
 
 </style>
 </head>
@@ -218,7 +245,6 @@
 				<tr class="headtitle">
 					<th class="no">번호</th>
 					<th class="id">아이디</th>
-					<th class="pw">비밀번호</th>
 					<th class="name">이름</th>
 					<th class="email">이메일</th>
 					<th class="phone">연락처</th>
@@ -231,9 +257,8 @@
 			<tbody>
 				<c:forEach var="vo" items="${ar }" varStatus="st">
 					<tr class="data-tr">
-						<td>${vo.evu_idx }</td>
+						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
 						<td>${vo.evu_id }</td>
-						<td>${vo.evu_pw }</td>
 						<td>${vo.evu_name }</td>
 						<td>${vo.evu_email }</td>
 						<td>${vo.evu_phone }</td>
@@ -253,18 +278,38 @@
 					onclick="del('${vo.evu_idx}')" /></c:if>
 						<c:if test="${vo.evu_status ne '0'}">
 							<a></a>
-						</c:if>
-					
+						</c:if>			
 					</td>
-
 					</tr>
 				</c:forEach>
+				
+				<!--검색-->
+		
+				<div id="content">
+					<form action="admin.usersearch" method="post">
+						<input type="hidden" name="type" value="search" class="c_search"/>						
+						<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
+						<input type="button" id="searchbtn" value="검색" class="c_search" 
+						onclick="search(this.form)"/>
+					</form>
+				</div>
 			</tbody>
 		</table>
 		<div class="bbsListFoot">${pageCode }
 		</div>
 	</div>
 	
+	<script>
+		function search(frm){
+			if($("#searchValue").val().trim() <=0){
+				alert("검색어를 입력하세요.");
+				$("#searchValue").focus();
+				return false;//수행 중단
+			}
+			frm.submit();  //보내기
+		}
+
+	</script>
 
 
 	<script type="text/javascript">

@@ -45,15 +45,40 @@
 	height: 30px;
 }
 
+.management-p {
+	text-align: center;
+	font-size: 30px;
+	color: silver;
+}
 .headtitle{background:#85c4b9; font-size: 15px; color: white;}
-.title {width: 35%}
-.no {width: 10%}
-.category {width: 15%}
-.writer{width: 25%}
-.reg{width: 15%}
+
+.no {width: 5%}
+.id {width: 10%}
+.pw {width: 10%}
+.name{width: 10%}
+.email{width: 15%}
+.phone{width: 20%}
+.status{width: 10%}
+.who{width: 10%}
+.delete{width: 10%}
 
 .odd {background: #85c4b9}
 
+.font{
+	text-decoration: none;
+	color: black;
+}
+
+.btn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
 /* paging */
 .paging {
 	list-style: none;
@@ -162,7 +187,7 @@
 	}	
 	
 #content{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 .c_search{
 	border: 3px solid #85c4b9;
@@ -194,22 +219,25 @@
 	<div id="wrap">
 
 	<jsp:include page="Adminheader.jsp" />
+
 	<div id="evbbs">
 				
 
-		<table summary="게시글 검색 결과">
+		<table summary="검색 결과">
 		<h1 id="content_title">
+		
 		<b>"${searchValue }"에 대한</b>
-		<b style="color:#85c4b9;">전체 게시판</b>
-		<b> 검색 결과</b>
-		</h1>
+		<b style="color:#85c4b9;">탈퇴 회원</b>
+		<b> 검색 결과</b></h1>
 			<thead>
 				<tr class="headtitle">
 					<th class="no">번호</th>
-					<th class="category">게시판</th>
-					<th class="title">제목</th>
-					<th class="writer">글쓴이</th>
-					<th class="reg">날짜</th>
+					<th class="id">아이디</th>
+					<th class="name">이름</th>
+					<th class="email">이메일</th>
+					<th class="phone">연락처</th>
+					<th class="who">등급</th>
+					<th class="status">탈퇴 여부</th>
 				</tr>
 			</thead>
 
@@ -219,28 +247,28 @@
 				<c:forEach var="vo" items="${search_ar }" varStatus="st">
 					<tr class="data-tr">
 						<td>${totalCount -((nowPage-1)*blockList+st.index)}</td>
-							
-						<td><c:if test="${vo.evcategory_idx ne null}">
-							<c:forEach items="${categoryName_ar }" var="ar">
-								<c:if test="${vo.evcategory_idx eq ar.evcategory_idx }">
-									${ar.evcategory_name }
-								</c:if>
-							</c:forEach>	
-							</c:if></td>
-						<td><a class="title font " 
-						href="/admin.view?evbbs_idx=${vo.evbbs_idx }">
-						${vo.evbbs_title }</a></td>
+						<td>${vo.evu_id }</td>
+						<td>${vo.evu_name }</td>
+						<td>${vo.evu_email }</td>
+						<td>${vo.evu_phone }</td>
+						<td><c:if test="${vo.evu_who eq '0'}">
+							<a>관리자</a></c:if>
+							<c:if test="${vo.evu_who ne '0'}">
+							<a>회원</a>
+						</c:if></td>
+						<td><c:if test="${vo.evu_status eq '0'}">
+							<a>N</a></c:if>
+							<c:if test="${vo.evu_status ne '0'}">
+							<a>Y</a>
+						</c:if></td>
 						
-						<td>${vo.evbbs_writer }</td>
-						
-						<td>${fn:substring(fn:replace(vo.evbbs_write_date,'-','.'),0,10 ) }</td>
 					</tr>
 				</c:forEach>
 				
 		<!--검색-->
 		
 				<div id="content">
-					<form action="admin.search" method="post">
+					<form action="admin.deletedusersearch" method="post">
 						<input type="hidden" name="type" value="search" class="c_search"/>						
 						<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
 						<input type="button" id="searchbtn" value="검색" class="c_search" 
@@ -267,9 +295,6 @@
 		}
 
 	</script>
-	
-	<script type="text/javascript">
-	
-</script>
+
 </body>
 </html>
