@@ -106,7 +106,7 @@
 		</form>
 	</div>
 	<script src="resources/css/js/summernote-lite.js"></script>
-	<script src="resources/css.js/lang/summernote-ko-KR.js"></script>
+	<script src="resources/js/lang/summernote-ko-KR.js"></script>
 	<script type="text/javascript">
 	
 	
