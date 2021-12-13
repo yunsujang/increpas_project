@@ -137,7 +137,7 @@ html, body{
                <li><a>유저관리</a> 
                <ul class="main3">
                   <li><a href="admin.user">일반회원</a></li>
-                  <li><a href="">탈퇴회원</a></li>
+                  <li><a href="admin.deleteduser">탈퇴회원</a></li>
                </ul><li>
                   
             
