@@ -130,8 +130,8 @@
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = {
-	    center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-	    level: 10 // 지도의 확대 레벨
+	    center: new kakao.maps.LatLng(37.34099912133885, 127.91934644349242), // 지도의 중심좌표
+	    level: 12 // 지도의 확대 레벨
 	};  
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -144,8 +144,8 @@
 			,addr : "${vo.addr}" //주소명
 			,lat : "${vo.lat}" //위도
 			,lng : "${vo.lng}" //경도
-			,busiCall : "${vo.busiCall}"
-			,useTime : "${vo.useTime}"
+			,busiCall : "${vo.busiCall}" //전화번호
+			,useTime : "${vo.useTime}" //시간
 		});
 	</c:forEach>
 
@@ -242,6 +242,12 @@
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
 
+	kakao.maps.event.addListener(markers, 'click', function() {
+	      // 마커 위에 인포윈도우를 표시합니다
+	      
+	});
+	
+	
 	
 
 	

@@ -1,11 +1,13 @@
 package user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import mybatis.vo.BbsVO;
 import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
 
+@Service
 public class UserBbs_realService implements UserBbsService {
 	
 	@Autowired
@@ -63,6 +65,10 @@ public class UserBbs_realService implements UserBbsService {
 	}
 	@Override
 	public int commDel(String evccomment_idx) {
-		return ubbs_dao.updateHit(evccomment_idx);
+		return ubbs_dao.commDel(evccomment_idx);
 	}
+	
+	
+	
+	
 }

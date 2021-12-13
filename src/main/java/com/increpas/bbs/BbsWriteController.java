@@ -20,6 +20,7 @@ import ev.vo.EvuserVO;
 import mybatis.vo.BbsVO;
 import mybatis.vo.CommentVO;
 import user.dao.UserBbsDAO;
+import user.service.UserBbsService;
 import user.util.FileRenameUtil;
 
 @Controller
@@ -37,6 +38,10 @@ public class BbsWriteController {
 	@Autowired
 	private UserBbsDAO b_dao;
 	 
+	@Autowired
+	UserBbsService userService;
+	
+	
 	//에디터에서 이미지가 들어갈 때 해당 이미지를 받아서
 	// 저장할 위치
 	private String editor_img = "/resources/editor_img";
@@ -104,7 +109,7 @@ public class BbsWriteController {
 		
 		vo.setEvu_idx(mvo.getEvu_idx()); 
 		//System.out.println(mvo.getEvu_idx());
-		b_dao.add(vo); //DB에 저장!!!!!!!!!!!
+		userService.add(vo); //DB에 저장!!!!!!!!!!!
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -126,7 +131,7 @@ public class BbsWriteController {
 			
 			EvuserVO evo = (EvuserVO) obj;
 			cvo.setEvu_idx(evo.getEvu_idx());
-			b_dao.addAns(cvo);
+			userService.addAns(cvo);
 			
 																				//cPage Change 1
 			mv.setViewName("redirect:/view.ev?evcbbs_idx="+cvo.getEvcbbs_idx()+"&cPage="+1);
