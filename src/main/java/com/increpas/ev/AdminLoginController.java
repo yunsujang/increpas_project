@@ -48,4 +48,14 @@ public class AdminLoginController {
 		map.put("cnt", cnt);
 		return map;
 	}
+	
+	//로그아웃 기능
+	   @RequestMapping(value = "/adminlogout", method = RequestMethod.POST)
+	   @ResponseBody
+	   public Map<String, String> adminlogout(){
+	      Map<String, String>map = new HashMap<String, String>();
+	      session.removeAttribute("mvo");
+	      
+	      return map;
+	   }
 }

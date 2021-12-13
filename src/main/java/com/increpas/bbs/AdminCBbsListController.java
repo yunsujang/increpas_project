@@ -15,7 +15,7 @@ import user.util.CSSFont;
 import user.util.UserBbsPaging;
 
 @Controller
-public class BbsListController {
+public class AdminCBbsListController {
 
 	@Autowired
 	private UserBbsDAO b_dao;
@@ -33,7 +33,7 @@ public class BbsListController {
 	int blockList = 15; //한 페이지당 표현될 게시물 수
 	int blockPage = 5;//한 블럭당 표현될 페이지 수
 		
-	@RequestMapping("/list.ev")
+	@RequestMapping("/admin.list.ev")
 	public ModelAndView list(String cPage, String evcategory_idx) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -70,7 +70,7 @@ public class BbsListController {
 			cnt = categoryName_ar.length;
 		StringBuffer sb = CSSFont.StyleCode(2,cnt);
 		mv.addObject("sb",sb);
-		mv.setViewName("evList");// views/list.jsp
+		mv.setViewName("adminEvList");// views/list.jsp
 		
 		return mv;
 	}

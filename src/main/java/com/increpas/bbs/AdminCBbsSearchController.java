@@ -14,7 +14,7 @@ import user.util.UserBbsSearchPaging;
 
 
 @Controller
-public class BbsSearchController {
+public class AdminCBbsSearchController {
 
 	@Autowired
 	private UserBbsDAO b_dao;
@@ -32,7 +32,7 @@ public class BbsSearchController {
 	 
 	
 	
-	@RequestMapping(value="/search.ev")
+	@RequestMapping(value="/admin.search.ev")
 	public ModelAndView search(String cPage, String evcbbs_idx,String searchValue) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -68,7 +68,7 @@ public class BbsSearchController {
 		mv.addObject("rowTotal", rowTotal);
 		mv.addObject("pageCode", page.getSb().toString());
 	
-		mv.setViewName("evSearch");// views/list.jsp
+		mv.setViewName("adminEvSearch");// views/list.jsp
 		
 		return mv;
 	}

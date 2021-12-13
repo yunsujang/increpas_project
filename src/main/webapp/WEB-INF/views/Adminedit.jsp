@@ -6,12 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
-<script src="resources/css/js/summernote-lite.js"></script>
 <link rel="stylesheet" href="resources/css/summernote-lite.css">
-<script src="resources/css.js/lang/summernote-ko-KR.js"></script>
 <style type="text/css">
 #bbs{
 	margin: 50px 0 100px auto;
@@ -81,7 +76,7 @@
 
 					<tr>
 						<th>작성자</th>
-						<td>${sessionScope.name }</td>
+						<td>${sessionScope.mvo.evu_name }</td>
 					</tr>
 
 					<tr>
@@ -110,7 +105,8 @@
 			<input type="hidden" id ="evbbs_writer" name="evbbs_writer" value="${sessionScope.name }"/>
 		</form>
 	</div>
-
+	<script src="resources/css/js/summernote-lite.js"></script>
+	<script src="resources/js/lang/summernote-ko-KR.js"></script>
 	<script type="text/javascript">
 	
 	
@@ -119,7 +115,7 @@
 	$(function(){
 		$("#evbbs_content").summernote({
 			height: 500,
-			leng: "ko-KR",
+			lang: "ko-KR",
 			focus: true, /* 커서를 미리 가져다 놓는다. */
 			callbacks:{
 				onImageUpload: function(files, editor){
