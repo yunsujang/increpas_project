@@ -116,7 +116,9 @@
          })
          
          function searchDialog() {
-             $("#dialog").dialog();
+             $("#dialog").dialog({
+            	 position: { my: "center top", at: "center bottom", of: ".menu_ul" },
+             });
          }
          
          function search(frm) {
