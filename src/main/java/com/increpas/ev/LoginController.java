@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import admin.service.AdminCategorySerivce;
 import ev.vo.CategoryVO;
 import ev.vo.EvuserVO;
+import spring.service.MailService;
 import user.service.CategoryService;
 import user.service.LoginService;
 import user.util.SecureUtil;
@@ -32,7 +32,8 @@ import user.util.SecureUtil;
 @Controller
 public class LoginController {
 
-	
+	@Autowired
+	private MailService mailService; //인자로 들어오도록 해준다.
 	
 	@Autowired
 	LoginService l_service;
@@ -141,6 +142,25 @@ public class LoginController {
 		
 		map.put("code",code);
 		
+		return map;
+	}
+	
+	//메일 발송
+	
+	
+	@RequestMapping(value="/sendMail", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> sendEmail(String email) throws Exception{
+		Map<String, String>map = new HashMap<String, String>();
+		int rnum = (int)(Math.random()*9999 + 1000);
+		String srnum = String.valueOf(rnum);
+		String fromAddr = "rndurdk2@gmail.com";
+		String subject = "[evca]인증번호 메일입니다.";
+		
+		String body = "안녕하세요? evca입니다.\r\n 인증번호는 "+rnum+" 입니다.";
+		mailService.sendMail(email, fromAddr, subject, body);//받는이 보낸이 제목 내용
+		map.put("str", "발송완료");
+		map.put("rnum", srnum);
 		return map;
 	}
 }

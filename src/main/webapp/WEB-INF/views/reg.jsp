@@ -31,7 +31,7 @@ body {
 }
 #wrapper {
     position: relative;
-    height: 90%;
+    height: 100%;
     margin: 220px 0 0 0;
 }
 
@@ -186,13 +186,24 @@ input {
                     </span>
                      <p style="font-size: 12px"></p>
                 </div>
+                
+                  <!-- EMAIL OK-->
+                <div class="emailok-div" style="display: none;">
+                    <h3 class="join_title"><label>이메일 인증확인</label></h3>
+                    <span class="box int_email">
+                        <input type="text" name="email_ok" id="email_ok" class="int" maxlength="100" placeholder="인증번호를 입력하세요">
+                        <button class="CertBtn" type="button" onclick="certok()">인증번호 확인</button>
+                    </span>
+                     <p style="font-size: 12px; position: absolute;top: 500px; right: 470px;"></p>
+                </div>
 
                 <!-- MOBILE -->
-                <div>
+                <div class="phone-div">
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
                     <span class="box int_mobile">
-                        <input type="number"name="evu_phone" id="evu_phone" class="int" maxlength="16" placeholder="전화번호를 입력하세요(- 없이)">
+                        <input type="text"name="evu_phone" id="evu_phone" class="int" maxlength="16" placeholder="전화번호를 입력하세요(- 없이)" oninput="phonecheck()">
                     </span>
+                     <p style="font-size: 12px"></p>
                 </div>
                 <!-- JOIN BTN-->
                 <div class="btn_area">
@@ -205,6 +216,8 @@ input {
                 <input type="hidden" id="goodpw" value="1"/>
                 <input type="hidden" id="goodname" value="1"/>
                 <input type="hidden" id="goodemail" value="1"/>
+                <input type="hidden" id="goodphone" value="1"/>
+                <input type="hidden" id="emailnum" value="1"/>
 				</form>
             </div> 
         </div> 
@@ -359,14 +372,78 @@ input {
 				return;
 			}
 			else{
-				alert("good");
+				alert("인증번호가 발송되었습니다.");
 				$(".email-div p").css('display','none');
-				$("#goodemail").val(0);
+				$(".emailok-div").css('display','block');
+				var frm = new FormData();
+				frm.append("email",email);
+				$.ajax({
+					 url: "sendMail",
+			         data: frm,
+			         type: "post",
+			         contentType: false,
+			         processData: false,
+			         cache: false,
+			         dataType: "json",
+					
+				}).done(function(data) {
+					$("#emailnum").val(data.rnum);
+				}).fail(function(err) {
+					
+				})
+				
 			}
 		}
 		
-		
 	} 
+	
+	function certok(){
+		var emailnum = $("#emailnum").val();
+		var usercert = $("#email_ok").val();
+		if(emailnum == usercert){
+			alert("이메일 인증에 성공하였습니다.");
+			$("#goodemail").val(0);
+			$(".emailok-div p").text("✓");
+			$(".emailok-div p").css('color','green');
+		}else{
+			alert("이메일 인증에 실패하였습니다.");
+			$("#email_ok").val("");
+			$("#email_ok").focus();
+		}
+	}
+	
+	function isPhoneNumber(asValue) {
+		var regExp = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+	 
+		return regExp.test(asValue);
+	}
+	
+	//전화번호 유효성 검사
+	function phonecheck() {
+		var phone = $("#evu_phone").val();
+		$("#evu_phone").val(phone.replace(/\s/gi,""));
+		
+		if(!isPhoneNumber(phone)){
+			$(".phone-div p").css('display','block');
+			$(".phone-div p").text("전화번호 형식에 맞게 입력해주세요.");
+			$(".phone-div p").css('color','red');
+			$("#goodphone").val(1);
+			return;
+		}
+		
+		if(isPhoneNumber(phone)){
+			$(".phone-div p").css('display','none');
+			$("#goodphone").val(0);
+			return;
+		}
+		
+		if( $("#evu_phone").val() == ""){
+			$(".phone-div p").text("");
+			$("#evu_phone").val(1);
+			return;
+		}
+			
+	}
 	
 	//회원가입 유효성 검사
 	function reg(frm) {
@@ -374,6 +451,7 @@ input {
 		var goodpw = $("#goodpw").val();
 		var goodname = $("#goodname").val();
 		var goodemail = $("#goodemail").val();
+		var goodphone = $("#goodphone").val();
 	
 		if(goodId == 1){
 			$("#evu_id").val("");
@@ -397,8 +475,14 @@ input {
 		}
 		
 		if(goodemail == 1){
-			$("#evu_name").focus();
+			$("#evu_email").focus();
 			alert("이메일 인증을 확인하십시오.");
+			return;
+		}
+		
+		if(goodphone == 1){
+			$("#goodphone").focus();
+			alert("휴대폰번호를 확인하십시오.");
 			return;
 		}
 		
