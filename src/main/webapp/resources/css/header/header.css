@@ -43,9 +43,10 @@
 	.menu_ul{
 		margin: 0 0 20px 0;
 		height: 100%;
-		width: 70%;
+		width: 100%;
 		display: inline-block;
-		text-align: inherit;
+		text-align: center;
+		padding: 0;
 	}
 	
 	.menu_ul li{
@@ -100,11 +101,10 @@
 
 
 .user-div{
-	width: auto;
-	min-width:auto;
-	text-align: center;
-	float: right;
-	margin: 20px 10px 0 0;
+	position: absolute;
+    top: 150px;
+    right: 20px;
+    text-align: center;
 	
 }
 
