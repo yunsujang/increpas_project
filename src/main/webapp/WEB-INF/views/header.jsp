@@ -34,6 +34,7 @@
    .logout{
       cursor: pointer;
    }
+
 </style>
 </head>
 <body>
