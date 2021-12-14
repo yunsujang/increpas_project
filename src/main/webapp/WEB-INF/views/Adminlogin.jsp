@@ -62,7 +62,7 @@
 	margin: auto;
 	margin-top: 19px;
 	line-height: 0px;
-	font-color: black;
+	cursor: pointer;
 }
 #back>h3 {
     text-align: center;
@@ -86,9 +86,9 @@
 				<div id="back">
 					<h3>관리자 로그인</h3>
 					<div class="loginbox" >
-						<input type="text" class="form-control" placeholder="아이디" name="evu_id" id="evu_id" maxlength="10">
+						<input type="text" class="form-control" placeholder="아이디" name="evu_id" id="evu_id" maxlength="20">
 						<br>						
-						<input type="password" class="form-control" placeholder="비밀번호" name="evu_pw" id="evu_pw" maxlength="10">						
+						<input type="password" class="form-control" placeholder="비밀번호" name="evu_pw" id="evu_pw" maxlength="20">						
 					</div>
 					<button type="button" id="btn" 
 					style="background:#85c4b9" 
@@ -113,7 +113,6 @@
 				location.href = "/admin.main"
 				
 			}
-			
 			
 		});
 		

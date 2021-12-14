@@ -225,8 +225,8 @@
 					<th class="no">번호</th>
 					<th class="category">게시판명</th>
 					<th class="title">제목</th>
-					<th class="writer">글쓴이</th>
-					<th class="reg">작성일</th>
+					<th class="writer">이름</th>
+					<th class="reg">작성일자</th>
 				</tr>
 			</thead>
 

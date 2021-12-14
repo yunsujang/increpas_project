@@ -238,6 +238,7 @@
 					<th class="phone">연락처</th>
 					<th class="who">등급</th>
 					<th class="status">탈퇴 여부</th>
+					<th class="recovery">탈퇴 복구</th>
 				</tr>
 			</thead>
 
@@ -261,7 +262,8 @@
 							<c:if test="${vo.evu_status ne '0'}">
 							<a>Y</a>
 						</c:if></td>
-						
+						<td><input class="btn" type="button" name="recovery" id="recovery" value="복구"
+									onclick="recovery('${vo.evu_idx}')" /></td>
 					</tr>
 				</c:forEach>
 				
@@ -270,7 +272,7 @@
 				<div id="content">
 					<form action="admin.deletedusersearch" method="post">
 						<input type="hidden" name="type" value="search" class="c_search"/>						
-						<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
+						<input type="text" id="searchValue" name="searchValue"  class="c_search" placeholder="아이디를 입력하세요"/>
 						<input type="button" id="searchbtn" value="검색" class="c_search" 
 						onclick="search(this.form)"/>
 					</form>
@@ -287,7 +289,7 @@
 		<script>
 		function search(frm){
 			if($("#searchValue").val().trim() <=0){
-				alert("검색어를 입력하세요.");
+				alert("아이디를 입력하세요.");
 				$("#searchValue").focus();
 				return false;//수행 중단
 			}
@@ -295,6 +297,19 @@
 		}
 
 	</script>
-
+	<script type="text/javascript">
+		//회원 복구 기능
+		function recovery(evu_idx) {
+		
+			var result = confirm("탈퇴회원을 복구 하시겠습니까?");
+			if (result) {
+				alert("복구 되었습니다.");
+				location.href="/admin.recoveryUser?evu_idx="+evu_idx;
+			} else {
+				alert("취소하셨습니다.");
+			}
+				
+		}
+	</script>
 </body>
 </html>

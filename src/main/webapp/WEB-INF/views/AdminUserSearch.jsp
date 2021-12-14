@@ -275,7 +275,7 @@
 				<div id="content">
 					<form action="admin.usersearch" method="post">
 						<input type="hidden" name="type" value="search" class="c_search"/>						
-						<input type="text" id="searchValue" name="searchValue"  class="c_search"/>
+						<input type="text" id="searchValue" name="searchValue"  class="c_search" placeholder="아이디를 입력하세요"/>
 						<input type="button" id="searchbtn" value="검색" class="c_search" 
 						onclick="search(this.form)"/>
 					</form>
@@ -292,7 +292,7 @@
 		<script>
 		function search(frm){
 			if($("#searchValue").val().trim() <=0){
-				alert("검색어를 입력하세요.");
+				alert("아이디를 입력하세요.");
 				$("#searchValue").focus();
 				return false;//수행 중단
 			}

@@ -218,7 +218,7 @@
 				</c:if>
 				<tr>
 					
-					<td>작성자 : ${vo.evcbbs_writer}</td>
+					<td>이름 : ${vo.evcbbs_writer}</td>
 				</tr>
 				<tr>
 				

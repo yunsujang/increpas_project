@@ -1,3 +1,4 @@
+
 package admin.dao;
 
 import java.util.HashMap;
@@ -62,5 +63,10 @@ public class AdminUserDeletedDAO {
 	public int searchTotalCount(String searchValue) {
 		return ss.selectOne("adminUser.searchTotalCount2", searchValue);
 	}
+	//회원 복구
+	public int recoveryUser(String evu_idx) {
+		return ss.update("adminUser.AdminrecoveryUser", evu_idx);
+	}
 
 }
+

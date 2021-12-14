@@ -48,26 +48,6 @@
    margin-top: 20px;
    text-align: left;
 }
-.c_search{
-   border: 3px solid #85c4b9;
-    font-family: monospace;
-}
-#searchbtn{
-   width: 50px;
-    height: 26px;
-    border-radius: 3px;
-    border: 1px solid gray;
-    background-color: #85c4b9;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#searchValue{
-   width: 200px;
-      height: 20px;
-      }
- 
  
 #changebtn{
    height: 31px;
@@ -241,16 +221,7 @@
          <button class="btns create-category-btn" 
          id="makeBtn" onclick="makes()">게시판 생성</button>
          <button class="btns recovery-category-btn" onclick="recovery()">게시판 복구</button>
-   </div>      
-         <!--검색-->      
-      <div id="content">   
-         <form>                  
-            <input type="text" id="searchValue" name="searchValue"  class="c_search"/>
-            <input type="button" id="searchbtn" value="검색" class="c_search" 
-            onclick="search()"/>
-         </form>
-      </div>
-      
+   </div>       
       <!-- 게시판 생성버튼 눌렀을때 -->
       <form id="makeForm" name="makeForm" method="post">
       <div id="makeDialog" title="게시판 생성하기">
@@ -307,9 +278,6 @@
       </div>
 
    <script type="text/javascript">
-      function search() {
-         alert("a");
-      }
       function deletes(data) {
          var data = data;
          

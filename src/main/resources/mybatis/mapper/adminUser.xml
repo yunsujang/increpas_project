@@ -105,6 +105,12 @@
 		UPDATE evuser_t set evu_status = 1
 		WHERE evu_idx = #{evu_idx}
 	</update>
+	
+	<!-- 관리자가 선택한 회원 복구 -->
+	<update id="AdminrecoveryUser" parameterType="String">
+		UPDATE evuser_t set evu_status = 0
+		WHERE evu_idx = #{evu_idx}
+	</update>
 
 	<!-- 관리자 계정 생성 기능 -->
 	<insert id="AdminMakeUser" parameterType="String">

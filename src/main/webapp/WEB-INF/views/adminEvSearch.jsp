@@ -167,12 +167,8 @@
 	    margin-top: -9px;
 	    margin-left: 4px;
 	    margin-bottom: -8px;
-	    background-image: url(/resources/img/search.png);
 	}
-	#searchType{
-		width: 80px;
-   		height: 25px;
-	}
+	
 	#bbsSearchValue{
 		width: 160px;
     	height: 20px;
@@ -224,7 +220,7 @@
 				<tr class="title">
 					<th class="no">번호</th>
 					<th class="subject">제목</th>
-					<th class="writer">작성자</th>
+					<th class="writer">이름</th>
 					<th class="reg">날짜</th>
 					<th class="hit">조회수</th>
 				</tr>
@@ -277,13 +273,8 @@
 				</c:forEach>
 				<div id="content">
 					<form action="admin.search.ev" method="post">
-						<input type="hidden" name="type" value="search" class="c_search"/>
-						<select id="searchType" name="searchType" class="c_search">
-							<option>전체</option>
-					
-						</select>
-						<input type="text" id="bbsSearchValue" name="searchValue"  class="c_search"/>
-						<input type="button" id="searchbtn" value="" class="c_search" onclick="search(this.form)"/>
+						<input type="text" id="bbsSearchValue" name="searchValue" class="c_search" placeholder="이름을 입력하세요"/>
+						<input type="button" id="searchbtn" value="검색" class="c_search" onclick="search(this.form)"/>
 					</form>
 				</div>
 				</tbody>
@@ -294,7 +285,7 @@
 	<script>
 		function search(frm){
 			if($("#bbsSearchValue").val().trim() <=0){
-				alert("내용을 입력하세요.");
+				alert("이름을 입력하세요.");
 				$("#bbsSearchValue").focus();
 				return false;//수행 중단
 			}
