@@ -64,6 +64,7 @@ public class ViewController {
 		mv.addObject("prevo", prevo);
 		mv.addObject("nextvo", nextvo);
 		mv.addObject("vo", vo);
+		mv.addObject("bvo", vo);
 		mv.addObject("categoryName_ar", categoryName_ar);
 		mv.addObject("cPage", cPage);
 		mv.setViewName("view");
