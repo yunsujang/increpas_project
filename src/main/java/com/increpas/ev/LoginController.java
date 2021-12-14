@@ -97,15 +97,26 @@ public class LoginController {
 	}
 	*/
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public ModelAndView login(String evu_id, String evu_pw) {
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public Map<String, String> login(String evu_id, String evu_pw) {
+		System.out.println(evu_id);
+		System.out.println(evu_pw);
+		Map<String, String>map = new HashMap<String, String>();
 		EvuserVO uvo = l_service.getComp(evu_id);
-		String realPassword = SecureUtil.getEncrypt(evu_pw, uvo.getEvu_comp());
-		EvuserVO mvo = l_service.login(evu_id, realPassword);
-		session.setAttribute("mvo", mvo);	
-		
-		mv.setViewName("redirect:/");
-		return mv;
+		String m = "0"; 
+		if(uvo == null) {
+			m = "1";
+		}
+		else {
+			String realPassword = SecureUtil.getEncrypt(evu_pw, uvo.getEvu_comp());
+			EvuserVO mvo = l_service.login(evu_id, realPassword);
+			if(mvo == null)
+				m = "1";
+			else
+				session.setAttribute("mvo", mvo);	
+		}
+		map.put("m", m);
+		return map;
 	}
 	
 	
