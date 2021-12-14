@@ -34,6 +34,7 @@
    .logout{
       cursor: pointer;
    }
+
 </style>
 </head>
 <body>
@@ -74,7 +75,6 @@
             </div>
             </ul>
             
-   
          </div>
       </div>
       <div id="fixNextTag"></div>
@@ -98,13 +98,17 @@
                var docScrollY = $(document).scrollTop()
                var barThis = $("#topBar")
                var fixNext = $("#fixNextTag")
-
+			   var userdiv = $(".user-div");
+               
                if( docScrollY > topBar.top ) {
                   barThis.addClass("top_bar_fix");
                   fixNext.addClass("pd_top_80");
+                  userdiv.css("top","20px");
+                  
                }else{
                   barThis.removeClass("top_bar_fix");
                   fixNext.removeClass("pd_top_80");
+                  userdiv.css("top","150px");
                 }
 
             });
@@ -112,7 +116,9 @@
          })
          
          function searchDialog() {
-             $("#dialog").dialog();
+             $("#dialog").dialog({
+            	 position: { my: "center top", at: "center bottom", of: ".menu_ul" },
+             });
          }
          
          function search(frm) {

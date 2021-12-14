@@ -44,10 +44,6 @@
 						<li>대표자 마루치 , 이도</li>
 						<li>Copyright © 인크레파스(주)</li>
 					</ul>
-					<ul class="notice_about" style="margin-left: 25px;">
-						<li><a href="/">공지사항</a></li>
-						<li><a href="/">회사소개</a></li>
-					</ul>
 					</div>
 				</div>
 			</div>
