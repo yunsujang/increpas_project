@@ -11,8 +11,8 @@ import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
 import user.service.CategoryService;
 import user.service.UserBbsService;
+import user.util.AdminUserBbsPaging;
 import user.util.CSSFont;
-import user.util.UserBbsPaging;
 
 @Controller
 public class AdminCBbsListController {
@@ -48,7 +48,7 @@ public class AdminCBbsListController {
 		rowTotal = userService.getTotalCount(evcategory_idx);//전체 게시물 수
 	 	
 		//페이징 처리를 위한 객체 생성
-		UserBbsPaging page = new UserBbsPaging(nowPage, rowTotal, blockList, blockPage);
+		AdminUserBbsPaging page = new AdminUserBbsPaging(nowPage, rowTotal, blockList, blockPage);
 		
 		int begin = page.getBegin();
 		int end = page.getEnd();
