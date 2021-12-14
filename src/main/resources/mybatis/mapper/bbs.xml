@@ -46,9 +46,8 @@
 		SELECT * FROM
 		evbbs_t
 		WHERE
-		evbbs_status = 0 AND evbbs_title LIKE
-		'%'||#{searchValue}||'%' OR
-		evbbs_content LIKE '%'||#{searchValue}||'%'
+		evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+		evbbs_status = 0 AND evbbs_content LIKE '%'||#{searchValue}||'%'
 		ORDER BY evbbs_idx DESC
 		) a
 		) WHERE r_num BETWEEN #{begin} AND #{end}
@@ -60,8 +59,8 @@
 		parameterType="String">
 		SELECT COUNT (*) FROM evbbs_t
 		WHERE evbbs_status = 0 AND
-		evbbs_title LIKE '%'||#{searchValue}||'%' OR
-		evbbs_content LIKE
+		      evbbs_status = 0 AND evbbs_title LIKE '%'||#{searchValue}||'%' OR
+			  evbbs_status = 0 AND evbbs_content LIKE
 		'%'||#{searchValue}||'%'
 	</select>
 
