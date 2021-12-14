@@ -16,7 +16,7 @@
 <style type="text/css">
 #evbbs {
 	width: 80%;
-	margin: auto;
+	margin: 100px auto;
 	min-width: 900px;
 }
 

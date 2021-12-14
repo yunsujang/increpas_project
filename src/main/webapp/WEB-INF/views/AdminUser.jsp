@@ -16,7 +16,7 @@
 <style type="text/css">
 #evbbs {
 	width: 80%;
-	margin: auto;
+	margin: 50px auto;
 	min-width: 900px;
 }
 
@@ -48,13 +48,14 @@
 
 #makeDialog{
 	display: none;
+	font-weight: bold;
 }
 
 #newbtn{
 	height: 31px;
     border-radius: 3px;
     border: 1px solid gray;
-    background-color: #85C4B9;
+    background-color: #64c9c3;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -206,9 +207,15 @@
 	width: 200px;
    	height: 20px;
 }
- 
 
-
+.ui-draggable .ui-dialog-titlebar {
+    color: white;
+    background: #64c9c3;
+}
+#makeDialog>p{
+	font-size: 13px;
+	margin: 5px 0;
+}
 </style>
 </head>
 <body>
@@ -216,23 +223,23 @@
 
 			<p class="management-p">일반 회원 목록</p>
 		
-		
-			<div id="evbbs">
-			<p class="totalList">총 ${totalCount }건</p>
+		<div id="evbbs">
 		
 		<!-- 관리자생성 버튼생성 -->
 		<div class="bbs-in-div">
          <button class="btns create-admin-btn" id="makeBtn" onclick="makes()">관리자 생성</button>          
-   		</div>      
-  		
+   		</div>
+		<p class="totalList">총 ${totalCount }건</p>
+		
+		
 		<!-- 관리자 생성버튼 눌렀을때 -->
 		<form id="makeForm" name="makeForm" method="post">
 		    <div id="makeDialog" title="관리자 생성하기">
-		    <p style="font-size: 13px;">아이디</p>
+		    <p>아이디</p>
 		    <input type="text" id="makeId" name="makeId">
-		    <p style="font-size: 13px;">비밀번호</p>
+		    <p>비밀번호</p>
 		    <input type="text" id="makePw" name="makePw">
-		    <p style="font-size: 13px;">이름</p>
+		    <p>이름</p>
 		    <input type="text" id="makeName" name="makeName">
 		 
 		     

@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="resources/css/summernote-lite.css">
 <style type="text/css">
+
 #bbs{
    margin: 50px 0 100px auto;
    text-align: center;
@@ -50,13 +51,19 @@
 .button-td{
    text-align: center;
 }
+
+#forms{
+	margin:-10px -42px;
+	max-width: 1919px;
+	min-width: 1919px;
+}
 </style>
 
 </head>
 <body>
    <jsp:include page="Adminheader.jsp"/>
    <div id="bbs">
-      <form action="admin.bbsWrite" method="post" encType="multipart/form-data">
+      <form id="forms" action="admin.bbsWrite" method="post" encType="multipart/form-data">
          <!-- 첨부파일이 있으면 꼭 넣어줘야한다. -->
          <table summary="게시판 글쓰기">
             <tbody>

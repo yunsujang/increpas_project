@@ -53,7 +53,7 @@
    height: 31px;
    border-radius: 3px;
     border: 1px solid gray;
-   background-color: #85C4B9;
+   background-color: #64c9c3;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -63,7 +63,7 @@
     height: 31px;
     border-radius: 3px;
     border: 1px solid gray;
-    background-color: #85C4B9;
+    background-color: #64c9c3;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -188,19 +188,24 @@
     width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white;
 }
 
+.ui-draggable .ui-dialog-titlebar {
+    
+    background: #64c9c3;
+}
 .ui-widget-content {
     margin-top: -7px;
 }
 .ui-widget-header {
    
     background: #85c4b9;
-   color: #ffffff;
+    color: #ffffff;
    
 }
 .listclick{
-   cursor: pointer;
+    cursor: pointer;
 }
 
 
@@ -225,7 +230,7 @@
       <!-- 게시판 생성버튼 눌렀을때 -->
       <form id="makeForm" name="makeForm" method="post">
       <div id="makeDialog" title="게시판 생성하기">
-      <p style="font-size: 13px;">생성할 게시판명을 입력해주세요.</p>
+      <p style="font-size: 13px; font-weight: bold;">생성할 게시판명을 입력해주세요.</p>
       
 
       <input type="text" id="makeName" name="makeName">
@@ -267,7 +272,7 @@
       <form id="changeForm" name="changeForm" method="post">
       <div class="paging-div">${pageCode }</div>
       <div id="updateDialog" title="게시판 수정하기">
-      <p style="font-size: 13px;">수정할 게시판명을 입력해주세요.</p>
+      <p style="font-size: 13px; font-weight: bold;">수정할 게시판명을 입력해주세요.</p>
       <input type="hidden" id="changeIdx" name="changeIdx" value=""/>
       <input type="text" id="changeName" name="changeName" value="">
       
