@@ -43,5 +43,9 @@ public class MemDAO {
 		return ss.selectOne("login.adminlogin", map);
 	}
 	
+	public EvuserVO kakaologin(String email) {
+		return ss.selectOne("login.kakaologin", email);
+	}
+	
 
 }

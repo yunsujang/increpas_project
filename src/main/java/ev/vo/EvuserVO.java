@@ -12,9 +12,20 @@ public class EvuserVO {
 					evu_status,
 					evu_comp;
 
+	public EvuserVO(String evu_id, String evu_pw, String evu_name, String evu_email, String evu_phone, String evu_comp) {
+		this.evu_id = evu_id;
+		this.evu_pw = evu_pw;
+		this.evu_name = evu_name;
+		this.evu_email = evu_email;
+		this.evu_phone = evu_phone;
+		this.evu_comp = evu_comp;
+	}
+	
 	public String getEvu_idx() {
 		return evu_idx;
 	}
+	
+
 
 	public void setEvu_idx(String evu_idx) {
 		this.evu_idx = evu_idx;

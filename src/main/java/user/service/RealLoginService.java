@@ -37,4 +37,10 @@ public class RealLoginService implements LoginService {
 		return m_dao.login(id, pw);
 	}
 
+	@Override
+	public EvuserVO kakaologin(String email) {
+		// TODO Auto-generated method stub
+		return m_dao.kakaologin(email);
+	}
+
 }

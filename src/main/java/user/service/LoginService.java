@@ -7,4 +7,5 @@ public interface LoginService {
 	int reg(EvuserVO vo);
 	EvuserVO adminLogin(String id, String pw);
 	EvuserVO login(String id,String pw);
+	EvuserVO kakaologin(String email);
 }

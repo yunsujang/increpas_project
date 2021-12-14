@@ -44,6 +44,7 @@ public class LoginController {
 	@Autowired
 	private CategoryService categoryservice;
 
+	//헤더에서 로그인 클릭 시 로그인 화면으로 이동
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -53,6 +54,7 @@ public class LoginController {
 		return mv;
 	}
 	
+	//헤더에서 회원가입 클릭 시 회원가입 화면으로 이동
 	@RequestMapping("/reg")
 	public ModelAndView reg() {
 		ModelAndView mv = new ModelAndView();
@@ -62,6 +64,7 @@ public class LoginController {
 		return mv;
 	}
 	
+	//로그아웃 기능
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> logout(){
@@ -71,36 +74,10 @@ public class LoginController {
 		return map;
 	}
 	
-	
-	
-	
-	
-//	@RequestMapping(value = "/login",method = RequestMethod.POST)
-//	public ModelAndView login(MemVO vo) {
-//		ModelAndView mv = new ModelAndView();
-//		MemVO mvo = l_service.login(vo.getEvu_id(),vo.getEvu_pw());
-//		
-//		mv.addObject("mvo", mvo); 	
-//		mv.setViewName("home");	
-//		return mv;
-//	}
-	
-/*	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, String> login(String evu_id, String evu_pw){
-		Map<String, String>map = new HashMap<String, String>();
-		System.out.println("id : " + evu_id+"pw :" + evu_pw);
-		String name = "abc";
-		EvuserVO mvo = l_service.login(evu_id, evu_pw);
-		session.setAttribute("mvo", mvo);			
-		return map;
-	}
-	*/
+	//일반 로그인 버튼 클릭시 수행되는 기능
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> login(String evu_id, String evu_pw) {
-		System.out.println(evu_id);
-		System.out.println(evu_pw);
 		Map<String, String>map = new HashMap<String, String>();
 		EvuserVO uvo = l_service.getComp(evu_id);
 		String m = "0"; 
@@ -119,17 +96,10 @@ public class LoginController {
 		return map;
 	}
 	
-	
-	
-	
-	//sting은 그냥 jsp로 이동할떄 
-	//modelandview는 어떤 값을 받아서 보낼떄
-	//Map은 테이블에 갔다와서 값을 전달할떄 map.putㅇ르
-	
+	//회원가입 버튼 클릭시 수행되는 기능
 	@RequestMapping(value = "/reg",method = RequestMethod.POST)
 	public ModelAndView reg(EvuserVO vo) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(vo.getEvu_id());
 		String comp = SecureUtil.generateSalt();
 		vo.setEvu_comp(comp);
 		vo.setEvu_pw(SecureUtil.getEncrypt(vo.getEvu_pw(), comp));
@@ -140,11 +110,11 @@ public class LoginController {
 		return mv;
 	}
 	
+	//중복된 아이디 검사
 	@RequestMapping(value="/idcheck",method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Integer> regcheck(String id){
 		Map<String, Integer>map = new HashMap<String, Integer>();
-		System.out.println("아이디 : "+id);
 		int code = 0;
 		
 		EvuserVO vo = l_service.getComp(id);
@@ -157,8 +127,6 @@ public class LoginController {
 	}
 	
 	//메일 발송
-	
-	
 	@RequestMapping(value="/sendMail", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> sendEmail(String email) throws Exception{

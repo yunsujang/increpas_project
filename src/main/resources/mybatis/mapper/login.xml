@@ -24,6 +24,10 @@
 		WHERE evu_id = #{evu_id} AND evu_pw = #{evu_pw}
 	</select>
 
+	<select id="kakaologin" resultType="ev.vo.EvuserVO" parameterType="String">
+		select * from evuser_t
+	    where evu_email = #{evu_email}
+	</select>
 
 <!--   
   <insert id="reg" parameterType="Map">

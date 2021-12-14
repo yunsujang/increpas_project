@@ -156,14 +156,11 @@ a.box3{
 			<input class="box box0" onclick="login(this.form)"  id="btn" type="button" value="evca 로그인 " >
 			</form>
 		
-			<a class="box box1" href="https://kauth.kakao.com/oauth/authorize?client_id=a5b66323922803723c655f41824d1a38&redirect_uri=http://localhost:9090/kakao/login&response_type=code" >
-			  카카오 로그인 </a>	
+			<a class="box box1" href="https://kauth.kakao.com/oauth/authorize?client_id=87f46e151bc8f23f219057b08bd06a82&redirect_uri=http://localhost:9090/kakao/login&response_type=code" >
+			  카카오 로그인 </a>
 			<a class="box box2" href=""> 네이버 로그인 </a>			
 			<a class="box box3" href="/reg" >회원가입</a>	
-		
 		</div>
-	
-
 	</div>
 	<jsp:include page="footer.jsp"/>
 <script type="text/javascript">
