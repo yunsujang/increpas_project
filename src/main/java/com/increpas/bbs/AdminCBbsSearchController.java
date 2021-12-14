@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import mybatis.vo.BbsVO;
 import user.dao.UserBbsDAO;
 import user.service.UserBbsService;
+import user.util.AdminUserBbsSearchPaging;
 import user.util.UserBbsPaging;
 import user.util.UserBbsSearchPaging;
 
@@ -27,7 +28,7 @@ public class AdminCBbsSearchController {
 	
 	int nowPage;
 	int rowTotal;
-	int blockList = 10; //한 페이지당 표현될 게시물 수
+	int blockList = 15; //한 페이지당 표현될 게시물 수
 	int blockPage = 5;//한 블럭당 표현될 페이지 수
 	 
 	
@@ -53,7 +54,8 @@ public class AdminCBbsSearchController {
 		rowTotal = userService.searchTotalCount(searchValue);//전체 게시물 수
 		
 		//페이징 처리를 위한 객체 생성
-		UserBbsSearchPaging page = new UserBbsSearchPaging(nowPage, rowTotal, blockList, blockPage , searchValue);
+		AdminUserBbsSearchPaging page = new AdminUserBbsSearchPaging(nowPage, rowTotal, blockList,
+																			blockPage , searchValue);
 		
 		int begin = page.getBegin();
 		int end = page.getEnd();
