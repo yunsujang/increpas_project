@@ -128,4 +128,19 @@ public class LoginController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/idcheck",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Integer> regcheck(String id){
+		Map<String, Integer>map = new HashMap<String, Integer>();
+		System.out.println("아이디 : "+id);
+		int code = 0;
+		
+		EvuserVO vo = l_service.getComp(id);
+		if(vo != null)
+			code = 1;
+		
+		map.put("code",code);
+		
+		return map;
+	}
 }
