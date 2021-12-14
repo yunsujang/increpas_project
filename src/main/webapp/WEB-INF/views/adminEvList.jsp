@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>evca 커뮤니티| </title>		
+<title>유저 게시물 목록 </title>		
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">	
@@ -70,53 +70,51 @@
 	
 	.odd {background:silver}
 	
-	/* paging */
-	
-	table tfoot ol.paging {
-	    list-style:none;
-	    width: 200px; /* 정렬하려는 요소의 넓이를 반드시 지정 */
-	    margin: 0 auto;
+/* paging */
+.paging {
+	list-style: none;
+	margin: 0 auto;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
 
-	}
-	
-	table tfoot ol.paging li {
-	    float:left;
-	    margin-right:3px;
-	    
-	}
-	
-	table tfoot ol.paging li a {
-	    display:block;
-	    padding:3px 7px;
-	    border:1px solid white;
-	    color:#2f313e;
-	    font-weight:bold;
-	    text-decoration: none;
-	    border-radius: 12px;
-	}
-	
-	table tfoot ol.paging li a:hover {
-	    background:#00B3DC;
-	    color:white;
-	    font-weight:bold;
-	    border-radius: 13px;
-	}
-	
-	.disable {
-	    padding:3px 7px;
-	    border:1px solid silver;
-	    color:silver;
-	    border-radius: 15px;
-	}
-	
-	.now {
-	   padding:3px 7px;
-	    border:1px solid gray;
-	    background:#85c4b9;
-	    color:white;
-	    font-weight:bold;
-	    border-radius: 15px;
-	}
+.paging li {
+	float: left;
+	border-radius: 15px;
+	margin-left: 8px;
+}
+
+.paging li a {
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: #2f313e;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 15px;
+	color: silver;
+}
+
+.paging li a:hover {
+	background: #85c4b9;
+	color: white;
+	font-weight: bold;
+}
+
+.disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.now {
+	padding: 3px 7px;
+	border: 1px solid #85c4b9;
+	background: #85c4b9;
+	color: white;
+	font-weight: bold;
+}
 	
 	#c_pont{
 		text-decoration : none;
@@ -182,14 +180,16 @@
 		color: red;
 		font-weight: bold;
 	}
+	
+	.page-div{
+		margin: 25px 0 0 0;
+	}
 	 
 </style>
 </head>
 	
 <body>
-	${sb }
 	<jsp:include page="Adminheader.jsp"></jsp:include>
-	<input type="hidden" 	id="sessionId" value="${session }" />
 	<div id="wrap">
 	<div id="bbs">
 		<table summary="게시판 목록">
@@ -214,18 +214,7 @@
 					<th class="hit">조회수</th>
 				</tr>
 			</thead>
-			<tfoot>
-                      <tr>
-                          <td id="pageing_center" colspan="4">
-                              ${pageCode }
-                          </td>
-						  <td>
 			
-			
-			
-						  </td>
-                      </tr>
-                  </tfoot>
 			<tbody>
 				<c:forEach var="vo" items="${ar}" varStatus="st"> 
 				
@@ -233,7 +222,7 @@
 						<td> <%--순차적인 번호를 만들어서 표현하자! --%>
 							${rowTotal-((nowPage-1)*blockList+st.index)}
 						</td>
-						<td  style="text-align: left" >
+						<td>
 							
 							<a href="admin.view.ev?evcbbs_idx=${vo.evcbbs_idx}&cPage=${nowPage}"
 								id="c_pont">
@@ -253,7 +242,7 @@
 						<td>${vo.evcbbs_hit}</td>
 					</tr>
 				</c:forEach>
-				
+			
 				<div id="content">
 					<form action="admin.search.ev" method="post">
 						<input type="hidden" name="type" value="search" class="c_search"/>
@@ -268,7 +257,9 @@
 				</tbody>
 			</table>
 		</div>	
+		 <div class="page-div"> ${pageCode }</div>
 	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
 		function BbsSearch(frm){

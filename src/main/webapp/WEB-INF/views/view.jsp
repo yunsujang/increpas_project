@@ -108,6 +108,16 @@ body{
 	style="text-align: left;"
 }
 
+.title{
+	font-size:18px; 
+	text-decoration: none;
+	color: black;
+}
+
+.contents{
+	color: black;
+	font-size:13px;
+}
 </style>
 </head>
 <body>
@@ -141,9 +151,6 @@ body{
 						class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
 				</div>
 				<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
-				<div>
-					<p class="content font">${bvo.evbbs_content }</p>
-				</div>
 			</div>
 		</div>
 
