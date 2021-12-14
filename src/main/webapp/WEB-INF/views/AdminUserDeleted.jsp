@@ -168,7 +168,7 @@
 .management-p {
 	text-align: center;
 	font-size: 40px;
-	color: silver;
+	color: #708090;
 }
 .btn{
 	width: 50px;
@@ -211,7 +211,7 @@
 <body>
 	<jsp:include page="Adminheader.jsp" />
 
-			<p class="management-p">탈퇴 유저 목록</p>
+			<p class="management-p">탈퇴 회원 목록</p>
 		
 		
 			<div id="evbbs">

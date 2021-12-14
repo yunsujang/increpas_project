@@ -141,7 +141,7 @@
 	
 	#content_title{
 		font-size: 40px;
-		color : silver;
+		color : #708090;
 		margin-top: -140px;
 		font-family: monospace;
 		
@@ -170,7 +170,7 @@
 	}
 	
 	#bbsSearchValue{
-		width: 160px;
+		width: 200px;
     	height: 20px;
 	}
 	#gobackList{

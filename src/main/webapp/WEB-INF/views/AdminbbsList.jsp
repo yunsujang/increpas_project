@@ -123,7 +123,7 @@
 .category-management-p {
 	text-align: center;
 	font-size: 40px;
-	color: silver;
+	color: #708090;
 }
 
 .create-category-btn {
@@ -145,7 +145,7 @@
 	font-size: 0;
 	width: 97.5%;
 	border-bottom: 1px solid #ddd;
-	margin: 50px 0 0 0;
+	margin: -30px 0 0 0;
 }
 
 .tabnav li {
@@ -238,6 +238,7 @@
 </head>
 <body>
 	<jsp:include page="Adminheader.jsp" />
+	<p class="category-management-p">관리자 게시물</p>
 	<div class="tab">
 		<ul class="tabnav">
 			<li ><a class="AdmintotalBbs" href="">전체 게시물</a></li>

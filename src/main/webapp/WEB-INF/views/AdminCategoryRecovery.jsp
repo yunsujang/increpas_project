@@ -155,7 +155,7 @@
 .category-management-p {
 	text-align: center;
 	font-size: 40px;
-	color: silver;
+	color: #708090;
 }
 
 .create-category-btn {
@@ -185,13 +185,6 @@
 	
 }
 
-.c_search{
-	border: 3px solid #85c4b9;
-    font-family: monospace;
-    width: 200px;
-    height: 20px;
-}
-
 .btn{
 	width: 50px;
     height: 26px;
@@ -217,12 +210,7 @@
 	<p class="category-management-p">게시판 복구</p>
 	<div id="bbs">
 		<p class="totalList">총 ${totalCount }건</p>
-		<div class="bbs-in-div">
-			<form>
-				<input type="text" class="c_search" />
-				<button class="btn" onclick="search()">검색</button>
-			</form>
-		</div>
+		
 		<table summary="게시판 목록">
 			<thead>
 				<tr class="title headtitle">

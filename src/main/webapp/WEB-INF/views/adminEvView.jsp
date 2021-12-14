@@ -71,7 +71,7 @@
 	}
 	
 	#viewh1{
-	    color: silver;
+	    color: #708090;
 	    font-family: monospace;
 	    margin-top: -72px;
 	    text-align: center;
@@ -201,7 +201,7 @@
 			<h1 id="viewh1">유저 게시물</h1>
 			<tbody >
 				<tr>
-					<p style="text-align: right; color: gray;">                            
+					<p style="text-align: right; color: black;">                            
 					<c:set var="evcbbs_write_date" value="${vo.evcbbs_write_date }"></c:set>
 							${fn:substring(write_date,0,16)} 조회 : ${vo.evcbbs_hit}</p>
 					<td id="viewSubject">제목 : ${vo.evcbbs_title} <!-- 올린날짜 -->
@@ -244,8 +244,8 @@
 	
 	<div id="ansdiv">
 	
-		<h1 style="color: gray; font-family: monospace;">댓글</h1>
-			<p style="color: #9d9a9a; font-weight: bold;">권리침해, 욕설 및 특정 대상을 비하하는 
+		<h1 style="color: balck; font-family: monospace;">댓글</h1>
+			<p style="color: gray; font-weight: bold;">권리침해, 욕설 및 특정 대상을 비하하는 
 			내용을 게시할 경우 이용약관 및 관련 법률에 의해 제재될 수 있습니다.</p>	
 			
 		<form id="ansform" method="post" action="admin.ans_write.ev">

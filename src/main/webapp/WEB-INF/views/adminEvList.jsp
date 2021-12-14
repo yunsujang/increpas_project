@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>유저 게시물 목록 </title>		
+<title>유저 게시물</title>		
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">	
@@ -146,7 +146,7 @@
 	
 	#content_title{
 		font-size: 40px;
-		color : silver;
+		color : #708090;
 		margin-top: -140px;
 		font-family: monospace;
 		
@@ -175,7 +175,7 @@
 	}
 	
 	#bbsSearchValue{
-		width: 160px;
+		width: 200px;
     	height: 20px;
 	}
 	#commPont{
@@ -196,7 +196,7 @@
 	<div id="wrap">
 	<div id="bbs">
 		<table summary="게시판 목록">
-			<h1 id="content_title">유저 게시물 목록</h1>
+			<h1 id="content_title">유저 게시물</h1>
 			<thead>	
 				<colgroup>
 					<col width="10%"></col>

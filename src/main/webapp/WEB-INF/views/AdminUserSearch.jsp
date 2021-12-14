@@ -175,7 +175,7 @@
 }
 
 	#content_title{
-		color : gray;
+		color : #708090;
 		margin-top: 50px;
 		font-family: 'Nanum Gothic';
 		

@@ -168,7 +168,7 @@
 .management-p {
 	text-align: center;
 	font-size: 40px;
-	color: silver;
+	color: #708090;
 }
 .btn{
 	width: 50px;
@@ -214,17 +214,17 @@
 <body>
 	<jsp:include page="Adminheader.jsp" />
 
-			<p class="management-p">전체 유저 목록</p>
+			<p class="management-p">일반 회원 목록</p>
 		
 		
 			<div id="evbbs">
 			<p class="totalList">총 ${totalCount }건</p>
 		
+		<!-- 관리자생성 버튼생성 -->
 		<div class="bbs-in-div">
-         <button class="btns create-category-btn" 
-         id="makeBtn" onclick="makes()">관리자 생성</button>        
+         <button class="btns create-admin-btn" id="makeBtn" onclick="makes()">관리자 생성</button>          
    		</div>      
-		
+  		
 		<!-- 관리자 생성버튼 눌렀을때 -->
 		<form id="makeForm" name="makeForm" method="post">
 		    <div id="makeDialog" title="관리자 생성하기">
@@ -234,12 +234,12 @@
 		    <input type="text" id="makePw" name="makePw">
 		    <p style="font-size: 13px;">이름</p>
 		    <input type="text" id="makeName" name="makeName">
-		  
+		 
 		     
 		    <button type="button" id="newbtn" onclick="newBoard()">생성</button>
 		    </div>
-		</form>
-	
+		</form>	
+		
 		<table summary="게시글 목록">
 			<thead>
 				<tr class="headtitle">

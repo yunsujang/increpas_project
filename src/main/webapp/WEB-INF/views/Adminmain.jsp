@@ -14,7 +14,6 @@ html, body {
 }
 
 .motto {
-	background-color: #E0FFFF;
 	text-align:center;
 	width: 100%;
 	height: 90%;
@@ -22,7 +21,7 @@ html, body {
 }
 
 .logo-p{
-	font-size: 350px;
+	font-size: 100px;
     background: linear-gradient(to right top, #85c4b9, white);
     color: transparent;
     -webkit-background-clip: text;
@@ -39,5 +38,7 @@ html, body {
 			<h1 class="logo-p">EV CA</h1>
 		</div>
 	</div>
+	
+	
 </body>
 </html>

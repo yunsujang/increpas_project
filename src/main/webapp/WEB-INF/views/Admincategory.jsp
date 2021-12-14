@@ -166,7 +166,7 @@
 .category-management-p {
    text-align: center;
    font-size: 40px;
-   color: silver;
+   color: #708090;
 }
 
 .create-category-btn {
