@@ -98,4 +98,9 @@ public class BbsDAO {
 		public BbsVO getFirstData() {
 			return ss.selectOne("bbs.getFirstData");
 	}
+		
+	//랜덤으로 추천 컨텐츠 가져오기
+	public BbsVO recommendContent(int num) {
+		return ss.selectOne("bbs.recommendContent", num);
+	}
 }

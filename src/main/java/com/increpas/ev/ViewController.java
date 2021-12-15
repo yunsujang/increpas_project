@@ -60,15 +60,23 @@ public class ViewController {
 		}
 		
 		int cnt = bbsService.AllTotalCount();
-		System.out.println(cnt);
-		cnt = (int)(Math.random()*cnt+1);
-		System.out.println(cnt);
+		int s, a = 0;
+		
+		while(true) {
+			 s = (int)(Math.random()*cnt+1);
+			 a = Integer.parseInt(evbbs_idx);
+			if(s != a)
+				break;
+		}
 		// mv에 담기
+		BbsVO rvo = bbsService.recommendContent(s);
+		
 		mv.addObject("prevo", prevo);
 		mv.addObject("nextvo", nextvo);
 		mv.addObject("vo", vo);
 		mv.addObject("bvo", vo);
 		mv.addObject("categoryName_ar", categoryName_ar);
+		mv.addObject("rvo", rvo);
 		mv.addObject("cPage", cPage);
 		mv.setViewName("view");
 

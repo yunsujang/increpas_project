@@ -18,5 +18,7 @@ public interface BbsService {
 	public BbsVO getLastData();
 	
 	public BbsVO getFirstData();
+	
+	 BbsVO recommendContent(int num);
 }
  

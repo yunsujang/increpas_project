@@ -12,7 +12,10 @@
 <link rel="stylesheet" href="resources/css/view.css" />
 </head>
 <style>
-
+p img{
+	width: 100% !important;
+	margin: 30px 0 30px 0;
+}
 </style>
 </head>
 <body>
@@ -20,35 +23,48 @@
 
 	<div class="wrap">
 		<div class="content-wrap">
+			<div class="content-div">
+			<h1 class="title_p">${vo.evbbs_title }</h1>
+			<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
 			
-				<h1 class="title_p">${vo.evbbs_title }</h1>
-				<p class="date">${fn:replace(fn:substring(vo.evbbs_write_date, 0, 10), '-','.') }</p>
-				<div class="content-div">
 				<div>${vo.evbbs_content }</div>
 				<div class="writer-div">
 					<p>작성자</p>
 					<p class="writer-p">${vo.evbbs_writer }</p>
 				</div>
+
+				<div class="advice-contents">
+					<div class="contents">
+						<div class="recommend">
+							<a>추천 컨텐츠</a>
+						</div>
+						<div class="contents">
+							<div class="new-img-container">
+								<c:set var="filename" value="${rvo.evbbs_file_name }" />
+								<c:choose>
+									<c:when test="${filename eq null }">
+										<a href="/view?evbbs_idx=${rvo.evbbs_idx }"> <img
+											class="new-img" alt="" src="resources/img/default_img.jpg" />
+										</a>
+									</c:when>
+									<c:when test="${filename ne null }">
+										<a href="/view?evbbs_idx=${rvo.evbbs_idx }"> <img
+											class="new-img" alt=""
+											src="resources/bbs_upload/${filename }" />
+										</a>
+									</c:when>
+								</c:choose>
+							</div>
+							<div class="skip-p">
+								<a class="title font " href="/view?evbbs_idx=${rvo.evbbs_idx }">
+									${rvo.evbbs_title } </a>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
-
-
-
- 
-
-		<div class="advice-contents">
-			<div class="contents">
-				<div class="recommend">
-					<a>추천 컨텐츠</a>
-				</div>
-				<div class="new-img-container">
-					<a href="/view?evbbs_idx=${bvo.evbbs_idx }"><img
-						class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
-				</div>
-				<a class="title font" href="/view?evbbs_idx=${bvo.evbbs_idx }">${bvo.evbbs_title }</a>
-			</div>
-		</div>
-
 		<hr></hr>
 		<div class="pre-view">
 			<div class="pre-page go-page">

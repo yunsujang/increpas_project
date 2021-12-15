@@ -35,8 +35,21 @@
 		#{evcategory_idx}
 	</select>
 	
+	<!-- 랜덤으로 추천 컨텐츠 가져오기 -->
+	<select id="recommendContent" parameterType="int" resultType="ev.vo.BbsVO">
+		SELECT *
+		FROM(
+		SELECT rownum r_num,a.* FROM(
+		SELECT * FROM evbbs_t
+		WHERE
+		evbbs_status = 0
+		ORDER BY
+		evbbs_idx DESC
+		) a
+		)
+		WHERE r_num = #{number}
+	</select>
 	
-
 	<!-- 사용자가 클릭한 게시물 가져오기 -->
 	<select id="getBbs" resultType="ev.vo.BbsVO"
 		parameterType="String">
@@ -93,9 +106,9 @@
 		WHERE evbbs_idx = #{evbbs_idx } AND
 		evbbs_status = 0
 	</select>
+	
+	
 	<!-- 관리자 SQL문 -->
-
-
 	<select id="AdmingetBbs" resultType="ev.vo.BbsVO"
 		parameterType="String">
 		SELECT *

@@ -1,18 +1,20 @@
 @charset "UTF-8";
-   
-body{
+
+body {
 	text-align: center;
-	}
+}
 
 .title_p {
 	font: 24px;
 	font-weight: normal;
+	text-align: center;
 }
 
 .date {
 	font-size: 12px;
-} 
-  
+	text-align: center;
+}
+
 .wrap {
 	width: 90%;
 	height: 100%;
@@ -22,14 +24,15 @@ body{
 }
 
 .writer-div {
-	margin: 100px 0 50px 0;
+	margin: 150px 0 150px 0;
+	text-align: center;
 }
 
-.writer-div p{
+.writer-div p {
 	font-size: 13px;
 	font-weight: bold;
+	margin: 0;
 }
-
 
 .pre-page {
 	float: left;
@@ -42,11 +45,10 @@ body{
 }
 
 .content-wrap {
-	text-align:center;
+	text-align: center;
 	height: 100%;
 	min-height: 100%;
 }
-
 
 .go-page p {
 	font-size: 10px;
@@ -62,6 +64,7 @@ body{
 .new-img {
 	width: 300px;
 	height: 200px;
+	border-radius: 8px;
 }
 
 .advice-contents {
@@ -81,28 +84,35 @@ body{
 	margin: 10px
 }
 
-.recommend a{
+.recommend a {
 	font-size: 15px;
 	font-weight: bold;
 }
 
-.pre-view{
+.pre-view {
 	width: auto;
 	height: 80px;
 	min-height: auto;
 }
 
-.content-div{
-	text-align: center;
+.content-div {
+	text-align: left;
+	width: 50%;
+	margin: auto;
 }
 
-.title{
-	font-size:18px; 
+.content-div div p {
+	width: 100%;
+	display: inline;
+}
+
+.title {
+	font-size: 11px;
 	text-decoration: none;
 	color: black;
 }
 
-.contents{
+.contents {
 	color: black;
-	font-size:13px;
+	font-size: 13px;
 }
