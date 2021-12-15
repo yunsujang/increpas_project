@@ -191,4 +191,11 @@ public class KakaoController {
 		mv.setViewName("redirect:/");
 		return mv;
 	}
+	
+	@RequestMapping("/kakao/logout")
+	public String kakaoLogout() {
+		session.removeAttribute("mvo");
+		session.removeAttribute("grade");
+		return "redirect:/";
+	}
 }
