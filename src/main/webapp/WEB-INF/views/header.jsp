@@ -8,6 +8,10 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <style type="text/css">
+	body{
+		text-align: left;
+	}
+
    .bi{
       padding: 0;
       margin: 0;
@@ -19,7 +23,7 @@
    
    
    .ui-widget-header{
-      background-color: #85c4b9;
+      background-color: #64c9c3;
       color:white;
    } 
 
@@ -34,6 +38,15 @@
    
    .logout{
       cursor: pointer;
+   }
+   #headersearchbtn{
+   	  margin-left: 5px;
+   	  background-color: #64c9c3;
+   	  border: 1px solid gray;
+   	  font-weight: bold;
+   	  height: 31px;
+   	  border-radius: 3px;
+   	  color: white;
    }
    
 /* 햄버거 
@@ -110,9 +123,9 @@ nav{
       <div id="fixNextTag"></div>
       <div id="dialog" title="검색">
          <form action="/search" method="get">
-            <p style="font-size: 13px;">검색할 단어를 입력해주세요.</p>
+            <p style="font-size: 13px; font-weight: bold;">검색할 단어를 입력해주세요.</p>
             <input type="text" id="searchValue" name="searchValue"/>
-            <button id="searchbtn" onclick="search(this.form)" style="margin-left: 5px;">검색</button>
+            <button id="headersearchbtn" onclick="search(this.form)">검색</button>
          </form>
       </div>
    </header>
