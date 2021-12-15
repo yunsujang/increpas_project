@@ -36,94 +36,31 @@
       cursor: pointer;
    }
    
-/* 햄버거 */
+/* 햄버거 
 
-.menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  max-width: 0;
-  transition: 0.5s ease;
-  z-index: 1;
-  background-color: #eee;
+nav{
+	display: flex;
 }
 
-.burger-icon {
-  cursor: pointer;
-  display: inline-block;
-  position: absolute;
-  z-index: 2;
-  padding: 8px 0;
-  top: 4px;
-  left: 4px;
-  user-select: none;
-  width: auto;
-  margin: 0;
+.menu_div{
+
 }
 
-.burger-icon .burger-sticks {
-  background: #333;
-  display: block;
-  height: 2px;
-  position: relative;
-  transition: background .2s ease-out;
-  width: 18px;
+.menu_ul{
+
 }
 
-.burger-icon .burger-sticks:before,
-.burger-icon .burger-sticks:after {
-  background: #333;
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all .2s ease-out;
-  width: 100%;
+.menu_ul a{
+	width: 25px;
+	height: 3px;
+	background-color: gray;
+	margin: 3px;
 }
-
-.burger-icon .burger-sticks:before {
-  top: 5px;
-}
-
-.burger-icon .burger-sticks:after {
-  top: -5px;
-}
-
-.burger-check {
-  display: none;
-}
-
-.burger-check:checked~.menu {
-  max-width: 200px;
-}
-
-.burger-check:checked~.burger-icon .burger-sticks {
-  background: transparent;
-}
-
-.burger-check:checked~.burger-icon .burger-sticks:before {
-  transform: rotate(-45deg);
-}
-
-.burger-check:checked~.burger-icon .burger-sticks:after {
-  transform: rotate(45deg);
-}
-
-.burger-check:checked~.burger-icon:not(.steps) .burger-sticks:before,
-.burger-check:checked~.burger-icon:not(.steps) .burger-sticks:after {
-  top: 0;
-}
+*/
 </style>
 </head>
 <body>
-<!--  
-	<input class="burger-check" type="checkbox" id="burger-check" /><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
-<div class="menu">
-  <div style="width: 500px; text-align: center;">
-  </div>
-</div>
--->
+
 
    <header>
       <div class="logo-div">
@@ -131,9 +68,6 @@
             class="logo-img" /></a>
             
       </div>
-	<input class="burger-check" type="checkbox" id="burger-check" /><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
-	
-	
       <div class="menu-div" id="topBar">
      
          <ul class="menu_ul">
@@ -171,8 +105,8 @@
             </div>
           
             
-         </div>
-      </div>
+         
+      
       <div id="fixNextTag"></div>
       <div id="dialog" title="검색">
          <form action="/search" method="get">
