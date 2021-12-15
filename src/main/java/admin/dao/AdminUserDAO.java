@@ -87,6 +87,14 @@ public class AdminUserDAO {
 		public int searchTotalCount(String searchValue) {
 			return ss.selectOne("adminUser.searchTotalCount", searchValue);
 		}
+		
+		//선택한 계정의 등급 변경
+		public int gradeChange(String who, String idx) {
+			Map<Object, Object>map = new  HashMap<Object, Object>();
+			map.put("evu_who", who);
+			map.put("evu_idx", idx);
+			return ss.update("adminUser.gradeChange", map);
+		}
 	
 	
 }

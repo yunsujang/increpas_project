@@ -17,6 +17,8 @@ import user.util.SecureUtil;
 
 @Controller
 public class NaverLoginController {
+	
+	private int cnt = 1;
 
 	@Autowired
 	private LogInterface loginService;
@@ -75,17 +77,15 @@ public class NaverLoginController {
 	@RequestMapping("/naverRequestUserInfo.inc")
 	public String naverRequestUserInfo() {
 		HashMap<String, String> result = loginService.naverRequestUserInfo(token_type, access_token);
+		String id = result.get("id");
 		String email = result.get("email");
 		String nickname = result.get("nickname");
 		String age = result.get("age");
 		String gender = result.get("gender");
-		String id = result.get("id");
 		String birthday = result.get("birthday");
-		
-		
 		EvuserVO evo = l_service.getComp(id);
 		if(evo == null) {
-			// 멤버vo객체 생성
+			System.out.println(id);
 			evo = new EvuserVO(id, "1111", nickname, email, "010", "salt");
 			String comp = SecureUtil.generateSalt();
 			evo.setEvu_comp(comp);
@@ -93,7 +93,7 @@ public class NaverLoginController {
 			l_service.reg(evo);
 		}
 		session.setAttribute("mvo", evo);
-
+		session.setAttribute("grade", 2);
 		return "redirect:/";
 	}
 

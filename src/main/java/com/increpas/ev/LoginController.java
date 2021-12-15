@@ -70,6 +70,7 @@ public class LoginController {
 	public Map<String, String> logout(){
 		Map<String, String>map = new HashMap<String, String>();
 		session.removeAttribute("mvo");
+		session.removeAttribute("grade");
 		
 		return map;
 	}
@@ -91,6 +92,7 @@ public class LoginController {
 				m = "1";
 			else
 				session.setAttribute("mvo", mvo);	
+				session.setAttribute("grade", 0);
 		}
 		map.put("m", m);
 		return map;

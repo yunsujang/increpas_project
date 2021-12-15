@@ -22,5 +22,11 @@ public class RealAdminUserService implements AdminUserService {
 		// TODO Auto-generated method stub
 		return a_dao.AdminMakeUserCheck(makeId);
 	}
+
+	@Override
+	public int gradeChange(String who, String idx) {
+		// TODO Auto-generated method stub
+		return a_dao.gradeChange(who, idx);
+	}
 	
 }

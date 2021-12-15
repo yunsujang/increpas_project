@@ -124,4 +124,10 @@
 		WHERE EVU_ID = #{newAdmin}
 	</select>
 	
+	<!-- 등급 변경 -->
+	<update id="gradeChange" parameterType="Map">
+		UPDATE evuser_t set evu_who = #{evu_who}
+		WHERE evu_idx = #{evu_idx}
+	</update>
+	
 </mapper>

@@ -181,6 +181,7 @@ public class KakaoController {
 					}
 
 					session.setAttribute("mvo", evo);
+					session.setAttribute("grade", 1);
 
 				}
 			}

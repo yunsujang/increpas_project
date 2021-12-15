@@ -8,44 +8,46 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/adminuser.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <meta charset="UTF-8">
-<title>흰눈이 내리는 어느날</title>
+<title>일반 회원 목록</title>
 <style type="text/css">
-
+	
 </style>
 </head>
 <body>
 	<jsp:include page="Adminheader.jsp" />
 
-			<p class="management-p">일반 회원 목록</p>
-		
-		<div id="evbbs">
-		
+	<p class="management-p">일반 회원 목록</p>
+
+	<div id="evbbs">
+
 		<!-- 관리자생성 버튼생성 -->
 		<div class="bbs-in-div">
-         <button class="btns create-admin-btn" id="makeBtn" onclick="makes()">관리자 생성</button>          
-   		</div>
+			<button class="btns create-admin-btn" id="makeBtn" onclick="makes()">관리자
+				생성</button>
+		</div>
 		<p class="totalList">총 ${totalCount }건</p>
-		
-		
+
+
 		<!-- 관리자 생성버튼 눌렀을때 -->
 		<form id="makeForm" name="makeForm" method="post">
-		    <div id="makeDialog" title="관리자 생성하기">
-		    <p>아이디</p>
-		    <input type="text" id="makeId" name="makeId">
-		    <p>비밀번호</p>
-		    <input type="text" id="makePw" name="makePw">
-		    <p>이름</p>
-		    <input type="text" id="makeName" name="makeName">
-		 
-		     
-		    <button type="button" id="newbtn" onclick="newBoard()">생성</button>
-		    </div>
-		</form>	
-		
+			<div id="makeDialog" title="관리자 생성하기">
+				<p>아이디</p>
+				<input type="text" id="makeId" name="makeId">
+				<p>비밀번호</p>
+				<input type="text" id="makePw" name="makePw">
+				<p>이름</p>
+				<input type="text" id="makeName" name="makeName">
+
+
+				<button type="button" id="newbtn" onclick="newBoard()">생성</button>
+			</div>
+		</form>
+
 		<table summary="게시글 목록">
 			<thead>
 				<tr class="headtitle">
@@ -68,57 +70,66 @@
 						<td>${vo.evu_name }</td>
 						<td>${vo.evu_email }</td>
 						<td>${vo.evu_phone }</td>
-						<td><c:if test="${vo.evu_who eq '0'}">
-							<a>관리자</a></c:if>
-							<c:if test="${vo.evu_who ne '0'}">
-							<a>회원</a>
-						</c:if></td>
+						<td><select  style="font-weight: bold;"  onchange="gradeChange('${vo.evu_who }','${vo.evu_idx }')">
+								<c:if test="${vo.evu_who eq '0'}">
+									<option>관리자</option>
+								</c:if>
+								<c:if test="${vo.evu_who eq '1'}">
+									<option>회원</option>
+								</c:if>
+								<c:if test="${vo.evu_who eq '0'}">
+									<option>회원</option>
+								</c:if>
+								<c:if test="${vo.evu_who eq '1'}">
+									<option>관리자</option>
+								</c:if>
+						</select></td>
 						<td><c:if test="${vo.evu_status eq '0'}">
-							<a>N</a></c:if>
-							<c:if test="${vo.evu_status ne '0'}">
-							<a>Y</a>
-						</c:if></td>
-						<td>
-						<c:if test="${vo.evu_status eq '0'}">
-							<input class="btn" type="button" name="del" id="del" value="탈퇴"
-					onclick="del('${vo.evu_idx}')" /></c:if>
-						<c:if test="${vo.evu_status ne '0'}">
-							<a></a>
-						</c:if>			
-					</td>
+								<a>N</a>
+							</c:if> <c:if test="${vo.evu_status ne '0'}">
+								<a>Y</a>
+							</c:if></td>
+						<td><c:if test="${vo.evu_status eq '0'}">
+								<input class="btn" type="button" name="del" id="del" value="탈퇴"
+									onclick="del('${vo.evu_idx}')" />
+							</c:if> <c:if test="${vo.evu_status ne '0'}">
+								<a></a>
+							</c:if></td>
 					</tr>
 				</c:forEach>
-				
+
 				<!--검색-->
-		
+
 				<div id="content">
 					<form action="admin.usersearch" method="post">
-						<input type="hidden" name="type" value="search" class="c_search"/>						
-						<input type="text" id="searchValue" name="searchValue"  class="c_search" placeholder="아이디를 입력하세요"/>
-						<input type="button" id="searchbtn" value="검색" class="c_search" 
-						onclick="search(this.form)"/>
+						<input type="hidden" name="type" value="search" class="c_search" />
+						<input type="text" id="searchValue" name="searchValue"
+							class="c_search" placeholder="아이디를 입력하세요" /> <input type="button"
+							id="searchbtn" value="검색" class="c_search"
+							onclick="search(this.form)" />
 					</form>
 				</div>
 			</tbody>
 		</table>
-		<div class="bbsListFoot">${pageCode }
-		</div>
+		<div class="bbsListFoot">${pageCode }</div>
 	</div>
-	
-	<script>
-		function search(frm){
-			if($("#searchValue").val().trim() <=0){
-				alert("아이디를 입력하세요.");
-				$("#searchValue").focus();
-				return false;//수행 중단
-			}
-			frm.submit();  //보내기
-		}
-
-	</script>
-
 
 	<script type="text/javascript">
+		// 회원 등급 설정
+		function gradeChange(who,idx){
+			$.ajax({
+				url:"gradeChange",
+				data:{"who":who,"idx":idx},
+				type:"post",
+				dataType:"json",
+			}).done(function(data) {
+				alert(data.code);
+				location.reload(true);
+			}).fail(function(err) {
+				
+			})
+		}
+	
 		//회원 탈퇴 기능
 		function del(evu_idx) {
 		
@@ -197,6 +208,7 @@
          });
       }
 
+     	 
 	
 </script>
 </body>

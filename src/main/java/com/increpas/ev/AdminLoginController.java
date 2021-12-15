@@ -40,6 +40,7 @@ public class AdminLoginController {
 
 		else if (vo != null && vo.getEvu_who().equals("0")) {
 			session.setAttribute("mvo", vo);
+			session.setAttribute("grade", 0);
 			str = vo.getEvu_name() + " 관리자님 환영합니다.";
 			cnt = "0";
 		}
@@ -55,6 +56,7 @@ public class AdminLoginController {
 	   public Map<String, String> adminlogout(){
 	      Map<String, String>map = new HashMap<String, String>();
 	      session.removeAttribute("mvo");
+	      session.removeAttribute("grade");
 	      
 	      return map;
 	   }
