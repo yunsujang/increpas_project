@@ -179,7 +179,21 @@ function login(){
 	         dataType: "json",
 	}).done(function(data) {
 		if(data.m == 1){
+			if(id.trim().length <= 0){
+				alert("아이디를 입력하세요");
+				$("#evu_id").val(""); //청소
+				$("#evu_id").focus();
+				return;
+			}
+			if(pw.trim().length <= 0){
+				alert("비밀번호를 입력하세요");
+				$("#evu_pw").val(""); //청소
+				$("#evu_pw").focus();
+				return;
+			}
+			
 			alert("아이디 또는 비밀번호가 틀립니다.");
+			return;
 		}
 		if(data.m == 0){
 			alert("로그인 되었습니다.");
@@ -188,20 +202,6 @@ function login(){
 	}).fail(function() {
 		
 	})
-	
-	
-	if(id.trim().length <= 0){
-		alert("아이디를 입력하세요");
-		$("#evu_id").val(""); //청소
-		$("#evu_id").focus();
-		return;
-	}
-	if(pw.trim().length <= 0){
-		alert("비밀번호를 입력하세요");
-		$("#evu_pw").val(""); //청소
-		$("#evu_pw").focus();
-		return;
-	}
 	
 	frm.submit();
 }
