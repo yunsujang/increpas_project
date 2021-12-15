@@ -20,7 +20,7 @@ body {
 #wrapper {
     position: relative;
     height: 100%;
-    margin: 220px 0 0 0;
+    margin: 220px 0 100px 0;
 }
 
 #content {
