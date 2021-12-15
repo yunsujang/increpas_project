@@ -88,7 +88,7 @@
 
 		var marginHidden = $("#marginHidden").val();
 		if (marginHidden == 0)
-			$("#articles").css('margin-bottom', '413px');
+			$("#articles").css('margin-bottom', '600px');
 	});
 </script>
 
