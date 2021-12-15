@@ -5,29 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>admin evca</title>
+<link rel="stylesheet" href="resources/css/adminmain.css">
 <style type="text/css">
-html, body {
-	margin: 0 auto;
-	padding: 0 auto;
-	width: 100%;
-	height: 100%;
-}
-
-.motto {
-	text-align:center;
-	width: 100%;
-	height: 90%;
-	margin: auto;
-}
-
-.logo-p{
-	font-size: 100px;
-    background: linear-gradient(to right top, #85c4b9, white);
-    color: transparent;
-    -webkit-background-clip: text;
-    margin: 0 auto;
-    
-} 
 
 </style>
 </head>

@@ -4,43 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/css/chart.css">
 <title>Chart</title>
 	<style>
-	 
-		*{margin: 0;}	
-			
-			
-		#chart_div{
-			margin : 0px;
-			padding : 0px;
-			background-color: #f9f9f9;
-			margin-top: 50px;
-		}
-		
-		#chart_area{
-			width: 70%;
-			height: 600px;
-			margin: auto;
-			font-size: 20px;
-			margin-top: 25px;
-			 
-		}
-		#chartname{
-			font-size: 35px;
-			line-height: 3.5;
-			text-align: center;
-			width: 100%;
-			height: 50px;
-			font-weight: bold;
-			color: gray;
-			background-color: #f9f9f9;
-			font-family: monospace;
-			margin-top: 50px;
-		}
-		#middleback{
-			height: 450;
-			background-color: #f9f9f9;
-		}
 		
 	</style>
 	<header>

@@ -7,58 +7,11 @@
 <head>
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
-<link rel="stylesheet" href="resources/css/main/main.css">
+<link rel="stylesheet" href="resources/css/evstocklist.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	#stock_title{
-		width: 100%;
-		height: 10px;
-		margin: 255px 0 0 0;
-	}
 	
-	#title{
-		height: 150px;
-		width: 100%;
-		text-align: center;
-		
-	}
-	
-	#title p{
-	font-size: 40px;
-	width: 100%;
-	text-align: center;
-	}
-	
-   table{
-      width: 1200px;
-      border-collapse: collapse;
-      width: 80%;
-   	 margin: 150px auto;
-	}
-
-      
-   }
-   table th{
-      text-align: center;
-	  padding: 4px 10px;
-   }
-   table td{
-	   text-align: center;
-		padding: 4px 10px;
-		border-bottom: 1px solid silver;
-		height: 30px;
-   }
-  
-   table tbody tr{
-      
-      text-align: center;
-   }
-   
-   table tbody tr a{
-      text-decoration: none;
-      color: black;
-   }
 </style> 
 </head>
 <body>

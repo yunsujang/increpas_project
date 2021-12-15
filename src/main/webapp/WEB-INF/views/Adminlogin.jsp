@@ -10,67 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+<link rel="stylesheet" href="resources/css/adminlogin.css">
 <title>JSP 게시판 웹 사이트</title>
-
 <style type="text/css">
-#back{
-    width: 25%;
-    margin: auto;
-    margin-top: 100px;
-	} 
-	/*
-#evu_id{
-	width: 49%;
-    transform: translate(50%, -30%);
-    border: 1px solid #85c4b9;
-    padding: 5px 1px 1px 0px;
-}
-#evu_pw{
-	width: 49%;
-    transform: translate(50%, -18%);
-    border: 1px solid #85c4b9;
-    padding: 3px 1px 1px 0px;
-}*/
-
-.loginbox input[type ="text"], .loginbox input[type="password"]{
-	display: block;
-	color:gray;
-	border:1px solid lightgray;
-	text-align: center;
-	border-radius: 2px;
-	font-size: 16px;
-	padding : 13px 0;
-	margin-bottom: 20px;
-	height: 20px;
-	font-family:blod;
-	width:390px;
-	margin: auto;
-}
-
-#btn{
-	display: block;
-	color:gray;
-	border:1px solid lightgray;
-	text-align: center;
-	border-radius: 2px;
-	font-size: 16px;
-	padding : 20px 0;
-	height: 20px;
-	font-family:blod;
-	width:390px;
-	margin: auto;
-	margin-top: 19px;
-	line-height: 0px;
-	cursor: pointer;
-}
-#back>h3 {
-    text-align: center;
-    height: 50px;
-    min-width: 100%;
-    font-size: 30px;
-    width: 400px;
-}
 
 </style>
 
@@ -91,7 +33,6 @@
 						<input type="password" class="form-control" placeholder="비밀번호" name="evu_pw" id="evu_pw" maxlength="20">						
 					</div>
 					<button type="button" id="btn" 
-					style="background:#85c4b9" 
 					onclick="godata(this.form)">로그인</button>
 				</div>
 			</div>

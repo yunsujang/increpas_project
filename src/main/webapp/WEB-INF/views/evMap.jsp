@@ -6,85 +6,9 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
+<link rel="stylesheet" href="resources/css/evmap.css">
 <title>evca 전기차 충전소 위치 및 분표도</title>
 <style type="text/css">
-#wrap {
-	margin: 190px 0px 171px 0px;
-	height: 1212px;
-	background-color: #f9f9f9;
-}
- 
-#mdiv {
-	margin: -4px;
-	height: 50px;
-	width: 100%;
-	border: none background: #ffffff;
-	margin-top: -180px;
-}
-
-#mapbtn {
-	font-size: 20px;
-    width: 100%;
-    padding: 0px;
-    border: 0px;
-    background: #f9f9f9;
-    font-weight: bold;
-    font-family: monospace;
-    color: gray;
-    margin-top: -5px;
-}
-
-.map_wrap, .map_wrap * {
-	margin: 0;
-	padding: 0;
-	font-family: 'Malgun Gothic', dotum, sans-serif;
-	font-size: 15px;
-	font-family: monospace;
-}
-
-.map_wrap {
-	position: relative;
-	width: 100%;
-	height: 500px;
-}
-
-#menu_wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin: 10px 0 30px 10px;
-	padding: 5px;
-	overflow-y: auto;
-	background: rgb(133 196 185/ 54%);
-	z-index: 1;
-	border-radius: 10px;
-	width: 300px;
-	font-size: 15px;
-	font-weight: bold;
-}
-
-#searchButton {
-	font-weight: bold;
-	font-family: monospace;
-}
-
-#keyword {
-	font-size: 15px;
-}
-
-#map_title {
-	margin: auto;
-	padding: 0px;
-	width: 100%;
-	height: 400px;
-	text-align: center;
-	line-height: 20;
-	color: gray;
-}
-#markerimg{
-	height: 18px;
-}
-
 
 </style>
 </head>

@@ -6,27 +6,17 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">
+<link rel="stylesheet" href="resources/css/community.css">
 <title>Home</title>
 <style type="text/css">
-#wrap {
-	width: 100%;
-	height:1800px;
-	background-color: #f9f9f9;
-	margin: 190px 0px 0px 0px;
-}
 
-body{
-		margin: 0 auto;
-		padding: 0 auto;
-	}
-	 
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
 	<div id="wrap">
 		<h1>커뮤니티</h1>
-		<hr style="border: 1px solid red;"/>
+		<hr/>
 	
 	</div>
 	<jsp:include page="footer.jsp" />

@@ -6,14 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/footer/footer.css">
 <style type="text/css">
-	.service_link{
-		text-decoration: none;
-	}
-
-	.notice_about li a{
-		text-decoration: none;
-	}
+	
 </style>
 </head>
 <body>

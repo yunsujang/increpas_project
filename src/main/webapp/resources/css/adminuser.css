@@ -1,0 +1,203 @@
+@charset "UTF-8";
+#evbbs {
+	width: 80%;
+	margin: 50px auto;
+	min-width: 900px;
+}
+
+#evbbs table {
+	width: 100%;
+	margin-top: 50px;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+#evbbs table caption {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#evbbs table th {
+	text-align: center;
+	border:1px solid #ececec;
+	padding: 4px 10px;
+}
+
+#evbbs table td {
+	text-align: center;
+	padding: 4px 10px;
+	border-bottom: 1px solid silver;
+	height: 30px;
+}
+
+#makeDialog{
+	display: none;
+	font-weight: bold;
+}
+
+#newbtn{
+	height: 31px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #64c9c3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.bbs-in-div {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.btns {
+    width: 120px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ui-widget-content {
+    margin-top: -7px;
+}
+
+.ui-widget-header {
+   
+    background: #85c4b9;
+    color: #ffffff;
+   
+}
+.headtitle{background:#85c4b9; font-size: 15px; color: white;}
+
+.no {width: 5%}
+.id {width: 10%}
+.pw {width: 10%}
+.name{width: 10%}
+.email{width: 15%}
+.phone{width: 20%}
+.status{width: 10%}
+.who{width: 10%}
+.delete{width: 10%}
+
+.odd {background: #85c4b9}
+
+.font{
+	text-decoration: none;
+	color: black;
+}
+
+
+/* paging */
+.paging {
+	list-style: none;
+	margin: 0 auto;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.paging li {
+	float: left;
+	border-radius: 15px;
+	margin-left: 8px;
+}
+
+.paging li a {
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: #2f313e;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 15px;
+	color: silver;
+}
+
+.paging li a:hover {
+	background: #85c4b9;
+	color: white;
+	font-weight: bold;
+}
+
+.disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.now {
+	padding: 3px 7px;
+	border: 1px solid #85c4b9;
+	background: #85c4b9;
+	color: white;
+	font-weight: bold;
+}
+
+
+.totalList {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.paging-div {
+	margin: 100px 0 0 0;
+}
+.bbsListFoot {
+	margin: 50px 0 0 0;
+}
+.management-p {
+	text-align: center;
+	font-size: 40px;
+	color: #708090;
+}
+.btn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#content{
+	margin-top: 20px;
+}
+.c_search{
+	border: 3px solid #85c4b9;
+    font-family: monospace;
+}
+#searchbtn{
+	width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: #85c4b9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#type{
+	width: 150px;
+  		height: 25px;
+}
+#searchValue{
+	width: 200px;
+   	height: 20px;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+    color: white;
+    background: #64c9c3;
+}
+#makeDialog>p{
+	font-size: 13px;
+	margin: 5px 0;
+}

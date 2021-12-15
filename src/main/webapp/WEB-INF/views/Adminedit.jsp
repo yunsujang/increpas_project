@@ -7,48 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/summernote-lite.css">
+<link rel="stylesheet" href="resources/css/adminedit.css">
 <style type="text/css">
-#bbs{
-	margin: 50px 0 100px auto;
-	text-align: center;
-}
 
-#bbs table {
-	width: 90%;
-	height: 600px;
-	margin: 0 auto;
-	border: 1px solid silver;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs table th {
-	text-align: center;
-	border-bottom: 1px solid silver;
-	padding: 4px 10px;
-	width: 60px;
-}
-
-#bbs table td {
-	text-align: left;
-	border-bottom: 1px solid silver;
-	padding: 4px 10px;
-}
-
-.category-tr{
-	height: 10%;
-}
-
-
-.button-td{
-	text-align: center;
-}
 </style>
 
 </head>

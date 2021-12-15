@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+	
+	
+	#wrap {
+		margin: 190px 0px 171px 0px;
+		height: 700px;
+		height: auto;
+	}
+	
+	#viewtable {
+        display: inline-block;
+        text-align: left;
+     }
+	
+	
+	#bbs{
+		margin: auto;
+    	text-align: center;
+	}
+
+	#bbs table {
+	    width:1000px;
+	    margin-left:10px;
+	    border:1px solid black;
+	    border-collapse:collapse;
+	    font-size:15px;
+	    border-left: hidden;
+	    
+	}
+	
+	#bbs table caption {
+	    font-size:20px;
+	    font-weight:bold;
+	    margin-bottom:10px;
+	}
+	
+	#bbs table th {
+	    text-align:center;
+	    border:1px solid black;
+	    padding:4px 10px;
+	    border-left : hidden;
+	}
+	
+	#bbs table td {
+	    text-align:left;
+	    border:1px solid #a1a1a182;
+        border-right: hidden;
+	    padding:4px 10px;
+	}
+	
+	#viewh1{
+		color: gray;
+	    font-family: monospace;
+	    margin-top: 70px;
+	    text-align: center;
+	}
+	
+	#ansform{
+		width: 1000px;
+    	margin: auto;
+   		text-align: left;
+	}
+	
+	#viewContent{
+		height: 200px;
+	}
+	
+	#viewSubject{
+		font-weight: bold;
+	    font-family: monospace;
+	    font-size: 20px;
+	}
+	
+	#ansbtn{
+		width: 80px;
+		background-color: #85c4b9;
+		color:white;
+		border-radius: 3px;
+		cursor: pointer;
+		margin: 3px 6px;
+    	height: 29px;
+    	font-weight: bold;
+    	float: right;
+	}
+	
+	#comment_div{
+		text-align: center;
+		margin: auto;
+   	 	width: 1000px;
+   	 	text-align: left;	
+	}
+	
+	#ansdiv{
+		margin-top: 20px;
+		text-align: center;
+		
+	}
+	#ansname{
+		margin: 10px;
+	    height: 20px;
+	    border-radius: 3px;
+	    border: none;
+	    background-color: #f9f9f9;
+	}
+	
+	#anscontent{
+		width: 970px;
+   	 	padding: 10px;
+   	 	box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+   	 	border-radius: 5px;
+	}
+	
+	#commDel{
+		 float: right;
+		 width: 18px;
+		 height: 28px;
+		 border: none;
+	}
+	#commDate{
+		margin-left: 5px;
+	    color: #848484;
+	    font-size: 11px;
+	    font-weight: normal;
+	    letter-spacing: 0;
+	    font-family: tahoma;
+	}
+	
+	.commExit{
+		font-size : 10px;
+		background: url(/resources/img/EXIT.png) no-repeat;
+	}	
+	.commExit:hover{
+		cursor: pointer;
+	}
+	
+	
+	.no {width:15%}
+	.subject {width:30%}
+	.writer {width:20%}
+	.reg {width:20%}
+	.hit {width:15%}
+	.title{background:lightsteelblue}
+	.odd {background:silver}
+	
+	
+	.viewbtn{
+		background-color: #85c4b9;
+		color:white;
+		border-radius: 3px;
+		cursor: pointer;
+		float: right;
+		margin: 3px 6px;
+		width: 55px;
+		font-weight: bold;
+    	height: 29px;
+	}
+	
+	.commP{
+		font-weight: bold;
+	}
+		
+	
+		
+
+	
+	

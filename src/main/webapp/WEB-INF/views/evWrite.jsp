@@ -9,70 +9,9 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css">
 <link rel="stylesheet" href="resources/css/header/header.css">
 <link rel="stylesheet" href="resources/css/main/main.css">	
+<link rel="stylesheet" href="resources/css/evwrite.css">
 <style type="text/css">
 
-	
-	#wrap{
-		margin: 190px 0px 171px 0px;
-		height: auto;
-	
-	} 
-	
-	#bbs table {
-	    width:1000px;
-	    margin-left:10px;
-	    border:1px solid black;
-	    border-collapse:collapse;
-	    font-size:14px;
-	    margin: auto;
-	    text-align: center;
-	    
-	}
-	
-	#bbs table caption {
-	    font-size:20px;
-	    font-weight:bold;
-        margin-top: 50px;
-	    margin-bottom:10px;
-	}
-	
-	#bbs table th {
-	    text-align:center;
-	    border:1px solid black;
-	    padding:4px 10px;
-	    
-	}
-	
-	#bbs table td {
-	    text-align:left;
-	    border:1px solid black;
-	    padding:4px 10px;
-	}
-	
-	.writeBtn{
-		float: right;
-		background-color: #85c4b9;
-		color:white;
-		border-radius: 3px;
-		cursor: pointer;
-		margin: 3px 6px;
-		width: 55px;
-    	height: 29px;
-    	font-weight: bold;
-	}
-	
-	#evcbbs_title{
-		height: 24px;
-	}
-	
-	.no {width:15%}
-	.evcbbs_title {width:30%;}
-	.evcbbs_writer {width:20%}
-	.reg {width:20%}
-	.hit {width:15%}
-	.title{background:lightsteelblue}
-	.odd {background:silver}
-		
 </style>
 
 </head>
@@ -94,7 +33,7 @@
 					<th>작성자:</th>
 						<td><input id="evu_name"type="text" name="evu_name"value="${mvo.evu_name }" 
 						readonly="readonly" style="background-color:  #f9f9f9; border: none;" /></td>
-						<input id="evcbbs_writer"type="hidden" name="evcbbs_writer" value="${mvo.evu_name }"/>
+						<input id="evcbbs_writer" type="hidden" name="evcbbs_writer" value="${mvo.evu_name }"/>
 				</tr>
 				<tr>
 					<th>내용:</th>
