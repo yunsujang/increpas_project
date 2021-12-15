@@ -187,7 +187,7 @@ public class KakaoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mv.setViewName("redirect:/login");
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 }
