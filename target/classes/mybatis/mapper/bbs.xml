@@ -20,14 +20,22 @@
 		)
 		WHERE r_num BETWEEN #{begin} AND #{end}
 	</select>
-
-	<!-- 총 게시물 수 -->
+	<!-- 전체 게시판의 총 게시물 수 -->
+	<select id="AllTotalCount" resultType="int" parameterType="String">
+		SELECT
+		COUNT (*) FROM evbbs_t
+		WHERE evbbs_status = 0
+	</select>
+	
+	<!-- 해당 게시판의 총 게시물 수 -->
 	<select id="totalCount" resultType="int" parameterType="String">
 		SELECT
 		COUNT (*) FROM evbbs_t
 		WHERE evbbs_status = 0 AND evcategory_idx =
 		#{evcategory_idx}
 	</select>
+	
+	
 
 	<!-- 사용자가 클릭한 게시물 가져오기 -->
 	<select id="getBbs" resultType="ev.vo.BbsVO"

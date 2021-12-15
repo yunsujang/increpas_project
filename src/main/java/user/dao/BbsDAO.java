@@ -43,6 +43,11 @@ public class BbsDAO {
 		return ss.selectOne("bbs.totalCount", evcategory_idx);
 	}
 	
+	//모든 게시물의 총 개수 가져오기
+	public int AllTotalCount() {
+		return ss.selectOne("bbs.AllTotalCount");
+	}
+	
 	//검색 결과의 총 게시물 가져오기
 	public BbsVO[] search(String searchValue, String begin, String end) {
 		Map<String, String>map = new HashMap<String, String>();

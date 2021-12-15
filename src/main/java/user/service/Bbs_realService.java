@@ -60,5 +60,11 @@ public class Bbs_realService implements BbsService {
 		// TODO Auto-generated method stub
 		return  bbs_dao.getFirstData();
 	}
+
+	@Override
+	public int AllTotalCount() {
+		// TODO Auto-generated method stub
+		return bbs_dao.AllTotalCount();
+	}
 	
 }

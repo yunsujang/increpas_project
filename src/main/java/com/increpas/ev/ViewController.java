@@ -31,11 +31,9 @@ public class ViewController {
 		
 		//bbs테이블의 첫번째 값 가져오기
 		BbsVO fvo = bbsService.getFirstData();
-		System.out.println(fvo.getEvbbs_idx());
 		
 		//bbs테이블의 마지막 값 가져오기
 		BbsVO lvo = bbsService.getLastData();
-		System.out.println(lvo.getEvbbs_idx());
 		
 		// 사용자가 클릭한 게시물의 이전 게시물 가져오기
 		int num = Integer.parseInt(evbbs_idx);
@@ -60,6 +58,11 @@ public class ViewController {
 					break;
 			}
 		}
+		
+		int cnt = bbsService.AllTotalCount();
+		System.out.println(cnt);
+		cnt = (int)(Math.random()*cnt+1);
+		System.out.println(cnt);
 		// mv에 담기
 		mv.addObject("prevo", prevo);
 		mv.addObject("nextvo", nextvo);

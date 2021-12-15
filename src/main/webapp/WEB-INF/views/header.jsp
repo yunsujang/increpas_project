@@ -44,6 +44,10 @@
 	border-radius: 3px;
 	color: white;
 }
+
+#headersearchbtn:hover {
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -93,7 +97,7 @@
 			<form action="/search" method="get">
 				<p style="font-size: 13px; font-weight: bold;">검색할 단어를 입력해주세요.</p>
 				<input type="text" id="searchValue" name="searchValue" />
-				<button id="headersearchbtn" onclick="search(this.form)"
+				<button type="button" id="headersearchbtn" onclick="search(this.form)"
 					style="margin-left: 5px;">검색</button>
 			</form>
 		</div>
@@ -133,8 +137,17 @@
              });
          }
          
+         //검색버튼눌렀을때
          function search(frm) {
-            frm.submit();
+        	 if($('#searchValue').val().trim().length <= 0){
+         	    alert("검색하실 단어를 입력하세요.");
+         	   $('#searchValue').val("");
+         	  $('#searchValue').focus();
+         		 return;
+         	 }
+        	 
+        	 //폼경로지정 
+        	frm.submit();       	
          }
          
          function logout(grade){

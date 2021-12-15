@@ -6,6 +6,7 @@ public interface BbsService {
 	BbsVO getBbs(String evbbs_idx);
 	BbsVO[] paging(String evcategory_idx, String begin,String end);
 	int totalCount(String evcategory_idx);
+	int AllTotalCount();
 	int searchTotalCount(String searchValue);
 	BbsVO[] search(String searchValue, String begin, String end);
 	
