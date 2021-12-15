@@ -4,14 +4,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="resources/css/header/header.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <style type="text/css">
-	body{
-		text-align: left;
-	}
-
    .bi{
       padding: 0;
       margin: 0;
@@ -39,7 +34,8 @@
    .logout{
       cursor: pointer;
    }
-   #headersearchbtn{
+
+	#headersearchbtn{
    	  margin-left: 5px;
    	  background-color: #64c9c3;
    	  border: 1px solid gray;
@@ -49,40 +45,18 @@
    	  color: white;
    }
    
-/* 햄버거 
-
-nav{
-	display: flex;
-}
-
-.menu_div{
-
-}
-
-.menu_ul{
-
-}
-
-.menu_ul a{
-	width: 25px;
-	height: 3px;
-	background-color: gray;
-	margin: 3px;
-}
-*/
 </style>
 </head>
 <body>
-
-
    <header>
       <div class="logo-div">
          <a href="/"><img alt="" src="resources/img/evca_logo.png"
             class="logo-img" /></a>
             
       </div>
+
       <div class="menu-div" id="topBar">
-     
+      <div>
          <ul class="menu_ul">
             <li><a href="/">Home</a></li>
             <c:forEach items="${categoryName_ar }" var="nvo">
@@ -91,15 +65,8 @@ nav{
             <li><a href="/evMap">충전소검색 </a></li>
             <li><a href="/list.ev">ev 소통해요 </a></li>
             <li><a href="/evStock">ev주식</a></li>
-            </ul>
-        
-		    </div>
-			
-            
             <div class="user-div">
-            
             <div class="user-padding">
-            
             </div>
                <a onclick="searchDialog()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -116,16 +83,16 @@ nav{
                   <a onclick="logout()" class="logout">로그아웃</a>
                </c:if>
             </div>
-          
+            </ul>
             
-         
-      
+         </div>
+      </div>
       <div id="fixNextTag"></div>
       <div id="dialog" title="검색">
          <form action="/search" method="get">
             <p style="font-size: 13px; font-weight: bold;">검색할 단어를 입력해주세요.</p>
             <input type="text" id="searchValue" name="searchValue"/>
-            <button id="headersearchbtn" onclick="search(this.form)">검색</button>
+            <button id="headersearchbtn" onclick="search(this.form)" style="margin-left: 5px;">검색</button>
          </form>
       </div>
    </header>
