@@ -14,14 +14,13 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css" />
 <link rel="stylesheet" href="resources/css/header/header.css" />
 <link rel="stylesheet" href="resources/css/main/main.css" />
-</head>
-<style>
+</head><style>
 body {
 	margin: 0 auto;
 	padding: 0 auto;
 	background-color: #f9f9f9;
 }
- 
+
 .header-line {
 	padding: 0px 20px;
 	margin: 15px 10px;
@@ -41,7 +40,7 @@ body {
 
 .contents {
 	border-radius: 5px;
-	width: 30.7%;
+	width: 30%;
 	float: left;
 	height: 380px;
 	margin: 30px 20px;
