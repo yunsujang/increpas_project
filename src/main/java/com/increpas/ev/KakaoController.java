@@ -155,7 +155,11 @@ public class KakaoController {
 					// 바로 "properties"라는 값이다.
 					JSONObject props = (JSONObject) json.get("properties");
 					String nickname = (String) props.get("nickname");
-					// System.out.println(nickName);
+					
+		            json = (JSONObject) obj;
+					Object obj3 = json.get("id");
+		            String id = obj3.toString();
+					 //System.out.println(id);
 					String p_img = (String) props.get("profile_image");
 					System.out.println(p_img);
 
@@ -165,11 +169,11 @@ public class KakaoController {
 					nickname = (String) profile.get("nickname");
 					p_img = (String) profile.get("profile_image_url");
 
-					EvuserVO evo = l_service.getComp(p_img);
+					EvuserVO evo = l_service.getComp(id);
 					if (evo == null) {
-						if (email == null)
+						if (email == null)	
 							email = "evca" + cnt++ + "@";
-						evo = new EvuserVO(p_img, "1111", nickname, email, "010", "salt");
+						evo = new EvuserVO(id, "1111", nickname, email, "010", "salt");
 						String comp = SecureUtil.generateSalt();
 						evo.setEvu_comp(comp);
 						evo.setEvu_pw(SecureUtil.getEncrypt(evo.getEvu_pw(), comp));
