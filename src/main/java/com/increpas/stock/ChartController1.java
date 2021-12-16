@@ -1,6 +1,7 @@
 package com.increpas.stock;
 
 import java.io.IOException;
+
 import java.text.ParseException;
 
 import org.jsoup.Jsoup;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ev.vo.ChartVO;
 import ev.vo.StockVO;
+
 @Controller
 public class ChartController1 {
 
@@ -42,13 +44,11 @@ public class ChartController1 {
 			int x = 0;
 			String[] str3 = new String[str1.length];
 			for(int i=str1.length-1; i>=0; i--) {
-				
-				//System.out.println("1="+str1.length);
 				System.out.println(str1[i]);
 				 str3[x] = str1[i];
-				System.out.println(str3[x++]);
-								
+				System.out.println(str3[x++]);				
 			}
+			
 			
 			Elements siselist =doc.select(".num .tah.p11");
 			
@@ -80,16 +80,18 @@ public class ChartController1 {
 			}
 			ChartVO ar[] = new ChartVO[str1.length];
 			int q = 0;
-			for(int i=ar.length-1; i>=0; i--) {
+			for(int i=str1.length-1; i>=0; i--) {
 				
-				str1[q] = str1[q].replaceAll("2021.", "");
-				ar[q] = new ChartVO(str1[q], rsar[i]);
+				str1[i] = str1[i].replaceAll("2021.", "");
+				ar[q] = new ChartVO(str1[i], rsar[i]);
 				System.out.println(ar[q].getDate());
 				q++;
 				
 			}
 			
 			mv.addObject("ar", ar);
+			
+			
 			
 			URL = "https://finance.naver.com/item/main.naver?code=394660";
 
