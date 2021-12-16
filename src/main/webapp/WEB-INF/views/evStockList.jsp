@@ -11,7 +11,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	
+	table td{
+	   text-align: center;
+		padding: 4px 10px;
+		border-bottom: 1px solid silver;
+		height: 90px;
+   }
 </style> 
 </head>
 <body>
@@ -52,7 +57,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="/">${svo1.name }</a></td>
+					<td><a href="stockChart1">${svo1.name }</a></td>
 					<td>${svo1.nowPrice }</td>
 					<c:set value="${fn:substring(svo1.vsyesterday,0,2)}" var="updown"/>
 					<c:if test="${fn:startsWith(updown,'상승') }">
@@ -78,7 +83,7 @@
 				</tr>
 				
 				<tr>
-					<td><a href="/">${svo2.name }</a></td>
+					<td><a href="stockChart2">${svo2.name }</a></td>
 					<td>${svo2.nowPrice }</td>
 					<c:set value="${fn:substring(svo2.vsyesterday,0,2)}" var="updown"/>
 					<c:if test="${fn:startsWith(updown,'상승') }">
