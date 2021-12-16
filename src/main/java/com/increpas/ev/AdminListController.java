@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.dao.AdminEvbbsDAO;
 import admin.service.AdminBbsService;
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 import admin.util.AdminCSSFont;
 import admin.util.BbsPaging;
 import admin.util.CategoryBbsPaging;
@@ -32,7 +32,7 @@ public class AdminListController {
 	private AdminBbsService admin_bbsService;
 
 	@Autowired
-	private AdminCategorySerivce admin_categoryservice;
+	private AdminCategoryService admin_categoryservice;
 
 	@Autowired
 	private CategoryService user_categoryservice;

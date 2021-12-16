@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 import admin.util.CategoryPaging;
 import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
@@ -18,7 +18,7 @@ import ev.vo.CategoryVO;
 public class AdminCategoryController {
 
 	@Autowired
-	AdminCategorySerivce admincategoryservice;
+	AdminCategoryService admincategoryservice;
 	
 	private int nowPage, totalCount, blockList= 10, blockPage = 5;
 	

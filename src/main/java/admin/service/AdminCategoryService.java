@@ -4,7 +4,7 @@ import java.util.Map;
 
 import ev.vo.CategoryVO;
 
-public interface AdminCategorySerivce {
+public interface AdminCategoryService {
 	// 삭제하지않은 게시판의 갯수를 가져온다.
 	int totalCount();
 	

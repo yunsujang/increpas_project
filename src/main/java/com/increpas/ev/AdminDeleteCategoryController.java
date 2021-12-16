@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.service.AdminBbsService;
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 
 @Controller
 public class AdminDeleteCategoryController {
 
 	@Autowired
-	AdminCategorySerivce admincategoryservice;
+	AdminCategoryService admincategoryservice;
 
 	@Autowired
 	AdminBbsService adminbbsservice;

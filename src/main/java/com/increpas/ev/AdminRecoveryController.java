@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import admin.service.AdminBbsService;
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 import admin.util.categoryRecoveryPaging;
 import ev.vo.CategoryVO;
 
@@ -21,7 +21,7 @@ public class AdminRecoveryController {
 	private int nowPage, totalCount, blockList= 10, blockPage = 5;
 	
 	@Autowired
-	AdminCategorySerivce admincategoryservice;
+	AdminCategoryService admincategoryservice;
 	
 	@Autowired
 	AdminBbsService adminbbsservice;

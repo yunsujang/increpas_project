@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import admin.dao.AdminEvbbsDAO;
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 import admin.util.FileRenameUtil;
 import ev.vo.BbsVO;
 import ev.vo.CategoryVO;
@@ -36,7 +36,7 @@ public class AdminEditController {
 	private ServletContext application;
 	
 	@Autowired
-	private AdminCategorySerivce admincategoryservice;
+	private AdminCategoryService admincategoryservice;
 	
 	@Autowired
 	private AdminEvbbsDAO bbs_dao;

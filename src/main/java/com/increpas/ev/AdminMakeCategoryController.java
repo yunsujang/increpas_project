@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import admin.service.AdminBbsService;
-import admin.service.AdminCategorySerivce;
+import admin.service.AdminCategoryService;
 
 
 
@@ -24,7 +24,7 @@ import admin.service.AdminCategorySerivce;
 public class AdminMakeCategoryController {
 
 	@Autowired
-	AdminCategorySerivce admincategoryservice;
+	AdminCategoryService admincategoryservice;
 	
 	@Autowired
 	AdminBbsService adminbbsservice;

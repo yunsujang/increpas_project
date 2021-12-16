@@ -76,7 +76,7 @@
 				}
 			}
 		});
-		$("#evcbbs_content").summernote("lineHeight");
+		$("#evcbbs_content").summernote("lineHeight",.7);
 	});
 		
 	function sendImage(file, editor){

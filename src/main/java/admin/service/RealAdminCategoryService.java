@@ -10,7 +10,7 @@ import admin.dao.AdminCategoryDAO;
 import ev.vo.CategoryVO;
 
 @Service
-public class RealAdminCategorySerivce implements AdminCategorySerivce {
+public class RealAdminCategoryService implements AdminCategoryService {
 
 	@Autowired
 	AdminCategoryDAO c_dao;
