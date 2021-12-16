@@ -17,7 +17,7 @@ p img{
 	margin: 30px 0 30px 0;
 }
 </style>
-</head>
+</head> 
 <body>
 	<jsp:include page="header.jsp" />
 
