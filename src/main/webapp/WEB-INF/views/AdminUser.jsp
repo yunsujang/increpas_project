@@ -39,7 +39,7 @@
 				<p>아이디</p>
 				<input type="text" id="makeId" name="makeId">
 				<p>비밀번호</p>
-				<input type="text" id="makePw" name="makePw">
+				<input type="password" id="makePw" name="makePw">
 				<p>이름</p>
 				<input type="text" id="makeName" name="makeName">
 
