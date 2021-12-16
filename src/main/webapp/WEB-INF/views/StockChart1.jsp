@@ -93,12 +93,12 @@
 						</c:if>
 						</td>
 						
-						<td id="data">전일 ${sp.yesterdayPrice }</td>
+						<td id="data">전일 ${svo1.yesterdayPrice }</td>
 						<td id="data">고가 ${svo1.highPrice }</td>
 						<td id="data">거래량 ${svo1.georaeryang }</td>
 					</tr>
 					<tr>
-						<td id="data">시가 ${sp.sigaPrice }</td>
+						<td id="data">시가 ${svo1.sigaPrice }</td>
 						<td id="data">저가 ${svo1.lowPrice }</td>
 						<td id="data">거래대금 ${svo1.tradingValue }</td>
 				</tbody>

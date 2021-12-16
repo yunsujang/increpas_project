@@ -1,10 +1,5 @@
 package com.increpas.stock;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -51,14 +46,15 @@ public class StockListController {
 			String vsyesterday = todaylist.get(3).text().split(" ")[3] + todaylist.get(3).text().split(" ")[4];
 			String DungRakrate = todaylist.get(3).text().split(" ")[5] + todaylist.get(3).text().split(" ")[6]
 					+ todaylist.get(3).text().split(" ")[7];
+			String yesterdayPrice = todaylist.get(4).text().split(" ")[1];
+			String sigaPrice = todaylist.get(5).text().split(" ")[1];
 			String HighPrice = todaylist.get(6).text().split(" ")[1];
 			String LowPrice = todaylist.get(8).text().split(" ")[1];
 			String georaeryang = todaylist.get(10).text().split(" ")[1];
 			String TradingValue = todaylist.get(11).text().split(" ")[1];
 
 
-			StockVO svo1 = new StockVO(name, NowPrice, vsyesterday, DungRakrate, HighPrice, LowPrice, georaeryang,
-					TradingValue);
+			StockVO svo1 = new StockVO(name, NowPrice, vsyesterday, DungRakrate, yesterdayPrice, sigaPrice, HighPrice, LowPrice, georaeryang, TradingValue);
 		
 		
 			model.addAttribute("svo1", svo1);
@@ -86,14 +82,15 @@ public class StockListController {
 				vsyesterday = todaylist.get(3).text().split(" ")[3] + todaylist.get(3).text().split(" ")[4];
 				DungRakrate = todaylist.get(3).text().split(" ")[5] + todaylist.get(3).text().split(" ")[6]
 						+ todaylist.get(3).text().split(" ")[7];
+				yesterdayPrice = todaylist.get(4).text().split(" ")[1];
+				sigaPrice = todaylist.get(5).text().split(" ")[1];
 				HighPrice = todaylist.get(6).text().split(" ")[1];
 				LowPrice = todaylist.get(8).text().split(" ")[1];
 				georaeryang = todaylist.get(10).text().split(" ")[1];
 				TradingValue = todaylist.get(11).text().split(" ")[1];
 
 
-				StockVO svo2 = new StockVO(name, NowPrice, vsyesterday, DungRakrate, HighPrice, LowPrice, georaeryang,
-						TradingValue);
+				StockVO svo2 = new StockVO(name, NowPrice, vsyesterday, DungRakrate, yesterdayPrice, sigaPrice, HighPrice, LowPrice, georaeryang, TradingValue);
 				model.addAttribute("svo2", svo2);
 			/*
 			 * System.out.println("종목명:"+name); System.out.println("현재가:"+NowPrice);

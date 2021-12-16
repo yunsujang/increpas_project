@@ -3,14 +3,15 @@ package ev.vo;
 public class StockVO {
 
 	private String name, NowPrice, vsyesterday, DungRakrate, 
-					HighPrice, LowPrice, georaeryang, TradingValue;
+					HighPrice, LowPrice, georaeryang, TradingValue,
+					yesterdayPrice, sigaPrice;
 	
 	public StockVO() {
 		
 	}
- 
+
 	public StockVO(String name, String nowPrice, String vsyesterday, String dungRakrate, String highPrice,
-			String lowPrice, String georaeryang, String tradingValue) {
+			String lowPrice, String georaeryang, String tradingValue, String yesterdayPrice, String sigaPrice) {
 		super();
 		this.name = name;
 		this.NowPrice = nowPrice;
@@ -20,6 +21,8 @@ public class StockVO {
 		this.LowPrice = lowPrice;
 		this.georaeryang = georaeryang;
 		this.TradingValue = tradingValue;
+		this.yesterdayPrice = yesterdayPrice;
+		this.sigaPrice = sigaPrice;
 	}
 
 	public String getName() {
@@ -35,7 +38,7 @@ public class StockVO {
 	}
 
 	public void setNowPrice(String nowPrice) {
-		this.NowPrice = nowPrice;
+		NowPrice = nowPrice;
 	}
 
 	public String getVsyesterday() {
@@ -51,7 +54,7 @@ public class StockVO {
 	}
 
 	public void setDungRakrate(String dungRakrate) {
-		this.DungRakrate = dungRakrate;
+		DungRakrate = dungRakrate;
 	}
 
 	public String getHighPrice() {
@@ -59,7 +62,7 @@ public class StockVO {
 	}
 
 	public void setHighPrice(String highPrice) {
-		this.HighPrice = highPrice;
+		HighPrice = highPrice;
 	}
 
 	public String getLowPrice() {
@@ -67,7 +70,7 @@ public class StockVO {
 	}
 
 	public void setLowPrice(String lowPrice) {
-		this.LowPrice = lowPrice;
+		LowPrice = lowPrice;
 	}
 
 	public String getGeoraeryang() {
@@ -83,8 +86,27 @@ public class StockVO {
 	}
 
 	public void setTradingValue(String tradingValue) {
-		this.TradingValue = tradingValue;
+		TradingValue = tradingValue;
 	}
+
+	public String getYesterdayPrice() {
+		return yesterdayPrice;
+	}
+
+	public void setYesterdayPrice(String yesterdayPrice) {
+		this.yesterdayPrice = yesterdayPrice;
+	}
+
+	public String getSigaPrice() {
+		return sigaPrice;
+	}
+
+	public void setSigaPrice(String sigaPrice) {
+		this.sigaPrice = sigaPrice;
+	}
+
+	
+
 	
 	
 	
