@@ -105,6 +105,11 @@
 	font-size: 13px;
     color: gray;
 }
+#a_view{
+	float: right;
+	margin-right: 40px;
+	text-decoration: none;
+}
 
 
 </style>
@@ -159,6 +164,7 @@
 					<div class="newContents">
 						<div>
 							<a class="a-lastUpdate">${vo.evcategory_name }</a>
+							<a id="a_view" class="a-lastUpdate" href="category?evcategory_idx=${vo.evcategory_idx}">${vo.evcategory_name} 더보기</a>
 						</div>
 						<c:forEach items="${vo.b_list }" var="bvo">
 							<div class="contents">
