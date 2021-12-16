@@ -12,9 +12,9 @@ public class RealAdminUserService implements AdminUserService {
 	AdminUserDAO a_dao;
 
 	@Override
-	public int AdminMakeUser(String makeId, String makePw, String makeName) {
+	public int AdminMakeUser(String makeId, String makePw, String makeName, String comp) {
 		// TODO Auto-generated method stub
-		return a_dao.AdminMakeUser(makeId, makePw, makeName);
+		return a_dao.AdminMakeUser(makeId, makePw, makeName, comp);
 	}
 
 	@Override

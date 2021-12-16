@@ -14,10 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ev.vo.EvuserVO;
 import user.service.LoginService;
+import user.util.SecureUtil;
 
 @Controller
 public class AdminLoginController {
-
+	
 	@Autowired
 	LoginService loginservice;
 
@@ -30,10 +31,14 @@ public class AdminLoginController {
 		Map<String, String> map = new HashMap<String, String>();
 		String str = "";
 		String cnt = "1";
-
+		
+		EvuserVO evo = loginservice.getComp(evu_id);
+		if(evo != null)
+			evu_pw = SecureUtil.getEncrypt(evu_pw, evo.getEvu_comp());
+		
 		EvuserVO vo = loginservice.adminLogin(evu_id, evu_pw);
 		if (vo == null) 
-			str = "아이디와 비밀번호가 일치하지 않습니다.";
+			str = "아이디와 비밀번호를 확인해주세요.";
 
 		else if (vo != null && vo.getEvu_who().equals("1")) 
 			str = "관리자가 아니므로 입장하실 수 없습니다.";

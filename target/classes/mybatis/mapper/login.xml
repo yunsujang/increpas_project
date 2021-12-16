@@ -21,19 +21,12 @@
 	
 	<select id="adminlogin" parameterType="Map" resultType="ev.vo.EvuserVO">
 		SELECT * FROM evuser_t 
-		WHERE evu_id = #{evu_id} AND evu_pw = #{evu_pw}
+		WHERE evu_id = #{evu_id} AND evu_pw = #{evu_pw} AND evu_status = 0
 	</select>
 
 	<select id="kakaologin" resultType="ev.vo.EvuserVO" parameterType="String">
 		select * from evuser_t
 	    where evu_email = #{evu_email}
 	</select>
-
-<!--   
-  <insert id="reg" parameterType="Map">
-  	insert into member_t(m_id,m_pw,m_name,m_email)
-  	values(#{id},#{pw},'아아아','asd@naver.com')
-  </insert>
- -->
 
 </mapper>

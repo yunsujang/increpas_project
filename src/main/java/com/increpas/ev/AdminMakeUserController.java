@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.service.AdminUserService;
+import user.util.SecureUtil;
 
 @Controller
 public class AdminMakeUserController {
@@ -25,7 +26,9 @@ public class AdminMakeUserController {
 		String AdminMakeUser = makeName+" 관리자 계정이 생성 되었습니다.";
 		int cnt = adminuserservice.AdminMakeUserCheck(makeId);
 		if(cnt <= 0){
-			adminuserservice.AdminMakeUser(makeId, makePw, makeName);
+			String comp = SecureUtil.generateSalt();
+			makePw = SecureUtil.getEncrypt(makePw, comp);
+			adminuserservice.AdminMakeUser(makeId, makePw, makeName,comp);
 		}
 		
 		else {

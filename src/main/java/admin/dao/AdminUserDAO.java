@@ -51,11 +51,12 @@ public class AdminUserDAO {
 	}
 	
 	//관리자 계정 생성
-	public int AdminMakeUser(String makeId, String makePw, String makeName) {
+	public int AdminMakeUser(String makeId, String makePw, String makeName, String comp) {
 		Map<String, String>map = new HashMap<String, String>();
 		map.put("evu_id", makeId);
 		map.put("evu_pw", makePw);
 		map.put("evu_name", makeName);
+		map.put("evu_comp", comp);
 		
 		return ss.insert("adminUser.AdminMakeUser", map);
 	}

@@ -114,8 +114,8 @@
 
 	<!-- 관리자 계정 생성 기능 -->
 	<insert id="AdminMakeUser" parameterType="String">
-		INSERT INTO evuser_t(evu_idx, evu_id, evu_pw, evu_name, evu_who, evu_status)
-		VALUES(evUser_seq.NEXTVAL, #{evu_id}, #{evu_pw}, #{evu_name}, 0, 0)
+		INSERT INTO evuser_t(evu_idx, evu_id, evu_pw, evu_name, evu_who, evu_status, evu_comp)
+		VALUES(evUser_seq.NEXTVAL, #{evu_id}, #{evu_pw}, #{evu_name}, 0, 0, #{evu_comp})
 	</insert>
 	
 	<!-- 관리자 생성아이디 중복체크 -->	
