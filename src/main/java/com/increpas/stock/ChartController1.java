@@ -7,16 +7,22 @@ import java.text.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ev.vo.CategoryVO;
 import ev.vo.ChartVO;
 import ev.vo.StockVO;
+import user.service.CategoryService;
 
 @Controller
 public class ChartController1 {
 
+	@Autowired
+	CategoryService categoryservice;
+	
 	@RequestMapping("/stockChart1")
 	public ModelAndView chart1() throws ParseException {
 		
@@ -127,7 +133,8 @@ public class ChartController1 {
 			StockVO svo1 = new StockVO(name, NowPrice, vsyesterday, DungRakrate, 
 					HighPrice, LowPrice, georaeryang, TradingValue, yesterdayPrice, sigaPrice);
 		
-		
+			CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
+			mv.addObject("categoryName_ar", categoryName_ar);
 			mv.addObject("svo1", svo1);
 			mv.setViewName("StockChart1");
 			
