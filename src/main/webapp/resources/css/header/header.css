@@ -41,9 +41,9 @@
 	}
 	
 	.menu_ul{
-		margin: 0 0 20px 0;
+		margin: 0;
 		height: 100%;
-		width: 70%;
+		width: 100%;
 		display: inline-block;
 		text-align: inherit;
 	}
@@ -103,8 +103,9 @@
 	width: auto;
 	min-width:auto;
 	text-align: center;
-	float: right;
-	margin: 20px 10px 0 0;
+	position: absolute;
+	top: 150px;
+	right: 20px;
 	
 }
 
