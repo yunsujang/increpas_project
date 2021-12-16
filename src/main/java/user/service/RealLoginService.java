@@ -43,4 +43,10 @@ public class RealLoginService implements LoginService {
 		return m_dao.kakaologin(email);
 	}
 
+	@Override
+	public EvuserVO[] findId(String name, String email) {
+		
+		return m_dao.findId(name,email);
+	}
+
 }

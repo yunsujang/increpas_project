@@ -125,6 +125,9 @@ public class AdminWriteController {
 		}		
 
 		vo.setEvbbs_ip(request.getRemoteAddr());
+		Object obj = session.getAttribute("mvo");
+		EvuserVO evo = (EvuserVO) obj;
+		vo.setEvu_idx(evo.getEvu_idx());
 		
 		bbs_dao.add(vo); //DB에 저장!!!!!!!!!!!
 		

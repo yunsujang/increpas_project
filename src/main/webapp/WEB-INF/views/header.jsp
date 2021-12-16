@@ -48,6 +48,10 @@
 #headersearchbtn:hover {
 	cursor: pointer;
 }
+
+header{
+	z-index: 100;
+}
 </style>
 </head>
 <body>

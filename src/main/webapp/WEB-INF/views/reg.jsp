@@ -77,7 +77,6 @@
                         <input type="text" name="email_ok" id="email_ok" class="int" maxlength="100" placeholder="인증번호를 입력하세요">
                         <button class="CertBtn" type="button" onclick="certok()">인증번호 확인</button>
                     </span>
-                     <p style="font-size: 12px; position: absolute;top: 500px; right: 470px;"></p>
                 </div>
 
                 <!-- MOBILE -->
@@ -286,8 +285,6 @@
 		if(emailnum == usercert){
 			alert("이메일 인증에 성공하였습니다.");
 			$("#goodemail").val(0);
-			$(".emailok-div p").text("✓");
-			$(".emailok-div p").css('color','green');
 		}else{
 			alert("이메일 인증에 실패하였습니다.");
 			$("#email_ok").val("");

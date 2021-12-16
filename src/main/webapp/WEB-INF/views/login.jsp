@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="resources/css/footer/footer.css" type="text/css">
 <link rel="stylesheet" href="resources/css/login.css">
 <style type="text/css">
-
+	
 </style>
 </head>
 <body>
@@ -39,6 +39,7 @@
 			  카카오 로그인 </a>
 			<a class="box box2" href="/naverLogin.inc"> 네이버 로그인 </a>			
 			<a class="box box3" href="/reg" >회원가입</a>	
+			<a class= "box box4" href="/find" >아이디/비밀번호 찾기</a>	
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"/>

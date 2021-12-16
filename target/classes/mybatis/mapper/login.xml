@@ -28,5 +28,10 @@
 		select * from evuser_t
 	    where evu_email = #{evu_email}
 	</select>
+	
+	<select id="findId" resultType="ev.vo.EvuserVO" parameterType="Map">
+		SELECT * from evuser_t
+		WHERE evu_name = #{name} AND evu_email = #{email}
+	</select>
 
 </mapper>

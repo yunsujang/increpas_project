@@ -1,6 +1,7 @@
 package user.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -45,6 +46,19 @@ public class MemDAO {
 	
 	public EvuserVO kakaologin(String email) {
 		return ss.selectOne("login.kakaologin", email);
+	}
+	
+	public EvuserVO[] findId(String name, String email) {
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("name", name);
+		map.put("email", email);
+		EvuserVO[] ar = null;
+		List<EvuserVO>list = ss.selectList("login.findId",map);
+		if(list.size() > 0 && !list.isEmpty()) {
+			ar = new EvuserVO[list.size()];
+			list.toArray(ar);
+		}
+		return ar;
 	}
 	
 

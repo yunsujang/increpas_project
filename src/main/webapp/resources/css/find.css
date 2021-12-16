@@ -1,0 +1,220 @@
+@charset "UTF-8";
+        /* 레이아웃 틀 */
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #f5f6f7;
+}
+
+.wrap {
+	width: 100%;
+	height: 100%;
+	margin: 300px 0 0 0;
+	min-height: 300px;
+}
+
+.middle-wrap {
+	width: 70%;
+	height: 100%;
+	margin: auto;
+}
+
+.contents {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	width: 506px;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+/* 입력폼 */
+.head_p {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 60px 0;
+}
+
+
+
+h3 {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.box {
+    display: block;
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+}
+
+.box.int_id {
+    padding-right: 110px;
+}
+
+.int_email{
+	display: block;
+    width: 80%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+}
+
+
+/* 버튼 */
+
+.CertBtn {
+	position: absolute;
+    left: 404px;
+    top: -1px;
+    width: 101px;
+    height: 51px;
+    border: none;
+    background-color: #64c9c3;
+    color: white;
+    font-size: 12px;
+}
+
+.CertBtn:hover {
+	cursor: pointer;
+	background-color: #437d7a;
+}
+
+.findBtn {
+	margin: 30px 0 0 0;
+	background-color: #85c4b9;
+	color: white;
+}
+
+.findBtn:hover {
+	cursor: pointer;
+	font: black;
+	background-color: #437d7a;
+}
+.goLogin{
+	margin:30px 20px;
+	background-color: white;
+	color: silver;
+	border: none;
+	width: 150px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.returns{
+	margin: 30px 20px;
+	background-color: #85c4b9;
+	color:white;
+	border: none;
+	width: 150px;
+    height: 50px;
+}	
+
+.goLogin:hover{
+	cursor: pointer;
+}
+
+.returns:hover{
+	cursor: pointer;
+}				
+
+/*tab css*/
+.tab {
+	float: left;
+	width: 100%;
+	height: 520px;
+}
+
+.tabnav {
+	font-size: 0;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+}
+
+.tabnav li {
+	display: inline-block;
+	height: 46px;
+	text-align: center;
+	border-right: 1px solid #ddd;
+	width: 49.9%;
+}
+
+.tabnav li a:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 100%;
+	height: 3px;
+}
+
+.tabnav li a.active:before {
+	background: #7ea21e;
+}
+
+.tabnav li a.active {
+	border-bottom: 1px solid #fff;
+}
+
+.tabnav li a {
+	position: relative;
+	display: block;
+	background: #f8f8f8;
+	color: #000;
+	padding: 0 30px;
+	line-height: 46px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.tabnav li a:hover, .tabnav li a.active {
+	background: #fff;
+	color: #7ea21e;
+}
+
+.tabcontent {
+	padding: 20px;
+	height: 600px;
+	border: 1px solid #ddd;
+	border-top: none;
+}
+
+.tabcontent div {
+	text-align: center;
+}
+
+
+
+#tab01, #tab02 {
+	margin: 80px;
+}

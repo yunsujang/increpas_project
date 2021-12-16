@@ -8,4 +8,5 @@ public interface LoginService {
 	EvuserVO adminLogin(String id, String pw);
 	EvuserVO login(String id,String pw);
 	EvuserVO kakaologin(String email);
+	EvuserVO[] findId(String name, String email);
 }
