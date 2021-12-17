@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -42,8 +43,10 @@ public class LoginController {
 	HttpSession session;
 	
 	@Autowired
+	ServletRequest request;
+	@Autowired
 	private CategoryService categoryservice;
-
+	
 	//헤더에서 로그인 클릭 시 로그인 화면으로 이동
 	@RequestMapping("/login")
 	public ModelAndView login() {
@@ -107,7 +110,7 @@ public class LoginController {
 		vo.setEvu_pw(SecureUtil.getEncrypt(vo.getEvu_pw(), comp));
 		int i = l_service.reg(vo);
 		if(i > 0) {
-			mv.setViewName("redirect:/");
+			mv.setViewName("redirect:/login");
 		}
 		return mv;
 	}
@@ -141,7 +144,54 @@ public class LoginController {
 		String body = "안녕하세요? evca입니다.\r\n 인증번호는 "+rnum+" 입니다.";
 		mailService.sendMail(email, fromAddr, subject, body);//받는이 보낸이 제목 내용
 		map.put("str", "발송완료");
-		map.put("rnum", srnum);
+		session.setAttribute("srnum", srnum);
 		return map;
 	}
+	
+	@RequestMapping(value="/getcode", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> getCert(){
+		Map<String, String>map = new HashMap<String, String>();
+		String code ="인증번호를 발송하세요.";
+		Object obj = session.getAttribute("srnum");
+		
+		if(obj != null) {
+		code = (String)obj;
+		}
+		
+		map.put("code", code);
+		return map;
+	}
+	
+	@RequestMapping(value="/setSuccess", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> setSuccess(){
+		Map<String, String>map = new HashMap<String, String>();
+		String ok ="0";
+		session.setAttribute("ok", ok);
+		return map;
+	}
+	
+	@RequestMapping(value="/getSuccess", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> getSuccess(){
+		Map<String, String>map = new HashMap<String, String>();
+		String code = "1";
+		Object obj = session.getAttribute("ok");
+		if(obj != null)
+			code = (String)obj;
+		
+		map.put("code", code);
+		return map;
+	}
+	
+	@RequestMapping(value="/finish", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> finish(){
+		Map<String, String>map = new HashMap<String, String>();
+		session.removeAttribute("srnum");
+		session.removeAttribute("ok");
+		return map;
+	}
+	
 }

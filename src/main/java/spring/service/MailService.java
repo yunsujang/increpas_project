@@ -10,6 +10,7 @@ public class MailService {
 	
 	@Autowired
 	private MailSender mailSender;  //서블릿-콘텍스트
+	private String code;
 	
 	public void sendMail(String toAddress, String fromAddress,
 				String subject, String msgBody) {
@@ -21,4 +22,5 @@ public class MailService {
 		
 		mailSender.send(smm); //메일이간다
 	}
+	
 }

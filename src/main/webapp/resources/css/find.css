@@ -180,6 +180,10 @@ h3 {
     height: 50px;
 }		
 
+.changeBtn:hover{
+	cursor: pointer;
+}
+
 /*tab css*/
 .tab {
 	float: left;

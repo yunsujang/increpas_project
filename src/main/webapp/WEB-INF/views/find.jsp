@@ -117,6 +117,7 @@
 								</div>
 								
 								<button class="box findBtn" type="button" onclick="findPwCheck()">비밀번호 재설정</button>
+								<input type="hidden" id="r_id">
 							</div>
 						</div>
 					</div>
@@ -124,15 +125,11 @@
 			</div>
 		</div>
 	</div>
-	 <input type="hidden" id="goodemail" value="1"/>
-     <input type="hidden" id="emailnum" value="1"/>
-     <input type="hidden" id="r_id" value=""/>
 	<jsp:include page="footer.jsp" />
 
 	<script type="text/javascript">
 		$(function() {
 			$('.tabcontent > div').hide();
-			$("#goodemail").val(1);
 			$('.tabnav a').click(function() {
 				$('.tabcontent > div').hide().filter(this.hash).fadeIn();
 				$('.tabnav a').removeClass('active');
@@ -150,66 +147,70 @@
 		
 		}
 		
-		
+		//아이디 찾기 이메일 인증
 		function findIdCert() {
+			var find_Id_name = $("#find_Id_name").val().trim();
 			var find_Id_email = $("#find_Id_email").val().trim();
-
+			
+			if(find_Id_name.length <= 0){
+				alert("이름을 입력해주세요.");
+				$("#find_Id_name").val("");
+				$("#find_Id_name").focus();
+				return;
+			}
+			
 			if(find_Id_email.length <= 0){
 				alert("이메일을 입력해주세요.");
 				$("#find_Id_email").val("");
 				$("#find_Id_email").focus();
-				$("#goodemail").val(1);
 				return;
 			}else{
 				if(!email_check(find_Id_email)){
 					alert("이메일 형식에 맞게 입력해주십시오.");
-					$("#goodemail").val(1);
 					return;
 				}
 				else{
 					alert("인증번호가 발송되었습니다.");
 					$(".id_emailok-div").css('display','block');
-					var frm = new FormData();
-					frm.append("email",find_Id_email);
 					$.ajax({
 						 url: "sendMail",
-				         data: frm,
+				         data: {"email":find_Id_email},
 				         type: "post",
-				         contentType: false,
-				         processData: false,
-				         cache: false,
-				         dataType: "json",
-						
-					}).done(function(data) {
-						
-						$("#emailnum").val(data.rnum);
-					}).fail(function(err) {
-						
 					})
-					
 				}
 			}
-			
 		} 
 		
 		function certok1(){
-			var emailnum = $("#emailnum").val();
-			var usercert = $("#id_email_ok").val();
-			if(emailnum == usercert){
-				alert("이메일 인증에 성공하였습니다.");
-				$("#goodemail").val(0);
-			}else{
-				alert("이메일 인증에 실패하였습니다.");
-				$("#id_email_ok").val("");
-				$("#id_email_ok").focus();
-			}
+			$.ajax({
+				 url: "getcode",
+		         type: "post",
+		         contentType: false,
+		         processData: false,
+		         cache: false,
+		         dataType: "json",
+				
+			}).done(function(data) {
+				var usercert = $("#id_email_ok").val();
+				if(data.code == usercert){
+					alert("이메일 인증에 성공하였습니다.");
+					$.ajax({
+						 url: "setSuccess",
+				         type: "post",
+					})
+				}else{
+					alert("이메일 인증에 실패하였습니다.");
+					$("#email_ok").focus();
+				}
+			}).fail(function(err) {
+				
+			})
+			
 		}
-		
 		
 		function findIdCheck() {
 			var name = $("#find_Id_name").val().trim();
 			var email = $("#find_Id_email").val().trim();
-			var ok = $("#goodemail").val();
 
 			if (name.length <= 0) {
 				alert("이름을 입력하세요.");
@@ -223,13 +224,22 @@
 				$("#find_Id_email").focus();
 				return;
 			}
-			if(ok == "1"){
-				alert("이메일 인증을 확인하세요");
-				return;
-			}
-			
-			findId(name,email);
+			$.ajax({
+				url: "getSuccess",
+		        type: "post",
+		        dataType:"json",
+			}).done(function(data) {
+				if(data.code == "1"){
+					alert("이메일 인증을 확인하세요.");
+					return;
+					
+				}
 				
+				findId(name,email);
+			}).fail(function(err) {
+				
+			})
+			
 		}
 		
 		function findId(name, email) {
@@ -248,7 +258,6 @@
 					$("#find_Id_name").val("");
 					$("#find_Id_name").focus();
 					$("#id_email_ok").val("");
-					$("#goodemail").val(1);
 					$(".id_emailok-div").css("display","none");
 				}
 					
@@ -272,6 +281,12 @@
 				$(".find_Id_Contents").css("display","block");
 				$(".find_Id_Contents").css("margin","120px 0");
 				}
+				
+				$.ajax({
+					url: "finish",
+			        type: "post",
+				})
+				
 			}).fail(function(err) {
 				alert(err);
 				alert("에러낫다 삐용삐용");
@@ -281,6 +296,7 @@
 		}
 		
 		function gologin() {
+			returns();
 			location.href="/login";
 		}
 		
@@ -295,71 +311,74 @@
 			$("#find_Id_name").val("");
 			$("#find_Id_name").focus();
 			$("#id_email_ok").val("");
-			
-			$("#goodemail").val(1);
-			
 		}
 		
 		//비밀번호 재설정
-		
 		function findPwCert() {
+			var find_Pw_id = $("#find_Pw_id").val().trim();
 			var find_Pw_email = $("#find_Pw_email").val().trim();
 
+			if(find_Pw_id.length <= 0){
+				alert("아이디를 입력해주세요.");
+				$("#find_Pw_id").val("");
+				$("#find_Pw_id").focus();
+				return;
+			}
+			
 			if(find_Pw_email.length <= 0){
 				alert("이메일을 입력해주세요.");
 				$("#find_Pw_email").val("");
 				$("#find_Pw_email").focus();
-				$("#goodemail").val(1);
 				return;
 			}else{
 				if(!email_check(find_Pw_email)){
 					alert("이메일 형식에 맞게 입력해주십시오.");
-					$("#goodemail").val(1);
 					return;
 				}
 				else{
 					alert("인증번호가 발송되었습니다.");
 					$(".pw_emailok-div").css('display','block');
-					var frm = new FormData();
-					frm.append("email",find_Pw_email);
 					$.ajax({
 						 url: "sendMail",
-				         data: frm,
+				         data: {"email":find_Pw_email},
 				         type: "post",
-				         contentType: false,
-				         processData: false,
-				         cache: false,
-				         dataType: "json",
-						
-					}).done(function(data) {
-						$("#emailnum").val(data.rnum);
-					}).fail(function(err) {
-						
 					})
-					
 				}
 			}
 			
 		} 
 		
 		function certok2(){
-			var emailnum = $("#emailnum").val();
-			var usercert = $("#pw_email_ok").val();
-			if(emailnum == usercert){
-				alert("이메일 인증에 성공하였습니다.");
-				$("#goodemail").val(0);
-			}else{
-				alert("이메일 인증에 실패하였습니다.");
-				$("#id_email_ok").val("");
-				$("#id_email_ok").focus();
-				$("#goodemail").val(1);
-			}
+			$.ajax({
+				 url: "getcode",
+		         type: "post",
+		         contentType: false,
+		         processData: false,
+		         cache: false,
+		         dataType: "json",
+				
+			}).done(function(data) {
+				var usercert = $("#pw_email_ok").val();
+				if(data.code == usercert){
+					alert("이메일 인증에 성공하였습니다.");
+					$.ajax({
+						 url: "setSuccess",
+				         type: "post",
+					})
+				}else{
+					alert("이메일 인증에 실패하였습니다.");
+					$("#email_ok").focus();
+				}
+			}).fail(function(err) {
+				
+			})
 		}
+		
+
 		
 		function findPwCheck() {
 			var id = $("#find_Pw_id").val().trim();
 			var email = $("#find_Pw_email").val().trim();
-			var ok = $("#goodemail").val();
 
 			if (id.length <= 0) {
 				alert("아이디를 입력하세요.");
@@ -373,15 +392,22 @@
 				$("#find_Pw_email").focus();
 				return;
 			}
-			if(ok == "1"){
-				alert("이메일 인증을 확인하세요");
-				return;
-			}
-			
-			findPw(id,email);
+			$.ajax({
+				url: "getSuccess",
+		        type: "post",
+		        dataType:"json",
+			}).done(function(data) {
+				if(data.code == "1"){
+					alert("이메일 인증을 확인하세요.");
+					return;
+				}
+				findPw(id,email);
+			}).fail(function(err) {
 				
+			})
+			
 		}
-		
+				
 		function findPw(id,email) {
 			$.ajax({
 				url:"findPw",
@@ -396,7 +422,6 @@
 					$("#find_Pw_email").val("");
 					$(".pw_emailok-div").css("display","none");
 					$("#pw_email_ok").val("");
-					$("#goodemail").val(1);
 					return;
 				}
 				$("#r_id").val(id);
@@ -410,6 +435,11 @@
 				$(".find_Pw_Contents").html(input_tab);
 				$(".find_Pw_Contents").css("display","block");
 				$(".find_Pw_Contents").css("margin","120px 0");
+				$.ajax({
+					url: "finish",
+			        type: "post",
+				})
+				
 			}).fail(function(err) {
 				
 			})
@@ -451,18 +481,21 @@
 					return;
 				}
 				if(data.code == "0"){
-					alert("비밀번호 변경이 완료되었습니다.");
+					var result = confirm("비밀번호 변경이 완료되었습니다. 로그인 화면으로 가시겠습니까?\r\n 취소할 시 홈으로 이동합니다.");
+					if(result){
+						location.href="/login";
+					}
+					if(!result){
+						location.href="/";
+					}
+					
 				}
-				
 				
 			}).fail(function(err) {
 				alert(err);
 				alert("오류다");
 			})
 		}
-		
-		
-		
 	</script>
 </body>
 </html>
