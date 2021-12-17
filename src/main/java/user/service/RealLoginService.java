@@ -48,5 +48,17 @@ public class RealLoginService implements LoginService {
 		
 		return m_dao.findId(name,email);
 	}
+	
+	@Override
+	public EvuserVO findPw(String id, String email) {
+		
+		return m_dao.findPw(id,email);
+	}
+
+	@Override
+	public int changePw(String id, String pw) {
+		// TODO Auto-generated method stub
+		return m_dao.changePw(id,pw);
+	}
 
 }

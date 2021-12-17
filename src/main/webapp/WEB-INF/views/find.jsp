@@ -22,6 +22,7 @@
 				</ul>
 				<div class="tabcontent">
 					<div id="tab01">
+						<div class="find_Id_Contents"></div>
 						<div class="contents">
 							<p class="head_p">이름과 이메일을 통해 아이디를 찾을 수 있습니다.</p>
 							<div id="content">
@@ -70,12 +71,62 @@
 						</div>
 						
 					</div>
+					
+					<div id="tab02">
+						<div class="find_Pw_Contents"></div>
+						<div class="pwcontents">
+							<p class="pwhead_p">아이디와 이메일을 통해 비밀번호를 재설정 할 수 있습니다.</p>
+							<div id="pwcontent">
+								<!-- NAME -->
+								<div class="name-div">
+									<h3 class="join_title">
+										<label>아이디</label>
+									</h3>
+									<span class="box int_name"> <input type="text"
+										name="find_Pw_id" id="find_Pw_id" class="int" maxlength="20"
+										placeholder="아이디를 입력하세요" >
+									</span>
+									<p style="font-size: 12px"></p>
+								</div>
+
+								<!-- EMAIL -->
+								<div class="email-div">
+									<h3 class="join_title">
+										<label>본인확인 이메일</label>
+									</h3>
+									<span class="box int_email"> <input type="text"
+										name="find_Pw_email" id="find_Pw_email" class="int" maxlength="100"
+										placeholder="이메일을 입력하세요">
+										<button class="CertBtn" type="button" onclick="findPwCert()">인증번호
+											발송</button>
+									</span>
+									<p style="font-size: 12px"></p>
+								</div>
+
+								<!-- EMAIL OK-->
+								<div class="pw_emailok-div" style="display: none;">
+									<h3 class="join_title">
+										<label>이메일 인증확인</label>
+									</h3>
+									<span class="box int_email"> <input type="text"
+										name="pw_email_ok" id="pw_email_ok" class="int" maxlength="100"
+										placeholder="인증번호를 입력하세요">
+										<button class="CertBtn" type="button" onclick="certok2()">인증번호
+											확인</button>
+									</span>
+								</div>
+								
+								<button class="box findBtn" type="button" onclick="findPwCheck()">비밀번호 재설정</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	 <input type="hidden" id="goodemail" value="1"/>
      <input type="hidden" id="emailnum" value="1"/>
+     <input type="hidden" id="r_id" value=""/>
 	<jsp:include page="footer.jsp" />
 
 	<script type="text/javascript">
@@ -130,6 +181,7 @@
 				         dataType: "json",
 						
 					}).done(function(data) {
+						
 						$("#emailnum").val(data.rnum);
 					}).fail(function(err) {
 						
@@ -190,6 +242,17 @@
 				data:{"name":name , "email":email},
 		        dataType: "json",
 			}).done(function(data) {
+				if(data.ok == "1"){
+					alert(data.code);
+					$("#find_Id_email").val("");
+					$("#find_Id_name").val("");
+					$("#find_Id_name").focus();
+					$("#id_email_ok").val("");
+					$("#goodemail").val(1);
+					$(".id_emailok-div").css("display","none");
+				}
+					
+				if(data.ok == "0"){
 				var input_tab = "<p class='find_p'>다음정보로 가입된 아이디가 총 ";
 				input_tab += data.str[0];
 				input_tab += "개 있습니다.</p>";
@@ -204,8 +267,11 @@
 				}
 				
 				input_tab += "<button onclick='gologin()' type='button' class='goLogin'>로그인으로</button>";
-				input_tab += "<button onclick='returns()' type='button' class='returns'>아이디 찾기</button>";
-				$(".contents").html(input_tab);
+				input_tab += "<button onclick='returns()' type='button' class='returns'>이전</button>";
+				$(".find_Id_Contents").html(input_tab);
+				$(".find_Id_Contents").css("display","block");
+				$(".find_Id_Contents").css("margin","120px 0");
+				}
 			}).fail(function(err) {
 				alert(err);
 				alert("에러낫다 삐용삐용");
@@ -219,10 +285,185 @@
 		}
 		
 		function returns() {
-			location.href="/find";
+			$("#content").css("display","block");
+			$(".head_p").css("display","block");
+			$(".contents").css("margin","0");
+			$(".find_p").css("display","none");
+			$(".find_Id_Contents").css("display","none");
+			$(".id_emailok-div").css("display","none");
+			$("#find_Id_email").val("");
+			$("#find_Id_name").val("");
+			$("#find_Id_name").focus();
+			$("#id_email_ok").val("");
+			
+			$("#goodemail").val(1);
+			
 		}
+		
+		//비밀번호 재설정
+		
+		function findPwCert() {
+			var find_Pw_email = $("#find_Pw_email").val().trim();
+
+			if(find_Pw_email.length <= 0){
+				alert("이메일을 입력해주세요.");
+				$("#find_Pw_email").val("");
+				$("#find_Pw_email").focus();
+				$("#goodemail").val(1);
+				return;
+			}else{
+				if(!email_check(find_Pw_email)){
+					alert("이메일 형식에 맞게 입력해주십시오.");
+					$("#goodemail").val(1);
+					return;
+				}
+				else{
+					alert("인증번호가 발송되었습니다.");
+					$(".pw_emailok-div").css('display','block');
+					var frm = new FormData();
+					frm.append("email",find_Pw_email);
+					$.ajax({
+						 url: "sendMail",
+				         data: frm,
+				         type: "post",
+				         contentType: false,
+				         processData: false,
+				         cache: false,
+				         dataType: "json",
+						
+					}).done(function(data) {
+						$("#emailnum").val(data.rnum);
+					}).fail(function(err) {
+						
+					})
+					
+				}
+			}
+			
+		} 
+		
+		function certok2(){
+			var emailnum = $("#emailnum").val();
+			var usercert = $("#pw_email_ok").val();
+			if(emailnum == usercert){
+				alert("이메일 인증에 성공하였습니다.");
+				$("#goodemail").val(0);
+			}else{
+				alert("이메일 인증에 실패하였습니다.");
+				$("#id_email_ok").val("");
+				$("#id_email_ok").focus();
+				$("#goodemail").val(1);
+			}
+		}
+		
+		function findPwCheck() {
+			var id = $("#find_Pw_id").val().trim();
+			var email = $("#find_Pw_email").val().trim();
+			var ok = $("#goodemail").val();
+
+			if (id.length <= 0) {
+				alert("아이디를 입력하세요.");
+				$("#find_Pw_id").val("");
+				$("#find_Pw_id").focus();
+				return;
+			}
+			if (email.length <= 0) {
+				alert("이메일을 입력하세요.");
+				$("#find_Pw_email").val("");
+				$("#find_Pw_email").focus();
+				return;
+			}
+			if(ok == "1"){
+				alert("이메일 인증을 확인하세요");
+				return;
+			}
+			
+			findPw(id,email);
+				
+		}
+		
+		function findPw(id,email) {
+			$.ajax({
+				url:"findPw",
+				data:{"id":id, "email":email},
+				type:"post",
+				dataType:"json",
+				
+			}).done(function(data) {
+				if(data.cnt == "1"){
+					alert("해당하는 정보를 찾을 수 없습니다.");
+					$("#find_Pw_id").val("");
+					$("#find_Pw_email").val("");
+					$(".pw_emailok-div").css("display","none");
+					$("#pw_email_ok").val("");
+					$("#goodemail").val(1);
+					return;
+				}
+				$("#r_id").val(id);
+				$(".pwcontents").css("display","none");
+				var input_tab = "<p class='pwfind_p'>재설정하실 비밀번호를 입력하세요.</p> ";
+				input_tab+= "<input type='password' id='ChangePw' name='ChangePw'/></br>"
+				input_tab+="<button type='button' class='changeBtn'onclick='Change()'>비밀번호 재설정</button>";
+				$("#pwcontent").css("display","none");
+				$(".pwhead_p").css("display","none");
+				$(".pwcontents").css("margin","120px 0");
+				$(".find_Pw_Contents").html(input_tab);
+				$(".find_Pw_Contents").css("display","block");
+				$(".find_Pw_Contents").css("margin","120px 0");
+			}).fail(function(err) {
+				
+			})
+			
+			
+		}
+		
+		function isPw(asValue) {
+			var regExp =  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+			return regExp.test(asValue);
+			}
+		
+		function Change() {
+			var changePw = $("#ChangePw").val().trim();
+			var id = $("#r_id").val().trim();
+			if(changePw <= 0){
+				alert("새로운 비밀번호를 입력하세요.");
+				$("#ChangePw").val("");
+				$("#ChangePw").focus();
+				return;
+			}
+			
+			if(!isPw(changePw)){
+				alert("8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합하여야 합니다.");
+				$("#ChangePw").val("");
+				$("#ChangePw").focus();
+				return;
+			}
+			
+			$.ajax({
+				url:"changePw",
+				data:{"id":id, "pw":changePw},
+				type:"post",
+				dataType:"json"
+			}).done(function(data) {
+				if(data.code == "1"){
+					alert("뭔가 잘못되었습니다. 메인화면으로 돌아갑니다.");
+					location.href="/";
+					return;
+				}
+				if(data.code == "0"){
+					alert("비밀번호 변경이 완료되었습니다.");
+				}
+				
+				
+			}).fail(function(err) {
+				alert(err);
+				alert("오류다");
+			})
+		}
+		
+		
+		
 	</script>
-	<a style="background-color: "></a>
 </body>
 </html>
 

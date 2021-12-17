@@ -61,5 +61,17 @@ public class MemDAO {
 		return ar;
 	}
 	
-
+	public EvuserVO findPw(String id, String email) {
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("email", email);
+		return ss.selectOne("login.findPw", map);
+	}
+	
+	public int changePw(String id, String pw) {
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pw", pw);
+		return ss.update("login.changePw", map);
+	}
 }

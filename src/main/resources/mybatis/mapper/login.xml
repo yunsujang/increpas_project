@@ -26,12 +26,23 @@
 
 	<select id="kakaologin" resultType="ev.vo.EvuserVO" parameterType="String">
 		select * from evuser_t
-	    where evu_email = #{evu_email}
+	    where evu_email = #{evu_email} AND evu_status = 0
 	</select>
 	
 	<select id="findId" resultType="ev.vo.EvuserVO" parameterType="Map">
 		SELECT * from evuser_t
-		WHERE evu_name = #{name} AND evu_email = #{email}
+		WHERE evu_name = #{name} AND evu_email = #{email} AND evu_status = 0
 	</select>
-
+	
+	<select id="findPw" resultType="ev.vo.EvuserVO" parameterType="Map">
+		SELECT * from evuser_t
+		WHERE evu_id = #{id} AND evu_email = #{email} AND evu_status = 0
+	</select>
+	
+	<update id="changePw" parameterType="Map"> 
+		UPDATE evuser_t 
+		SET evu_pw = #{pw}
+		WHERE evu_id = #{id}
+	</update>
+	
 </mapper>
