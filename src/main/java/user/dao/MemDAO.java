@@ -74,4 +74,18 @@ public class MemDAO {
 		map.put("pw", pw);
 		return ss.update("login.changePw", map);
 	}
+
+	//회원 탈퇴 
+	public int userdelete(String idx){
+		return ss.update("login.delete",idx);
+	}
+	//회원 수정
+	public int userupdate(String idx) {
+		return ss.update("login.updateMember",idx);
+	}
+	//회원 정보수정
+	public int usermodify(EvuserVO vo) {
+		return ss.update("login.modiMember",vo);
+	}
+
 }

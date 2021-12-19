@@ -31,8 +31,20 @@
 					<c:forEach items="${search_ar }" var="vo">
 						<div class="contents">
 							<div class="new-img-container">
-								<a href="/view?evbbs_idx=${vo.evbbs_idx }&cPage=${nowPage }"><img
-									class="new-img" alt="" src="resources/img/default_img.jpg" /></a>
+								<c:set var="filename" value="${vo.evbbs_file_name }" />
+									<c:choose>
+										<c:when test="${filename eq null }">
+											<a href="/view?evbbs_idx=${vo.evbbs_idx }"> <img
+												class="new-img" alt="" src="resources/img/default_img.jpg" />
+											</a>
+										</c:when>
+										<c:when test="${filename ne null }">
+											<a href="/view?evbbs_idx=${vo.evbbs_idx }"> <img
+												class="new-img" alt=""
+												src="resources/bbs_upload/${filename }" />
+											</a>
+										</c:when>
+									</c:choose>
 							</div>
 							<h6 class="h5">
 								<p class="title font skip-p">

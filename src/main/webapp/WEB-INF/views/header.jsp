@@ -72,7 +72,6 @@ header{
 					<li><a href="/evMap">충전소검색 </a></li>
 					<li><a href="/list.ev">ev 소통해요 </a></li>
 					<li><a href="/evStock">ev주식</a></li>
-					<li><a href="/introduce">전기차 소개</a></li>
 					<div class="user-div">
 						<div class="user-padding"></div>
 						<a onclick="searchDialog()"><svg
@@ -89,7 +88,7 @@ header{
 
 						<c:if test="${mvo ne null }">
 							<a>${mvo.evu_name }님</a>
-							<a>마이페이지</a>
+							<a href="mypage">마이페이지</a>
 							<a onclick="logout('${sessionScope.grade}')" class="logout">로그아웃</a>
 						</c:if>
 					</div>

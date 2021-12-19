@@ -44,5 +44,37 @@
 		SET evu_pw = #{pw}
 		WHERE evu_id = #{id}
 	</update>
+
+	<!--  회원 탈퇴  -->
+	<update id="delete" parameterType="String">
+		UPDATE evuser_t set evu_status = 1
+		WHERE evu_idx = #{evu_idx}
+	</update>
+
+
+	<!-- 4. 회원정보 수정처리 -->
+	<update id="updateMember" parameterType="String">
+		UPDATE evuser_t
+		SET    evu_pw =#{evu_pw},
+		       evu_name=#{evu_name},
+		       evu_email=#{evu_email},
+		       evu_phone=#{evu_phone}
+		WHERE  
+			   evu_idx =#{evu_idx}	
+	</update>
+
+
+
+
+	<!-- 4. 회원정보 수정처리 -->
+	<update id="modiMember" parameterType="String">
+		UPDATE evuser_t
+		SET    
+		       evu_name=#{evu_name},
+		       evu_email=#{evu_email},
+		       evu_phone=#{evu_phone}
+		WHERE  
+			   evu_idx =#{evu_idx}		
+	</update>
 	
 </mapper>

@@ -136,7 +136,7 @@ public class ChartController2 {
 			CategoryVO[] categoryName_ar = categoryservice.categoryNameList();
 			mv.addObject("categoryName_ar", categoryName_ar);
 			mv.addObject("svo1", svo1);
-			mv.setViewName("StockChart1");
+			mv.setViewName("StockChart2");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

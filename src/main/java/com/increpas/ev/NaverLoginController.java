@@ -145,8 +145,6 @@ public class NaverLoginController {
 	         session.removeAttribute("grade");
 	         return "redirect:/";
 	      }else {
-	         // 네이버 토큰을 삭제하지 못 했을 경우이다.
-	         // 로그아웃을 못 할때 404? 보낼까유?
 	      }
 	      
 	      return sb.toString();

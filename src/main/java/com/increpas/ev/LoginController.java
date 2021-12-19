@@ -85,17 +85,28 @@ public class LoginController {
 		Map<String, String>map = new HashMap<String, String>();
 		EvuserVO uvo = l_service.getComp(evu_id);
 		String m = "0"; 
+		
+		//해당하는 정보가 없다면 2를 반환하여 해당하는 정보가 없다고 출력
 		if(uvo == null) {
-			m = "1";
+			m = "2";
 		}
 		else {
 			String realPassword = SecureUtil.getEncrypt(evu_pw, uvo.getEvu_comp());
 			EvuserVO mvo = l_service.login(evu_id, realPassword);
+			
+			//아이디에 따른 해당하는 정보를 가져왔으나 비밀번호가 일치하지 않으므로 아이디 또는 비밀번호가 일치하지 않다고 출력
 			if(mvo == null)
 				m = "1";
-			else
+			
+			//해당하는 정보는 있으나 getEvu_status가 1이므로 탈퇴된 회원이다. 고로 탈퇴된 회원이라고 출력
+			else if(mvo != null && mvo.getEvu_status().equals("1"))
+				m ="3";
+			
+			//아이디에 따른 해당하는 정보도 있고 getEvu_status도 0이라면 0을 반환하여 해당하는 정보를 session에 저장
+			else if(mvo != null && mvo.getEvu_status().equals("0")) {
 				session.setAttribute("mvo", mvo);	
 				session.setAttribute("grade", 0);
+			}
 		}
 		map.put("m", m);
 		return map;
