@@ -50,9 +50,7 @@ public class ChartController2 {
 			int x = 0;
 			String[] str3 = new String[str1.length];
 			for(int i=str1.length-1; i>=0; i--) {
-				System.out.println(str1[i]);
 				 str3[x] = str1[i];
-				System.out.println(str3[x++]);
 			}
 			
 			
@@ -66,10 +64,8 @@ public class ChartController2 {
 			int j = 1;
 			int k = 0;
 			String[] sar = new String[str1.length];
-			System.out.println("2="+str2.length);
 			for(int i=cnt; i<str2.length; i++) {
 				sar[k] = str2[i];
-				System.out.println(str2[i]);
 				
 				i = cnt+(num*j)-1;
 				
@@ -81,8 +77,6 @@ public class ChartController2 {
 			for(int i = 0; i< sar.length; i++) {
 				sar[i] = sar[i].replace(",", "");
 				rsar[i] = Integer.parseInt(sar[i]);
-				System.out.println(rsar[i]);
-				//System.out.println("시세값 : "+sar[i]);
 			}
 			ChartVO ar[] = new ChartVO[str1.length];
 			int q = 0;
@@ -90,7 +84,6 @@ public class ChartController2 {
 				
 				str1[i] = str1[i].replaceAll("2021.", "");
 				ar[q] = new ChartVO(str1[i], rsar[i]);
-				System.out.println(ar[q].getDate());
 				q++;
 				
 			}
